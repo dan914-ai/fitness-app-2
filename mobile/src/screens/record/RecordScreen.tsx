@@ -361,11 +361,41 @@ export default function RecordScreen({ navigation }: RecordScreenProps) {
                         },
                       });
                     } else {
-                      // If no routine ID, show alert
+                      // Create a quick workout from the previous workout
                       Alert.alert(
-                        '루틴 없음',
-                        '이 운동은 루틴 없이 진행되었습니다. 루틴을 만들어 운동을 반복해보세요.',
-                        [{ text: '확인' }]
+                        '운동 반복',
+                        '이전과 동일한 운동을 시작하시겠습니까?',
+                        [
+                          { text: '취소', style: 'cancel' },
+                          { 
+                            text: '시작', 
+                            onPress: () => {
+                              // Navigate to ExerciseTrackScreen with the exercises from this workout
+                              const exercisesToRepeat = workout.exercises.map((exercise: any) => ({
+                                exerciseId: exercise.exerciseId,
+                                exerciseName: exercise.exerciseName,
+                                sets: exercise.sets.map((set: any, index: number) => ({
+                                  id: `${index + 1}`,
+                                  type: set.type || 'normal',
+                                  weight: '',  // Start with empty values for new workout
+                                  reps: '',
+                                  completed: false,
+                                  previousWeight: set.weight,  // Store previous values as reference
+                                  previousReps: set.reps,
+                                })),
+                              }));
+                              
+                              navigation.navigate('홈', {
+                                screen: 'ExerciseTrack',
+                                params: {
+                                  routineName: `${workout.date.split('T')[0]} 운동 반복`,
+                                  exercises: exercisesToRepeat,
+                                  isQuickWorkout: true,
+                                },
+                              });
+                            }
+                          },
+                        ]
                       );
                     }
                   }}

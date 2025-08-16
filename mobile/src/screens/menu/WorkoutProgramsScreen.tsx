@@ -33,6 +33,8 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(true);
 
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editingProgram, setEditingProgram] = useState<WorkoutProgram | null>(null);
   const [newProgramName, setNewProgramName] = useState('');
   const [newProgramDescription, setNewProgramDescription] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState<'beginner' | 'intermediate' | 'advanced'>('beginner');
@@ -306,6 +308,32 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
     return program.workoutDays.reduce((total, day) => total + day.exercises.length, 0);
   };
 
+  const handleEditProgram = async () => {
+    if (!editingProgram || !newProgramName.trim()) {
+      Alert.alert('오류', '프로그램 이름을 입력해주세요.');
+      return;
+    }
+
+    try {
+      const updatedProgram = await workoutProgramsService.updateProgram(editingProgram.id, {
+        name: newProgramName.trim(),
+        description: newProgramDescription.trim() || editingProgram.description,
+        difficulty: selectedDifficulty,
+      });
+
+      await loadPrograms();
+      setShowEditModal(false);
+      setEditingProgram(null);
+      setNewProgramName('');
+      setNewProgramDescription('');
+      setSelectedDifficulty('beginner');
+      Alert.alert('성공', '프로그램이 수정되었습니다.');
+    } catch (error) {
+      console.error('Error editing program:', error);
+      Alert.alert('오류', '프로그램 수정 중 오류가 발생했습니다.');
+    }
+  };
+
   const renderProgramCard = (program: WorkoutProgram) => (
     <View key={program.id} style={styles.programCard}>
       <View style={styles.programHeader}>
@@ -335,7 +363,13 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
                 },
                 {
                   text: '편집',
-                  onPress: () => Alert.alert('알림', '편집 기능은 준비 중입니다.'),
+                  onPress: () => {
+                    setEditingProgram(program);
+                    setNewProgramName(program.name);
+                    setNewProgramDescription(program.description || '');
+                    setSelectedDifficulty(program.difficulty || 'beginner');
+                    setShowEditModal(true);
+                  },
                 },
                 ...(program.isCustom ? [{
                   text: '삭제',
@@ -399,6 +433,107 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
         </TouchableOpacity>
       </View>
     </View>
+  );
+
+  const renderEditModal = () => (
+    <Modal
+      visible={showEditModal}
+      transparent
+      animationType="slide"
+      onRequestClose={() => setShowEditModal(false)}
+    >
+      <View style={styles.modalOverlay}>
+        <View style={styles.modalContent}>
+          <View style={styles.modalHeader}>
+            <Text style={styles.modalTitle}>프로그램 수정</Text>
+            <TouchableOpacity onPress={() => {
+              setShowEditModal(false);
+              setEditingProgram(null);
+              setNewProgramName('');
+              setNewProgramDescription('');
+              setSelectedDifficulty('beginner');
+            }}>
+              <Icon name="close" size={24} color={Colors.text} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.modalBody}>
+            <Text style={styles.inputLabel}>프로그램 이름</Text>
+            <TextInput
+              style={styles.input}
+              value={newProgramName}
+              onChangeText={setNewProgramName}
+              placeholder="프로그램 이름을 입력하세요"
+              placeholderTextColor={Colors.textLight}
+            />
+
+            <Text style={styles.inputLabel}>설명</Text>
+            <TextInput
+              style={[styles.input, styles.textArea]}
+              value={newProgramDescription}
+              onChangeText={setNewProgramDescription}
+              placeholder="프로그램 설명을 입력하세요"
+              placeholderTextColor={Colors.textLight}
+              multiline
+              numberOfLines={3}
+            />
+
+            <Text style={styles.inputLabel}>난이도</Text>
+            <View style={styles.difficultySelector}>
+              {['beginner', 'intermediate', 'advanced'].map((difficulty) => (
+                <TouchableOpacity
+                  key={difficulty}
+                  style={[
+                    styles.difficultyOption,
+                    selectedDifficulty === difficulty && styles.selectedDifficultyOption,
+                  ]}
+                  onPress={() => setSelectedDifficulty(difficulty as any)}
+                >
+                  <Text
+                    style={[
+                      styles.difficultyOptionText,
+                      selectedDifficulty === difficulty && styles.selectedDifficultyOptionText,
+                    ]}
+                  >
+                    {getDifficultyText(difficulty)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            {editingProgram && !editingProgram.isCustom && (
+              <View style={styles.warningBox}>
+                <Icon name="warning" size={20} color={Colors.warning} />
+                <Text style={styles.warningText}>
+                  기본 프로그램을 수정하고 있습니다. 운동 구성은 변경할 수 없습니다.
+                </Text>
+              </View>
+            )}
+          </View>
+
+          <View style={styles.modalFooter}>
+            <TouchableOpacity
+              style={styles.cancelButton}
+              onPress={() => {
+                setShowEditModal(false);
+                setEditingProgram(null);
+                setNewProgramName('');
+                setNewProgramDescription('');
+                setSelectedDifficulty('beginner');
+              }}
+            >
+              <Text style={styles.cancelButtonText}>취소</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.createButton}
+              onPress={handleEditProgram}
+            >
+              <Text style={styles.createButtonText}>수정</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 
   const renderCreateModal = () => (
@@ -533,6 +668,7 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
       </ScrollView>
 
       {renderCreateModal()}
+      {renderEditModal()}
     </View>
   );
 }
@@ -823,5 +959,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.surface,
+  },
+  warningBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.warning + '15',
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 12,
+  },
+  warningText: {
+    flex: 1,
+    fontSize: 13,
+    color: Colors.warning,
+    marginLeft: 8,
+    lineHeight: 18,
   },
 });

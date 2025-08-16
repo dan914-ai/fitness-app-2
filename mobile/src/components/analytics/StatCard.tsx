@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { View, Text, StyleSheet, ViewStyle, TextStyle, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
 
@@ -18,6 +18,7 @@ interface StatCardProps {
   valueStyle?: TextStyle;
   subtitleStyle?: TextStyle;
   loading?: boolean;
+  onPress?: () => void;
 }
 
 export const StatCard: React.FC<StatCardProps> = ({
@@ -32,6 +33,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   valueStyle,
   subtitleStyle,
   loading = false,
+  onPress,
 }) => {
   const trendColor = trend?.isPositive ? Colors.success : Colors.error;
   const trendIcon = trend?.isPositive ? 'trending-up' : 'trending-down';
@@ -48,8 +50,8 @@ export const StatCard: React.FC<StatCardProps> = ({
     );
   }
 
-  return (
-    <View style={[styles.container, style]}>
+  const CardContent = (
+    <>
       <View style={styles.header}>
         <Text style={[styles.title, titleStyle]}>{title}</Text>
         {icon && (
@@ -72,6 +74,24 @@ export const StatCard: React.FC<StatCardProps> = ({
       {subtitle && (
         <Text style={[styles.subtitle, subtitleStyle]}>{subtitle}</Text>
       )}
+    </>
+  );
+
+  if (onPress) {
+    return (
+      <TouchableOpacity 
+        style={[styles.container, style]} 
+        onPress={onPress}
+        activeOpacity={0.8}
+      >
+        {CardContent}
+      </TouchableOpacity>
+    );
+  }
+
+  return (
+    <View style={[styles.container, style]}>
+      {CardContent}
     </View>
   );
 };

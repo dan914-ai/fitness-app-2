@@ -18,6 +18,7 @@ import { LineChart } from '../../components/charts';
 import { BarChart } from '../../components/charts';
 import { PieChart } from '../../components/charts';
 import { getWorkoutHistory } from '../../utils/workoutHistory';
+import { exportWorkoutDataToCSV, exportSummaryToCSV } from '../../utils/csvExport';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -64,7 +65,9 @@ export default function StatsScreen({ navigation }: any) {
       const totalVolume = filteredHistory.reduce((sum, workout) => {
         return sum + workout.exercises.reduce((exerciseSum, exercise) => {
           return exerciseSum + exercise.sets.reduce((setSum, set) => {
-            return setSum + (set.weight * set.reps);
+            const weight = Number(set.weight) || 0;
+            const reps = Number(set.reps) || 0;
+            return setSum + (weight * reps);
           }, 0);
         }, 0);
       }, 0);
@@ -104,7 +107,7 @@ export default function StatsScreen({ navigation }: any) {
       }
       
       // Monthly data (last 6 data points based on period)
-      const monthlyData = [];
+      let monthlyData: { x: string; y: number }[] = [];
       const dataPoints = selectedPeriod === 7 ? 7 : selectedPeriod === 30 ? 6 : selectedPeriod === 90 ? 12 : 12;
       const interval = Math.floor(selectedPeriod / dataPoints);
       
@@ -122,7 +125,9 @@ export default function StatsScreen({ navigation }: any) {
         const volume = periodWorkouts.reduce((sum, workout) => {
           return sum + workout.exercises.reduce((exerciseSum, exercise) => {
             return exerciseSum + exercise.sets.reduce((setSum, set) => {
-              return setSum + (set.weight * set.reps);
+              const weight = Number(set.weight) || 0;
+              const reps = Number(set.reps) || 0;
+              return setSum + (weight * reps);
             }, 0);
           }, 0);
         }, 0);
@@ -145,7 +150,7 @@ export default function StatsScreen({ navigation }: any) {
       
       filteredHistory.forEach(workout => {
         workout.exercises.forEach(exercise => {
-          const name = exercise.name.toLowerCase();
+          const name = (exercise.exerciseName || '').toLowerCase();
           if (name.includes('벤치') || name.includes('체스트') || name.includes('푸시업')) {
             muscleGroupCounts['가슴']++;
           } else if (name.includes('로우') || name.includes('풀업') || name.includes('풀다운')) {
@@ -185,7 +190,7 @@ export default function StatsScreen({ navigation }: any) {
       if (monthlyData.every(d => d.y === 0)) {
         monthlyData = monthlyData.map((d, i) => ({
           ...d,
-          y: Math.random() * 50 + 10
+          y: Math.floor(Math.random() * 50) + 10
         }));
       }
       
@@ -237,15 +242,28 @@ export default function StatsScreen({ navigation }: any) {
     >
       <View style={styles.header}>
         <Text style={styles.title}>통계</Text>
-        <TouchableOpacity onPress={() => {
+        <TouchableOpacity onPress={async () => {
           Alert.alert(
             '데이터 내보내기',
-            '운동 기록을 CSV 파일로 내보내시겠습니까?',
+            '어떤 데이터를 내보내시겠습니까?',
             [
               { text: '취소', style: 'cancel' },
-              { text: '내보내기', onPress: () => {
-                // TODO: Implement CSV export functionality
-                Alert.alert('알림', '데이터 내보내기 기능은 준비 중입니다.');
+              { text: '운동 기록', onPress: async () => {
+                const history = await getWorkoutHistory();
+                const now = new Date();
+                const periodStart = new Date();
+                periodStart.setDate(now.getDate() - selectedPeriod);
+                const filteredHistory = history.filter(w => new Date(w.date) >= periodStart);
+                const periodLabel = selectedPeriod === 30 ? '30days' : 
+                                   selectedPeriod === 90 ? '3months' : 
+                                   selectedPeriod === 180 ? '6months' : '1year';
+                await exportWorkoutDataToCSV(filteredHistory, periodLabel);
+              }},
+              { text: '요약 통계', onPress: async () => {
+                const periodLabel = selectedPeriod === 30 ? '30days' : 
+                                   selectedPeriod === 90 ? '3months' : 
+                                   selectedPeriod === 180 ? '6months' : '1year';
+                await exportSummaryToCSV(stats, periodLabel);
               }},
             ]
           );
@@ -290,7 +308,7 @@ export default function StatsScreen({ navigation }: any) {
               onPress={() => {
                 Alert.alert(
                   '총 운동 횟수',
-                  `${selectedPeriod === '1M' ? '이번 달' : selectedPeriod === '3M' ? '최근 3개월' : selectedPeriod === '6M' ? '최근 6개월' : '올해'} 총 ${stats.totalWorkouts}회 운동하셨습니다.`
+                  `${selectedPeriod === 30 ? '최근 30일' : selectedPeriod === 90 ? '최근 3개월' : selectedPeriod === 180 ? '최근 6개월' : '올해'} 총 ${stats.totalWorkouts}회 운동하셨습니다.`
                 );
               }}
             />
