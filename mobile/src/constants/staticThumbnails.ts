@@ -263,7 +263,7 @@ export const staticThumbnails: { [key: string]: any } = {
   '366': require('../../assets/exercise-thumbnails/abdominals/flutter-kick.jpg'), // 플러터 킥,
   '367': require('../../assets/exercise-thumbnails/abdominals/hanging-leg-raise.jpg'), // 행잉 레그 레이즈,
   '368': require('../../assets/exercise-thumbnails/abdominals/sit-up.jpg'), // Sit Up,
-  // '370': require('../../assets/exercise-thumbnails/back/back-extension.jpg'), // Back Extension - FILE MISSING
+  '370': require('../../assets/exercise-thumbnails/back/back-extension.jpg'), // Back Extension
   '371': require('../../assets/exercise-thumbnails/back/lat-pulldown.jpg'), // Lat Pulldown,
   '372': require('../../assets/exercise-thumbnails/back/weighted-pull-up.jpg'), // Weighted Pull Up,
   '373': require('../../assets/exercise-thumbnails/back/wide-grip-lat-pulldown.jpg'), // Wide Grip Lat Pulldown,
@@ -292,7 +292,7 @@ export const staticThumbnails: { [key: string]: any } = {
   '396': require('../../assets/exercise-thumbnails/hamstrings/sumo-deadlift.jpg'), // Sumo Deadlift,
   '397': require('../../assets/exercise-thumbnails/pectorals/cable-crossover.jpg'), // Cable Crossover,
   '398': require('../../assets/exercise-thumbnails/pectorals/wide_grip_bench_press.jpg'), // Wide_grip_bench_press,
-  // '400': require('../../assets/exercise-thumbnails/quadriceps/barbell-squat.jpg'), // Barbell Squat - FILE MISSING
+  '400': require('../../assets/exercise-thumbnails/quadriceps/barbell-squat.jpg'), // Barbell Squat
   '401': require('../../assets/exercise-thumbnails/quadriceps/front-squat.jpg'), // Front Squat,
   '403': require('../../assets/exercise-thumbnails/quadriceps/smith-machine-squat-2.jpg'), // Smith Machine Squat 2,
   '404': require('../../assets/exercise-thumbnails/quadriceps/trap-bar-deadlift.jpg'), // Trap Bar Deadlift,
@@ -308,9 +308,9 @@ export const staticThumbnails: { [key: string]: any } = {
   '414': require('../../assets/exercise-thumbnails/traps/single-arm-dumbbell-upright-row.jpg'), // Single Arm Dumbbell Upright Row,
   '415': require('../../assets/exercise-thumbnails/traps/smith-machine-shrug.jpg'), // Smith Machine Shrug,
   '416': require('../../assets/exercise-thumbnails/triceps/close-grip-bench-press.jpg'), // Close Grip Bench Press,
-  // '369': require('../../assets/exercise-thumbnails/back/58_wide-grip-lat-pulldown.jpg'), // 58_wide Grip Lat Pulldown - FILE MISSING
-  // '399': require('../../assets/exercise-thumbnails/quadriceps/300_smith-machine-squat-2.jpg'), // 300_smith Machine Squat 2 - FILE MISSING
-  // '402': require('../../assets/exercise-thumbnails/quadriceps/leg-press.jpg') // Leg Press - FILE MISSING
+  '369': require('../../assets/exercise-thumbnails/back/58_wide-grip-lat-pulldown.jpg'), // 58_wide Grip Lat Pulldown
+  '399': require('../../assets/exercise-thumbnails/quadriceps/300_smith-machine-squat-2.jpg'), // 300_smith Machine Squat 2
+  '402': require('../../assets/exercise-thumbnails/quadriceps/leg-press.jpg') // Leg Press
 };
 
 // Helper function to get thumbnail by exercise ID
@@ -319,6 +319,5 @@ export function getStaticThumbnail(exerciseId: number | string): any {
   return staticThumbnails[id] || null;
 }
 
-// Export both as named and default
-export { staticThumbnails };
+// Export as default
 export default staticThumbnails;
