@@ -550,7 +550,7 @@ interface WorkoutContextType {
 const WorkoutContext = createContext<WorkoutContextType | undefined>(undefined);
 
 export function WorkoutProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(workoutReducer, initialState);
+  const [state, dispatch] = useReducer(workoutReducer, initialWorkoutState);
   const [isLoading, setIsLoading] = React.useState(true);
 
   // Load saved workout state on mount
