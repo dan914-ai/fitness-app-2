@@ -26,8 +26,9 @@ export default function AuthRequiredIndicator({
     if (onLoginPress) {
       onLoginPress();
     } else {
-      // Navigate to login screen
-      navigation.navigate('Auth' as any, { screen: 'Login' });
+      // Navigation to Auth is disabled in test mode
+      // navigation.navigate('Auth' as any, { screen: 'Login' });
+      console.log('Login navigation is disabled in test mode');
     }
   };
 
