@@ -30,7 +30,6 @@ class ThumbnailGeneratorService {
       const dirInfo = await FileSystem.getInfoAsync(this.thumbnailDir);
       if (!dirInfo.exists) {
         await FileSystem.makeDirectoryAsync(this.thumbnailDir, { intermediates: true });
-        console.log('📁 Created thumbnail directory');
       }
     } catch (error) {
       console.error('Failed to create thumbnail directory:', error);
@@ -69,7 +68,6 @@ class ThumbnailGeneratorService {
     exerciseId: string
   ): Promise<string | null> {
     try {
-      console.log(`🖼️ Generating thumbnail for exercise ${exerciseId}...`);
       
       // Use expo-image-manipulator to resize and convert to JPEG
       const result = await manipulateAsync(
@@ -96,7 +94,6 @@ class ThumbnailGeneratorService {
         to: thumbnailPath,
       });
 
-      console.log(`✅ Generated thumbnail: ${thumbnailPath}`);
       return thumbnailPath;
     } catch (error) {
       console.error(`❌ Failed to generate thumbnail for ${exerciseId}:`, error);
@@ -133,7 +130,6 @@ class ThumbnailGeneratorService {
       // Get GIF URLs for this exercise
       const gifUrls = getExerciseGifUrls(exerciseId);
       if (gifUrls.length === 0) {
-        console.log(`No GIF URLs found for exercise ${exerciseId}`);
         return null;
       }
 
@@ -171,7 +167,6 @@ class ThumbnailGeneratorService {
     exerciseIds: string[],
     onProgress?: (current: number, total: number, exerciseId: string) => void
   ): Promise<void> {
-    console.log(`🚀 Starting batch thumbnail generation for ${exerciseIds.length} exercises...`);
     
     const concurrency = 3; // Process 3 at a time to avoid overwhelming
     const batches: string[][] = [];
@@ -203,7 +198,6 @@ class ThumbnailGeneratorService {
       await new Promise(resolve => setTimeout(resolve, 100));
     }
     
-    console.log(`✅ Batch thumbnail generation complete! Generated ${completed} thumbnails.`);
   }
 
   /**
@@ -268,7 +262,6 @@ class ThumbnailGeneratorService {
     
     if (clearedCount > 0) {
       await this.saveCache(cache);
-      console.log(`🧹 Cleared ${clearedCount} old thumbnails`);
     }
     
     return clearedCount;
@@ -282,7 +275,6 @@ class ThumbnailGeneratorService {
       await FileSystem.deleteAsync(this.thumbnailDir, { idempotent: true });
       await AsyncStorage.removeItem(this.cacheKey);
       await this.initializeThumbnailDirectory();
-      console.log('🧹 Cleared all thumbnails');
     } catch (error) {
       console.error('Failed to clear thumbnails:', error);
     }

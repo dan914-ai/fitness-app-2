@@ -29,13 +29,11 @@ export async function apiCall<T>(
   try {
     // If we're offline, return cached data or offline default
     if (getOfflineMode()) {
-      console.log('Offline mode: checking cache then returning default data');
       
       if (cacheKey) {
         try {
           const cached = await AsyncStorage.getItem(cacheKey);
           if (cached) {
-            console.log('Returning cached data for offline mode');
             return JSON.parse(cached);
           }
         } catch (cacheError) {
@@ -100,7 +98,6 @@ export async function apiCall<T>(
       try {
         const cached = await AsyncStorage.getItem(cacheKey);
         if (cached) {
-          console.log('Returning cached data after API failure');
           return JSON.parse(cached);
         }
       } catch (cacheError) {

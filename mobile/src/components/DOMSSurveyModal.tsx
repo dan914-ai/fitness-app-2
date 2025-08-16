@@ -53,22 +53,18 @@ export default function DOMSSurveyModal({ visible, onClose, userId }: DOMSSurvey
   // Log when modal opens
   React.useEffect(() => {
     if (visible) {
-      console.log('DOMS Modal opened with initial state:', surveyData);
     }
   }, [visible]);
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    console.log('Current surveyData before submit:', surveyData);
     try {
       const result = await progressionService.submitDOMSSurvey(userId, surveyData);
-      console.log('DOMS submission result:', result);
       
       // Save today's date to prevent showing again
       const today = new Date().toISOString().split('T')[0];
       await storageService.setGenericItem('lastDOMSSurvey', today);
       
-      console.log('Saved last survey date:', today);
       alert('Recovery assessment saved successfully!');
       
       // Reset form data after successful save
@@ -98,10 +94,8 @@ export default function DOMSSurveyModal({ visible, onClose, userId }: DOMSSurvey
   };
 
   const updateValue = (key: string, value: number) => {
-    console.log(`Updating ${key} to ${value}`);
     setSurveyData(prev => {
       const newData = { ...prev, [key]: Math.round(value) };
-      console.log('New survey data:', newData);
       return newData;
     });
   };

@@ -226,12 +226,10 @@ function extractWeeks(scheduleSummary: string): number {
 
 // Convert all professional programs
 export function convertAllPrograms(): Array<Omit<WorkoutProgram, 'id' | 'createdAt'>> {
-  console.log(`[programConverter] Starting conversion of ${PROFESSIONAL_PROGRAMS.length} programs`);
   const converted: Array<Omit<WorkoutProgram, 'id' | 'createdAt'>> = [];
   
   for (const program of PROFESSIONAL_PROGRAMS) {
     try {
-      console.log(`[programConverter] Converting: ${program.program_name}`);
       const convertedProgram = convertProgramToAppFormat(program);
       converted.push(convertedProgram);
     } catch (error) {
@@ -239,7 +237,6 @@ export function convertAllPrograms(): Array<Omit<WorkoutProgram, 'id' | 'created
     }
   }
   
-  console.log(`[programConverter] Successfully converted ${converted.length} programs`);
   return converted;
 }
 

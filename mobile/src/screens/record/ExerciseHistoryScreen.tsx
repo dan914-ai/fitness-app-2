@@ -48,100 +48,14 @@ export default function ExerciseHistoryScreen() {
   const [activeTab, setActiveTab] = useState<TabType>('최근 기록');
   const [newNote, setNewNote] = useState('');
 
-  // Mock data - replace with actual data fetching
-  const personalRecords: PersonalRecord[] = [
-    { type: '1RM', value: '75kg', date: '2024-12-20' },
-    { type: 'volume', value: '2,400kg', date: '2024-12-18' },
-    { type: 'reps', value: '15회 (60kg)', date: '2024-12-15' },
-  ];
+  // TODO: Fetch actual personal records from storage
+  const personalRecords: PersonalRecord[] = [];
 
-  const recentSessions: SessionData[] = [
-    {
-      id: '1',
-      date: '2024-12-25',
-      sets: [
-        { weight: '70', reps: '8' },
-        { weight: '70', reps: '6' },
-        { weight: '65', reps: '8' },
-        { weight: '60', reps: '10' },
-      ],
-      maxWeight: '70kg',
-      totalVolume: '2,050kg',
-      duration: '12분',
-      notes: '오늘 컨디션이 좋았음. 70kg로 8회 성공!',
-    },
-    {
-      id: '2',
-      date: '2024-12-22',
-      sets: [
-        { weight: '65', reps: '10' },
-        { weight: '65', reps: '8' },
-        { weight: '60', reps: '10' },
-        { weight: '60', reps: '8' },
-      ],
-      maxWeight: '65kg',
-      totalVolume: '1,860kg',
-      duration: '10분',
-    },
-    {
-      id: '3',
-      date: '2024-12-20',
-      sets: [
-        { weight: '75', reps: '1' },
-        { weight: '70', reps: '3' },
-        { weight: '65', reps: '5' },
-        { weight: '60', reps: '8' },
-      ],
-      maxWeight: '75kg',
-      totalVolume: '1,475kg',
-      duration: '15분',
-      notes: '1RM 테스트 성공! 75kg 달성',
-    },
-    {
-      id: '4',
-      date: '2024-12-18',
-      sets: [
-        { weight: '60', reps: '12' },
-        { weight: '60', reps: '10' },
-        { weight: '60', reps: '10' },
-        { weight: '55', reps: '12' },
-      ],
-      maxWeight: '60kg',
-      totalVolume: '2,010kg',
-      duration: '11분',
-    },
-    {
-      id: '5',
-      date: '2024-12-15',
-      sets: [
-        { weight: '60', reps: '15' },
-        { weight: '55', reps: '12' },
-        { weight: '55', reps: '10' },
-      ],
-      maxWeight: '60kg',
-      totalVolume: '1,770kg',
-      duration: '9분',
-      notes: '고반복 훈련으로 근지구력 향상에 집중',
-    },
-  ];
+  // TODO: Fetch actual session history from storage
+  const recentSessions: SessionData[] = [];
 
-  const exerciseNotes = [
-    {
-      id: '1',
-      date: '2024-12-25',
-      note: '오늘 컨디션이 좋았음. 70kg로 8회 성공!',
-    },
-    {
-      id: '2',
-      date: '2024-12-20',
-      note: '1RM 테스트 성공! 75kg 달성',
-    },
-    {
-      id: '3',
-      date: '2024-12-15',
-      note: '고반복 훈련으로 근지구력 향상에 집중',
-    },
-  ];
+  // TODO: Fetch actual exercise notes from storage
+  const exerciseNotes: Array<{id: string; date: string; note: string}> = [];
 
   const tabs: TabType[] = ['최고 기록', '최근 기록', '메모', '차트'];
 

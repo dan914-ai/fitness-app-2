@@ -29,7 +29,6 @@ class AchievementService {
   private useBackendApi: boolean = true; // Try backend first, fallback to local
 
   constructor() {
-    console.log('🚀 AchievementService constructor called');
     this.initializeService();
   }
 
@@ -54,11 +53,9 @@ class AchievementService {
   // Initialize achievements from JSON data
   private async loadAchievements() {
     try {
-      console.log('📥 Loading achievements from JSON...');
       
       // Dynamic import to avoid TypeScript compilation issues
       const achievementsData = require('../data/achievements.json');
-      console.log('Raw achievementsData:', achievementsData);
       
       if (!achievementsData || !achievementsData.achievements) {
         console.error('❌ No achievements data found!');
@@ -67,8 +64,6 @@ class AchievementService {
       }
       
       this.achievements = achievementsData.achievements as Achievement[];
-      console.log(`📊 Loaded ${this.achievements.length} achievements`);
-      console.log('First achievement:', this.achievements[0]);
     } catch (error) {
       console.error('❌ Error loading achievements data:', error);
       this.achievements = [];
@@ -145,25 +140,20 @@ class AchievementService {
 
   // Process workout completion for achievements
   async processWorkoutCompletion(workout: WorkoutHistoryItem): Promise<AchievementNotification[]> {
-    console.log('🔄 processWorkoutCompletion called with workout:', workout);
     const newUnlocks: AchievementNotification[] = [];
     
     // Check if achievements are loaded
-    console.log(`📚 Total achievements loaded: ${this.achievements.length}`);
     
     // Check achievements triggered by workout.logged event
     const workoutAchievements = this.achievements.filter(
       a => a.active && a.triggers.includes('workout.logged')
     );
     
-    console.log(`🎯 Found ${workoutAchievements.length} workout-triggered achievements to check`);
 
     for (const achievement of workoutAchievements) {
       const progress = await this.checkAchievementProgress(achievement, workout);
-      console.log(`📈 Achievement "${achievement.title.ko}" progress:`, progress);
       
       if (progress.isCompleted && !this.isAchievementUnlocked(achievement.id)) {
-        console.log(`🏆 Achievement UNLOCKED: ${achievement.title.ko}!`);
         // Achievement unlocked!
         const userAchievement = await this.unlockAchievement(achievement);
         
@@ -514,7 +504,6 @@ class AchievementService {
 
   // Test method to manually unlock first achievement
   async testUnlockFirstAchievement(): Promise<AchievementNotification | null> {
-    console.log('🧪 TEST: Manually unlocking first achievement...');
     
     if (this.achievements.length === 0) {
       console.error('❌ No achievements loaded!');
@@ -522,7 +511,6 @@ class AchievementService {
     }
     
     const firstAchievement = this.achievements[0];
-    console.log('🎯 Unlocking:', firstAchievement.title.ko);
     
     const userAchievement = await this.unlockAchievement(firstAchievement);
     
@@ -538,13 +526,11 @@ class AchievementService {
     this.notifications.push(notification);
     await this.saveUserProgress();
     
-    console.log('✅ Achievement unlocked!');
     return notification;
   }
 
   // Simplified method to check for first workout achievement
   async checkFirstWorkoutAchievement(): Promise<AchievementNotification[]> {
-    console.log('🏃 Checking for first workout achievement...');
     const newUnlocks: AchievementNotification[] = [];
     
     // Find the "First Steps" achievement (첫 발걸음)
@@ -553,18 +539,15 @@ class AchievementService {
     );
     
     if (!firstWorkoutAchievement) {
-      console.log('❌ First workout achievement not found');
       return newUnlocks;
     }
     
     // Check if already unlocked
     if (this.isAchievementUnlocked(firstWorkoutAchievement.id)) {
-      console.log('✓ First workout achievement already unlocked');
       return newUnlocks;
     }
     
     // Unlock it!
-    console.log('🎊 Unlocking first workout achievement!');
     const userAchievement = await this.unlockAchievement(firstWorkoutAchievement);
     
     const notification: AchievementNotification = {
@@ -585,7 +568,6 @@ class AchievementService {
 
   // Process hydration events for water intake achievements
   async processHydrationEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('💧 Processing hydration event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     // Find achievements that can be triggered by hydration events
@@ -609,7 +591,6 @@ class AchievementService {
 
   // Process sleep events for sleep achievements
   async processSleepEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('😴 Processing sleep event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const sleepAchievements = this.achievements.filter(a => 
@@ -632,7 +613,6 @@ class AchievementService {
 
   // Process nutrition events for diet achievements
   async processNutritionEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('🥗 Processing nutrition event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const nutritionAchievements = this.achievements.filter(a => 
@@ -655,7 +635,6 @@ class AchievementService {
 
   // Process body measurement events for body composition achievements
   async processBodyEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('📏 Processing body measurement event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const bodyAchievements = this.achievements.filter(a => 
@@ -679,7 +658,6 @@ class AchievementService {
 
   // Process recovery events for recovery achievements  
   async processRecoveryEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('🧘 Processing recovery event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const recoveryAchievements = this.achievements.filter(a => 
@@ -706,7 +684,6 @@ class AchievementService {
 
   // Process cardio events for cardio achievements
   async processCardioEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('🏃 Processing cardio event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const cardioAchievements = this.achievements.filter(a => 
@@ -730,7 +707,6 @@ class AchievementService {
 
   // Process habit events for habit achievements
   async processHabitEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('📋 Processing habit event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const habitAchievements = this.achievements.filter(a => 
@@ -754,7 +730,6 @@ class AchievementService {
 
   // Process social events for social achievements
   async processSocialEvent(event: any): Promise<AchievementNotification[]> {
-    console.log('👥 Processing social event:', event);
     const newUnlocks: AchievementNotification[] = [];
     
     const socialAchievements = this.achievements.filter(a => 
@@ -855,9 +830,7 @@ class AchievementService {
     // First try backend API
     if (await this.isBackendAvailable()) {
       try {
-        console.log('🌐 Processing event via backend API:', eventType);
         const result = await achievementApiService.processAchievementEvent(eventType, eventData);
-        console.log('✅ Backend API response:', result);
         return result.notifications || [];
       } catch (error) {
         console.error('❌ Backend API error, falling back to local processing:', error);
@@ -866,7 +839,6 @@ class AchievementService {
     }
     
     // Fallback to local processing
-    console.log('💾 Processing event locally:', eventType);
     const event = { type: eventType, data: eventData };
     
     if (eventType.startsWith('hydration')) {
@@ -893,7 +865,6 @@ class AchievementService {
 
   // Check water intake achievements
   async checkWaterIntakeAchievements(currentIntake: number, dailyGoal: number): Promise<void> {
-    console.log('💧 Checking water intake achievements:', { currentIntake, dailyGoal });
     
     const event = {
       type: 'hydration.logged',
@@ -911,7 +882,6 @@ class AchievementService {
 
   // Process meditation achievements
   async processMeditationEvent(durationMinutes: number): Promise<AchievementNotification[]> {
-    console.log('🧘 Processing meditation event:', { durationMinutes });
     
     const event = {
       type: 'habit.meditation',
@@ -927,7 +897,6 @@ class AchievementService {
 
   // Process sleep tracking achievements
   async processSleepTracking(sleepHours: number, sleepQuality?: number): Promise<AchievementNotification[]> {
-    console.log('😴 Processing sleep tracking:', { sleepHours, sleepQuality });
     
     const event = {
       type: 'device.sleep.logged',
@@ -944,7 +913,6 @@ class AchievementService {
 
   // Process nutrition achievements
   async processNutritionGoals(proteinGrams: number, processedFoodItems: number): Promise<AchievementNotification[]> {
-    console.log('🥗 Processing nutrition goals:', { proteinGrams, processedFoodItems });
     
     const event = {
       type: 'nutrition.goal.met',
@@ -967,7 +935,6 @@ class AchievementService {
     previousWaist?: number;
     previousBodyFat?: number;
   }): Promise<AchievementNotification[]> {
-    console.log('📏 Processing body measurements:', measurements);
     
     const event = {
       type: 'body.measurement.logged',
@@ -990,7 +957,6 @@ class AchievementService {
 
   // Process cardio achievements
   async processCardioSession(type: 'running' | 'rowing', data: any): Promise<AchievementNotification[]> {
-    console.log('🏃 Processing cardio session:', { type, data });
     
     let eventType = '';
     let eventData = { date: new Date().toISOString(), ...data };
@@ -1015,7 +981,6 @@ class AchievementService {
 
   // Process social achievements
   async processSocialActivity(type: 'post' | 'invite' | 'leaderboard', data: any): Promise<AchievementNotification[]> {
-    console.log('👥 Processing social activity:', { type, data });
     
     let eventType = '';
     let eventData = { date: new Date().toISOString(), ...data };

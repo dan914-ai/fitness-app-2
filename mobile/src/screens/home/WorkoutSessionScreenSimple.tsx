@@ -28,38 +28,21 @@ export default function WorkoutSessionScreen() {
   
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   
-  console.log('🔍 WorkoutSessionScreen DEBUG:');
-  console.log('  - routineId:', routineId);
-  console.log('  - fallbackExercises provided:', !!fallbackExercises, 'length:', fallbackExercises?.length || 0);
-  console.log('  - workout context exists:', !!workout);
-  console.log('  - workout state:', workout?.state);
-  console.log('  - workout.state.exercises (raw object):', workout?.state?.exercises);
-  console.log('  - workout.state.exerciseOrder:', workout?.state?.exerciseOrder);
-  console.log('  - getOrderedExercises result:', workout?.getOrderedExercises());
-  console.log('  - getOrderedExercises length:', workout?.getOrderedExercises()?.length || 0);
   
   // Use context exercises if available, fallback to passed exercises if context is empty
   const contextExercises = workout?.getOrderedExercises() || [];
   const exercises = contextExercises.length > 0 ? contextExercises : (fallbackExercises || []);
   const currentExercise = exercises[currentExerciseIndex];
   
-  console.log('🎯 Final exercise data:');
-  console.log('  - exercises array:', exercises);
-  console.log('  - exercises length:', exercises.length);
-  console.log('  - currentExerciseIndex:', currentExerciseIndex);
-  console.log('  - currentExercise:', currentExercise);
   
   useEffect(() => {
     // Add delay to allow context to update on mobile
     const checkExercises = setTimeout(() => {
-      console.log('🔍 Delayed exercise check - exercises.length:', exercises.length);
       if (exercises.length === 0) {
-        console.log('⚠️ No exercises found after delay - showing alert');
         Alert.alert('오류', '운동이 없습니다.', [
           { text: '확인', onPress: () => navigation.goBack() }
         ]);
       } else {
-        console.log('✅ Found exercises after delay:', exercises.length);
       }
     }, 2000); // Give 2000ms for context to update (debugging)
 
@@ -69,7 +52,6 @@ export default function WorkoutSessionScreen() {
   const handleSetComplete = (setIndex: number) => {
     if (currentExercise) {
       // Mark set as complete in workout context
-      console.log('Completing set:', setIndex, 'for exercise:', currentExercise.exerciseId);
       // workout.completeSet would be called here
     }
   };

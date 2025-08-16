@@ -60,7 +60,6 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
       // Get all routines
       const routinesJson = await AsyncStorage.getItem('@user_routines');
       if (!routinesJson) {
-        console.log('No routines found');
         return;
       }
       
@@ -69,14 +68,10 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
       // Filter out routines that have a programId (created from programs)
       const nonProgramRoutines = routines.filter((r: any) => !r.programId);
       
-      console.log(`Found ${routines.length} total routines`);
-      console.log(`Keeping ${nonProgramRoutines.length} non-program routines`);
-      console.log(`Removing ${routines.length - nonProgramRoutines.length} program routines`);
       
       // Save back only non-program routines
       await AsyncStorage.setItem('@user_routines', JSON.stringify(nonProgramRoutines));
       
-      console.log('✅ Program routines cleared successfully');
       window.alert('프로그램 루틴이 삭제되었습니다. 프로그램을 다시 활성화하면 한글 이름으로 생성됩니다.');
     } catch (error) {
       console.error('Error clearing program routines:', error);
@@ -148,7 +143,6 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
   };
 
   const handleDeactivateProgram = async (programId: string) => {
-    console.log('🔴 handleDeactivateProgram called with ID:', programId);
     
     // For web, use window.confirm instead of Alert.alert
     const isWeb = Platform.OS === 'web';
@@ -156,9 +150,7 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
     if (isWeb) {
       const confirmed = window.confirm('이 프로그램을 비활성화하시겠습니까?\n\n프로그램에서 생성된 루틴은 유지됩니다.');
       if (confirmed) {
-        console.log('📌 User confirmed deactivation (web)');
         try {
-          console.log('🔄 Calling deactivateProgram service...');
           await workoutProgramsService.deactivateProgram();
           await loadPrograms(); // Reload to show updated state
           window.alert('프로그램이 비활성화되었습니다.');
@@ -178,9 +170,7 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
             text: '비활성화',
             style: 'destructive',
             onPress: async () => {
-              console.log('📌 User confirmed deactivation');
               try {
-                console.log('🔄 Calling deactivateProgram service...');
                 await workoutProgramsService.deactivateProgram();
                 await loadPrograms(); // Reload to show updated state
                 Alert.alert('완료', '프로그램이 비활성화되었습니다.');
@@ -196,7 +186,6 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
   };
 
   const handleActivateProgram = async (programId: string) => {
-    console.log('🎯 handleActivateProgram called with ID:', programId);
     
     // For web, use window.confirm instead of Alert.alert
     const isWeb = Platform.OS === 'web';
@@ -204,11 +193,8 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
     if (isWeb) {
       const confirmed = window.confirm('이 프로그램을 현재 활성 프로그램으로 설정하시겠습니까?\n\n프로그램의 운동이 루틴으로 생성됩니다.');
       if (confirmed) {
-        console.log('📌 User confirmed activation (web)');
         try {
-          console.log('🔄 Calling activateProgram service...');
           const success = await workoutProgramsService.activateProgram(programId);
-          console.log('📊 Activation result:', success);
           if (success) {
             await loadPrograms(); // Reload to show updated state
             window.alert('프로그램이 활성화되었습니다.\n\n홈 화면의 루틴에서 운동을 시작하세요!');
@@ -231,11 +217,8 @@ export default function WorkoutProgramsScreen({ navigation }: Props) {
           {
             text: '활성화',
             onPress: async () => {
-              console.log('📌 User confirmed activation');
               try {
-                console.log('🔄 Calling activateProgram service...');
                 const success = await workoutProgramsService.activateProgram(programId);
-                console.log('📊 Activation result:', success);
                 if (success) {
                   await loadPrograms(); // Reload to show updated state
                   Alert.alert('성공', '프로그램이 활성화되었습니다.\n\n홈 화면의 루틴에서 운동을 시작하세요!');

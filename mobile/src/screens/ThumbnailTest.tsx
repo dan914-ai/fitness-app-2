@@ -9,8 +9,6 @@ export default function ThumbnailTest() {
   // Get first 5 exercises to test
   const exercises = exerciseDatabaseService.getAllExercises().slice(0, 5);
   
-  console.log('🧪 ThumbnailTest: Got', exercises.length, 'exercises');
-  console.log('🧪 First exercise:', exercises[0]);
 
   return (
     <ScrollView style={styles.container}>
@@ -33,8 +31,8 @@ export default function ThumbnailTest() {
             <Image 
               source={{ uri: exercise.imageUrl }}
               style={styles.image}
-              onError={(e) => console.log('❌ Image error:', exercise.exerciseName, e.nativeEvent)}
-              onLoad={() => console.log('✅ Image loaded:', exercise.exerciseName)}
+              onError={() => {}}
+              onLoad={() => {}}
             />
           ) : (
             <Text style={styles.noImage}>No Image URL</Text>

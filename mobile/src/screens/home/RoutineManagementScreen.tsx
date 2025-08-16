@@ -129,10 +129,8 @@ export default function RoutineManagementScreen() {
   const handleDeleteRoutine = async (routineId: string, routineName: string) => {
     try {
       // FORCE ALLOW DELETION OF ALL ROUTINES
-      console.log('🔴 FORCE DELETING ROUTINE - NO RESTRICTIONS');
       // Removed isCustom check - all routines can be deleted
       
-      console.log('Deleting routine:', routineId, routineName);
       
       // Remove from state
       setRoutines(prevRoutines => prevRoutines.filter(routine => routine.id !== routineId));
@@ -140,7 +138,6 @@ export default function RoutineManagementScreen() {
       // Remove from routines service
       await routinesService.deleteRoutine(routineId);
       
-      console.log('Routine deleted successfully:', routineId);
     } catch (error) {
       console.error('Error deleting routine:', error);
       if (Platform.OS !== 'web') {

@@ -54,68 +54,23 @@ export default function WorkoutSummaryScreen() {
   const route = useRoute<RouteProp<RecordStackParamList, 'WorkoutSummary'>>();
   const { workoutId } = route.params;
 
-  // Mock data - replace with actual data fetching
+  // TODO: Fetch actual workout data from storage
+  // For now, create empty data structure
   const workoutData: WorkoutSummaryData = {
     id: workoutId,
-    name: '상체 운동',
-    date: '2024-12-25',
-    startTime: '14:30',
-    endTime: '15:45',
-    duration: '1시간 15분',
-    totalVolume: '3,240kg',
-    totalSets: 16,
-    totalReps: 156,
-    averageIntensity: 85,
-    targetMuscles: ['가슴', '어깨', '등', '이두', '삼두'],
-    exercises: [
-      {
-        id: '1',
-        name: '벤치프레스',
-        sets: 4,
-        reps: 38,
-        maxWeight: '70kg',
-        totalVolume: '1,980kg',
-        targetMuscles: ['가슴', '어깨'],
-        personalRecord: true,
-      },
-      {
-        id: '2',
-        name: '인클라인 덤벨 프레스',
-        sets: 3,
-        reps: 33,
-        maxWeight: '22.5kg',
-        totalVolume: '742.5kg',
-        targetMuscles: ['가슴', '어깨'],
-      },
-      {
-        id: '3',
-        name: '풀업',
-        sets: 3,
-        reps: 21,
-        maxWeight: '체중',
-        totalVolume: '1,470kg',
-        targetMuscles: ['등', '이두'],
-      },
-      {
-        id: '4',
-        name: '바벨 로우',
-        sets: 3,
-        reps: 30,
-        maxWeight: '50kg',
-        totalVolume: '1,350kg',
-        targetMuscles: ['등'],
-      },
-      {
-        id: '5',
-        name: '숄더프레스',
-        sets: 3,
-        reps: 34,
-        maxWeight: '17.5kg',
-        totalVolume: '595kg',
-        targetMuscles: ['어깨'],
-      },
-    ],
-    notes: '오늘 벤치프레스에서 개인 기록을 달성했습니다! 70kg로 새로운 1RM을 기록했어요.',
+    name: 'Workout Session',
+    date: new Date().toISOString().split('T')[0],
+    startTime: '--:--',
+    endTime: '--:--',
+    duration: '0분',
+    totalVolume: '0kg',
+    totalSets: 0,
+    totalReps: 0,
+    averageIntensity: 0,
+    targetMuscles: [],
+    exercises: [],
+    // TODO: Fetch actual exercise data from workout history
+    notes: '',
   };
 
   const getIntensityColor = (intensity: number) => {

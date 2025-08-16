@@ -719,7 +719,7 @@ export default function StatsScreenFinal({ navigation }: any) {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
         <Text style={styles.title}>운동 통계</Text>
-        <TouchableOpacity onPress={() => console.log('Export data')}>
+        <TouchableOpacity onPress={() => {}}>
           <Icon name="download" size={24} color={Colors.primary} />
         </TouchableOpacity>
       </View>
@@ -852,7 +852,7 @@ export default function StatsScreenFinal({ navigation }: any) {
 
           <TouchableOpacity
             style={styles.actionCard}
-            onPress={() => console.log('Personal Records')}
+            onPress={() => {}}
           >
             <Icon name="medal" size={32} color={Colors.secondary} />
             <Text style={styles.actionTitle}>개인 기록</Text>
@@ -861,7 +861,7 @@ export default function StatsScreenFinal({ navigation }: any) {
 
           <TouchableOpacity
             style={styles.actionCard}
-            onPress={() => console.log('Body Measurements')}
+            onPress={() => {}}
           >
             <Icon name="ruler" size={32} color={Colors.accent} />
             <Text style={styles.actionTitle}>신체 측정</Text>
@@ -870,7 +870,7 @@ export default function StatsScreenFinal({ navigation }: any) {
 
           <TouchableOpacity
             style={styles.actionCard}
-            onPress={() => console.log('Goals')}
+            onPress={() => {}}
           >
             <Icon name="target" size={32} color={Colors.warning} />
             <Text style={styles.actionTitle}>목표</Text>

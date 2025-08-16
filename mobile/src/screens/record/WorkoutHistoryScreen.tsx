@@ -51,11 +51,8 @@ export default function WorkoutHistoryScreen() {
 
   const loadWorkouts = async () => {
     try {
-      console.log('🏋️ WorkoutHistoryScreen - Loading workout history...');
       const history = await getWorkoutHistory();
-      console.log('🏋️ WorkoutHistoryScreen - Loaded workouts:', history.length);
       if (history.length > 0 && history[0].exercises.length > 0) {
-        console.log('🏋️ First workout first exercise:', history[0].exercises[0]);
       }
       setWorkouts(history);
     } catch (error) {
@@ -162,9 +159,7 @@ export default function WorkoutHistoryScreen() {
   };
 
   const renderWorkoutCard = (workout: WorkoutHistoryItem) => {
-    console.log('Rendering workout card:', workout.routineName, 'with', workout.exercises.length, 'exercises');
     if (workout.exercises.length > 0) {
-      console.log('First exercise:', workout.exercises[0]);
     }
     
     return (

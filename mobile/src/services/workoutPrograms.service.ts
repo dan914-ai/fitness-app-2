@@ -76,7 +76,6 @@ class WorkoutProgramsService {
       const professionalPrograms = convertAllPrograms();
       
       if (professionalPrograms.length > 0) {
-        console.log(`[workoutPrograms.service] Loading ${professionalPrograms.length} professional programs`);
         // Add IDs and createdAt dates to the converted programs
         programsWithMetadata = professionalPrograms.map((program, index) => ({
           ...program,
@@ -90,7 +89,6 @@ class WorkoutProgramsService {
       console.error('[workoutPrograms.service] Error converting programs:', error);
     }
     
-    console.log(`[workoutPrograms.service] Returning ${programsWithMetadata.length} programs`);
     return programsWithMetadata;
   }
 
@@ -122,10 +120,8 @@ class WorkoutProgramsService {
   }
 
   async activateProgram(programId: string): Promise<boolean> {
-    console.log('🚀 activateProgram called with ID:', programId);
     try {
       await this.loadPrograms();
-      console.log('📚 Programs loaded:', this.programs.length);
       
       // Deactivate all programs
       this.programs = this.programs.map(p => ({ ...p, isActive: false }));
@@ -137,21 +133,17 @@ class WorkoutProgramsService {
         return false;
       }
 
-      console.log('✅ Found program:', this.programs[programIndex].name);
       this.programs[programIndex].isActive = true;
       this.programs[programIndex].currentWeek = 1;
       this.programs[programIndex].currentDay = 1;
       this.activeProgram = this.programs[programIndex];
 
-      console.log('💾 Saving programs...');
       await this.savePrograms();
       await AsyncStorage.setItem(ACTIVE_PROGRAM_KEY, programId);
 
       // Create routines from the program
-      console.log('🏋️ Creating routines from program...');
       await this.createRoutinesFromProgram(this.programs[programIndex]);
 
-      console.log('✅ Program activated successfully!');
       return true;
     } catch (error) {
       console.error('❌ Error activating program:', error);
@@ -175,33 +167,25 @@ class WorkoutProgramsService {
   }
 
   async createRoutinesFromProgram(program: WorkoutProgram): Promise<void> {
-    console.log('📝 createRoutinesFromProgram called for:', program.name);
-    console.log('📅 Workout days:', program.workoutDays?.length || 0);
     try {
       // Create a routine for each workout day in the program
       for (const day of program.workoutDays) {
-        console.log(`  Processing day ${day.dayNumber}: ${day.name}`);
         if (day.restDay) {
-          console.log('    Skipping rest day');
           continue;
         }
 
         const routineName = `${program.name} - ${day.name}`;
-        console.log(`    Creating routine: ${routineName}`);
         
         // Check if routine already exists
         const existingRoutines = await routinesService.getAllRoutines();
-        console.log(`    Existing routines count: ${existingRoutines.length}`);
         const exists = existingRoutines.some(r => r.name === routineName);
         
         if (!exists) {
-          console.log('    Routine does not exist, creating new...');
           // Create the routine
           const exercises = day.exercises.map(ex => {
             // Get Korean name from database
             const dbExercise = exerciseDatabaseService.getExerciseById(ex.exerciseId);
             const koreanName = dbExercise?.exerciseName || ex.exerciseName; // Fixed: use exerciseName property
-            console.log(`      Exercise: ${ex.exerciseName} (ID: ${ex.exerciseId}) -> Korean: ${koreanName}`);
             
             return {
               id: ex.exerciseId,
@@ -250,14 +234,10 @@ class WorkoutProgramsService {
             dayNumber: day.dayNumber
           };
           
-          console.log('    Saving routine to storage...');
           await routinesService.saveRoutine(newRoutine);
-          console.log('    ✅ Routine saved successfully!');
         } else {
-          console.log('    Routine already exists, skipping...');
         }
       }
-      console.log('✅ All routines created from program!');
     } catch (error) {
       console.error('❌ Error creating routines from program:', error);
     }

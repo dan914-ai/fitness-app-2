@@ -62,7 +62,6 @@ class NetworkService {
       this.startPeriodicBackendCheck();
       
       this.isInitialized = true;
-      console.log('Network service initialized');
     } catch (error) {
       console.error('Failed to initialize network service:', error);
       // Fallback to offline mode

@@ -48,14 +48,11 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
         
         // Handle email not confirmed error
         if (supabaseError.message?.includes('Email not confirmed')) {
-          console.log('Email not confirmed, using mock auth for testing');
           
           // Always use mock auth for unconfirmed emails during testing
-          console.log(`Attempting mock auth with: ${data.email}`);
           const mockResult = await loginWithMockAuth(data.email, data.password);
           
           if (mockResult.success) {
-            console.log('Mock auth successful, forcing reload');
             
             // Store flag to indicate we need to reload
             await AsyncStorage.setItem('needs_reload', 'true');
@@ -73,10 +70,8 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
             );
             return;
           } else {
-            console.log('Mock auth failed, checking credentials');
             // If mock auth fails, still allow test mode for known test emails
             if (data.email === 'testuser@testmail.com' && data.password === 'test123456') {
-              console.log('Using fallback test mode for testuser@testmail.com');
               // Force mock auth with correct credentials
               const fallbackResult = await loginWithMockAuth('testuser@testmail.com', 'test123456');
               if (fallbackResult.success) {
@@ -99,7 +94,6 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
         
         // If it's the test account and Supabase is rejecting it, use mock auth
         if ((data.email === 'test@example.com' || data.email === 'testuser@testmail.com') && data.password === 'test123456') {
-          console.log('Using mock auth for test account');
           const mockResult = await loginWithMockAuth(data.email, data.password);
           
           if (mockResult.success) {
@@ -127,7 +121,6 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
         return;
       }
       
-      console.log('Direct Supabase login success:', supabaseData.user?.id);
       
       // Now try through auth service
       await authService.login(data.email, data.password);
@@ -148,7 +141,6 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
       setCreatingTestAccount(true);
       
       // First try to find working email format
-      console.log('Trying to find working email format for Supabase...');
       const altResult = await tryAlternativeEmails();
       
       if (altResult.success && altResult.email) {
@@ -163,7 +155,6 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
       }
       
       // If Supabase isn't accepting any emails, use mock auth
-      console.log('Supabase email validation failing, using mock test account');
       setValue('email', 'test@example.com');
       setValue('password', 'test123456');
       
@@ -179,7 +170,6 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
       const testEmail = `test_${timestamp}@example.com`;
       const testPassword = `test${timestamp}`;
       
-      console.log('Creating test account with:', { testEmail });
       
       // Try to create the account
       const { data, error } = await supabase.auth.signUp({
@@ -204,10 +194,8 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
         return;
       }
       
-      console.log('Test account created successfully:', data.user.id);
       
       // Try to sign in immediately with the created account
-      console.log('Attempting to sign in with test account...');
       const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email: testEmail,
         password: testPassword,
@@ -225,7 +213,6 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
           [{ text: '확인' }]
         );
       } else if (signInData.session) {
-        console.log('Auto sign-in successful!');
         // The auth state change listener in auth service will handle navigation
         Alert.alert(
           '테스트 계정 생성 및 로그인 성공',

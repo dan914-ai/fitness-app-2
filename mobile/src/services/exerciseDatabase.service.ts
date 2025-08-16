@@ -73,13 +73,9 @@ class ExerciseDatabaseService {
       this.exercises = [];
     }
     
-    console.log('🔧 ExerciseDatabaseService constructor');
-    console.log('🔧 EXERCISE_DATABASE type:', typeof EXERCISE_DATABASE, 'isArray:', Array.isArray(EXERCISE_DATABASE));
-    console.log('🔧 this.exercises length:', this.exercises.length);
     
     // Log first exercise for debugging
     if (this.exercises.length > 0) {
-      console.log('🔧 First exercise:', this.exercises[0]);
     }
     
     if (this.exercises.length === 0) {
@@ -89,7 +85,6 @@ class ExerciseDatabaseService {
         const directImport = require('../data/exerciseDatabase');
         if (directImport && directImport.default && Array.isArray(directImport.default)) {
           this.exercises = directImport.default;
-          console.log('🔧 Recovered exercises via direct import:', this.exercises.length);
         }
       } catch (e) {
         console.error('❌ Could not recover exercises:', e);
@@ -99,7 +94,6 @@ class ExerciseDatabaseService {
     this.exerciseMap = new Map(
       this.exercises.map(exercise => [exercise.id.toString(), exercise])
     );
-    console.log('🔧 exerciseMap size:', this.exerciseMap.size);
   }
 
   /**
@@ -107,7 +101,6 @@ class ExerciseDatabaseService {
    */
   private getListThumbnail(exerciseId: number): any {
     const thumbnail = safeGetThumbnail(exerciseId);
-    console.log(`🖼️ getListThumbnail(${exerciseId}): ${thumbnail ? 'Found' : 'Not found'}`);
     return thumbnail;
   }
 
@@ -179,7 +172,6 @@ class ExerciseDatabaseService {
    * Get all exercises (with static thumbnails for lists)
    */
   getAllExercises(forListView = true): Exercise[] {
-    console.log('📊 getAllExercises called, exercises:', this.exercises.length);
     return this.exercises.map(exercise => this.mapToApiExercise(exercise));
   }
 
@@ -187,7 +179,6 @@ class ExerciseDatabaseService {
    * Get all exercises with full details (includes GIF URLs)
    */
   getAllExercisesWithDetails(): ExerciseWithDetails[] {
-    console.log('📊 getAllExercisesWithDetails called, exercises:', this.exercises.length);
     return this.exercises.map(exercise => this.mapToExerciseWithDetails(exercise));
   }
 
@@ -198,7 +189,6 @@ class ExerciseDatabaseService {
     const stringId = id.toString();
     const exercise = this.exerciseMap.get(stringId);
     
-    console.log(`🔍 getExerciseById(${id}): found=${!!exercise}, map size=${this.exerciseMap.size}`);
     
     if (!exercise) {
       console.warn(`⚠️ Exercise with ID ${id} not found in database`);
@@ -206,7 +196,6 @@ class ExerciseDatabaseService {
     }
     
     const mapped = this.mapToApiExercise(exercise);
-    console.log(`📦 Mapped exercise ${id}: thumbnail=${!!mapped.thumbnail}`);
     return mapped;
   }
 
@@ -279,8 +268,6 @@ class ExerciseDatabaseService {
       forListView = true,
     } = options;
 
-    console.log('📊 getExercisesPaginated called with:', options);
-    console.log('📊 this.exercises length:', this.exercises?.length);
     let filteredExercises = this.exercises;
 
     // Apply filters
@@ -326,7 +313,6 @@ class ExerciseDatabaseService {
       .slice(startIndex, endIndex)
       .map(exercise => this.mapToApiExercise(exercise));
 
-    console.log('📊 Returning exercises:', paginatedExercises.length, 'out of', total, 'total');
 
     return {
       exercises: paginatedExercises,

@@ -146,7 +146,6 @@ export async function saveInBodyRecord(recordData: Omit<InBodyRecord, 'id' | 'cr
     // Save to storage
     await storageService.addInBodyRecord(record);
     
-    console.log('✅ InBody record successfully saved:', record.id);
     return record;
   } catch (error) {
     console.error('💥 Error saving InBody record:', error);
@@ -174,7 +173,6 @@ export async function updateInBodyRecord(recordId: string, updates: Partial<Omit
     // Update storage
     await storageService.updateInBodyRecord(updatedRecord);
     
-    console.log('✅ InBody record successfully updated:', recordId);
     return updatedRecord;
   } catch (error) {
     console.error('💥 Error updating InBody record:', error);
@@ -186,7 +184,6 @@ export async function updateInBodyRecord(recordId: string, updates: Partial<Omit
 export async function deleteInBodyRecord(recordId: string): Promise<boolean> {
   try {
     await storageService.deleteInBodyRecord(recordId);
-    console.log('✅ InBody record successfully deleted:', recordId);
     return true;
   } catch (error) {
     console.error('💥 Error deleting InBody record:', error);
@@ -424,11 +421,9 @@ export async function initializeSampleInBodyData(): Promise<void> {
   try {
     const existingHistory = await getInBodyHistory();
     if (existingHistory.length === 0) {
-      console.log('📊 Initializing sample InBody data...');
       for (const record of sampleInBodyData) {
         await storageService.addInBodyRecord(record);
       }
-      console.log('✅ Sample InBody data initialized');
     }
   } catch (error) {
     console.error('💥 Error initializing sample InBody data:', error);

@@ -254,7 +254,6 @@ export default function StatsScreen({ navigation }: StatsScreenProps) {
       
       // Load workout history
       const workoutHistory = await getWorkoutHistory();
-      console.log('📊 StatsScreen - workoutHistory loaded:', workoutHistory.length, 'workouts');
       
       // Load InBody history
       const inbodyHistory = await getInBodyHistory();
@@ -265,7 +264,6 @@ export default function StatsScreen({ navigation }: StatsScreenProps) {
       periodStart.setDate(now.getDate() - selectedPeriod);
       
       const filteredWorkouts = workoutHistory.filter(w => new Date(w.date) >= periodStart);
-      console.log('📊 StatsScreen - filteredWorkouts for period:', filteredWorkouts.length, 'workouts');
       
       // Calculate workout stats
       const totalWorkouts = filteredWorkouts.length;
@@ -305,7 +303,6 @@ export default function StatsScreen({ navigation }: StatsScreenProps) {
         const count = filteredWorkouts.filter(w => new Date(w.date).getDay() === index).length;
         return { label: day, value: count };
       });
-      console.log('📊 StatsScreen - weeklyData:', weeklyData);
       
       // Muscle groups
       const muscleGroupMap: { [key: string]: number } = {};
@@ -394,7 +391,6 @@ export default function StatsScreen({ navigation }: StatsScreenProps) {
         volumeProgress,
       };
       
-      console.log('📊 StatsScreen - final stats:', finalStats);
       setWorkoutStats(finalStats);
     } catch (error) {
       console.error('Error loading stats:', error);

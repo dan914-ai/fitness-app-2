@@ -10,9 +10,6 @@ export default function TestWorkoutScreen() {
   const route = useRoute();
   const workout = useWorkout();
   
-  console.log('🎯 TestWorkoutScreen loaded successfully');
-  console.log('Route params:', route.params);
-  console.log('Workout context:', workout);
   
   const exercises = workout?.exercises || [];
 
@@ -70,7 +67,6 @@ export default function TestWorkoutScreen() {
           <TouchableOpacity
             style={[styles.button, styles.primaryButton]}
             onPress={() => {
-              console.log('✅ 운동 세션이 정상적으로 시작되었습니다!');
               Alert.alert('성공!', '운동 시작 기능이 정상적으로 작동합니다.\n\n실제 운동 화면을 구현하려면 WorkoutSessionScreen을 수정하세요.');
             }}
           >

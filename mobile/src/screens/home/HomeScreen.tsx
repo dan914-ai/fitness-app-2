@@ -66,12 +66,10 @@ export default function HomeScreen() {
 
   const getUserId = async () => {
     const { data: { user } } = await supabase.auth.getUser();
-    console.log('HomeScreen - User:', user);
     if (user) {
       setUserId(user.id);
       checkDOMSSurvey();
     } else {
-      console.log('No user found - DOMS survey will not show');
     }
   };
 
@@ -79,11 +77,9 @@ export default function HomeScreen() {
   const checkDOMSSurvey = async () => {
     const today = new Date().toISOString().split('T')[0];
     const lastSurvey = await storageService.getGenericItem('lastDOMSSurvey');
-    console.log('DOMS Survey Check - Today:', today, 'Last Survey:', lastSurvey);
     
     if (lastSurvey !== today) {
       // Show DOMS survey modal for morning check-in
-      console.log('Showing DOMS survey modal');
       // Delay showing modal to ensure screen is fully loaded
       setTimeout(() => {
         setShowDOMSSurvey(true);
@@ -94,7 +90,7 @@ export default function HomeScreen() {
   // Load user routines when screen comes into focus
   useFocusEffect(
     React.useCallback(() => {
-      console.error('📢 HOME SCREEN FOCUSED - LOADING ROUTINES');
+      // Home screen focused - loading routines
       loadUserRoutines();
       loadRecentWorkouts();
       loadActiveProgram();
@@ -103,7 +99,6 @@ export default function HomeScreen() {
 
   const loadUserRoutines = async () => {
     try {
-      console.log('Loading user routines...');
       
       // Load all routines from the service
       const allRoutines = await routinesService.getAllRoutines();
@@ -111,7 +106,6 @@ export default function HomeScreen() {
       // The program routines are already saved to storage when a program is activated,
       // so we just need to load all routines
       
-      console.log(`Loaded ${allRoutines.length} routines`);
       setUserRoutines(allRoutines);
       setIsInitialLoading(false);
     } catch (error) {
@@ -251,7 +245,6 @@ export default function HomeScreen() {
           
           {/* Saved Routines */}
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {console.log('🎯 RENDERING ROUTINES:', userRoutines.length, 'routines:', userRoutines.map(r => r.name))}
             {userRoutines.map((routine) => (
               <TouchableOpacity 
                 key={routine.id}
@@ -327,9 +320,6 @@ export default function HomeScreen() {
           <TouchableOpacity 
             style={styles.quickActionButton}
             onPress={() => {
-              console.log('DOMS button pressed!');
-              console.log('Current userId:', userId);
-              console.log('Setting showDOMSSurvey to true');
               setShowDOMSSurvey(true);
             }}
           >
@@ -511,7 +501,6 @@ export default function HomeScreen() {
       <DOMSSurveyModal
         visible={showDOMSSurvey}
         onClose={() => {
-          console.log('Closing DOMS modal');
           setShowDOMSSurvey(false);
         }}
         userId={userId || 'guest-user'}

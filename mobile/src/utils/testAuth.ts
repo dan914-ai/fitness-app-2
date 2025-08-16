@@ -1,12 +1,10 @@
 import { supabase } from '../config/supabase';
 
 export async function testSupabaseAuth() {
-  console.log('=== Testing Supabase Auth ===');
   
   try {
     // Test 1: Check current session
     const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-    console.log('Current session:', session ? 'Active' : 'None');
     if (sessionError) console.error('Session error:', sessionError);
     
     // Test 2: Try creating a test account
@@ -14,7 +12,6 @@ export async function testSupabaseAuth() {
     const testEmail = `test_${timestamp}@example.com`;
     const testPassword = `test${timestamp}`;
     
-    console.log('Creating test account:', testEmail);
     
     const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
       email: testEmail,
@@ -26,7 +23,6 @@ export async function testSupabaseAuth() {
       return false;
     }
     
-    console.log('✅ Sign up response:', {
       user: signUpData.user?.id,
       email: signUpData.user?.email,
       confirmed: signUpData.user?.confirmed_at,
@@ -34,7 +30,6 @@ export async function testSupabaseAuth() {
     });
     
     // Test 3: Try signing in with the account
-    console.log('Attempting sign in...');
     const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
       email: testEmail,
       password: testPassword,
@@ -45,10 +40,8 @@ export async function testSupabaseAuth() {
       
       // Check if it's email confirmation required
       if (signInError.message.includes('confirm') || signInError.message.includes('Email')) {
-        console.log('ℹ️  This Supabase project requires email confirmation. Test accounts won\'t work without it.');
       }
     } else {
-      console.log('✅ Sign in successful!', {
         userId: signInData.user?.id,
         session: !!signInData.session,
       });
@@ -57,7 +50,6 @@ export async function testSupabaseAuth() {
       await supabase.auth.signOut();
     }
     
-    console.log('=== Auth Test Complete ===');
     return true;
   } catch (error) {
     console.error('Auth test failed:', error);
@@ -86,7 +78,6 @@ export async function checkEmailConfirmationRequired() {
   // If we don't get a session, email confirmation IS required
   const requiresConfirmation = !data.session;
   
-  console.log('Email confirmation required:', requiresConfirmation);
   
   return requiresConfirmation;
 }

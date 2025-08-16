@@ -12,7 +12,6 @@ export const MOCK_TEST_USER = {
 };
 
 export async function loginWithMockAuth(email: string, password: string) {
-  console.log('Using mock authentication due to Supabase email validation issues');
   
   // Accept test credentials and the working email format
   const validTestAccounts = [
@@ -45,7 +44,6 @@ export async function loginWithMockAuth(email: string, password: string) {
     // Set a flag that we're using mock auth
     await AsyncStorage.setItem('using_mock_auth', 'true');
     
-    console.log('Mock auth storage complete:', {
       session: 'stored',
       authToken: 'stored',
       user: 'stored',
@@ -105,7 +103,6 @@ export async function tryAlternativeEmails() {
   
   for (const email of emailVariations) {
     try {
-      console.log(`Trying email format: ${email}`);
       
       const { data, error } = await supabase.auth.signUp({
         email: email,
@@ -119,7 +116,6 @@ export async function tryAlternativeEmails() {
       });
       
       if (data?.user) {
-        console.log(`✅ Success with email: ${email}`);
         
         // Save successful format for future use
         await AsyncStorage.setItem('working_email_format', email);
@@ -130,10 +126,8 @@ export async function tryAlternativeEmails() {
       }
       
       if (error) {
-        console.log(`❌ Failed with ${email}: ${error.message}`);
       }
     } catch (err: any) {
-      console.log(`❌ Exception with ${email}: ${err.message}`);
     }
   }
   
@@ -141,11 +135,9 @@ export async function tryAlternativeEmails() {
   try {
     const savedEmail = await AsyncStorage.getItem('working_email_format');
     if (savedEmail) {
-      console.log(`Using previously working email: ${savedEmail}`);
       return { success: true, email: savedEmail, password: 'test123456' };
     }
   } catch (err) {
-    console.log('Could not retrieve saved email format');
   }
   
   return { success: false };

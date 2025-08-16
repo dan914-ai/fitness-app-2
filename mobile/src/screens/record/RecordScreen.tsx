@@ -138,7 +138,6 @@ export default function RecordScreen({ navigation }: RecordScreenProps) {
   };
 
   const startRoutine = (routineId: string, routineName: string) => {
-    console.log('Starting routine:', routineId, routineName);
     // Navigate to routine detail screen to start workout
     try {
       navigation.navigate('홈', {
@@ -182,7 +181,6 @@ export default function RecordScreen({ navigation }: RecordScreenProps) {
             style={styles.quickActionButton}
             onPress={() => {
               try {
-                console.log('Navigating to WorkoutHistory');
                 navigation.navigate('WorkoutHistory');
               } catch (error) {
                 console.error('Navigation error:', error);

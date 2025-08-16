@@ -68,7 +68,6 @@ const ExerciseThumbnail = ({ exerciseId, targetMuscles, thumbnail }: { exerciseI
   }
   
   // Debug log
-  console.log(`ExerciseThumbnail for ${exerciseId}:`, finalThumbnail ? 'Found' : 'Not found');
   
   return (
     <GlobalExerciseThumbnail
@@ -117,7 +116,6 @@ export default function RoutineDetailScreen() {
         // Check if we need to reset (if old format detected)
         const needsReset = await checkIfNeedsReset();
         if (needsReset) {
-          console.log('🔄 Resetting routines to fix IDs...');
           await routinesService.resetToDefaults();
         }
         
@@ -279,7 +277,6 @@ export default function RoutineDetailScreen() {
         // Delete routine using storage service
         await storageService.deleteUserRoutine(routineId);
         
-        console.log('Routine deleted successfully:', routineId);
         
         // Show success message on web
         if (Platform.OS === 'web') {
@@ -294,7 +291,6 @@ export default function RoutineDetailScreen() {
       } catch (error) {
         console.error('Error deleting routine:', error);
         if (Platform.OS === 'web') {
-          console.log('루틴 삭제 중 오류가 발생했습니다.');
         } else {
           Alert.alert('오류', '루틴 삭제 중 오류가 발생했습니다.');
         }
@@ -328,11 +324,9 @@ export default function RoutineDetailScreen() {
 
   const getProgressionSuggestions = async () => {
     if (!userId) {
-      console.log('No userId, skipping progression suggestions');
       return {};
     }
     
-    console.log('Getting progression suggestions for user:', userId);
     const suggestions: Record<string, {
       load: number;
       reason: string;
@@ -345,7 +339,6 @@ export default function RoutineDetailScreen() {
         const lastWeight = await getLastExerciseWeight(exercise.id);
         const exerciseType = exercise.targetMuscles?.length > 1 ? 'compound' : 'isolation';
         
-        console.log(`Getting suggestion for ${exercise.name}, last weight from history: ${lastWeight}kg`);
         
         const suggestion = await progressionService.getProgressionSuggestion(
           userId,
@@ -353,7 +346,6 @@ export default function RoutineDetailScreen() {
           exerciseType
         );
         
-        console.log(`Suggestion for ${exercise.name}:`, suggestion);
         
         if (suggestion && typeof suggestion.suggested_load === 'number') {
           // Sanity check: prevent unreasonable increases (>20% or >10kg)
@@ -382,14 +374,12 @@ export default function RoutineDetailScreen() {
             reason: suggestion.reason || '',
             readiness: (suggestion as any).readiness_index || 0
           };
-          console.log(`✅ Will suggest ${finalSuggestedLoad}kg for ${exercise.name} (was ${lastWeight}kg) - ${suggestion.reason}`);
         }
       } catch (error) {
         console.error(`Failed to get suggestion for ${exercise.name}:`, error);
       }
     }
     
-    console.log('All progression suggestions:', suggestions);
     setProgressionSuggestions(suggestions);
     
     // Show summary if there are suggestions
@@ -420,16 +410,12 @@ export default function RoutineDetailScreen() {
   const confirmStartWorkout = async () => {
     setShowConfirmationSheet(false);
     try {
-      console.log('Starting workout with:', { routineId, routineName });
-      console.log('Exercises to initialize:', exercises);
       
       let currentSuggestions = progressionSuggestions;
       
       // Get progression suggestions if user is logged in
       if (userId) {
-        console.log('Getting fresh progression suggestions...');
         currentSuggestions = await getProgressionSuggestions();
-        console.log('Fresh suggestions received:', currentSuggestions);
       }
       
       // Start the workout
@@ -448,12 +434,8 @@ export default function RoutineDetailScreen() {
           ? suggestion.load.toString() 
           : originalWeight;
         
-        console.log(`📊 Looking for suggestion for ${exercise.name} with ID ${exercise.id}`);
-        console.log(`📊 Available suggestions:`, Object.keys(currentSuggestions));
-        console.log(`📊 Suggestion found:`, suggestion);
         
         if (suggestion) {
-          console.log(`📊 Using suggested weight for ${exercise.name}: ${suggestion.load}kg (was ${lastWeight}kg) - ${suggestion.reason}`);
           
           // Show alert with suggestion info  
           if (suggestion.reason && suggestion.reason !== '→ Normal recovery, maintain weight') {
@@ -466,7 +448,6 @@ export default function RoutineDetailScreen() {
             }, 100);
           }
         } else {
-          console.log(`📊 No suggestion for ${exercise.name}, using last weight: ${lastWeight}kg`);
         }
         
         const defaultSets = Array.from({ length: exercise.sets }, (_, i) => ({
@@ -488,15 +469,11 @@ export default function RoutineDetailScreen() {
         workout.initializeExercise(exercise.id, exercise.name, defaultSets, progressionSuggestion);
       }
       
-      console.log('Workout started with exercises, navigating to WorkoutSession');
-      console.log('Navigation object:', navigation);
-      console.log('RouteId:', routineId);
       
       try {
         navigation.navigate('WorkoutSession', {
           routineId: routineId,
         });
-        console.log('✅ Navigation call completed successfully');
       } catch (navError) {
         console.error('❌ Navigation error:', navError);
         Alert.alert('Navigation Error', `Failed to navigate: ${navError.message}`);
@@ -521,7 +498,7 @@ export default function RoutineDetailScreen() {
       exercise.name,
       '운동 옵션',
       [
-        { text: '수정', onPress: () => console.log('Edit exercise') },
+        { text: '수정', onPress: () => {} },
         { text: '복제', onPress: () => duplicateExercise(exercise) },
         { text: '삭제', onPress: () => removeExercise(exercise.id), style: 'destructive' },
         { text: '취소', style: 'cancel' },

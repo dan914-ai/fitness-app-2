@@ -190,7 +190,6 @@ export default function StatsScreen({ navigation }: any) {
       }
       
       // Debug log
-      console.log('Stats data:', {
         weeklyData,
         monthlyData,
         muscleGroups,

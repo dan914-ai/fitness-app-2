@@ -528,7 +528,6 @@ function MainTabNavigator() {
 }
 
 export default function AppNavigator() {
-  console.log('AppNavigator rendering');
   
   // Authentication control
   const SKIP_LOGIN = false; // Production mode - authentication required
@@ -539,7 +538,6 @@ export default function AppNavigator() {
 
   useEffect(() => {
     if (SKIP_LOGIN) {
-      console.log('🚀 SKIP_LOGIN enabled - bypassing authentication');
       // Set up mock user data for testing
       AsyncStorage.setItem('user', JSON.stringify({
         id: 'test-user-123',
@@ -567,9 +565,7 @@ export default function AppNavigator() {
   // React to mock auth changes
   useEffect(() => {
     if (!SKIP_LOGIN) {
-      console.log('Mock auth state changed:', isMockAuthenticated);
       if (isMockAuthenticated) {
-        console.log('Mock auth detected, setting authenticated to true');
         setIsAuthenticated(true);
         setIsLoading(false);
       }
@@ -581,7 +577,6 @@ export default function AppNavigator() {
       // First check for mock auth
       const mockSession = await getMockSession();
       if (mockSession) {
-        console.log('Mock auth session found, user is authenticated');
         setIsAuthenticated(true);
         setIsLoading(false);
         return;
@@ -610,9 +605,7 @@ export default function AppNavigator() {
   */
 
   if (SKIP_LOGIN) {
-    console.log('🎯 SKIP_LOGIN: Directly showing main app');
   } else {
-    console.log('AppNavigator render - isAuthenticated:', isAuthenticated, 'isMockAuthenticated:', isMockAuthenticated);
   }
   
   // FORCE SKIP LOGIN FOR TESTING

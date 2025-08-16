@@ -42,14 +42,12 @@ class RoutinesService {
       // Check if routines have been initialized
       const initialized = await AsyncStorage.getItem(this.INITIALIZED_KEY);
       if (initialized) {
-        console.log('Routines already initialized');
         return;
       }
 
       // No default routines - just mark as initialized
       await AsyncStorage.setItem(this.INITIALIZED_KEY, 'true');
       await this.saveRoutines([]);
-      console.log('Routines initialized (no defaults)');
     } catch (error) {
       console.error('Error initializing routines:', error);
     }
@@ -59,12 +57,10 @@ class RoutinesService {
     try {
       const routinesJson = await AsyncStorage.getItem(this.ROUTINES_KEY);
       if (!routinesJson) {
-        console.log('No routines found in storage');
         return [];
       }
       
       const routines = safeJsonParse(routinesJson, []);
-      console.log(`Loaded ${routines.length} routines from storage`);
       return Array.isArray(routines) ? routines : [];
     } catch (error) {
       console.error('Error loading routines:', error);
@@ -111,22 +107,18 @@ class RoutinesService {
 
   async deleteRoutine(id: string): Promise<void> {
     try {
-      console.log('🔴 FORCE DELETE ROUTINE:', id);
       
       // Get routines directly from storage, not from getAllRoutines
       const routinesJson = await AsyncStorage.getItem(this.ROUTINES_KEY);
       const routines = routinesJson ? safeJsonParse(routinesJson, []) : [];
       
-      console.log('🔴 Current routines in storage:', routines.length);
       
       const filtered = routines.filter((r: any) => r.id !== id);
       
-      console.log('🔴 After filtering:', filtered.length);
       
       // Save the filtered routines
       await AsyncStorage.setItem(this.ROUTINES_KEY, JSON.stringify(filtered));
       
-      console.log('🔴 ROUTINE DELETED SUCCESSFULLY');
     } catch (error) {
       console.error('Error deleting routine:', error);
       throw error;
@@ -194,7 +186,6 @@ class RoutinesService {
         }));
 
         await this.saveRoutines(migratedRoutines);
-        console.log('Successfully migrated routines to new format');
       }
     } catch (error) {
       console.error('Error migrating routines:', error);
@@ -207,7 +198,6 @@ class RoutinesService {
       await AsyncStorage.removeItem(this.INITIALIZED_KEY);
       await AsyncStorage.removeItem(this.ROUTINES_KEY);
       await this.initializeDefaultRoutines();
-      console.log('Routines reset to defaults with updated exercise IDs');
     } catch (error) {
       console.error('Error resetting routines:', error);
     }
@@ -218,7 +208,6 @@ class RoutinesService {
     try {
       await AsyncStorage.removeItem(this.INITIALIZED_KEY);
       await AsyncStorage.removeItem(this.ROUTINES_KEY);
-      console.log('All routines cleared');
     } catch (error) {
       console.error('Error clearing routines:', error);
     }

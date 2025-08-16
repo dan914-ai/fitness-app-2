@@ -85,7 +85,6 @@ class RestTimerService {
     try {
       // Load a simple beep sound - you can add your own sound file
       // For now, we'll use the system notification sound
-      console.log('Audio assets ready for rest timer');
     } catch (error) {
       console.error('Failed to load audio assets:', error);
     }
@@ -206,7 +205,6 @@ class RestTimerService {
   private async playCompletionSound(): Promise<void> {
     try {
       // For now, we'll just log - you can implement actual sound playback
-      console.log('Rest timer completed - playing sound');
       
       // Could add actual sound implementation here later
     } catch (error) {
@@ -222,7 +220,6 @@ class RestTimerService {
         : ' 휴식이 완료되었습니다!';
 
       // This would ideally be a local notification
-      console.log('Rest complete notification:', exerciseInfo);
       
       // For now, we rely on the UI to show completion feedback
     } catch (error) {

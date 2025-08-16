@@ -5,7 +5,6 @@ class ProgressionService {
   async getLatestRecovery(userId: string) {
     try {
       if (!userId) {
-        console.log('No userId provided for recovery data');
         return null;
       }
 
@@ -33,7 +32,6 @@ class ProgressionService {
   async getRecentRPE(userId: string, days: number = 7) {
     try {
       if (!userId) {
-        console.log('No userId provided for RPE data');
         return null;
       }
 
@@ -71,7 +69,6 @@ class ProgressionService {
     try {
       // Input validation
       if (!userId) {
-        console.log('No userId provided for progression suggestion');
         return { 
           suggested_load: currentLoad || 0, 
           reason: '유효하지 않은 사용자 ID',
@@ -85,8 +82,6 @@ class ProgressionService {
       }
 
       // Try Edge Function first (ready for deployment)
-      console.log('Attempting to use Supabase Edge Function for progression');
-      console.log('Input - userId:', userId, 'currentLoad:', currentLoad, 'exerciseType:', exerciseType);
       
       try {
         // Call the Edge Function
@@ -104,7 +99,6 @@ class ProgressionService {
         }
 
         if (data) {
-          console.log('Edge Function response:', data);
           
           // Transform the response to match our expected format
           return {
@@ -120,24 +114,16 @@ class ProgressionService {
           };
         }
       } catch (edgeFunctionError) {
-        console.log('Edge Function failed, falling back to local logic:', edgeFunctionError);
-        console.log('Error type:', edgeFunctionError.name);
-        console.log('Error message:', edgeFunctionError.message);
       }
 
       // Fallback to local logic if Edge Function fails
-      console.log('Using fallback local progression logic');
-      console.log('Starting fallback calculation...');
       
       // Get latest recovery data
       const recovery = await this.getLatestRecovery(userId);
-      console.log('Recovery data:', recovery);
       
       const recentRPE = await this.getRecentRPE(userId);
-      console.log('Recent RPE average:', recentRPE);
       
       if (!recovery) {
-        console.log('No recovery data found - using default progression');
         // If no recovery data, still suggest progression based on current load
         let suggestedLoad = currentLoad;
         let reason = '';
@@ -171,15 +157,12 @@ class ProgressionService {
       const overall_soreness = recovery.overall_soreness || 5;
       const motivation = recovery.motivation || 5;
       
-      console.log('Recovery metrics - sleep:', sleep_quality, 'energy:', energy_level, 'soreness:', overall_soreness, 'motivation:', motivation);
       
       const readinessScore = (sleep_quality + energy_level + (10 - overall_soreness) + motivation) / 4;
-      console.log('Calculated readiness score:', readinessScore);
       
       let suggestedLoad = currentLoad;
       let reason = '';
       
-      console.log('Starting progression logic with currentLoad:', currentLoad);
 
       // Simple progression logic
       if (currentLoad === 0) {
@@ -216,7 +199,6 @@ class ProgressionService {
         }
       };
       
-      console.log('Final progression result:', result);
       return result;
     } catch (error) {
       console.error('Error getting progression suggestion:', error);
@@ -240,7 +222,6 @@ class ProgressionService {
       }
 
       // Try Edge Function first (ready for deployment)
-      console.log('Attempting to use Supabase Edge Function for RPE logging');
       
       try {
         const { data: edgeData, error: edgeError } = await supabase.functions.invoke('progression-algorithm', {
@@ -258,15 +239,12 @@ class ProgressionService {
         }
 
         if (edgeData) {
-          console.log('Edge Function RPE log response:', edgeData);
           return { success: true, session: edgeData.session || edgeData };
         }
       } catch (edgeFunctionError) {
-        console.log('Edge Function failed, falling back to direct save:', edgeFunctionError);
       }
 
       // Fallback to direct database save
-      console.log('Using fallback direct database save');
       
       // Calculate total load (simplified version) with null checks
       const totalLoad = Array.isArray(exercises) ? exercises.reduce((sum, ex) => 
@@ -306,8 +284,6 @@ class ProgressionService {
       }
 
       // Try Edge Function first (ready for deployment)
-      console.log('Attempting to use Supabase Edge Function for DOMS survey');
-      console.log('Saving DOMS data:', { user_id: userId, ...surveyData });
       
       try {
         const { data: edgeData, error: edgeError } = await supabase.functions.invoke('progression-algorithm', {
@@ -323,7 +299,6 @@ class ProgressionService {
         }
 
         if (edgeData) {
-          console.log('Edge Function DOMS response:', edgeData);
           return { 
             success: true, 
             survey: edgeData.survey || edgeData,
@@ -332,11 +307,9 @@ class ProgressionService {
           };
         }
       } catch (edgeFunctionError) {
-        console.log('Edge Function failed, falling back to direct save:', edgeFunctionError);
       }
 
       // Fallback to direct database save
-      console.log('Using fallback direct database save');
       
       const insertData = {
         user_id: userId,
@@ -344,7 +317,6 @@ class ProgressionService {
         survey_date: new Date().toISOString().split('T')[0], // Changed from 'date' to 'survey_date'
       };
       
-      console.log('Exact data being inserted:', JSON.stringify(insertData, null, 2));
       
       const { data, error } = await supabase
         .from('user_doms_data') // Changed table name
@@ -357,8 +329,6 @@ class ProgressionService {
         throw error;
       }
       
-      console.log('Data returned from database after insert:', JSON.stringify(data, null, 2));
-      console.log('DOMS survey saved successfully:', data);
       return { success: true, survey: data };
     } catch (error) {
       console.error('Error submitting DOMS survey:', error);

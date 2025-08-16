@@ -67,8 +67,6 @@ export const workoutApi = {
   // Start a new workout session
   async startWorkoutSession(params: StartWorkoutSessionParams): Promise<WorkoutSessionResponse> {
     try {
-      console.log('Starting workout session with params:', params);
-      console.log('API URL:', `${API_BASE_URL}/workouts/session/start`);
       
       const headers = await getAuthHeaders();
       const response = await fetch(`${API_BASE_URL}/workouts/session/start`, {

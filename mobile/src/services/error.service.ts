@@ -236,7 +236,6 @@ class ErrorService {
   private async retryOperation(context: ErrorContext): Promise<void> {
     // This would trigger a retry of the original operation
     // In practice, you'd emit an event or call a callback
-    console.log('Retrying operation:', context.operation);
     
     // For now, just force a backend check
     await networkService.forceBackendCheck();
@@ -267,7 +266,6 @@ class ErrorService {
       timestamp: context.timestamp.toISOString(),
     };
     
-    console.log('Analytics:', analyticsData);
   }
 
   // Retry wrapper for operations
@@ -309,7 +307,6 @@ class ErrorService {
         const delay = retryDelay * Math.pow(backoffMultiplier, attempt);
         await new Promise(resolve => setTimeout(resolve, delay));
         
-        console.log(`Retrying operation ${context.operation}, attempt ${attempt + 2}/${maxRetries + 1}`);
       }
     }
 

@@ -49,7 +49,6 @@ export default function WorkoutCompleteScreen() {
 
   const getUserId = async () => {
     const { data: { user } } = await supabase.auth.getUser();
-    console.log('WorkoutCompleteScreen - User:', user);
     if (user) setUserId(user.id);
   };
 

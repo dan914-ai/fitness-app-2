@@ -65,7 +65,6 @@ class TrackingService {
 
   // Water tracking - using local storage
   async logWater(data: WaterLogData) {
-    console.log('Logging water intake locally:', data);
     const key = `@water_log_${data.logDate}`;
     const existing = await AsyncStorage.getItem(key);
     let logs = safeJsonParse(existing, []);
@@ -75,7 +74,6 @@ class TrackingService {
   }
 
   async getWaterLogs(startDate?: string, endDate?: string) {
-    console.log('Getting water logs locally for:', startDate, 'to', endDate);
     const logs = [];
     try {
       const today = new Date().toISOString().split('T')[0];
@@ -95,14 +93,12 @@ class TrackingService {
 
   // Sleep tracking - using local storage
   async logSleep(data: SleepLogData) {
-    console.log('Logging sleep locally:', data);
     const key = `@sleep_log_${data.logDate}`;
     await AsyncStorage.setItem(key, safeJsonStringify(data));
     return data;
   }
 
   async getSleepLogs(startDate?: string, endDate?: string) {
-    console.log('Getting sleep logs locally for:', startDate, 'to', endDate);
     const logs = [];
     try {
       const today = new Date().toISOString().split('T')[0];
@@ -122,7 +118,6 @@ class TrackingService {
 
   // Habit tracking - using local storage
   async logHabit(data: HabitLogData) {
-    console.log('Logging habit locally:', data);
     const key = `@habit_log_${data.logDate}`;
     const existing = await AsyncStorage.getItem(key);
     let logs = safeJsonParse(existing, []);
@@ -132,7 +127,6 @@ class TrackingService {
   }
 
   async getHabitLogs(startDate?: string, endDate?: string, habitName?: string) {
-    console.log('Getting habit logs locally for:', startDate, 'to', endDate, habitName);
     const logs = [];
     try {
       const today = new Date().toISOString().split('T')[0];
@@ -152,7 +146,6 @@ class TrackingService {
 
   // Nutrition tracking - using local storage
   async logNutrition(data: NutritionLogData) {
-    console.log('Logging nutrition locally:', data);
     const key = `@nutrition_log_${data.logDate}`;
     const existing = await AsyncStorage.getItem(key);
     let logs = safeJsonParse(existing, []);
@@ -162,7 +155,6 @@ class TrackingService {
   }
 
   async getNutritionLogs(startDate?: string, endDate?: string, mealType?: string) {
-    console.log('Getting nutrition logs locally for:', startDate, 'to', endDate, mealType);
     const logs = [];
     try {
       const today = new Date().toISOString().split('T')[0];
@@ -182,7 +174,6 @@ class TrackingService {
 
   // Recovery tracking - using local storage
   async logRecovery(data: RecoveryLogData) {
-    console.log('Logging recovery locally:', data);
     const key = `@recovery_log_${data.logDate}`;
     const existing = await AsyncStorage.getItem(key);
     let logs = safeJsonParse(existing, []);
@@ -192,7 +183,6 @@ class TrackingService {
   }
 
   async getRecoveryLogs(startDate?: string, endDate?: string, recoveryType?: string) {
-    console.log('Getting recovery logs locally for:', startDate, 'to', endDate, recoveryType);
     const logs = [];
     try {
       const today = new Date().toISOString().split('T')[0];
@@ -212,7 +202,6 @@ class TrackingService {
 
   // Cardio tracking - using local storage
   async logCardio(data: CardioLogData) {
-    console.log('Logging cardio locally:', data);
     const key = `@cardio_log_${data.logDate}`;
     const existing = await AsyncStorage.getItem(key);
     let logs = safeJsonParse(existing, []);
@@ -222,7 +211,6 @@ class TrackingService {
   }
 
   async getCardioLogs(startDate?: string, endDate?: string, exerciseType?: string) {
-    console.log('Getting cardio logs locally for:', startDate, 'to', endDate, exerciseType);
     const logs = [];
     try {
       const today = new Date().toISOString().split('T')[0];

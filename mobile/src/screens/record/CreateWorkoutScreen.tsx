@@ -34,8 +34,6 @@ export default function CreateWorkoutScreen({ navigation, route }: CreateWorkout
   // Handle exercises from ExerciseSelection screen
   useEffect(() => {
     if (route.params?.selectedExercises) {
-      console.log('CreateWorkoutScreen - Received exercises:', route.params.selectedExercises.length);
-      console.log('First exercise:', route.params.selectedExercises[0]);
       
       const newExercises = route.params.selectedExercises.map(exercise => ({
         ...exercise,

@@ -28,7 +28,6 @@ export interface WorkoutHistoryItem {
 
 export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<WorkoutHistoryItem | null> {
   try {
-    console.log('💾 saveWorkoutToHistory called with state:', {
       isActive: workoutState.isWorkoutActive,
       startTime: workoutState.startTime,
       exerciseCount: Object.keys(workoutState.exercises).length
@@ -87,7 +86,6 @@ export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<
     };
 
     // Save to history using storage service
-    console.log('💾 About to save workout to storage with data:', {
       id: workoutHistoryItem.id,
       routineName: workoutHistoryItem.routineName,
       exerciseCount: workoutHistoryItem.exercises.length,
@@ -97,7 +95,6 @@ export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<
     
     await storageService.addWorkoutToHistory(workoutHistoryItem);
 
-    console.log('✅ Workout successfully saved to history:', workoutHistoryItem.id);
     return workoutHistoryItem;
   } catch (error) {
     console.error('💥 Error saving workout to history:', error);
@@ -149,50 +146,38 @@ export async function getWorkoutsByDateRange(startDate: Date, endDate: Date): Pr
 
 // Get the last recorded weight for a specific exercise
 export async function getLastExerciseWeight(exerciseId: string): Promise<number> {
-  console.log('📊 getLastExerciseWeight called for:', exerciseId);
   
   try {
     const history = await getWorkoutHistory();
-    console.log('📊 Found workout history entries:', history.length);
     
     // Sort workouts by date (most recent first)
     const sortedHistory = history.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     
     // Find the most recent workout that included this exercise
     for (const workout of sortedHistory) {
-      console.log('📊 Checking workout from:', workout.date, 'with', workout.exercises.length, 'exercises');
-      console.log('📊 Workout exercises:', workout.exercises.map(ex => ({ id: ex.exerciseId, name: ex.exerciseName })));
       
       const exercise = workout.exercises.find(ex => {
         const match = ex.exerciseId === exerciseId || ex.exerciseId === exerciseId.toString();
-        console.log('📊 Comparing:', ex.exerciseId, 'with', exerciseId, '- Match:', match);
         return match;
       });
       
       if (exercise && exercise.sets.length > 0) {
-        console.log('📊 Found matching exercise in workout!');
-        console.log('📊 Exercise sets:', exercise.sets.map(s => ({ weight: s.weight, reps: s.reps, type: s.type })));
         
         // Get the heaviest weight from the sets (don't require completed=true for history data)
         const weights = exercise.sets
           .map(set => parseFloat(set.weight) || 0)
           .filter(weight => weight > 0);
         
-        console.log('📊 Valid weights found:', weights);
         
         if (weights.length > 0) {
           const maxWeight = Math.max(...weights);
-          console.log(`📊 ✅ FOUND LAST WEIGHT for ${exerciseId}: ${maxWeight}kg from workout ${workout.date}`);
           return maxWeight;
         } else {
-          console.log('📊 No valid weights in sets');
         }
       } else {
-        console.log('📊 No matching exercise found in this workout');
       }
     }
     
-    console.log(`No previous weight data found for exercise: ${exerciseId}`);
     return 0;
   } catch (error) {
     console.error('Error getting last exercise weight:', error);

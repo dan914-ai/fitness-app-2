@@ -8,7 +8,6 @@ export const TEST_CREDENTIALS = {
 
 export async function ensureTestAccountExists() {
   try {
-    console.log('Checking if test account exists...');
     
     // Try to sign in first
     const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
@@ -17,14 +16,12 @@ export async function ensureTestAccountExists() {
     });
     
     if (signInData?.session) {
-      console.log('Test account already exists and is accessible');
       await supabase.auth.signOut(); // Sign out so user can manually sign in
       return { success: true, message: 'Test account exists' };
     }
     
     // If sign in failed, try to create the account
     if (signInError?.message?.includes('Invalid login credentials')) {
-      console.log('Test account does not exist, creating...');
       
       const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
         email: TEST_CREDENTIALS.email,
@@ -42,7 +39,6 @@ export async function ensureTestAccountExists() {
       }
       
       if (signUpData.user) {
-        console.log('Test account created successfully');
         // Sign out immediately so user can sign in manually
         await supabase.auth.signOut();
         return { 

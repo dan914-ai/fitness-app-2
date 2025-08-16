@@ -62,7 +62,6 @@ export default function StatsScreen({ navigation }: any) {
       setLoading(true);
       const history = await getWorkoutHistory();
       
-      console.log('Raw workout history:', history);
       setWorkoutHistory(history);
       
       // Calculate weekly data

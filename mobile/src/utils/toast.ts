@@ -10,7 +10,6 @@ export const showToast = (message: string, type: 'success' | 'error' | 'info' = 
       Alert.alert('오류', message);
     }
     // Success and info messages could be shown in a custom component
-    console.log(`[${type}] ${message}`);
   }
 };
 

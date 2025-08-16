@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export async function clearProgramCache() {
-  console.log('🧹 CLEARING PROGRAM CACHE...');
   
   try {
     // Clear all program-related keys
@@ -13,7 +12,6 @@ export async function clearProgramCache() {
     ];
     
     await AsyncStorage.multiRemove(keysToRemove);
-    console.log('✅ Program cache cleared successfully');
     
     // Force a small delay to ensure cache is cleared
     await new Promise(resolve => setTimeout(resolve, 100));

@@ -23,7 +23,6 @@ class ExerciseService {
     try {
       // Load favorite exercises from storage
       this.favoriteExercises = await storageService.getFavoriteExercises();
-      console.log('Exercise service initialized with', this.exercises.length, 'exercises');
     } catch (error) {
       console.error('Failed to initialize exercise service:', error);
     }

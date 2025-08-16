@@ -89,7 +89,6 @@ export default function QuickTimerScreen({ navigation }: Props) {
     //   );
     //   soundRef.current = sound;
     // } catch (error) {
-    //   console.log('Error playing sound:', error);
     // }
   };
 

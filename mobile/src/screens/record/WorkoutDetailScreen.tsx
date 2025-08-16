@@ -70,8 +70,6 @@ export default function WorkoutDetailScreen() {
         if (user) {
           try {
             const workoutDate = workoutData.date.split('T')[0]; // Get date without time
-            console.log('🔍 Loading RPE for workout date:', workoutDate);
-            console.log('🔍 User ID:', user.id);
             
             // Try multiple query approaches to find RPE data
             const { data: rpeData, error } = await supabase
@@ -83,10 +81,8 @@ export default function WorkoutDetailScreen() {
               .order('created_at', { ascending: false })
               .limit(1);
             
-            console.log('🔍 RPE query result:', rpeData, error);
             
             if (!error && rpeData && rpeData.length > 0) {
-              console.log('✅ Found RPE:', rpeData[0].session_rpe);
               setSessionRPE(rpeData[0].session_rpe);
             } else {
               // Fallback: try to find RPE within the same day range
@@ -97,7 +93,6 @@ export default function WorkoutDetailScreen() {
                 .order('created_at', { ascending: false })
                 .limit(10);
               
-              console.log('🔍 Fallback RPE data:', fallbackData);
               
               if (fallbackData && fallbackData.length > 0) {
                 // Find RPE for the closest date
@@ -108,7 +103,6 @@ export default function WorkoutDetailScreen() {
                 });
                 
                 if (matchingRPE) {
-                  console.log('✅ Found matching RPE via fallback:', matchingRPE.session_rpe);
                   setSessionRPE(matchingRPE.session_rpe);
                 }
               }

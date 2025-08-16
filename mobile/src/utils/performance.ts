@@ -58,7 +58,6 @@ export async function measurePerformance<T>(
   const end = performance.now();
   
   if (__DEV__) {
-    console.log(`[Performance] ${name}: ${(end - start).toFixed(2)}ms`);
   }
   
   return result;

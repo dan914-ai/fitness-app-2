@@ -25,16 +25,12 @@ const mockWorkoutTimerService = {
     return () => {};
   },
   start: async () => {
-    console.log('Mock: Starting workout timer');
   },
   pause: async () => {
-    console.log('Mock: Pausing workout timer');
   },
   resume: async () => {
-    console.log('Mock: Resuming workout timer');
   },
   stop: async () => {
-    console.log('Mock: Stopping workout timer');
   },
 };
 

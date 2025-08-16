@@ -117,7 +117,6 @@ export default function RestTimer({ isActive, onComplete, onDismiss }: RestTimer
     if (Platform.OS !== 'web') {
       const { status } = await Notifications.requestPermissionsAsync();
       if (status !== 'granted') {
-        console.log('Notification permissions not granted');
       }
     }
   };
@@ -219,7 +218,6 @@ export default function RestTimer({ isActive, onComplete, onDismiss }: RestTimer
         Vibration.vibrate(50);
       }
     } catch (error) {
-      console.log('Error playing warning:', error);
     }
   };
 

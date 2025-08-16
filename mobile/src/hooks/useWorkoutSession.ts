@@ -30,7 +30,6 @@ export function useWorkoutSession() {
           setCurrentWorkoutId(`local-${Date.now()}`);
         }
       } else {
-        console.log('Not authenticated, using local session');
         // Generate a local workout ID
         setCurrentWorkoutId(`local-${Date.now()}`);
       }
@@ -173,7 +172,6 @@ export function useWorkoutSession() {
         // Skip loading active session if not authenticated
         const isAuth = await authService.isAuthenticated();
         if (!isAuth) {
-          console.log('Not authenticated, skipping active session check');
           return;
         }
 

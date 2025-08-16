@@ -31,6 +31,8 @@ import RestTimer from '../../components/workout/RestTimer';
 import WorkoutTimer from '../../components/workout/WorkoutTimer';
 import { achievementService } from '../../services/achievement.service';
 import LoadingState from '../../components/common/LoadingState';
+import useAuth from '../../hooks/useAuth';
+import AuthRequiredIndicator from '../../components/auth/AuthRequiredIndicator';
 
 type WorkoutSessionScreenProps = {
   navigation: StackNavigationProp<HomeStackParamList, 'WorkoutSession'>;
@@ -54,10 +56,10 @@ export default function WorkoutSessionScreen() {
   const { routineId } = route.params;
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const { isAuthenticated, isLoading: authLoading, user } = useAuth();
   
   // Debug: Check if workout context is working
   if (__DEV__) {
-    console.log('Workout context state:', workout?.state);
   }
 
   const [showExerciseList, setShowExerciseList] = useState(false);
@@ -98,7 +100,6 @@ export default function WorkoutSessionScreen() {
   React.useEffect(() => {
     if (!startTime) return;
     
-    console.log('WorkoutSessionScreen: Setting up duration interval, startTime:', startTime);
     const interval = setInterval(() => {
       const now = new Date();
       const diff = Math.floor((now.getTime() - new Date(startTime).getTime()) / 1000);
@@ -106,7 +107,6 @@ export default function WorkoutSessionScreen() {
     }, 1000);
 
     return () => {
-      console.log('WorkoutSessionScreen: Cleaning up duration interval');
       clearInterval(interval);
     };
   }, [startTime?.getTime()]); // Use getTime() to avoid reference changes
@@ -241,7 +241,6 @@ export default function WorkoutSessionScreen() {
     const thumbnail = exercise?.thumbnail || null;
     
     // Debug log
-    console.log(`WorkoutSession thumbnail for ${item.id}:`, thumbnail ? 'Found' : 'Not found');
     
     return (
       <Pressable
@@ -306,6 +305,23 @@ export default function WorkoutSessionScreen() {
     );
   };
 
+  // Show loading state while checking authentication
+  if (authLoading) {
+    return <LoadingState message="로딩 중..." />;
+  }
+
+  // Show authentication required indicator if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <AuthRequiredIndicator 
+          message="운동 기록을 저장하려면 로그인이 필요합니다"
+          showLoginButton={true}
+        />
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Header isolated from gesture handlers */}
@@ -317,7 +333,6 @@ export default function WorkoutSessionScreen() {
               pressed && {opacity: 0.7}
             ]}
             onPress={() => {
-              console.log('🔙 Back button pressed');
               navigation.goBack();
             }}
             hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}

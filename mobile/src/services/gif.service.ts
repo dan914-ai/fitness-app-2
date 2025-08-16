@@ -33,7 +33,6 @@ class GifService {
       if (!forceRedownload) {
         const existing = await this.checkGifExists(gifFileName);
         if (existing) {
-          console.log(`GIF already exists for ${exerciseId}: ${existing.publicUrl}`);
           return existing;
         }
       }
@@ -41,7 +40,6 @@ class GifService {
       // Avoid duplicate downloads
       const queueKey = `${exerciseId}-${sourceUrl}`;
       if (this.downloadQueue.has(queueKey)) {
-        console.log(`Download already in progress for ${exerciseId}`);
         return await this.downloadQueue.get(queueKey);
       }
 
@@ -67,7 +65,6 @@ class GifService {
    */
   private async performGifDownload(exerciseId: string, sourceUrl: string, fileName: string): Promise<GifStorageInfo | null> {
     try {
-      console.log(`Downloading GIF for ${exerciseId} from: ${sourceUrl}`);
       
       // Download GIF from source URL
       const response = await fetch(sourceUrl, {
@@ -98,7 +95,6 @@ class GifService {
         throw new Error(`Failed to upload GIF: ${uploadResult.error.message}`);
       }
 
-      console.log(`Successfully uploaded GIF for ${exerciseId}: ${uploadResult.publicUrl}`);
 
       return {
         exerciseId,
@@ -171,7 +167,6 @@ class GifService {
    * Bulk download GIFs for multiple exercises
    */
   async bulkDownloadGifs(exercises: Array<{ id: string; gifUrl: string }>): Promise<void> {
-    console.log(`Starting bulk download of ${exercises.length} GIFs...`);
     
     const BATCH_SIZE = 5; // Download 5 at a time to avoid overwhelming the server
     const results = {
@@ -182,7 +177,6 @@ class GifService {
 
     for (let i = 0; i < exercises.length; i += BATCH_SIZE) {
       const batch = exercises.slice(i, i + BATCH_SIZE);
-      console.log(`Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(exercises.length / BATCH_SIZE)}`);
 
       const batchPromises = batch.map(async (exercise) => {
         try {
@@ -193,14 +187,11 @@ class GifService {
 
           if (result) {
             results.success++;
-            console.log(`✓ Downloaded: ${exercise.id}`);
           } else {
             results.failed++;
-            console.log(`✗ Failed: ${exercise.id}`);
           }
         } catch (error) {
           results.failed++;
-          console.log(`✗ Error downloading ${exercise.id}:`, error);
         }
       });
 
@@ -213,7 +204,6 @@ class GifService {
       }
     }
 
-    console.log(`Bulk download complete:`, results);
   }
 
   /**
@@ -229,7 +219,6 @@ class GifService {
         return false;
       }
 
-      console.log(`Successfully deleted GIF for ${exerciseId}`);
       return true;
     } catch (error) {
       console.error(`Error deleting GIF for ${exerciseId}:`, error);

@@ -23,8 +23,8 @@ export default function ExerciseSelectionDebug() {
               <Image 
                 source={{ uri: exercise.imageUrl }}
                 style={{ width: 100, height: 100, backgroundColor: 'lightgray' }}
-                onError={(e) => console.log(`ERROR loading ${exercise.exerciseName}:`, e.nativeEvent)}
-                onLoad={() => console.log(`SUCCESS loading ${exercise.exerciseName}`)}
+                onError={() => {}}
+                onLoad={() => {}}
               />
             </View>
           ) : (

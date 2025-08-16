@@ -190,7 +190,6 @@ export default function StatsScreen({ navigation }: any) {
         // Count exercises more broadly
         filteredHistory.forEach(workout => {
           workout.exercises.forEach(exercise => {
-            console.log('Exercise name:', exercise.name); // Debug log
             muscleGroupCounts['기타'] = (muscleGroupCounts['기타'] || 0) + 1;
           });
         });

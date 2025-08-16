@@ -56,7 +56,6 @@ class NotificationService {
     try {
       // Skip initialization on web platform and Expo Go
       if (this.isWebPlatform || Constants.appOwnership === 'expo') {
-        console.log('Notifications disabled in Expo Go. Use a development build instead.');
         return;
       }
 
@@ -104,7 +103,6 @@ class NotificationService {
       }
       
       if (finalStatus !== 'granted') {
-        console.log('Failed to get push token for push notification!');
         return null;
       }
       
@@ -121,7 +119,6 @@ class NotificationService {
         return null;
       }
     } else {
-      console.log('Must use physical device for Push Notifications');
     }
 
     return token;
@@ -141,7 +138,6 @@ class NotificationService {
     try {
       // This would send the token to your backend API
       // await api.post('/users/push-token', { token });
-      console.log('Push token would be sent to backend:', token);
     } catch (error) {
       console.error('Failed to send token to backend:', error);
     }
@@ -205,7 +201,6 @@ class NotificationService {
     try {
       // Skip on web platform and Expo Go
       if (this.isWebPlatform || Constants.appOwnership === 'expo') {
-        console.log('Workout reminders not available in Expo Go');
         return;
       }
 
@@ -274,7 +269,6 @@ class NotificationService {
     try {
       // Skip on web platform
       if (this.isWebPlatform) {
-        console.log('Test notifications not available on web platform');
         return;
       }
 
@@ -296,7 +290,6 @@ class NotificationService {
     try {
       // Skip on web platform
       if (this.isWebPlatform) {
-        console.log('Social notifications not available on web platform');
         return;
       }
 
@@ -346,7 +339,6 @@ class NotificationService {
     try {
       // Skip on web platform
       if (this.isWebPlatform) {
-        console.log('Achievement notifications not available on web platform');
         return;
       }
 

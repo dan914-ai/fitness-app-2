@@ -56,7 +56,6 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
   const exerciseData = exerciseDatabaseService.getExerciseById(exerciseId);
   
   // Debug: Log what we're getting
-  console.log(`[GIF DEBUG] Exercise ${exerciseId}:`, {
     hasData: !!exerciseData,
     gifUrl: exerciseData?.gifUrl,
     imageUrl: exerciseData?.imageUrl,
@@ -68,13 +67,11 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
     
     // First priority: Database gifUrl (not imageUrl!)
     if (exerciseData && exerciseData.gifUrl) {
-      console.log(`[GIF DEBUG] Using gifUrl from database: ${exerciseData.gifUrl}`);
       urls.push(exerciseData.gifUrl);
     }
     
     // Second priority: Generated URLs
     const generatedUrls = getExerciseGifUrls(exerciseId);
-    console.log(`[GIF DEBUG] Generated URLs:`, generatedUrls);
     urls.push(...generatedUrls);
     
     // Last resort: placeholder
@@ -101,27 +98,22 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
   }
   
   const handleLoadStart = () => {
-    console.log(`[GIF] Loading: ${currentGifUrl}`);
     setIsLoading(true);
   };
   
   const handleLoadEnd = () => {
-    console.log(`[GIF] Loaded successfully: ${currentGifUrl}`);
     setIsLoading(false);
     setHasError(false);
   };
   
   const handleError = (error: any) => {
-    console.log(`[GIF] Load error for URL ${currentUrlIndex + 1}/${gifUrls.length}: ${currentGifUrl}`, error?.nativeEvent?.error);
     
     // Try next URL if available
     if (currentUrlIndex < gifUrls.length - 1) {
-      console.log(`[GIF] Trying next URL...`);
       setCurrentUrlIndex(currentUrlIndex + 1);
       setIsLoading(true);
       setHasError(false);
     } else {
-      console.log(`[GIF] All URLs failed for ${exerciseId}`);
       setIsLoading(false);
       setHasError(true);
     }
@@ -197,8 +189,6 @@ export default function ExerciseTrackScreen() {
   const workout = useWorkout();
   
   // IMMEDIATE DEBUG - This should show up as soon as component renders
-  console.log('🏋️ COMPONENT RENDER - ExerciseTrackScreen loaded for:', exerciseId, exerciseName);
-  console.log('🏋️ WORKOUT STATE:', {
     isWorkoutActive: workout.state.isWorkoutActive,
     exerciseKeys: Object.keys(workout.state.exercises),
     currentExerciseId: workout.state.currentExerciseId
@@ -222,14 +212,11 @@ export default function ExerciseTrackScreen() {
   // SIMPLIFIED WEIGHT PREFILL - Run once when component loads
   React.useEffect(() => {
     const prefillWeights = async () => {
-      console.log('🏋️ STARTING WEIGHT PREFILL for exercise:', exerciseId);
       
       // Get last weight from workout history
       const lastWeight = await getLastExerciseWeight(exerciseId);
-      console.log('🏋️ Got last weight:', lastWeight);
       
       if (lastWeight > 0) {
-        console.log('🏋️ Prefilling weights with:', lastWeight);
         
         // Update sets with prefilled weights
         setSets(currentSets => currentSets.map(set => {
@@ -237,13 +224,10 @@ export default function ExerciseTrackScreen() {
             ? Math.round(lastWeight * 0.5).toString() // 50% for warmup
             : lastWeight.toString(); // Full weight for normal sets
           
-          console.log(`🏋️ Set ${set.id} (${set.type}): ${newWeight}kg`);
           return { ...set, weight: newWeight };
         }));
         
-        console.log('🏋️ Weight prefill completed successfully');
       } else {
-        console.log('🏋️ No previous weight found, keeping empty sets');
       }
     };
     
@@ -275,14 +259,11 @@ export default function ExerciseTrackScreen() {
   useEffect(() => {
     const loadRoutineData = async () => {
       try {
-        console.log('🔍 Loading routine data for routineId:', routineId);
         
         // Get routine data from routines service
         const routine = await routinesService.getRoutineById(routineId);
-        console.log('📦 Routine found:', !!routine);
         
         if (routine && routine.exercises) {
-          console.log('✅ Routine loaded successfully:', {
             name: routine.name,
             exerciseCount: routine.exercises.length,
             exercises: routine.exercises.map((ex: any) => ({ id: ex.id, name: ex.name }))
@@ -290,10 +271,8 @@ export default function ExerciseTrackScreen() {
           
           setRoutineExercises(routine.exercises);
           const currentIndex = routine.exercises.findIndex((ex: any) => ex.id === exerciseId);
-          console.log('📍 Current exercise index:', currentIndex, 'for exerciseId:', exerciseId);
           setCurrentExerciseIndex(currentIndex !== -1 ? currentIndex : 0);
         } else {
-          console.log('❌ No routine data found for routineId:', routineId);
           alert('ERROR: No routine data found! routineId=' + routineId);
         }
       } catch (error) {
@@ -322,10 +301,8 @@ export default function ExerciseTrackScreen() {
 
   // Separate effect for weight pre-filling that runs after exercise is loaded
   useEffect(() => {
-    console.log('🏋️ WEIGHT PREFILL EFFECT TRIGGERED for exercise:', exerciseId);
     
     const performWeightPrefill = async () => {
-      console.log('🏋️ Starting weight pre-fill check for exercise:', exerciseId);
       
       // Multiple attempts with increasing delays
       let attempts = 0;
@@ -333,23 +310,18 @@ export default function ExerciseTrackScreen() {
       
       const tryPrefill = async () => {
         attempts++;
-        console.log(`🏋️ Attempt ${attempts}/${maxAttempts} - checking exercise data`);
         
         const exerciseData = workout.getExerciseData(exerciseId);
-        console.log('🏋️ Exercise data found:', !!exerciseData);
         
         if (!exerciseData) {
           if (attempts < maxAttempts) {
-            console.log(`🏋️ No exercise data found, retrying in ${attempts * 200}ms...`);
             setTimeout(tryPrefill, attempts * 200);
             return;
           } else {
-            console.log('🏋️ No exercise data found after all attempts, skipping pre-fill');
             return;
           }
         }
 
-        console.log('🏋️ Exercise data found:', {
           exerciseId: exerciseData.exerciseId,
           exerciseName: exerciseData.exerciseName,
           setsCount: exerciseData.sets.length,
@@ -359,30 +331,23 @@ export default function ExerciseTrackScreen() {
         // Check if any sets need weight pre-filling
         const needsWeightPrefill = exerciseData.sets.some(set => {
           const needsFill = !set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '';
-          console.log(`🏋️ Set ${set.id} (${set.type}) weight: "${set.weight}" - needs prefill: ${needsFill}`);
           return needsFill;
         });
         
-        console.log('🏋️ Overall needs weight prefill:', needsWeightPrefill);
         
         if (!needsWeightPrefill) {
-          console.log('🏋️ Sets already have weights, skipping pre-fill');
-          console.log('🏋️ Current weights:', exerciseData.sets.map(s => `${s.id}:${s.weight}`));
           return;
         }
 
-        console.log('🏋️ Sets need weight pre-filling, getting last weight...');
         
         try {
           // Get last weight from local history first
           let lastWeight = await getLastExerciseWeight(exerciseId);
-          console.log('🏋️ Last weight from local history:', lastWeight);
           
           // If no local history, try Supabase
           if (lastWeight === 0) {
             const { data: { user } } = await supabase.auth.getUser();
             if (user) {
-              console.log('🏋️ Trying Supabase for exercise:', exerciseId);
               const { data: exerciseHistory } = await supabase
                 .from('workout_exercise_sets')
                 .select('weight')
@@ -394,12 +359,10 @@ export default function ExerciseTrackScreen() {
               lastWeight = exerciseHistory && exerciseHistory.length > 0 
                 ? parseFloat(exerciseHistory[0].weight) 
                 : 0;
-              console.log('🏋️ Last weight from Supabase:', lastWeight);
             }
           }
           
           if (lastWeight > 0) {
-            console.log('🏋️ Pre-filling sets with last weight:', lastWeight);
             
             const prefilledSets = exerciseData.sets.map(set => {
               // Only pre-fill if weight is empty/zero
@@ -407,20 +370,16 @@ export default function ExerciseTrackScreen() {
                 const newWeight = set.type === 'Warmup' 
                   ? Math.round(lastWeight * 0.5).toString()
                   : lastWeight.toString();
-                console.log(`🏋️ Pre-filling set ${set.id} (${set.type}) with weight: ${newWeight}`);
                 return { ...set, weight: newWeight };
               }
               return set;
             });
             
-            console.log('🏋️ Pre-filled sets result:', prefilledSets.map(s => ({ id: s.id, weight: s.weight, type: s.type })));
             
             // Update both local state and workout context
             setSets(prefilledSets);
             workout.updateExerciseSets(exerciseId, prefilledSets);
-            console.log('🏋️ Weight pre-fill completed successfully');
           } else {
-            console.log('🏋️ No previous weight found, skipping pre-fill');
           }
         } catch (error) {
           console.error('🏋️ Error during weight pre-fill:', error);
@@ -438,22 +397,18 @@ export default function ExerciseTrackScreen() {
   useEffect(() => {
     const fetchExerciseData = async () => {
       try {
-        console.log('🔍 Attempting to fetch exercise data for ID:', exerciseId);
         const data = exerciseService.getExerciseById(exerciseId);
         if (data) {
           setExerciseData(data);
-          console.log('📚 Exercise data loaded:', data.name.korean);
         } else {
           console.warn('⚠️ No detailed exercise data found for ID:', exerciseId);
           // Try with alternative IDs (handle underscore/hyphen variations)
           const alternativeId = exerciseId.includes('_') 
             ? exerciseId.replace(/_/g, '-') 
             : exerciseId.replace(/-/g, '_');
-          console.log('🔄 Trying alternative ID:', alternativeId);
           const altData = exerciseService.getExerciseById(alternativeId);
           if (altData) {
             setExerciseData(altData);
-            console.log('📚 Exercise data loaded with alternative ID:', altData.name.korean);
           }
         }
       } catch (error) {
@@ -499,7 +454,6 @@ export default function ExerciseTrackScreen() {
 
   // SEPARATE function to handle workout completion - EXACT SAME AS 운동 종료 BUTTON
   const handleCompleteWorkout = async () => {
-    console.log('🏁 COMPLETE WORKOUT button pressed!');
     
     try {
       // Save workout first
@@ -732,9 +686,7 @@ export default function ExerciseTrackScreen() {
             style={styles.explanationButton}
             onPress={async () => {
               alert('🏋️ MANUAL TEST BUTTON PRESSED - Starting weight prefill test');
-              console.log('🏋️ MANUAL TEST BUTTON PRESSED');
               const lastWeight = await getLastExerciseWeight(exerciseId);
-              console.log('🏋️ MANUAL TEST - Got weight:', lastWeight);
               alert(`🏋️ Got last weight: ${lastWeight}kg`);
               
               if (lastWeight > 0) {
@@ -744,7 +696,6 @@ export default function ExerciseTrackScreen() {
                     ? Math.round(lastWeight * 0.5).toString()
                     : lastWeight.toString()
                 }));
-                console.log('🏋️ MANUAL TEST - Setting prefilled sets');
                 setSets(prefilledSets);
                 alert('🏋️ Weight prefill completed! Check the weight fields.');
               } else {
@@ -864,7 +815,6 @@ export default function ExerciseTrackScreen() {
 
         {(() => {
           const exerciseData = workout.getExerciseData(exerciseId);
-          console.log('ExerciseTrackScreen - Checking progression data:', {
             exerciseId,
             hasExerciseData: !!exerciseData,
             hasProgressionSuggestion: !!(exerciseData?.progressionSuggestion),
@@ -872,11 +822,9 @@ export default function ExerciseTrackScreen() {
           });
           
           if (!exerciseData || !exerciseData.progressionSuggestion) {
-            console.log('No progression suggestion to display');
             return null;
           }
           const { originalWeight, suggestedWeight, reason, readiness } = exerciseData.progressionSuggestion;
-          console.log('Rendering ProgressionIndicator with:', {
             originalWeight,
             suggestedWeight,
             reason,
@@ -1416,7 +1364,6 @@ export default function ExerciseTrackScreen() {
           onClose={() => setShowAlternatives(false)}
           currentExercise={exerciseData}
           onSelectAlternative={(alternative) => {
-            console.log('Selected alternative:', alternative);
             setShowAlternatives(false);
           }}
         />

@@ -38,8 +38,6 @@ export default function AddInBodyRecordScreen({ navigation }: AddInBodyRecordScr
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
-    console.log('Save button pressed');
-    console.log('Form data:', formData);
     
     // Basic validation
     if (!formData.weight || !formData.height || !formData.skeletalMuscleMass || !formData.bodyFatMass || !formData.bodyFatPercentage || !formData.bmi) {
@@ -70,9 +68,7 @@ export default function AddInBodyRecordScreen({ navigation }: AddInBodyRecordScr
         bmi: parseFloat(formData.bmi),
       };
       
-      console.log('Saving record data:', recordData);
       await saveInBodyRecord(recordData);
-      console.log('Record saved successfully');
       
       // Navigate to success screen
       navigation.replace('InBodySuccess', { recordData });
@@ -153,7 +149,6 @@ export default function AddInBodyRecordScreen({ navigation }: AddInBodyRecordScr
         <TouchableOpacity
           style={[styles.button, styles.saveButton]}
           onPress={() => {
-            console.log('TouchableOpacity onPress triggered');
             handleSave();
           }}
           disabled={isLoading}

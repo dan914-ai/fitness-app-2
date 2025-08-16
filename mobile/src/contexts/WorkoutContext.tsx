@@ -106,7 +106,6 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
       // Save workout to history before ending
       saveWorkoutToHistory(state).then(savedWorkout => {
         if (savedWorkout) {
-          console.log('Workout saved to history:', savedWorkout.id);
         }
       });
       
@@ -304,16 +303,13 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const loadWorkoutState = async () => {
       try {
-        console.log('WorkoutProvider: Starting to load workout state');
         
         // TEMPORARILY DISABLE AsyncStorage loading for debugging
-        console.log('WorkoutProvider: DEBUGGING - AsyncStorage loading DISABLED');
         setIsLoading(false);
         return;
         
         const savedState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
         if (savedState) {
-          console.log('WorkoutProvider: Found saved state, parsing...');
           const parsedState = safeJsonParse(savedState, null);
           if (!parsedState) return;
           
@@ -324,9 +320,6 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
              new Date(state.startTime).getTime() > new Date(parsedState.startTime).getTime());
           
           if (currentHasActiveWorkout && savedIsOlderOrEmpty) {
-            console.log('WorkoutProvider: Skipping AsyncStorage load - current workout is newer/active');
-            console.log('  - Current workout active:', state.isWorkoutActive, 'exercises:', Object.keys(state.exercises));
-            console.log('  - Saved workout active:', parsedState.isWorkoutActive, 'exercises:', Object.keys(parsedState.exercises || {}));
           } else {
             // Convert date strings back to Date objects
             if (parsedState.startTime) {
@@ -341,18 +334,14 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
                 exercise.completedAt = new Date(exercise.completedAt);
               }
             });
-            console.log('WorkoutProvider: Loading saved state - exercises:', Object.keys(parsedState.exercises || {}));
             dispatch({ type: 'LOAD_WORKOUT_STATE', payload: parsedState });
-            console.log('WorkoutProvider: State loaded successfully');
           }
         } else {
-          console.log('WorkoutProvider: No saved state found');
         }
       } catch (error) {
         console.error('WorkoutProvider: Error loading workout state:', error);
       } finally {
         setIsLoading(false);
-        console.log('WorkoutProvider: Loading complete');
       }
     };
 

@@ -74,7 +74,6 @@ export default function ExerciseSelectionScreen({ navigation, route }: ExerciseS
 
   const loadExercises = async (page = 1, append = false) => {
     try {
-      console.log('🚀🚀🚀 Loading exercises v3 - FORCED REFRESH, category:', selectedCategory);
       
       if (!append) {
         setIsLoading(true);
@@ -89,7 +88,6 @@ export default function ExerciseSelectionScreen({ navigation, route }: ExerciseS
         muscleGroup: selectedCategory !== 'all' ? selectedCategory : undefined,
       });
       
-      console.log('📦 Got exercises data:', exercisesData.exercises.length, 'exercises');
 
       // Exercises from database already have imageUrl (local thumbnails for lists)
       const exercisesWithThumbnails = exercisesData.exercises;

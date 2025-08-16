@@ -13,6 +13,7 @@ import {
 import { Colors } from '../../constants/colors';
 import { AuthStackScreenProps } from '../../navigation/types';
 import { supabase } from '../../config/supabase';
+import { authService } from '../../services/auth.service.supabase';
 
 type RegisterScreenProps = AuthStackScreenProps<'Register'>;
 
@@ -41,22 +42,40 @@ export default function RegisterScreen({ navigation }: RegisterScreenProps) {
     setLoading(true);
     
     try {
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (error) {
-        Alert.alert('회원가입 실패', error.message);
-      } else {
+      // Use auth service for registration with email verification
+      const username = email.split('@')[0]; // Extract username from email
+      await authService.register(username, email, password);
+      
+      // If we get here without error, email verification is disabled
+      Alert.alert(
+        '회원가입 성공',
+        '회원가입이 완료되었습니다.',
+        [{ text: '확인', onPress: () => navigation.navigate('Login') }]
+      );
+    } catch (error: any) {
+      // Check if email verification is required
+      if (error.message.includes('확인 이메일')) {
         Alert.alert(
-          '회원가입 성공',
-          '이메일을 확인하여 계정을 활성화해주세요.',
-          [{ text: '확인', onPress: () => navigation.navigate('Login') }]
+          '이메일 확인 필요',
+          '가입하신 이메일로 확인 링크를 전송했습니다. 이메일을 확인한 후 로그인해주세요.',
+          [
+            { text: '확인', onPress: () => navigation.navigate('Login') },
+            { 
+              text: '재전송', 
+              onPress: async () => {
+                try {
+                  await authService.resendVerificationEmail(email);
+                  Alert.alert('전송 완료', '확인 이메일을 다시 전송했습니다.');
+                } catch (resendError: any) {
+                  Alert.alert('전송 실패', resendError.message);
+                }
+              }
+            }
+          ]
         );
+      } else {
+        Alert.alert('회원가입 실패', error.message);
       }
-    } catch (error) {
-      Alert.alert('오류', '회원가입 중 오류가 발생했습니다.');
     } finally {
       setLoading(false);
     }

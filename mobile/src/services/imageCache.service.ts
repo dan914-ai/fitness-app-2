@@ -26,7 +26,6 @@ class ImageCacheService {
         });
       }
     } catch (error) {
-      console.log('Failed to load cache status:', error);
     }
   }
 
@@ -41,7 +40,6 @@ class ImageCacheService {
       });
       await AsyncStorage.setItem(this.CACHE_KEY, JSON.stringify(data));
     } catch (error) {
-      console.log('Failed to save cache status:', error);
     }
   }
 
