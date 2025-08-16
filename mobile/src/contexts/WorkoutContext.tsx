@@ -559,7 +559,7 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
       try {
         const savedState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
         if (savedState) {
-          const parsedState = safeJsonParse(savedState, null);
+          const parsedState = safeJsonParseWithDates(savedState, null);
           if (!parsedState) {
             setIsLoading(false);
             return;
