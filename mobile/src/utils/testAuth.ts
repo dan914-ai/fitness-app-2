@@ -22,12 +22,7 @@ export async function testSupabaseAuth() {
       console.error('❌ Sign up error:', signUpError);
       return false;
     }
-    
-      user: signUpData.user?.id,
-      email: signUpData.user?.email,
-      confirmed: signUpData.user?.confirmed_at,
-      session: !!signUpData.session,
-    });
+    // Debug logging removed for production
     
     // Test 3: Try signing in with the account
     const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
@@ -42,9 +37,7 @@ export async function testSupabaseAuth() {
       if (signInError.message.includes('confirm') || signInError.message.includes('Email')) {
       }
     } else {
-        userId: signInData.user?.id,
-        session: !!signInData.session,
-      });
+      // Debug logging removed for production
       
       // Sign out to clean up
       await supabase.auth.signOut();

@@ -36,6 +36,9 @@ import RestTimer from '../../components/workout/RestTimer';
 import PlateCalculator from '../../components/workout/PlateCalculator';
 import ExerciseAlternatives from '../../components/workout/ExerciseAlternatives';
 import PRCelebration from '../../components/workout/PRCelebration';
+import EnhancedExerciseGifDisplay from '../../components/common/EnhancedExerciseGifDisplay';
+import NetworkErrorBoundary from '../../components/common/NetworkErrorBoundary';
+import NetworkStatusIndicator from '../../components/common/NetworkStatusIndicator';
 import { 
   getWarmupProtocol, 
   getExerciseType, 
@@ -55,11 +58,7 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
   // Get exercise data from database service
   const exerciseData = exerciseDatabaseService.getExerciseById(exerciseId);
   
-  // Debug: Log what we're getting
-    hasData: !!exerciseData,
-    gifUrl: exerciseData?.gifUrl,
-    imageUrl: exerciseData?.imageUrl,
-  });
+  // Debug logging removed for production
   
   // Build an array of URLs to try in order
   const gifUrls = useMemo(() => {
@@ -188,11 +187,7 @@ export default function ExerciseTrackScreen() {
   const { exerciseId, exerciseName, routineId } = route.params;
   const workout = useWorkout();
   
-  // IMMEDIATE DEBUG - This should show up as soon as component renders
-    isWorkoutActive: workout.state.isWorkoutActive,
-    exerciseKeys: Object.keys(workout.state.exercises),
-    currentExerciseId: workout.state.currentExerciseId
-  });
+  // Debug logging removed for production
   
   // Get exercise data including thumbnail
   const exercise = exerciseDatabaseService.getExerciseById(exerciseId);
@@ -264,10 +259,7 @@ export default function ExerciseTrackScreen() {
         const routine = await routinesService.getRoutineById(routineId);
         
         if (routine && routine.exercises) {
-            name: routine.name,
-            exerciseCount: routine.exercises.length,
-            exercises: routine.exercises.map((ex: any) => ({ id: ex.id, name: ex.name }))
-          });
+          // Debug logging removed for production
           
           setRoutineExercises(routine.exercises);
           const currentIndex = routine.exercises.findIndex((ex: any) => ex.id === exerciseId);
@@ -276,7 +268,7 @@ export default function ExerciseTrackScreen() {
           alert('ERROR: No routine data found! routineId=' + routineId);
         }
       } catch (error) {
-        console.error('Error loading routine data:', error);
+        // Error loading routine data
         alert('ERROR loading routine: ' + (error instanceof Error ? error.message : String(error)));
       }
     };
@@ -322,11 +314,7 @@ export default function ExerciseTrackScreen() {
           }
         }
 
-          exerciseId: exerciseData.exerciseId,
-          exerciseName: exerciseData.exerciseName,
-          setsCount: exerciseData.sets.length,
-          sets: exerciseData.sets.map(s => ({ id: s.id, weight: s.weight, type: s.type }))
-        });
+        // Debug logging removed for production
 
         // Check if any sets need weight pre-filling
         const needsWeightPrefill = exerciseData.sets.some(set => {
@@ -401,7 +389,7 @@ export default function ExerciseTrackScreen() {
         if (data) {
           setExerciseData(data);
         } else {
-          console.warn('⚠️ No detailed exercise data found for ID:', exerciseId);
+          // No detailed exercise data found
           // Try with alternative IDs (handle underscore/hyphen variations)
           const alternativeId = exerciseId.includes('_') 
             ? exerciseId.replace(/_/g, '-') 
@@ -660,6 +648,17 @@ export default function ExerciseTrackScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Network Status Indicator */}
+      <NetworkStatusIndicator
+        showWhenOnline={false}
+        showQuality={true}
+        position="top"
+        compact={false}
+        onRetry={() => {
+          console.log('Retrying network requests from Exercise Track Screen');
+        }}
+      />
+
       {/* Rest Complete Message */}
       {showRestComplete && (
         <View style={styles.restCompleteBanner}>
@@ -815,21 +814,13 @@ export default function ExerciseTrackScreen() {
 
         {(() => {
           const exerciseData = workout.getExerciseData(exerciseId);
-            exerciseId,
-            hasExerciseData: !!exerciseData,
-            hasProgressionSuggestion: !!(exerciseData?.progressionSuggestion),
-            progressionSuggestion: exerciseData?.progressionSuggestion
-          });
+          // Debug logging removed for production
           
           if (!exerciseData || !exerciseData.progressionSuggestion) {
             return null;
           }
           const { originalWeight, suggestedWeight, reason, readiness } = exerciseData.progressionSuggestion;
-            originalWeight,
-            suggestedWeight,
-            reason,
-            readiness
-          });
+          // Debug logging removed for production
           return (
             <ProgressionIndicator
               originalWeight={originalWeight}
@@ -1028,11 +1019,29 @@ export default function ExerciseTrackScreen() {
           </View>
         </View>
 
-        {/* Exercise GIF */}
-        <View style={styles.mediaSection}>
-          <Text style={styles.sectionTitle}>운동 동작</Text>
-          <ExerciseGifDisplay exerciseId={exerciseId} exerciseName={exerciseName} />
-        </View>
+        {/* Exercise GIF with Enhanced Network Handling */}
+        <NetworkErrorBoundary
+          showNetworkStatus={true}
+          onRetry={() => {
+            console.log('Retrying exercise GIF load from error boundary');
+          }}
+        >
+          <View style={styles.mediaSection}>
+            <Text style={styles.sectionTitle}>운동 동작</Text>
+            <EnhancedExerciseGifDisplay 
+              exerciseId={exerciseId} 
+              exerciseName={exerciseName}
+              showDebugInfo={__DEV__} // Show debug info in development
+              height={200}
+              onFallbackUsed={(fallbackType) => {
+                console.log(`Exercise GIF fallback used: ${fallbackType}`);
+              }}
+              onNetworkError={(error) => {
+                console.error('Exercise GIF network error:', error);
+              }}
+            />
+          </View>
+        </NetworkErrorBoundary>
 
         {/* Previous Records Section */}
         {exerciseHistory.length > 0 && (

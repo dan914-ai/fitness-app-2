@@ -13,6 +13,7 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
 import { staticThumbnails } from '../../constants/staticThumbnails';
+import NetworkAwareImage from './NetworkAwareImage';
 
 interface ExerciseThumbnailProps {
   exerciseId: string | number;
@@ -148,19 +149,20 @@ const ExerciseThumbnail = memo(({
                 </TouchableOpacity>
               </View>
               
-              {/* Animated GIF from Supabase */}
+              {/* Animated GIF from Supabase with Network Awareness */}
               <View style={styles.gifContainer}>
-                {gifLoading && (
-                  <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color={Colors.primary} />
-                    <Text style={styles.loadingText}>로딩중...</Text>
-                  </View>
-                )}
-                <Image
+                <NetworkAwareImage
                   source={{ uri: gifUrl }}
+                  exerciseId={exerciseId.toString()}
+                  exerciseName={exerciseName}
                   style={styles.gif}
                   resizeMode="contain"
+                  showRetryButton={true}
+                  showNetworkStatus={true}
                   onLoad={handleGifLoad}
+                  onFallbackUsed={(fallbackType) => {
+                    console.log(`GIF fallback used for ${exerciseId}: ${fallbackType}`);
+                  }}
                 />
               </View>
               

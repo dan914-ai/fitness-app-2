@@ -44,12 +44,6 @@ export async function loginWithMockAuth(email: string, password: string) {
     // Set a flag that we're using mock auth
     await AsyncStorage.setItem('using_mock_auth', 'true');
     
-      session: 'stored',
-      authToken: 'stored',
-      user: 'stored',
-      using_mock_auth: 'true'
-    });
-    
     return {
       success: true,
       user: mockUser,

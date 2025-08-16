@@ -1,10 +1,20 @@
 import { supabase, getExerciseGifUrl, uploadExerciseGif, deleteExerciseGif, EXERCISE_GIFS_BUCKET } from '../config/supabase';
+import { networkService } from './network.service';
 
 export interface GifDownloadOptions {
   exerciseId: string;
   sourceUrl: string;
   fileName?: string;
   forceRedownload?: boolean;
+  retryOptions?: RetryOptions;
+}
+
+export interface RetryOptions {
+  maxRetries?: number;
+  baseDelay?: number;
+  maxDelay?: number;
+  backoffMultiplier?: number;
+  retryOnNetworkError?: boolean;
 }
 
 export interface GifStorageInfo {
@@ -16,8 +26,267 @@ export interface GifStorageInfo {
   uploadedAt: string;
 }
 
+export interface GifLoadResult {
+  success: boolean;
+  url?: string;
+  error?: string;
+  isFromCache?: boolean;
+  retryCount?: number;
+  fallbackUsed?: boolean;
+}
+
+export interface NetworkAwareImageState {
+  isLoading: boolean;
+  hasError: boolean;
+  errorMessage?: string;
+  retryCount: number;
+  isFromFallback: boolean;
+  networkStatus: 'online' | 'offline' | 'poor';
+}
+
 class GifService {
   private downloadQueue: Map<string, Promise<any>> = new Map();
+  private failedUrls: Set<string> = new Set(); // Track failed URLs to avoid repeated attempts
+  private urlCache: Map<string, GifLoadResult> = new Map(); // Cache successful loads
+  private defaultRetryOptions: RetryOptions = {
+    maxRetries: 3,
+    baseDelay: 1000, // 1 second
+    maxDelay: 30000, // 30 seconds
+    backoffMultiplier: 2,
+    retryOnNetworkError: true,
+  };
+
+  /**
+   * Network-aware GIF loading with comprehensive error handling and retry logic
+   */
+  async loadGifWithRetry(url: string, options?: RetryOptions): Promise<GifLoadResult> {
+    const retryOptions = { ...this.defaultRetryOptions, ...options };
+    
+    // Check cache first
+    const cached = this.urlCache.get(url);
+    if (cached && cached.success) {
+      return { ...cached, isFromCache: true };
+    }
+
+    // Check if URL has failed before and we shouldn't retry
+    if (this.failedUrls.has(url) && !retryOptions.retryOnNetworkError) {
+      return {
+        success: false,
+        error: 'URL previously failed and retry disabled',
+        fallbackUsed: false,
+      };
+    }
+
+    // Check network status
+    const networkStatus = this.getNetworkStatus();
+    if (networkStatus === 'offline') {
+      return {
+        success: false,
+        error: 'No network connection',
+        fallbackUsed: false,
+      };
+    }
+
+    let lastError: string = '';
+    let retryCount = 0;
+
+    for (let attempt = 0; attempt <= retryOptions.maxRetries!; attempt++) {
+      try {
+        retryCount = attempt;
+        
+        // Check network before each attempt
+        if (!networkService.isOnline() && retryOptions.retryOnNetworkError) {
+          throw new Error('Network offline');
+        }
+
+        const result = await this.attemptGifLoad(url);
+        
+        // Success! Cache the result and return
+        const successResult: GifLoadResult = {
+          success: true,
+          url,
+          retryCount,
+          isFromCache: false,
+          fallbackUsed: false,
+        };
+        
+        this.urlCache.set(url, successResult);
+        this.failedUrls.delete(url); // Remove from failed URLs if it succeeded
+        
+        return successResult;
+        
+      } catch (error) {
+        lastError = error instanceof Error ? error.message : 'Unknown error';
+        console.warn(`GIF load attempt ${attempt + 1} failed for ${url}:`, lastError);
+        
+        // Don't retry on the last attempt
+        if (attempt < retryOptions.maxRetries!) {
+          const delay = this.calculateRetryDelay(attempt, retryOptions);
+          await this.delay(delay);
+          
+          // Check if we should continue retrying based on error type
+          if (!this.shouldRetryOnError(lastError, retryOptions)) {
+            break;
+          }
+        }
+      }
+    }
+
+    // All attempts failed
+    this.failedUrls.add(url);
+    
+    return {
+      success: false,
+      error: lastError,
+      retryCount,
+      fallbackUsed: false,
+    };
+  }
+
+  /**
+   * Test if an image URL is accessible without downloading
+   */
+  async testGifUrl(url: string, timeout: number = 5000): Promise<boolean> {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeout);
+      
+      const response = await fetch(url, { 
+        method: 'HEAD',
+        signal: controller.signal,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
+        },
+      });
+      
+      clearTimeout(timeoutId);
+      
+      return response.ok && 
+             (response.headers.get('content-type')?.includes('image') ?? false);
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Get multiple GIF URLs with fallback options
+   */
+  async loadGifWithFallbacks(urls: string[], options?: RetryOptions): Promise<GifLoadResult> {
+    if (urls.length === 0) {
+      return {
+        success: false,
+        error: 'No URLs provided',
+        fallbackUsed: false,
+      };
+    }
+
+    let lastError = '';
+    
+    for (let i = 0; i < urls.length; i++) {
+      const url = urls[i];
+      const result = await this.loadGifWithRetry(url, {
+        ...options,
+        maxRetries: i === 0 ? (options?.maxRetries ?? 3) : 1, // Fewer retries for fallback URLs
+      });
+      
+      if (result.success) {
+        return {
+          ...result,
+          fallbackUsed: i > 0,
+        };
+      }
+      
+      lastError = result.error || 'Unknown error';
+    }
+
+    return {
+      success: false,
+      error: `All URLs failed. Last error: ${lastError}`,
+      fallbackUsed: true,
+    };
+  }
+
+  /**
+   * Clear failed URLs cache (useful when network is restored)
+   */
+  clearFailedUrlsCache(): void {
+    this.failedUrls.clear();
+    console.log('Cleared failed URLs cache');
+  }
+
+  /**
+   * Get network status for GIF loading decisions
+   */
+  private getNetworkStatus(): 'online' | 'offline' | 'poor' {
+    if (!networkService.isOnline()) {
+      return 'offline';
+    }
+    
+    const quality = networkService.getConnectionQuality();
+    return quality === 'poor' ? 'poor' : 'online';
+  }
+
+  /**
+   * Attempt to load a single GIF URL
+   */
+  private async attemptGifLoad(url: string): Promise<void> {
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
+      },
+      // Add timeout
+      signal: AbortSignal.timeout(10000), // 10 seconds timeout
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const contentType = response.headers.get('content-type');
+    if (!contentType?.includes('image')) {
+      throw new Error(`Invalid content type: ${contentType}`);
+    }
+
+    // We don't need to fully download for testing, just verify it's accessible
+  }
+
+  /**
+   * Calculate retry delay with exponential backoff
+   */
+  private calculateRetryDelay(attempt: number, options: RetryOptions): number {
+    const baseDelay = options.baseDelay || 1000;
+    const multiplier = options.backoffMultiplier || 2;
+    const maxDelay = options.maxDelay || 30000;
+    
+    const delay = baseDelay * Math.pow(multiplier, attempt);
+    return Math.min(delay, maxDelay);
+  }
+
+  /**
+   * Determine if we should retry based on the error
+   */
+  private shouldRetryOnError(error: string, options: RetryOptions): boolean {
+    const errorLower = error.toLowerCase();
+    
+    // Always retry on network errors if enabled
+    if (options.retryOnNetworkError) {
+      const networkErrors = ['network', 'timeout', 'fetch', 'connection', 'offline'];
+      if (networkErrors.some(err => errorLower.includes(err))) {
+        return networkService.isOnline(); // Only retry if network is back
+      }
+    }
+    
+    // Retry on temporary server errors
+    const retryableErrors = ['503', '502', '504', 'timeout', 'temporary'];
+    return retryableErrors.some(err => errorLower.includes(err));
+  }
+
+  /**
+   * Simple delay utility
+   */
+  private delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   /**
    * Downloads GIF from source URL and uploads to Supabase storage
@@ -61,16 +330,90 @@ class GifService {
   }
 
   /**
-   * Performs the actual GIF download and upload
+   * Initialize network listeners for automatic cache clearing
+   */
+  initializeNetworkListeners(): void {
+    networkService.addNetworkListener((networkState) => {
+      if (networkState.isConnected && networkState.isInternetReachable) {
+        // Network restored - clear failed URLs cache
+        this.clearFailedUrlsCache();
+        console.log('Network restored - cleared failed URLs cache');
+      }
+    });
+  }
+
+  /**
+   * Get fallback thumbnail URL for exercise
+   */
+  getFallbackThumbnailUrl(exerciseId: string): string | null {
+    // Import staticThumbnails to get local fallback
+    const { staticThumbnails } = require('../constants/staticThumbnails');
+    return staticThumbnails[exerciseId] || null;
+  }
+
+  /**
+   * Enhanced GIF loading with comprehensive fallback strategy
+   */
+  async loadGifWithComprehensiveFallback(
+    exerciseId: string, 
+    primaryUrls: string[], 
+    exerciseName?: string,
+    options?: RetryOptions
+  ): Promise<GifLoadResult & { fallbackType?: 'gif' | 'thumbnail' | 'placeholder' }> {
+    console.log(`🎯 Loading GIF for exercise ${exerciseId} with ${primaryUrls.length} URLs`);
+    
+    // Try primary GIF URLs first
+    if (primaryUrls.length > 0) {
+      const result = await this.loadGifWithFallbacks(primaryUrls, options);
+      if (result.success) {
+        return { ...result, fallbackType: result.fallbackUsed ? 'gif' : undefined };
+      }
+    }
+
+    // If all GIF URLs failed, try thumbnail fallback
+    const thumbnailUrl = this.getFallbackThumbnailUrl(exerciseId);
+    if (thumbnailUrl) {
+      console.log(`🖼️ Falling back to thumbnail for ${exerciseId}`);
+      return {
+        success: true,
+        url: thumbnailUrl,
+        fallbackUsed: true,
+        fallbackType: 'thumbnail',
+        error: 'Using static thumbnail as fallback',
+      };
+    }
+
+    // Final fallback to placeholder
+    console.log(`📱 Using placeholder for ${exerciseId}`);
+    return {
+      success: false,
+      fallbackUsed: true,
+      fallbackType: 'placeholder',
+      error: 'No GIF or thumbnail available - using placeholder',
+    };
+  }
+
+  /**
+   * Performs the actual GIF download and upload with retry logic
    */
   private async performGifDownload(exerciseId: string, sourceUrl: string, fileName: string): Promise<GifStorageInfo | null> {
     try {
+      // Use new retry logic for downloading
+      const downloadResult = await this.loadGifWithRetry(sourceUrl, {
+        maxRetries: 3,
+        retryOnNetworkError: true,
+      });
+
+      if (!downloadResult.success) {
+        throw new Error(`Failed to download GIF: ${downloadResult.error}`);
+      }
       
-      // Download GIF from source URL
+      // Download GIF with retry logic
       const response = await fetch(sourceUrl, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         },
+        signal: AbortSignal.timeout(30000), // 30 seconds timeout for actual download
       });
 
       if (!response.ok) {

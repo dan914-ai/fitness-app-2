@@ -10,16 +10,12 @@ debugEnvironment();
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || 'YOUR_SUPABASE_URL';
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
 
-// Debug logging
-  url: supabaseUrl,
-  hasKey: !!supabaseAnonKey && supabaseAnonKey !== 'YOUR_SUPABASE_ANON_KEY',
-  keyLength: supabaseAnonKey.length,
-});
+// Debug logging removed for production
 
 // Validate configuration
 if (supabaseUrl === 'YOUR_SUPABASE_URL' || supabaseAnonKey === 'YOUR_SUPABASE_ANON_KEY') {
-  console.error('⚠️ SUPABASE NOT CONFIGURED! Using placeholder values. Auth will not work.');
-  console.error('Please check that .env file is loaded and contains EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY');
+  // Supabase not configured - auth will not work
+  // Please check that .env file is loaded and contains EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY
 }
 
 // Create Supabase client

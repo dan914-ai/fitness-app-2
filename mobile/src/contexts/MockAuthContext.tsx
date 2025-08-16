@@ -19,11 +19,6 @@ export function MockAuthProvider({ children }: { children: React.ReactNode }) {
       const usingMockAuth = await AsyncStorage.getItem('using_mock_auth');
       const authToken = await AsyncStorage.getItem('authToken');
       
-        hasMockSession: !!mockSession,
-        usingMockAuth: usingMockAuth,
-        hasAuthToken: !!authToken,
-      });
-      
       if (mockSession || usingMockAuth === 'true' || authToken === 'mock-token-123') {
         setIsMockAuthenticated(true);
       } else {

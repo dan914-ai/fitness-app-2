@@ -28,13 +28,8 @@ export interface WorkoutHistoryItem {
 
 export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<WorkoutHistoryItem | null> {
   try {
-      isActive: workoutState.isWorkoutActive,
-      startTime: workoutState.startTime,
-      exerciseCount: Object.keys(workoutState.exercises).length
-    });
 
     if (!workoutState.isWorkoutActive || !workoutState.startTime) {
-      console.warn('❌ Cannot save incomplete workout - isActive:', workoutState.isWorkoutActive, 'startTime:', workoutState.startTime);
       return null;
     }
 
@@ -86,12 +81,6 @@ export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<
     };
 
     // Save to history using storage service
-      id: workoutHistoryItem.id,
-      routineName: workoutHistoryItem.routineName,
-      exerciseCount: workoutHistoryItem.exercises.length,
-      totalVolume: workoutHistoryItem.totalVolume,
-      totalSets: workoutHistoryItem.totalSets
-    });
     
     await storageService.addWorkoutToHistory(workoutHistoryItem);
 

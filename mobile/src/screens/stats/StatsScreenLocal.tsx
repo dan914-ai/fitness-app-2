@@ -189,11 +189,7 @@ export default function StatsScreen({ navigation }: any) {
         }));
       }
       
-      // Debug log
-        weeklyData,
-        monthlyData,
-        muscleGroups,
-      });
+      // Debug logging removed for production
       
       setStats({
         totalWorkouts,
