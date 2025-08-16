@@ -1,0 +1,1061 @@
+{
+  "totalKoreanFiles": 132,
+  "mappings": [
+    {
+      "directory": "arms",
+      "fileName": "닐링 케이블 오버헤드 트라이셉 익스텐션.gif",
+      "filePath": "arms/닐링 케이블 오버헤드 트라이셉 익스텐션.gif",
+      "koreanName": "닐링 케이블 오버헤드 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "덤벨 바이셉 컬.gif",
+      "filePath": "arms/덤벨 바이셉 컬.gif",
+      "koreanName": "덤벨 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "덤벨 컨센트레이션 컬.gif",
+      "filePath": "arms/덤벨 컨센트레이션 컬.gif",
+      "koreanName": "덤벨 컨센트레이션 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "덤벨 트라이센 익스텐션.gif",
+      "filePath": "arms/덤벨 트라이센 익스텐션.gif",
+      "koreanName": "덤벨 트라이센 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "덤벨 트라이셉 익스텐션.gif",
+      "filePath": "arms/덤벨 트라이셉 익스텐션.gif",
+      "koreanName": "덤벨 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "덤벨 트라이셉 킥백.gif",
+      "filePath": "arms/덤벨 트라이셉 킥백.gif",
+      "koreanName": "덤벨 트라이셉 킥백",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "덤벨 해머 컬.gif",
+      "filePath": "arms/덤벨 해머 컬.gif",
+      "koreanName": "덤벨 해머 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "머신 딥스.gif",
+      "filePath": "arms/머신 딥스.gif",
+      "koreanName": "머신 딥스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "머신 트라이셉 익스텐션 2.gif",
+      "filePath": "arms/머신 트라이셉 익스텐션 2.gif",
+      "koreanName": "머신 트라이셉 익스텐션 2",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "머신 트라이셉 익스텐션.gif",
+      "filePath": "arms/머신 트라이셉 익스텐션.gif",
+      "koreanName": "머신 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "바벨 라잉 트라이셉 익스텐션.gif",
+      "filePath": "arms/바벨 라잉 트라이셉 익스텐션.gif",
+      "koreanName": "바벨 라잉 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "바벨 바이셉 컬.gif",
+      "filePath": "arms/바벨 바이셉 컬.gif",
+      "koreanName": "바벨 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "바벨 인클라인 트라이셉 익스텐션.gif",
+      "filePath": "arms/바벨 인클라인 트라이셉 익스텐션.gif",
+      "koreanName": "바벨 인클라인 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "바벨 트라이셉 익스텐션.gif",
+      "filePath": "arms/바벨 트라이셉 익스텐션.gif",
+      "koreanName": "바벨 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "바벨 프리처 컬.gif",
+      "filePath": "arms/바벨 프리처 컬.gif",
+      "koreanName": "바벨 프리처 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "벤치 딥스.gif",
+      "filePath": "arms/벤치 딥스.gif",
+      "koreanName": "벤치 딥스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "스파이더 바이셉 컬.gif",
+      "filePath": "arms/스파이더 바이셉 컬.gif",
+      "koreanName": "스파이더 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "어시스트 딥스.gif",
+      "filePath": "arms/어시스트 딥스.gif",
+      "koreanName": "어시스트 딥스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "원 암 덤벨 트라이셉 익스텐션.gif",
+      "filePath": "arms/원 암 덤벨 트라이셉 익스텐션.gif",
+      "koreanName": "원 암 덤벨 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "원 암 덤벨 프리처 컬.gif",
+      "filePath": "arms/원 암 덤벨 프리처 컬.gif",
+      "koreanName": "원 암 덤벨 프리처 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "원 암 케이블 바이셉 컬.gif",
+      "filePath": "arms/원 암 케이블 바이셉 컬.gif",
+      "koreanName": "원 암 케이블 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "원 암 케이블 트라이셉 익스텐션.gif",
+      "filePath": "arms/원 암 케이블 트라이셉 익스텐션.gif",
+      "koreanName": "원 암 케이블 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "이지 바 바이셉 컬.gif",
+      "filePath": "arms/이지 바 바이셉 컬.gif",
+      "koreanName": "이지 바 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "이지바 리버스 바이셉 컬.gif",
+      "filePath": "arms/이지바 리버스 바이셉 컬.gif",
+      "koreanName": "이지바 리버스 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 v-bar 트라이셉 푸시다운.gif",
+      "filePath": "arms/케이블 v-bar 트라이셉 푸시다운.gif",
+      "koreanName": "케이블 v-bar 트라이셉 푸시다운",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 더블 바이셉 컬.gif",
+      "filePath": "arms/케이블 더블 바이셉 컬.gif",
+      "koreanName": "케이블 더블 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 로프 바이셉 컬.gif",
+      "filePath": "arms/케이블 로프 바이셉 컬.gif",
+      "koreanName": "케이블 로프 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 로프 트라이셉 익스텐션.gif",
+      "filePath": "arms/케이블 로프 트라이셉 익스텐션.gif",
+      "koreanName": "케이블 로프 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 리버스 그립 트라이셉 푸시다운.gif",
+      "filePath": "arms/케이블 리버스 그립 트라이셉 푸시다운.gif",
+      "koreanName": "케이블 리버스 그립 트라이셉 푸시다운",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 바이셉 컬.gif",
+      "filePath": "arms/케이블 바이셉 컬.gif",
+      "koreanName": "케이블 바이셉 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 오버헤드 트라이셉 익스텐션.gif",
+      "filePath": "arms/케이블 오버헤드 트라이셉 익스텐션.gif",
+      "koreanName": "케이블 오버헤드 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 원 암 리버스 그립 트라이셉 푸시다운.gif",
+      "filePath": "arms/케이블 원 암 리버스 그립 트라이셉 푸시다운.gif",
+      "koreanName": "케이블 원 암 리버스 그립 트라이셉 푸시다운",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 인클라인 트라이셉 익스텐션.gif",
+      "filePath": "arms/케이블 인클라인 트라이셉 익스텐션.gif",
+      "koreanName": "케이블 인클라인 트라이셉 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "케이블 트라이셉 킥백.gif",
+      "filePath": "arms/케이블 트라이셉 킥백.gif",
+      "koreanName": "케이블 트라이셉 킥백",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "클로즈 그립 랫 풀다운.gif",
+      "filePath": "arms/클로즈 그립 랫 풀다운.gif",
+      "koreanName": "클로즈 그립 랫 풀다운",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "arms",
+      "fileName": "클로즈 그립 벤치 프레스.gif",
+      "filePath": "arms/클로즈 그립 벤치 프레스.gif",
+      "koreanName": "클로즈 그립 벤치 프레스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "back",
+      "fileName": "덤벨 로우.gif",
+      "filePath": "back/덤벨 로우.gif",
+      "koreanName": "덤벨 로우",
+      "englishName": "dumbbell-row",
+      "newFileName": "dumbbell-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "랫 풀 다운.gif",
+      "filePath": "back/랫 풀 다운.gif",
+      "koreanName": "랫 풀 다운",
+      "englishName": "lat-pulldown",
+      "newFileName": "lat-pulldown.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "머신 시티드 로우.gif",
+      "filePath": "back/머신 시티드 로우.gif",
+      "koreanName": "머신 시티드 로우",
+      "englishName": "machine-seated-row",
+      "newFileName": "machine-seated-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "바벨 로우.gif",
+      "filePath": "back/바벨 로우.gif",
+      "koreanName": "바벨 로우",
+      "englishName": "barbell-row",
+      "newFileName": "barbell-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "체스트 서포티드 덤벨 로우.gif",
+      "filePath": "back/체스트 서포티드 덤벨 로우.gif",
+      "koreanName": "체스트 서포티드 덤벨 로우",
+      "englishName": "chest-supported-dumbbell-row",
+      "newFileName": "chest-supported-dumbbell-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "체스트 서포티드 바벨로우.gif",
+      "filePath": "back/체스트 서포티드 바벨로우.gif",
+      "koreanName": "체스트 서포티드 바벨로우",
+      "englishName": "chest-supported-barbell-row",
+      "newFileName": "chest-supported-barbell-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "케이블 로우.gif",
+      "filePath": "back/케이블 로우.gif",
+      "koreanName": "케이블 로우",
+      "englishName": "cable-row",
+      "newFileName": "cable-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "케이블 시티드 로우.gif",
+      "filePath": "back/케이블 시티드 로우.gif",
+      "koreanName": "케이블 시티드 로우",
+      "englishName": "cable-seated-row",
+      "newFileName": "cable-seated-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "케이블 풀오버.gif",
+      "filePath": "back/케이블 풀오버.gif",
+      "koreanName": "케이블 풀오버",
+      "englishName": "cable-pullover",
+      "newFileName": "cable-pullover.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "티 바 로우.gif",
+      "filePath": "back/티 바 로우.gif",
+      "koreanName": "티 바 로우",
+      "englishName": "t-bar-row",
+      "newFileName": "t-bar-row.gif"
+    },
+    {
+      "directory": "back",
+      "fileName": "풀업.gif",
+      "filePath": "back/풀업.gif",
+      "koreanName": "풀업",
+      "englishName": "pull-up",
+      "newFileName": "pull-up.gif"
+    },
+    {
+      "directory": "cardio",
+      "fileName": "스텝 밀.gif",
+      "filePath": "cardio/스텝 밀.gif",
+      "koreanName": "스텝 밀",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "cardio",
+      "fileName": "싸이클.gif",
+      "filePath": "cardio/싸이클.gif",
+      "koreanName": "싸이클",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "cardio",
+      "fileName": "일립티컬 머신.gif",
+      "filePath": "cardio/일립티컬 머신.gif",
+      "koreanName": "일립티컬 머신",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "cardio",
+      "fileName": "트레드밀 (런닝머신).gif",
+      "filePath": "cardio/트레드밀 (런닝머신).gif",
+      "koreanName": "트레드밀 (런닝머신)",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "chest",
+      "fileName": "덤벨 벤치프레스.gif",
+      "filePath": "chest/덤벨 벤치프레스.gif",
+      "koreanName": "덤벨 벤치프레스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "chest",
+      "fileName": "덤벨 체스트 플라이.gif",
+      "filePath": "chest/덤벨 체스트 플라이.gif",
+      "koreanName": "덤벨 체스트 플라이",
+      "englishName": "dumbbell-chest-fly",
+      "newFileName": "dumbbell-chest-fly.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "디클라인 덤벨 플라이.gif",
+      "filePath": "chest/디클라인 덤벨 플라이.gif",
+      "koreanName": "디클라인 덤벨 플라이",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "chest",
+      "fileName": "디클라인 바벨 벤치프레스.gif",
+      "filePath": "chest/디클라인 바벨 벤치프레스.gif",
+      "koreanName": "디클라인 바벨 벤치프레스",
+      "englishName": "decline-barbell-bench-press",
+      "newFileName": "decline-barbell-bench-press.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "디클라인 케이블 플라이.gif",
+      "filePath": "chest/디클라인 케이블 플라이.gif",
+      "koreanName": "디클라인 케이블 플라이",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "chest",
+      "fileName": "딥스.gif",
+      "filePath": "chest/딥스.gif",
+      "koreanName": "딥스",
+      "englishName": "dips",
+      "newFileName": "dips.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "머신 체스트 프레스.gif",
+      "filePath": "chest/머신 체스트 프레스.gif",
+      "koreanName": "머신 체스트 프레스",
+      "englishName": "machine-chest-press",
+      "newFileName": "machine-chest-press.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "머신 체스트 플라이.gif",
+      "filePath": "chest/머신 체스트 플라이.gif",
+      "koreanName": "머신 체스트 플라이",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "chest",
+      "fileName": "바벨 벤치프레스.gif",
+      "filePath": "chest/바벨 벤치프레스.gif",
+      "koreanName": "바벨 벤치프레스",
+      "englishName": "barbell-bench-press",
+      "newFileName": "barbell-bench-press.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "바벨 인클라인 벤치 프레스.gif",
+      "filePath": "chest/바벨 인클라인 벤치 프레스.gif",
+      "koreanName": "바벨 인클라인 벤치 프레스",
+      "englishName": "incline-barbell-bench-press",
+      "newFileName": "incline-barbell-bench-press.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "스미스 벤치 프레스.gif",
+      "filePath": "chest/스미스 벤치 프레스.gif",
+      "koreanName": "스미스 벤치 프레스",
+      "englishName": "smith-bench-press",
+      "newFileName": "smith-bench-press.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "인클라인 덤벨 플라이.gif",
+      "filePath": "chest/인클라인 덤벨 플라이.gif",
+      "koreanName": "인클라인 덤벨 플라이",
+      "englishName": "incline-dumbbell-fly",
+      "newFileName": "incline-dumbbell-fly.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "케이블 크로스오버.gif",
+      "filePath": "chest/케이블 크로스오버.gif",
+      "koreanName": "케이블 크로스오버",
+      "englishName": "cable-crossover",
+      "newFileName": "cable-crossover.gif"
+    },
+    {
+      "directory": "chest",
+      "fileName": "플레이트 체스트 프레스.gif",
+      "filePath": "chest/플레이트 체스트 프레스.gif",
+      "koreanName": "플레이트 체스트 프레스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "글루트 킥 백 (힙 익스텐션).gif",
+      "filePath": "legs/글루트 킥 백 (힙 익스텐션).gif",
+      "koreanName": "글루트 킥 백 (힙 익스텐션)",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "글루트 킥 백 머신.gif",
+      "filePath": "legs/글루트 킥 백 머신.gif",
+      "koreanName": "글루트 킥 백 머신",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "닐링 레그컬.gif",
+      "filePath": "legs/닐링 레그컬.gif",
+      "koreanName": "닐링 레그컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "덤벨 리버스 리스트 컬.gif",
+      "filePath": "legs/덤벨 리버스 리스트 컬.gif",
+      "koreanName": "덤벨 리버스 리스트 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "덤벨 리스트 컬.gif",
+      "filePath": "legs/덤벨 리스트 컬.gif",
+      "koreanName": "덤벨 리스트 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "덤벨 스쿼트.gif",
+      "filePath": "legs/덤벨 스쿼트.gif",
+      "koreanName": "덤벨 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "덤벨 스티프 레그 데드리프트.gif",
+      "filePath": "legs/덤벨 스티프 레그 데드리프트.gif",
+      "koreanName": "덤벨 스티프 레그 데드리프트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "라잉 레그컬.gif",
+      "filePath": "legs/라잉 레그컬.gif",
+      "koreanName": "라잉 레그컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "랜드마인 스쿼트.gif",
+      "filePath": "legs/랜드마인 스쿼트.gif",
+      "koreanName": "랜드마인 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "레그 익스텐션.gif",
+      "filePath": "legs/레그 익스텐션.gif",
+      "koreanName": "레그 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "레그 프레스 카프 레이즈.gif",
+      "filePath": "legs/레그 프레스 카프 레이즈.gif",
+      "koreanName": "레그 프레스 카프 레이즈",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "레그 프레스.gif",
+      "filePath": "legs/레그 프레스.gif",
+      "koreanName": "레그 프레스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "루마니안 데드리프트.gif",
+      "filePath": "legs/루마니안 데드리프트.gif",
+      "koreanName": "루마니안 데드리프트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "리버스 브이 스쿼트.gif",
+      "filePath": "legs/리버스 브이 스쿼트.gif",
+      "koreanName": "리버스 브이 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "맨몸 런지.gif",
+      "filePath": "legs/맨몸 런지.gif",
+      "koreanName": "맨몸 런지",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "맨몸 스쿼트.gif",
+      "filePath": "legs/맨몸 스쿼트.gif",
+      "koreanName": "맨몸 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "머신 레그 프레스.gif",
+      "filePath": "legs/머신 레그 프레스.gif",
+      "koreanName": "머신 레그 프레스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "머신 스탠딩 힙 어브덕션 (스탠딩 아웃 타이 머신).gif",
+      "filePath": "legs/머신 스탠딩 힙 어브덕션 (스탠딩 아웃 타이 머신).gif",
+      "koreanName": "머신 스탠딩 힙 어브덕션 (스탠딩 아웃 타이 머신)",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 굿모닝.gif",
+      "filePath": "legs/바벨 굿모닝.gif",
+      "koreanName": "바벨 굿모닝",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 런지.gif",
+      "filePath": "legs/바벨 런지.gif",
+      "koreanName": "바벨 런지",
+      "englishName": "barbell-lunge",
+      "newFileName": "barbell-lunge.gif"
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 리버스 리스트 컬.gif",
+      "filePath": "legs/바벨 리버스 리스트 컬.gif",
+      "koreanName": "바벨 리버스 리스트 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 리스트 컬.gif",
+      "filePath": "legs/바벨 리스트 컬.gif",
+      "koreanName": "바벨 리스트 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 불가리안 스필릿 스쿼트.gif",
+      "filePath": "legs/바벨 불가리안 스필릿 스쿼트.gif",
+      "koreanName": "바벨 불가리안 스필릿 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 프론트 스쿼트.gif",
+      "filePath": "legs/바벨 프론트 스쿼트.gif",
+      "koreanName": "바벨 프론트 스쿼트",
+      "englishName": "barbell-front-squat",
+      "newFileName": "barbell-front-squat.gif"
+    },
+    {
+      "directory": "legs",
+      "fileName": "바벨 힙 쓰러스트.gif",
+      "filePath": "legs/바벨 힙 쓰러스트.gif",
+      "koreanName": "바벨 힙 쓰러스트",
+      "englishName": "barbell-hip-thrust",
+      "newFileName": "barbell-hip-thrust.gif"
+    },
+    {
+      "directory": "legs",
+      "fileName": "벨트 스쿼트.gif",
+      "filePath": "legs/벨트 스쿼트.gif",
+      "koreanName": "벨트 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "불가리안 스플릿 스쿼트.gif",
+      "filePath": "legs/불가리안 스플릿 스쿼트.gif",
+      "koreanName": "불가리안 스플릿 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "스모 데드리프트.gif",
+      "filePath": "legs/스모 데드리프트.gif",
+      "koreanName": "스모 데드리프트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "스미스 머신 스쿼트.gif",
+      "filePath": "legs/스미스 머신 스쿼트.gif",
+      "koreanName": "스미스 머신 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "스미스 머신 힙 쓰러스트.gif",
+      "filePath": "legs/스미스 머신 힙 쓰러스트.gif",
+      "koreanName": "스미스 머신 힙 쓰러스트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "스미스머신 런지.gif",
+      "filePath": "legs/스미스머신 런지.gif",
+      "koreanName": "스미스머신 런지",
+      "englishName": "smith-machine-lunge",
+      "newFileName": "smith-machine-lunge.gif"
+    },
+    {
+      "directory": "legs",
+      "fileName": "스탠딩 카프 레이즈.gif",
+      "filePath": "legs/스탠딩 카프 레이즈.gif",
+      "koreanName": "스탠딩 카프 레이즈",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "스티프 레그 데드리프트.gif",
+      "filePath": "legs/스티프 레그 데드리프트.gif",
+      "koreanName": "스티프 레그 데드리프트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "시티드 레그컬.gif",
+      "filePath": "legs/시티드 레그컬.gif",
+      "koreanName": "시티드 레그컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "시티드 카프 레이즈.gif",
+      "filePath": "legs/시티드 카프 레이즈.gif",
+      "koreanName": "시티드 카프 레이즈",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "싱글 레그 익스텐션.gif",
+      "filePath": "legs/싱글 레그 익스텐션.gif",
+      "koreanName": "싱글 레그 익스텐션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "싱글 레그 컬.gif",
+      "filePath": "legs/싱글 레그 컬.gif",
+      "koreanName": "싱글 레그 컬",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "싱글 레그 케이블 킥백.gif",
+      "filePath": "legs/싱글 레그 케이블 킥백.gif",
+      "koreanName": "싱글 레그 케이블 킥백",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "싱글 레그 프레스.gif",
+      "filePath": "legs/싱글 레그 프레스.gif",
+      "koreanName": "싱글 레그 프레스",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "짐볼 스쿼트.gif",
+      "filePath": "legs/짐볼 스쿼트.gif",
+      "koreanName": "짐볼 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "케이블 힙 어덕션.gif",
+      "filePath": "legs/케이블 힙 어덕션.gif",
+      "koreanName": "케이블 힙 어덕션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "케틀벨 스쿼트.gif",
+      "filePath": "legs/케틀벨 스쿼트.gif",
+      "koreanName": "케틀벨 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "트랩 바 데드리프트.gif",
+      "filePath": "legs/트랩 바 데드리프트.gif",
+      "koreanName": "트랩 바 데드리프트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "핵 스쿼트.gif",
+      "filePath": "legs/핵 스쿼트.gif",
+      "koreanName": "핵 스쿼트",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "힙 어덕션 (이너싸이 머신).gif",
+      "filePath": "legs/힙 어덕션 (이너싸이 머신).gif",
+      "koreanName": "힙 어덕션 (이너싸이 머신)",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "legs",
+      "fileName": "힙 어브덕션.gif",
+      "filePath": "legs/힙 어브덕션.gif",
+      "koreanName": "힙 어브덕션",
+      "englishName": null,
+      "newFileName": null
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "덤벨 레터럴 레이즈.gif",
+      "filePath": "shoulders/덤벨 레터럴 레이즈.gif",
+      "koreanName": "덤벨 레터럴 레이즈",
+      "englishName": "dumbbell-lateral-raise",
+      "newFileName": "dumbbell-lateral-raise.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "덤벨 리어 델트 레이즈.gif",
+      "filePath": "shoulders/덤벨 리어 델트 레이즈.gif",
+      "koreanName": "덤벨 리어 델트 레이즈",
+      "englishName": "dumbbell-rear-delt-raise",
+      "newFileName": "dumbbell-rear-delt-raise.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "덤벨 슈러그.gif",
+      "filePath": "shoulders/덤벨 슈러그.gif",
+      "koreanName": "덤벨 슈러그",
+      "englishName": "dumbbell-shrug",
+      "newFileName": "dumbbell-shrug.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "덤벨 업라이트 로우.gif",
+      "filePath": "shoulders/덤벨 업라이트 로우.gif",
+      "koreanName": "덤벨 업라이트 로우",
+      "englishName": "dumbbell-upright-row",
+      "newFileName": "dumbbell-upright-row.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "머신 레터럴 레이즈.gif",
+      "filePath": "shoulders/머신 레터럴 레이즈.gif",
+      "koreanName": "머신 레터럴 레이즈",
+      "englishName": "machine-lateral-raise",
+      "newFileName": "machine-lateral-raise.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "머신 숄더 프레스.gif",
+      "filePath": "shoulders/머신 숄더 프레스.gif",
+      "koreanName": "머신 숄더 프레스",
+      "englishName": "machine-shoulder-press",
+      "newFileName": "machine-shoulder-press.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "바벨 숄더프레스.gif",
+      "filePath": "shoulders/바벨 숄더프레스.gif",
+      "koreanName": "바벨 숄더프레스",
+      "englishName": "barbell-shoulder-press",
+      "newFileName": "barbell-shoulder-press.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "바벨 슈러그.gif",
+      "filePath": "shoulders/바벨 슈러그.gif",
+      "koreanName": "바벨 슈러그",
+      "englishName": "barbell-shrug",
+      "newFileName": "barbell-shrug.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "바벨 업라이트 로우.gif",
+      "filePath": "shoulders/바벨 업라이트 로우.gif",
+      "koreanName": "바벨 업라이트 로우",
+      "englishName": "barbell-upright-row",
+      "newFileName": "barbell-upright-row.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "바벨 프론트 레이즈.gif",
+      "filePath": "shoulders/바벨 프론트 레이즈.gif",
+      "koreanName": "바벨 프론트 레이즈",
+      "englishName": "barbell-front-raise",
+      "newFileName": "barbell-front-raise.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "스미스 머신 슈러그.gif",
+      "filePath": "shoulders/스미스 머신 슈러그.gif",
+      "koreanName": "스미스 머신 슈러그",
+      "englishName": "smith-machine-shrug",
+      "newFileName": "smith-machine-shrug.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "시티드 덤벨 숄더 프레스.gif",
+      "filePath": "shoulders/시티드 덤벨 숄더 프레스.gif",
+      "koreanName": "시티드 덤벨 숄더 프레스",
+      "englishName": "seated-dumbbell-shoulder-press",
+      "newFileName": "seated-dumbbell-shoulder-press.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "시티드 바벨 숄더 프레스.gif",
+      "filePath": "shoulders/시티드 바벨 숄더 프레스.gif",
+      "koreanName": "시티드 바벨 숄더 프레스",
+      "englishName": "seated-barbell-shoulder-press",
+      "newFileName": "seated-barbell-shoulder-press.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "아놀드 프레스.gif",
+      "filePath": "shoulders/아놀드 프레스.gif",
+      "koreanName": "아놀드 프레스",
+      "englishName": "arnold-press",
+      "newFileName": "arnold-press.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "원 암 덤벨 숄더 프레스.gif",
+      "filePath": "shoulders/원 암 덤벨 숄더 프레스.gif",
+      "koreanName": "원 암 덤벨 숄더 프레스",
+      "englishName": "single-arm-dumbbell-shoulder-press",
+      "newFileName": "single-arm-dumbbell-shoulder-press.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "원 암 덤벨 업라이트 로우.gif",
+      "filePath": "shoulders/원 암 덤벨 업라이트 로우.gif",
+      "koreanName": "원 암 덤벨 업라이트 로우",
+      "englishName": "single-arm-dumbbell-upright-row",
+      "newFileName": "single-arm-dumbbell-upright-row.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "이지바 업라이트 로우.gif",
+      "filePath": "shoulders/이지바 업라이트 로우.gif",
+      "koreanName": "이지바 업라이트 로우",
+      "englishName": "ez-bar-upright-row",
+      "newFileName": "ez-bar-upright-row.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "체스트 서포티드 덤벨 슈러그.gif",
+      "filePath": "shoulders/체스트 서포티드 덤벨 슈러그.gif",
+      "koreanName": "체스트 서포티드 덤벨 슈러그",
+      "englishName": "chest-supported-dumbbell-shrug",
+      "newFileName": "chest-supported-dumbbell-shrug.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "케이블 슈러그.gif",
+      "filePath": "shoulders/케이블 슈러그.gif",
+      "koreanName": "케이블 슈러그",
+      "englishName": "cable-shrug",
+      "newFileName": "cable-shrug.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "케이블 업라이트 로우.gif",
+      "filePath": "shoulders/케이블 업라이트 로우.gif",
+      "koreanName": "케이블 업라이트 로우",
+      "englishName": "cable-upright-row",
+      "newFileName": "cable-upright-row.gif"
+    },
+    {
+      "directory": "shoulders",
+      "fileName": "케이블 페이스 풀.gif",
+      "filePath": "shoulders/케이블 페이스 풀.gif",
+      "koreanName": "케이블 페이스 풀",
+      "englishName": "cable-face-pull",
+      "newFileName": "cable-face-pull.gif"
+    }
+  ]
+}

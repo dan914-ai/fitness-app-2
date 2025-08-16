@@ -1,0 +1,341 @@
+{
+  "timestamp": "2025-08-02T08:48:53.627Z",
+  "backupFile": "./src/data/exerciseDatabase.backup-critical-fix-2025-08-02T08-48-53-462Z.ts",
+  "totalFilesProcessed": 42,
+  "totalUrlsUpdated": 44,
+  "filesWithUpdates": 42,
+  "updates": [
+    {
+      "filename": "military-press.gif",
+      "muscleGroup": "deltoids",
+      "matches": 2,
+      "from": "exercise-gifs/military-press.gif",
+      "to": "exercise-gifs/deltoids/military-press.gif"
+    },
+    {
+      "filename": "dumbbell-push-press.gif",
+      "muscleGroup": "deltoids",
+      "matches": 1,
+      "from": "exercise-gifs/dumbbell-push-press.gif",
+      "to": "exercise-gifs/deltoids/dumbbell-push-press.gif"
+    },
+    {
+      "filename": "cable-rear-delt-row.gif",
+      "muscleGroup": "deltoids",
+      "matches": 1,
+      "from": "exercise-gifs/cable-rear-delt-row.gif",
+      "to": "exercise-gifs/deltoids/cable-rear-delt-row.gif"
+    },
+    {
+      "filename": "single-arm-cable-lateral-raises.gif",
+      "muscleGroup": "deltoids",
+      "matches": 1,
+      "from": "exercise-gifs/single-arm-cable-lateral-raises.gif",
+      "to": "exercise-gifs/deltoids/single-arm-cable-lateral-raises.gif"
+    },
+    {
+      "filename": "prone-y-raises.gif",
+      "muscleGroup": "deltoids",
+      "matches": 1,
+      "from": "exercise-gifs/prone-y-raises.gif",
+      "to": "exercise-gifs/deltoids/prone-y-raises.gif"
+    },
+    {
+      "filename": "military_press.gif",
+      "muscleGroup": "deltoids",
+      "matches": 1,
+      "from": "exercise-gifs/military_press.gif",
+      "to": "exercise-gifs/deltoids/military_press.gif"
+    },
+    {
+      "filename": "bent-over-dumbbell-row.gif",
+      "muscleGroup": "back",
+      "matches": 2,
+      "from": "exercise-gifs/bent-over-dumbbell-row.gif",
+      "to": "exercise-gifs/back/bent-over-dumbbell-row.gif"
+    },
+    {
+      "filename": "kettlebell-upright-row.gif",
+      "muscleGroup": "back",
+      "matches": 1,
+      "from": "exercise-gifs/kettlebell-upright-row.gif",
+      "to": "exercise-gifs/back/kettlebell-upright-row.gif"
+    },
+    {
+      "filename": "barbell-pendlay-row.gif",
+      "muscleGroup": "back",
+      "matches": 1,
+      "from": "exercise-gifs/barbell-pendlay-row.gif",
+      "to": "exercise-gifs/back/barbell-pendlay-row.gif"
+    },
+    {
+      "filename": "band-pull-aparts.gif",
+      "muscleGroup": "back",
+      "matches": 1,
+      "from": "exercise-gifs/band-pull-aparts.gif",
+      "to": "exercise-gifs/back/band-pull-aparts.gif"
+    },
+    {
+      "filename": "lat_pulldown.gif",
+      "muscleGroup": "back",
+      "matches": 1,
+      "from": "exercise-gifs/lat_pulldown.gif",
+      "to": "exercise-gifs/back/lat_pulldown.gif"
+    },
+    {
+      "filename": "jumping_pull_ups.gif",
+      "muscleGroup": "back",
+      "matches": 1,
+      "from": "exercise-gifs/jumping_pull_ups.gif",
+      "to": "exercise-gifs/back/jumping_pull_ups.gif"
+    },
+    {
+      "filename": "captains-chair-leg-raise.gif",
+      "muscleGroup": "abdominals",
+      "matches": 1,
+      "from": "exercise-gifs/captains-chair-leg-raise.gif",
+      "to": "exercise-gifs/abdominals/captains-chair-leg-raise.gif"
+    },
+    {
+      "filename": "body-saw-plank.gif",
+      "muscleGroup": "abdominals",
+      "matches": 1,
+      "from": "exercise-gifs/body-saw-plank.gif",
+      "to": "exercise-gifs/abdominals/body-saw-plank.gif"
+    },
+    {
+      "filename": "dumbbell-close-grip-press.gif",
+      "muscleGroup": "pectorals",
+      "matches": 1,
+      "from": "exercise-gifs/dumbbell-close-grip-press.gif",
+      "to": "exercise-gifs/pectorals/dumbbell-close-grip-press.gif"
+    },
+    {
+      "filename": "knuckle_pushups.gif",
+      "muscleGroup": "pectorals",
+      "matches": 1,
+      "from": "exercise-gifs/knuckle_pushups.gif",
+      "to": "exercise-gifs/pectorals/knuckle_pushups.gif"
+    },
+    {
+      "filename": "finger_pushups.gif",
+      "muscleGroup": "pectorals",
+      "matches": 1,
+      "from": "exercise-gifs/finger_pushups.gif",
+      "to": "exercise-gifs/pectorals/finger_pushups.gif"
+    },
+    {
+      "filename": "hex_press.gif",
+      "muscleGroup": "pectorals",
+      "matches": 1,
+      "from": "exercise-gifs/hex_press.gif",
+      "to": "exercise-gifs/pectorals/hex_press.gif"
+    },
+    {
+      "filename": "wide_grip_bench_press.gif",
+      "muscleGroup": "pectorals",
+      "matches": 1,
+      "from": "exercise-gifs/wide_grip_bench_press.gif",
+      "to": "exercise-gifs/pectorals/wide_grip_bench_press.gif"
+    },
+    {
+      "filename": "tempo_bench_press.gif",
+      "muscleGroup": "pectorals",
+      "matches": 1,
+      "from": "exercise-gifs/tempo_bench_press.gif",
+      "to": "exercise-gifs/pectorals/tempo_bench_press.gif"
+    },
+    {
+      "filename": "straight-leg-deadlift.gif",
+      "muscleGroup": "hamstrings",
+      "matches": 1,
+      "from": "exercise-gifs/straight-leg-deadlift.gif",
+      "to": "exercise-gifs/hamstrings/straight-leg-deadlift.gif"
+    },
+    {
+      "filename": "reverse_nordic_curl.gif",
+      "muscleGroup": "hamstrings",
+      "matches": 1,
+      "from": "exercise-gifs/reverse_nordic_curl.gif",
+      "to": "exercise-gifs/hamstrings/reverse_nordic_curl.gif"
+    },
+    {
+      "filename": "romanian_deadlift.gif",
+      "muscleGroup": "hamstrings",
+      "matches": 1,
+      "from": "exercise-gifs/romanian_deadlift.gif",
+      "to": "exercise-gifs/hamstrings/romanian_deadlift.gif"
+    },
+    {
+      "filename": "barbell_deadlift.gif",
+      "muscleGroup": "hamstrings",
+      "matches": 1,
+      "from": "exercise-gifs/barbell_deadlift.gif",
+      "to": "exercise-gifs/hamstrings/barbell_deadlift.gif"
+    },
+    {
+      "filename": "push-jerk.gif",
+      "muscleGroup": "compound",
+      "matches": 1,
+      "from": "exercise-gifs/push-jerk.gif",
+      "to": "exercise-gifs/compound/push-jerk.gif"
+    },
+    {
+      "filename": "tire-flip.gif",
+      "muscleGroup": "compound",
+      "matches": 1,
+      "from": "exercise-gifs/tire-flip.gif",
+      "to": "exercise-gifs/compound/tire-flip.gif"
+    },
+    {
+      "filename": "dumbbell_devils_press.gif",
+      "muscleGroup": "compound",
+      "matches": 1,
+      "from": "exercise-gifs/dumbbell_devils_press.gif",
+      "to": "exercise-gifs/compound/dumbbell_devils_press.gif"
+    },
+    {
+      "filename": "dumbbell_push_jerk.gif",
+      "muscleGroup": "compound",
+      "matches": 1,
+      "from": "exercise-gifs/dumbbell_push_jerk.gif",
+      "to": "exercise-gifs/compound/dumbbell_push_jerk.gif"
+    },
+    {
+      "filename": "dive-bomber-push-ups.gif",
+      "muscleGroup": "triceps",
+      "matches": 1,
+      "from": "exercise-gifs/dive-bomber-push-ups.gif",
+      "to": "exercise-gifs/triceps/dive-bomber-push-ups.gif"
+    },
+    {
+      "filename": "cable-pushdown.gif",
+      "muscleGroup": "triceps",
+      "matches": 1,
+      "from": "exercise-gifs/cable-pushdown.gif",
+      "to": "exercise-gifs/triceps/cable-pushdown.gif"
+    },
+    {
+      "filename": "cobra-push-up.gif",
+      "muscleGroup": "triceps",
+      "matches": 1,
+      "from": "exercise-gifs/cobra-push-up.gif",
+      "to": "exercise-gifs/triceps/cobra-push-up.gif"
+    },
+    {
+      "filename": "underhand-tricep-pushdown.gif",
+      "muscleGroup": "triceps",
+      "matches": 1,
+      "from": "exercise-gifs/underhand-tricep-pushdown.gif",
+      "to": "exercise-gifs/triceps/underhand-tricep-pushdown.gif"
+    },
+    {
+      "filename": "dumbbell-glute-bridge.gif",
+      "muscleGroup": "glutes",
+      "matches": 1,
+      "from": "exercise-gifs/dumbbell-glute-bridge.gif",
+      "to": "exercise-gifs/glutes/dumbbell-glute-bridge.gif"
+    },
+    {
+      "filename": "banded-hip-thrust.gif",
+      "muscleGroup": "glutes",
+      "matches": 1,
+      "from": "exercise-gifs/banded-hip-thrust.gif",
+      "to": "exercise-gifs/glutes/banded-hip-thrust.gif"
+    },
+    {
+      "filename": "resistance-band-lunge.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/resistance-band-lunge.gif",
+      "to": "exercise-gifs/quadriceps/resistance-band-lunge.gif"
+    },
+    {
+      "filename": "shrimp-squat.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/shrimp-squat.gif",
+      "to": "exercise-gifs/quadriceps/shrimp-squat.gif"
+    },
+    {
+      "filename": "frog-squat.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/frog-squat.gif",
+      "to": "exercise-gifs/quadriceps/frog-squat.gif"
+    },
+    {
+      "filename": "lunges.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/lunges.gif",
+      "to": "exercise-gifs/quadriceps/lunges.gif"
+    },
+    {
+      "filename": "negative_squat.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/negative_squat.gif",
+      "to": "exercise-gifs/quadriceps/negative_squat.gif"
+    },
+    {
+      "filename": "anderson_squat.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/anderson_squat.gif",
+      "to": "exercise-gifs/quadriceps/anderson_squat.gif"
+    },
+    {
+      "filename": "tempo_squat.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/tempo_squat.gif",
+      "to": "exercise-gifs/quadriceps/tempo_squat.gif"
+    },
+    {
+      "filename": "tempo_squats.gif",
+      "muscleGroup": "quadriceps",
+      "matches": 1,
+      "from": "exercise-gifs/tempo_squats.gif",
+      "to": "exercise-gifs/quadriceps/tempo_squats.gif"
+    }
+  ],
+  "groupSummary": {
+    "deltoids": {
+      "files": 6,
+      "totalMatches": 7
+    },
+    "back": {
+      "files": 6,
+      "totalMatches": 7
+    },
+    "abdominals": {
+      "files": 2,
+      "totalMatches": 2
+    },
+    "pectorals": {
+      "files": 6,
+      "totalMatches": 6
+    },
+    "hamstrings": {
+      "files": 4,
+      "totalMatches": 4
+    },
+    "compound": {
+      "files": 4,
+      "totalMatches": 4
+    },
+    "triceps": {
+      "files": 4,
+      "totalMatches": 4
+    },
+    "glutes": {
+      "files": 2,
+      "totalMatches": 2
+    },
+    "quadriceps": {
+      "files": 8,
+      "totalMatches": 8
+    }
+  }
+}

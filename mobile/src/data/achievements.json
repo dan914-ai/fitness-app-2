@@ -1,0 +1,1811 @@
+{
+  "version": "1.2.0",
+  "generated_at": "2025-08-09",
+  "enums": {
+    "category": [
+      "strength",
+      "consistency",
+      "body_comp",
+      "nutrition",
+      "cardio",
+      "recovery",
+      "social",
+      "seasonal",
+      "habit"
+    ],
+    "rarity": [
+      "common",
+      "uncommon",
+      "rare",
+      "epic",
+      "legendary"
+    ],
+    "visibility": [
+      "public",
+      "hidden",
+      "seasonal"
+    ],
+    "window_scope": [
+      "session",
+      "day",
+      "week",
+      "month",
+      "season",
+      "lifetime"
+    ]
+  },
+  "events": [
+    "workout.logged",
+    "exercise.set.logged",
+    "exercise.pr",
+    "cardio.run.logged",
+    "cardio.row.logged",
+    "recovery.logged",
+    "habit.meditation.logged",
+    "body.weight.logged",
+    "body.measure.logged",
+    "body.scan.logged",
+    "nutrition.logged",
+    "device.steps.logged",
+    "device.sleep.logged",
+    "device.energy.logged",
+    "social.post.created",
+    "referral.completed",
+    "leaderboard.updated",
+    "challenge.started",
+    "challenge.completed"
+  ],
+  "achievements": [
+    {
+      "id": "squat-1rm-plus-10pct",
+      "category": "strength",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "스쿼트 1RM 10% 증가",
+        "en": "Squat 1RM +10%"
+      },
+      "description": {
+        "ko": "개인 기준선 대비 스쿼트 1RM을 10% 향상하세요 (4~8주 권장).",
+        "en": "Increase your squat 1RM by 10% from your personal baseline (recommended 4–8 weeks)."
+      },
+      "icon": "🦵",
+      "duration_days": 56,
+      "window_scope": "season",
+      "goal": {
+        "metric": "exercise_1rm_delta_pct",
+        "comparator": ">=",
+        "target": 10,
+        "unit": "%"
+      },
+      "filters": {
+        "exercise_ids": [
+          "barbell-squat"
+        ]
+      },
+      "triggers": [
+        "workout.logged",
+        "exercise.pr",
+        "challenge.started"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 400,
+        "points": 200,
+        "badge_id": "badge-squat-hustler",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "max",
+        "aggregation": "rolling",
+        "min_sessions": 6
+      },
+      "safety": {
+        "min_days": 21
+      },
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "bench-total-reps-50-week",
+      "category": "strength",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "벤치프레스 주간 50회",
+        "en": "Bench 50 Reps (Week)"
+      },
+      "description": {
+        "ko": "7일 동안 벤치프레스 총 50회 이상을 수행하세요.",
+        "en": "Accumulate 50 bench press reps in 7 days."
+      },
+      "icon": "🏋️",
+      "duration_days": 7,
+      "window_scope": "week",
+      "goal": {
+        "metric": "reps",
+        "comparator": ">=",
+        "target": 50,
+        "unit": "reps"
+      },
+      "filters": {
+        "exercise_ids": [
+          "barbell-bench-press"
+        ]
+      },
+      "triggers": [
+        "workout.logged",
+        "exercise.set.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 7,
+      "rewards": {
+        "xp": 120,
+        "points": 60,
+        "badge_id": "badge-bench-50",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "sum",
+        "aggregation": "fixed_window",
+        "min_sessions": 2
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "deadlift-2x-per-week-4w",
+      "category": "strength",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "데드리프트 주 2회, 4주",
+        "en": "Deadlift 2×/week for 4 weeks"
+      },
+      "description": {
+        "ko": "4주 동안 매주 데드리프트를 2회 이상 수행하세요.",
+        "en": "Do deadlifts at least twice per week for 4 consecutive weeks."
+      },
+      "icon": "🧲",
+      "duration_days": 28,
+      "window_scope": "week",
+      "goal": {
+        "metric": "sessions_with_exercise_per_week",
+        "comparator": ">=",
+        "target": 2,
+        "unit": "sessions/week"
+      },
+      "filters": {
+        "exercise_ids": [
+          "barbell-deadlift"
+        ]
+      },
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 300,
+        "points": 150,
+        "badge_id": "badge-dead-consistent",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 8
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "pushup-100-daily-7d",
+      "category": "strength",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "푸쉬업 100개, 7일 연속",
+        "en": "100 Push-ups for 7 Days"
+      },
+      "description": {
+        "ko": "하루 100개 이상 푸쉬업을 7일 연속으로 수행하세요.",
+        "en": "Do 100+ push-ups per day for 7 consecutive days."
+      },
+      "icon": "🤜",
+      "duration_days": 7,
+      "window_scope": "day",
+      "goal": {
+        "metric": "daily_reps",
+        "comparator": ">=",
+        "target": 100,
+        "unit": "reps/day"
+      },
+      "filters": {
+        "exercise_ids": [
+          "push-up"
+        ]
+      },
+      "triggers": [
+        "workout.logged",
+        "exercise.set.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 30,
+      "rewards": {
+        "xp": 250,
+        "points": 120,
+        "badge_id": "badge-pushup-100x7",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "streak",
+        "aggregation": "fixed_window",
+        "min_sessions": 7
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "plank-3min",
+      "category": "strength",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "플랭크 3분 달성",
+        "en": "3-Minute Plank"
+      },
+      "description": {
+        "ko": "단일 세션에서 플랭크를 3분 이상 유지하세요.",
+        "en": "Hold a plank for at least 3 minutes in a single session."
+      },
+      "icon": "🧱",
+      "duration_days": null,
+      "window_scope": "session",
+      "goal": {
+        "metric": "exercise_hold_time_sec",
+        "comparator": ">=",
+        "target": 180,
+        "unit": "sec"
+      },
+      "filters": {
+        "exercise_ids": [
+          "plank"
+        ]
+      },
+      "triggers": [
+        "workout.logged",
+        "exercise.set.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 3,
+      "rewards": {
+        "xp": 220,
+        "points": 110,
+        "badge_id": "badge-plank-3min",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "max",
+        "aggregation": "lifetime",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "big3-total-300kg",
+      "category": "strength",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "3대 합 300kg",
+        "en": "Big 3 Total 300 kg"
+      },
+      "description": {
+        "ko": "스쿼트·벤치·데드의 1RM 합이 300kg을 달성하세요.",
+        "en": "Reach a 300 kg total across squat, bench, and deadlift 1RMs."
+      },
+      "icon": "🏆",
+      "duration_days": null,
+      "window_scope": "lifetime",
+      "goal": {
+        "metric": "big3_total_kg",
+        "comparator": ">=",
+        "target": 300,
+        "unit": "kg"
+      },
+      "filters": {
+        "exercise_ids": [
+          "barbell-squat",
+          "barbell-bench-press",
+          "barbell-deadlift"
+        ]
+      },
+      "triggers": [
+        "exercise.pr",
+        "workout.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 600,
+        "points": 300,
+        "badge_id": "badge-big3-300",
+        "title_id": "title-strongman"
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "sum",
+        "aggregation": "best_of_each",
+        "min_sessions": 3
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weekly-volume-10t",
+      "category": "strength",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "주간 볼륨 10톤",
+        "en": "10 Tons in a Week"
+      },
+      "description": {
+        "ko": "7일 동안 누적 리프팅 볼륨 10,000kg을 달성하세요.",
+        "en": "Accumulate 10,000 kg of lifting volume in 7 days."
+      },
+      "icon": "🧱",
+      "duration_days": 7,
+      "window_scope": "week",
+      "goal": {
+        "metric": "lift_volume_kg",
+        "comparator": ">=",
+        "target": 10000,
+        "unit": "kg"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged",
+        "exercise.set.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 7,
+      "rewards": {
+        "xp": 180,
+        "points": 90,
+        "badge_id": "badge-volume-10t",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "sum",
+        "aggregation": "fixed_window",
+        "min_sessions": 3
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "consistency-7day-streak",
+      "category": "consistency",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "7일 연속 운동",
+        "en": "7-Day Workout Streak"
+      },
+      "description": {
+        "ko": "7일 동안 하루도 빠짐없이 운동을 기록하세요.",
+        "en": "Log a workout every day for 7 consecutive days."
+      },
+      "icon": "📅",
+      "duration_days": 7,
+      "window_scope": "day",
+      "goal": {
+        "metric": "workout_days",
+        "comparator": ">=",
+        "target": 7,
+        "unit": "days"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 30,
+      "rewards": {
+        "xp": 240,
+        "points": 120,
+        "badge_id": "badge-streak-7",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "streak",
+        "aggregation": "fixed_window",
+        "min_sessions": 7
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": false,
+      "seasonal_window": {},
+      "replaced_by": [
+        "weekly-workout-3x-4w",
+        "weekly-workout-4x-4w",
+        "weekly-workout-5x-4w",
+        "weekly-workout-4x-8w",
+        "weekly-workout-5x-8w"
+      ]
+    },
+    {
+      "id": "consistency-30day-streak",
+      "category": "consistency",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "30일 연속 운동",
+        "en": "30-Day Workout Streak"
+      },
+      "description": {
+        "ko": "30일 연속으로 운동을 기록하세요.",
+        "en": "Log a workout every day for 30 consecutive days."
+      },
+      "icon": "🔥",
+      "duration_days": 30,
+      "window_scope": "day",
+      "goal": {
+        "metric": "workout_days",
+        "comparator": ">=",
+        "target": 30,
+        "unit": "days"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 120,
+      "rewards": {
+        "xp": 800,
+        "points": 400,
+        "badge_id": "badge-streak-30",
+        "title_id": "title-iron-clad"
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "streak",
+        "aggregation": "fixed_window",
+        "min_sessions": 30
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": false,
+      "seasonal_window": {},
+      "replaced_by": [
+        "weekly-workout-3x-4w",
+        "weekly-workout-4x-4w",
+        "weekly-workout-5x-4w",
+        "weekly-workout-4x-8w",
+        "weekly-workout-5x-8w"
+      ]
+    },
+    {
+      "id": "morning-warrior-10-before-6am",
+      "category": "consistency",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "아침 6시 전 10회 운동",
+        "en": "10 Morning Workouts before 6 AM"
+      },
+      "description": {
+        "ko": "오전 6시 이전에 10회 운동을 완료하세요.",
+        "en": "Complete 10 workouts before 6 AM."
+      },
+      "icon": "🌅",
+      "duration_days": 60,
+      "window_scope": "season",
+      "goal": {
+        "metric": "workouts_in_time_window",
+        "comparator": ">=",
+        "target": 10,
+        "unit": "sessions"
+      },
+      "filters": {
+        "time_of_day": [
+          "before_06"
+        ]
+      },
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 30,
+      "rewards": {
+        "xp": 260,
+        "points": 130,
+        "badge_id": "badge-morning-warrior",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count",
+        "aggregation": "rolling",
+        "min_sessions": 10
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weight-loss-3kg-4w",
+      "category": "body_comp",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "4주간 3kg 감량",
+        "en": "Lose 3 kg in 4 Weeks"
+      },
+      "description": {
+        "ko": "4주 이내 체중 3kg를 감량하세요. 건강한 속도를 유지하세요.",
+        "en": "Lose 3 kg within 4 weeks. Maintain a healthy pace."
+      },
+      "icon": "⚖️",
+      "duration_days": 28,
+      "window_scope": "season",
+      "goal": {
+        "metric": "weight_delta_kg",
+        "comparator": "<=",
+        "target": -3,
+        "unit": "kg"
+      },
+      "filters": {},
+      "triggers": [
+        "body.weight.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 350,
+        "points": 175,
+        "badge_id": "badge-leaner-3kg",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "body"
+        ],
+        "method": "delta",
+        "aggregation": "fixed_window",
+        "min_sessions": 4
+      },
+      "safety": {
+        "max_rate_per_week": "-1.0 kg"
+      },
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "bodyfat-minus-2pct-8w",
+      "category": "body_comp",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "체지방률 2% 감소(8주)",
+        "en": "Body Fat -2% (8 Weeks)"
+      },
+      "description": {
+        "ko": "인바디 등 검증 데이터로 8주 내 체지방률 2%p 감소를 달성하세요.",
+        "en": "With verified scans, reduce body fat by 2 percentage points in 8 weeks."
+      },
+      "icon": "📉",
+      "duration_days": 56,
+      "window_scope": "season",
+      "goal": {
+        "metric": "bodyfat_delta_pct",
+        "comparator": "<=",
+        "target": -2.0,
+        "unit": "%p"
+      },
+      "filters": {},
+      "triggers": [
+        "body.scan.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 600,
+        "points": 300,
+        "badge_id": "badge-bodyfat-2p",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "inbody",
+          "scan"
+        ],
+        "method": "delta",
+        "aggregation": "fixed_window",
+        "min_sessions": 2
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "muscle-plus-1kg-8w",
+      "category": "body_comp",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "골격근량 1kg 증가(8주)",
+        "en": "Skeletal Muscle +1 kg (8 Weeks)"
+      },
+      "description": {
+        "ko": "검증 데이터 기준 8주 내 골격근량 1kg 증가.",
+        "en": "Gain 1 kg skeletal muscle within 8 weeks (verified)."
+      },
+      "icon": "💪",
+      "duration_days": 56,
+      "window_scope": "season",
+      "goal": {
+        "metric": "skeletal_muscle_delta_kg",
+        "comparator": ">=",
+        "target": 1.0,
+        "unit": "kg"
+      },
+      "filters": {},
+      "triggers": [
+        "body.scan.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 650,
+        "points": 320,
+        "badge_id": "badge-muscle-1kg",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "inbody",
+          "scan"
+        ],
+        "method": "delta",
+        "aggregation": "fixed_window",
+        "min_sessions": 2
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "waist-minus-5cm-8w",
+      "category": "body_comp",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "허리둘레 5cm 감소(8주)",
+        "en": "Waist -5 cm (8 Weeks)"
+      },
+      "description": {
+        "ko": "8주 내 허리둘레 5cm 감소를 달성하세요.",
+        "en": "Reduce waist circumference by 5 cm within 8 weeks."
+      },
+      "icon": "📏",
+      "duration_days": 56,
+      "window_scope": "season",
+      "goal": {
+        "metric": "waist_delta_cm",
+        "comparator": "<=",
+        "target": -5,
+        "unit": "cm"
+      },
+      "filters": {},
+      "triggers": [
+        "body.measure.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 420,
+        "points": 210,
+        "badge_id": "badge-waist-5cm",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "body"
+        ],
+        "method": "delta",
+        "aggregation": "fixed_window",
+        "min_sessions": 2
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "protein-100g-7d",
+      "category": "nutrition",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "단백질 100g, 7일 연속",
+        "en": "Protein 100g, 7-Day Streak"
+      },
+      "description": {
+        "ko": "하루 100g 이상의 단백질을 7일 연속 섭취하세요.",
+        "en": "Hit 100 g protein per day for 7 consecutive days."
+      },
+      "icon": "🍗",
+      "duration_days": 7,
+      "window_scope": "day",
+      "goal": {
+        "metric": "protein_g_per_day",
+        "comparator": ">=",
+        "target": 100,
+        "unit": "g/day"
+      },
+      "filters": {},
+      "triggers": [
+        "nutrition.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 30,
+      "rewards": {
+        "xp": 220,
+        "points": 110,
+        "badge_id": "badge-protein-100x7",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "nutrition"
+        ],
+        "method": "streak",
+        "aggregation": "fixed_window",
+        "min_sessions": 7
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "hydration-2l-30d",
+      "category": "nutrition",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "수분 2L, 30일",
+        "en": "Hydration 2L, 30 Days"
+      },
+      "description": {
+        "ko": "매일 물 2L 이상 섭취를 30일간 달성하세요.",
+        "en": "Drink at least 2L water per day for 30 days."
+      },
+      "icon": "💧",
+      "duration_days": 30,
+      "window_scope": "day",
+      "goal": {
+        "metric": "water_ml_per_day",
+        "comparator": ">=",
+        "target": 2000,
+        "unit": "ml/day"
+      },
+      "filters": {},
+      "triggers": [
+        "nutrition.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 60,
+      "rewards": {
+        "xp": 500,
+        "points": 250,
+        "badge_id": "badge-water-2l-30",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "nutrition"
+        ],
+        "method": "count_days_meeting",
+        "aggregation": "fixed_window",
+        "min_sessions": 25
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "processed-foods-zero-14d",
+      "category": "nutrition",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "가공식품 0회, 14일",
+        "en": "Zero Processed Foods (14 Days)"
+      },
+      "description": {
+        "ko": "일일 식단에서 가공식품 섭취 0회, 14일간 유지.",
+        "en": "Record zero processed food items daily for 14 days."
+      },
+      "icon": "🚫",
+      "duration_days": 14,
+      "window_scope": "day",
+      "goal": {
+        "metric": "processed_food_items_per_day",
+        "comparator": "==",
+        "target": 0,
+        "unit": "items/day"
+      },
+      "filters": {},
+      "triggers": [
+        "nutrition.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 60,
+      "rewards": {
+        "xp": 480,
+        "points": 240,
+        "badge_id": "badge-clean-14",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "nutrition"
+        ],
+        "method": "streak",
+        "aggregation": "fixed_window",
+        "min_sessions": 14
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "run-5k-sub30",
+      "category": "cardio",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "5km 30분 이내",
+        "en": "5K under 30 minutes"
+      },
+      "description": {
+        "ko": "야외 또는 트레드밀에서 5km를 30분 이내에 완주하세요.",
+        "en": "Finish 5 km in 30 minutes or less."
+      },
+      "icon": "🏃",
+      "duration_days": null,
+      "window_scope": "session",
+      "goal": {
+        "metric": "run_time_for_distance_min",
+        "comparator": "<=",
+        "target": 30,
+        "unit": "min@5km"
+      },
+      "filters": {
+        "require_gps": false
+      },
+      "triggers": [
+        "cardio.run.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 7,
+      "rewards": {
+        "xp": 520,
+        "points": 260,
+        "badge_id": "badge-5k-sub30",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "best_time",
+        "aggregation": "lifetime",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "row-2k-sub8",
+      "category": "cardio",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "로잉 2km 8분 이내",
+        "en": "Row 2K under 8:00"
+      },
+      "description": {
+        "ko": "로잉머신 2km를 8분 이내에 완료하세요.",
+        "en": "Complete 2 km on a rower in 8:00 or less."
+      },
+      "icon": "🚣",
+      "duration_days": null,
+      "window_scope": "session",
+      "goal": {
+        "metric": "rowing_2k_time_min",
+        "comparator": "<=",
+        "target": 8.0,
+        "unit": "min"
+      },
+      "filters": {},
+      "triggers": [
+        "cardio.row.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 7,
+      "rewards": {
+        "xp": 500,
+        "points": 250,
+        "badge_id": "badge-row-2k-sub8",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "best_time",
+        "aggregation": "lifetime",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "steps-8000-30d",
+      "category": "cardio",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "하루 8,000보, 30일",
+        "en": "8,000 Steps for 30 Days"
+      },
+      "description": {
+        "ko": "하루 8,000보 이상 걷기를 30일 동안 달성하세요.",
+        "en": "Reach 8,000+ steps per day for 30 days."
+      },
+      "icon": "👣",
+      "duration_days": 30,
+      "window_scope": "day",
+      "goal": {
+        "metric": "steps_per_day",
+        "comparator": ">=",
+        "target": 8000,
+        "unit": "steps/day"
+      },
+      "filters": {},
+      "triggers": [
+        "device.steps.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 60,
+      "rewards": {
+        "xp": 420,
+        "points": 210,
+        "badge_id": "badge-steps-8k-30",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "device"
+        ],
+        "method": "count_days_meeting",
+        "aggregation": "fixed_window",
+        "min_sessions": 25
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "sleep-7h-14d",
+      "category": "recovery",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "수면 7시간, 14일",
+        "en": "Sleep 7h for 14 Days"
+      },
+      "description": {
+        "ko": "하루 7시간 이상 수면을 14일간 달성하세요.",
+        "en": "Get 7+ hours of sleep per night for 14 days."
+      },
+      "icon": "😴",
+      "duration_days": 14,
+      "window_scope": "day",
+      "goal": {
+        "metric": "sleep_hours_per_day",
+        "comparator": ">=",
+        "target": 7.0,
+        "unit": "h/day"
+      },
+      "filters": {},
+      "triggers": [
+        "device.sleep.logged",
+        "sleep.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 45,
+      "rewards": {
+        "xp": 300,
+        "points": 150,
+        "badge_id": "badge-sleep-7h-14",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "device",
+          "sleep"
+        ],
+        "method": "count_days_meeting",
+        "aggregation": "fixed_window",
+        "min_sessions": 12
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "foamroll-3x-week-4w",
+      "category": "recovery",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "폼롤러 주 3회, 4주",
+        "en": "Foam Roll 3×/week for 4 Weeks"
+      },
+      "description": {
+        "ko": "4주간 매주 3회 이상 폼롤러 스트레칭을 수행하세요.",
+        "en": "Foam roll at least 3 times per week for 4 weeks."
+      },
+      "icon": "🌀",
+      "duration_days": 28,
+      "window_scope": "week",
+      "goal": {
+        "metric": "recovery_sessions_per_week",
+        "comparator": ">=",
+        "target": 3,
+        "unit": "sessions/week"
+      },
+      "filters": {
+        "session_type": [
+          "recovery",
+          "mobility"
+        ]
+      },
+      "triggers": [
+        "recovery.logged",
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 28,
+      "rewards": {
+        "xp": 200,
+        "points": 100,
+        "badge_id": "badge-foamroll-4w",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout",
+          "recovery"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 12
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "meditation-5m-21d",
+      "category": "habit",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "명상 5분, 21일",
+        "en": "Meditation 5 min for 21 Days"
+      },
+      "description": {
+        "ko": "하루 5분 이상 명상을 21일간 지속하세요.",
+        "en": "Meditate 5+ minutes per day for 21 days."
+      },
+      "icon": "🧘",
+      "duration_days": 21,
+      "window_scope": "day",
+      "goal": {
+        "metric": "meditation_min_per_day",
+        "comparator": ">=",
+        "target": 5,
+        "unit": "min/day"
+      },
+      "filters": {},
+      "triggers": [
+        "habit.meditation.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 45,
+      "rewards": {
+        "xp": 260,
+        "points": 130,
+        "badge_id": "badge-meditate-21",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "habit"
+        ],
+        "method": "count_days_meeting",
+        "aggregation": "fixed_window",
+        "min_sessions": 18
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "first_workout",
+      "category": "consistency",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "첫 발걸음",
+        "en": "First Steps"
+      },
+      "description": {
+        "ko": "첫 번째 운동을 완료하세요! 모든 여정은 작은 한 걸음부터 시작됩니다.",
+        "en": "Complete your very first workout! Every journey begins with a single step."
+      },
+      "icon": "👶",
+      "duration_days": null,
+      "window_scope": "lifetime",
+      "goal": {
+        "metric": "workout_count",
+        "comparator": ">=",
+        "target": 1,
+        "unit": "workouts"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 100,
+        "points": 50,
+        "badge_id": "badge-first-workout",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count",
+        "aggregation": "lifetime",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weekly-workout-3x-4w",
+      "category": "consistency",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "주 3회 운동, 4주",
+        "en": "3× Weekly Workouts (4 Weeks)"
+      },
+      "description": {
+        "ko": "4주 동안 매주 3회 이상 운동하세요.",
+        "en": "Work out at least 3 times per week for 4 weeks."
+      },
+      "icon": "📈",
+      "duration_days": 28,
+      "window_scope": "week",
+      "goal": {
+        "metric": "workouts_per_week",
+        "comparator": ">=",
+        "target": 3,
+        "unit": "workouts/week"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 28,
+      "rewards": {
+        "xp": 200,
+        "points": 100,
+        "badge_id": "badge-consistent-3x4w",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 12
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weekly-workout-4x-4w",
+      "category": "consistency",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "주 4회 운동, 4주",
+        "en": "4× Weekly Workouts (4 Weeks)"
+      },
+      "description": {
+        "ko": "4주 동안 매주 4회 이상 운동하세요.",
+        "en": "Work out at least 4 times per week for 4 weeks."
+      },
+      "icon": "💪",
+      "duration_days": 28,
+      "window_scope": "week",
+      "goal": {
+        "metric": "workouts_per_week",
+        "comparator": ">=",
+        "target": 4,
+        "unit": "workouts/week"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 28,
+      "rewards": {
+        "xp": 300,
+        "points": 150,
+        "badge_id": "badge-consistent-4x4w",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 16
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weekly-workout-5x-4w",
+      "category": "consistency",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "주 5회 운동, 4주",
+        "en": "5× Weekly Workouts (4 Weeks)"
+      },
+      "description": {
+        "ko": "4주 동안 매주 5회 이상 운동하세요.",
+        "en": "Work out at least 5 times per week for 4 weeks."
+      },
+      "icon": "🔥",
+      "duration_days": 28,
+      "window_scope": "week",
+      "goal": {
+        "metric": "workouts_per_week",
+        "comparator": ">=",
+        "target": 5,
+        "unit": "workouts/week"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 28,
+      "rewards": {
+        "xp": 400,
+        "points": 200,
+        "badge_id": "badge-consistent-5x4w",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 20
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weekly-workout-4x-8w",
+      "category": "consistency",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "주 4회 운동, 8주",
+        "en": "4× Weekly Workouts (8 Weeks)"
+      },
+      "description": {
+        "ko": "8주 동안 매주 4회 이상 운동하세요.",
+        "en": "Work out at least 4 times per week for 8 weeks."
+      },
+      "icon": "🏋️‍♀️",
+      "duration_days": 56,
+      "window_scope": "week",
+      "goal": {
+        "metric": "workouts_per_week",
+        "comparator": ">=",
+        "target": 4,
+        "unit": "workouts/week"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 56,
+      "rewards": {
+        "xp": 600,
+        "points": 300,
+        "badge_id": "badge-consistent-4x8w",
+        "title_id": "title-dedicated"
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 32
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "weekly-workout-5x-8w",
+      "category": "consistency",
+      
+      "rarity": "epic",
+      "visibility": "public",
+      "title": {
+        "ko": "주 5회 운동, 8주",
+        "en": "5× Weekly Workouts (8 Weeks)"
+      },
+      "description": {
+        "ko": "8주 동안 매주 5회 이상 운동하세요.",
+        "en": "Work out at least 5 times per week for 8 weeks."
+      },
+      "icon": "⚡",
+      "duration_days": 56,
+      "window_scope": "week",
+      "goal": {
+        "metric": "workouts_per_week",
+        "comparator": ">=",
+        "target": 5,
+        "unit": "workouts/week"
+      },
+      "filters": {},
+      "triggers": [
+        "workout.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 84,
+      "rewards": {
+        "xp": 800,
+        "points": 400,
+        "badge_id": "badge-consistent-5x8w",
+        "title_id": "title-unstoppable"
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "count_per_week",
+        "aggregation": "rolling",
+        "min_sessions": 40
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "running-5k-completed",
+      "category": "cardio",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "5km 달리기 완주",
+        "en": "5K Run Completed"
+      },
+      "description": {
+        "ko": "5km 거리를 완주하세요. 시간은 중요하지 않습니다!",
+        "en": "Complete a 5K run. Time doesn't matter!"
+      },
+      "icon": "🏃‍♂️",
+      "duration_days": null,
+      "window_scope": "session",
+      "goal": {
+        "metric": "running_distance_today_km",
+        "comparator": ">=",
+        "target": 5,
+        "unit": "km"
+      },
+      "filters": {},
+      "triggers": [
+        "cardio.run.logged"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 7,
+      "rewards": {
+        "xp": 200,
+        "points": 100,
+        "badge_id": "badge-5k-finisher",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "workout"
+        ],
+        "method": "max",
+        "aggregation": "session",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "social-post-shared",
+      "category": "social",
+      
+      "rarity": "common",
+      "visibility": "public",
+      "title": {
+        "ko": "첫 피드 공유",
+        "en": "First Feed Share"
+      },
+      "description": {
+        "ko": "운동 성과나 진척상황을 피드에 공유하세요.",
+        "en": "Share your workout progress on the feed."
+      },
+      "icon": "📱",
+      "duration_days": null,
+      "window_scope": "lifetime",
+      "goal": {
+        "metric": "social_posts",
+        "comparator": ">=",
+        "target": 1,
+        "unit": "posts"
+      },
+      "filters": {},
+      "triggers": [
+        "social.post.created"
+      ],
+      "repeatable": false,
+      "repeat_cooldown_days": null,
+      "rewards": {
+        "xp": 150,
+        "points": 75,
+        "badge_id": "badge-social-debut",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "social"
+        ],
+        "method": "count",
+        "aggregation": "lifetime",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "invite-friend-signup",
+      "category": "social",
+      
+      "rarity": "uncommon",
+      "visibility": "public",
+      "title": {
+        "ko": "친구 초대 성공",
+        "en": "Friend Invited Successfully"
+      },
+      "description": {
+        "ko": "친구를 초대하여 가입하게 하세요.",
+        "en": "Successfully invite a friend to join the app."
+      },
+      "icon": "👥",
+      "duration_days": null,
+      "window_scope": "lifetime",
+      "goal": {
+        "metric": "invited_friends_signed_up",
+        "comparator": ">=",
+        "target": 1,
+        "unit": "friends"
+      },
+      "filters": {},
+      "triggers": [
+        "referral.completed"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 1,
+      "rewards": {
+        "xp": 300,
+        "points": 150,
+        "badge_id": "badge-recruiter",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "social"
+        ],
+        "method": "count",
+        "aggregation": "lifetime",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    },
+    {
+      "id": "leaderboard-top10",
+      "category": "social",
+      
+      "rarity": "rare",
+      "visibility": "public",
+      "title": {
+        "ko": "리더보드 상위 10위",
+        "en": "Top 10 Leaderboard"
+      },
+      "description": {
+        "ko": "주간 또는 월간 리더보드에서 상위 10위에 진입하세요.",
+        "en": "Reach the top 10 in weekly or monthly leaderboards."
+      },
+      "icon": "🏆",
+      "duration_days": null,
+      "window_scope": "week",
+      "goal": {
+        "metric": "leaderboard_rank",
+        "comparator": "<=",
+        "target": 10,
+        "unit": "rank"
+      },
+      "filters": {},
+      "triggers": [
+        "leaderboard.updated"
+      ],
+      "repeatable": true,
+      "repeat_cooldown_days": 7,
+      "rewards": {
+        "xp": 500,
+        "points": 250,
+        "badge_id": "badge-top10",
+        "title_id": null
+      },
+      "validation": {
+        "source": [
+          "social"
+        ],
+        "method": "min",
+        "aggregation": "week",
+        "min_sessions": 1
+      },
+      "safety": {},
+      "links": {
+        "challenge_ids": []
+      },
+      "created_at": "2025-08-09",
+      "active": true,
+      "seasonal_window": {}
+    }
+  ]
+}

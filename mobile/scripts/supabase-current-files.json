@@ -1,0 +1,947 @@
+[
+  {
+    "name": "abdominals",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "back",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "biceps",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "calves",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "cardio",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "compound",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "deltoids",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "forearms",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "glutes",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "hamstrings",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "pectorals",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "quadriceps",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "thumbnails",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "traps",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "triceps",
+    "size": 0,
+    "lastModified": null
+  },
+  {
+    "name": "alternate-heel-touches.gif",
+    "size": 2612511,
+    "lastModified": "2025-07-28T01:46:49.000Z"
+  },
+  {
+    "name": "anderson_squat.gif",
+    "size": 2145055,
+    "lastModified": "2025-07-28T01:48:02.000Z"
+  },
+  {
+    "name": "arnold-press.gif",
+    "size": 691150,
+    "lastModified": "2025-07-28T01:34:14.000Z"
+  },
+  {
+    "name": "band-pull-apart.gif",
+    "size": 1054811,
+    "lastModified": "2025-07-28T01:34:04.000Z"
+  },
+  {
+    "name": "band-pull-aparts.gif",
+    "size": 1054811,
+    "lastModified": "2025-07-28T01:47:31.000Z"
+  },
+  {
+    "name": "banded-face-pull.gif",
+    "size": 1518123,
+    "lastModified": "2025-07-28T01:46:28.000Z"
+  },
+  {
+    "name": "banded-hip-thrust.gif",
+    "size": 1636552,
+    "lastModified": "2025-07-28T01:47:32.000Z"
+  },
+  {
+    "name": "barbell_bench_press.gif",
+    "size": 72693,
+    "lastModified": "2025-07-28T01:49:49.000Z"
+  },
+  {
+    "name": "barbell_deadlift.gif",
+    "size": 1545561,
+    "lastModified": "2025-07-28T01:49:50.000Z"
+  },
+  {
+    "name": "barbell_squat.gif",
+    "size": 71379,
+    "lastModified": "2025-07-28T01:49:54.000Z"
+  },
+  {
+    "name": "barbell-cheat-curl.gif",
+    "size": 1790217,
+    "lastModified": "2025-07-28T01:35:11.000Z"
+  },
+  {
+    "name": "barbell-decline-bench-press.gif",
+    "size": 1608220,
+    "lastModified": "2025-07-28T01:34:35.000Z"
+  },
+  {
+    "name": "barbell-pendlay-row.gif",
+    "size": 1082383,
+    "lastModified": "2025-07-28T01:47:11.000Z"
+  },
+  {
+    "name": "barbell-pullover.gif",
+    "size": 1258157,
+    "lastModified": "2025-07-28T01:34:40.000Z"
+  },
+  {
+    "name": "barbell-push-press.gif",
+    "size": 1343955,
+    "lastModified": "2025-07-28T01:35:21.000Z"
+  },
+  {
+    "name": "barbell-reverse-wrist-curl.gif",
+    "size": 832702,
+    "lastModified": "2025-07-28T01:45:39.000Z"
+  },
+  {
+    "name": "barbell-row.gif",
+    "size": 738626,
+    "lastModified": "2025-07-28T01:33:22.000Z"
+  },
+  {
+    "name": "barbell-shrug.gif",
+    "size": 1852091,
+    "lastModified": "2025-07-28T01:35:01.000Z"
+  },
+  {
+    "name": "barbell-sumo-squat.gif",
+    "size": 1804428,
+    "lastModified": "2025-07-28T01:46:04.000Z"
+  },
+  {
+    "name": "barbell-wrist-curl.gif",
+    "size": 1783492,
+    "lastModified": "2025-07-28T01:34:40.000Z"
+  },
+  {
+    "name": "bent-over-dumbbell-row.gif",
+    "size": 1636640,
+    "lastModified": "2025-07-28T01:33:33.000Z"
+  },
+  {
+    "name": "block_pull_deadlift.gif",
+    "size": 71978,
+    "lastModified": "2025-07-28T01:48:45.000Z"
+  },
+  {
+    "name": "board-bench-press.gif",
+    "size": 1017561,
+    "lastModified": "2025-07-28T01:34:20.000Z"
+  },
+  {
+    "name": "body-saw-plank.gif",
+    "size": 937865,
+    "lastModified": "2025-07-28T01:47:16.000Z"
+  },
+  {
+    "name": "bulgarian-split-squat.gif",
+    "size": 1298902,
+    "lastModified": "2025-07-28T01:34:35.000Z"
+  },
+  {
+    "name": "cable-chest-fly.gif",
+    "size": 1860729,
+    "lastModified": "2025-07-28T01:33:43.000Z"
+  },
+  {
+    "name": "cable-crossover.gif",
+    "size": 1556927,
+    "lastModified": "2025-07-28T01:33:18.000Z"
+  },
+  {
+    "name": "cable-drag-curl.gif",
+    "size": 1682477,
+    "lastModified": "2025-07-28T01:46:39.000Z"
+  },
+  {
+    "name": "cable-pull-through.gif",
+    "size": 1352637,
+    "lastModified": "2025-07-28T01:34:40.000Z"
+  },
+  {
+    "name": "cable-pushdown.gif",
+    "size": 755228,
+    "lastModified": "2025-07-28T01:47:16.000Z"
+  },
+  {
+    "name": "cable-rear-delt-row.gif",
+    "size": 1808485,
+    "lastModified": "2025-07-28T01:47:00.000Z"
+  },
+  {
+    "name": "cable-row.gif",
+    "size": 1598267,
+    "lastModified": "2025-07-28T01:34:25.000Z"
+  },
+  {
+    "name": "captains-chair-leg-raise.gif",
+    "size": 1134134,
+    "lastModified": "2025-07-28T01:46:44.000Z"
+  },
+  {
+    "name": "chest-press-machine.gif",
+    "size": 1809611,
+    "lastModified": "2025-07-28T01:34:09.000Z"
+  },
+  {
+    "name": "chin-up.gif",
+    "size": 1473884,
+    "lastModified": "2025-07-28T01:35:16.000Z"
+  },
+  {
+    "name": "clapping-push-up.gif",
+    "size": 209777,
+    "lastModified": "2025-07-28T02:26:39.000Z"
+  },
+  {
+    "name": "clean-and-press.gif",
+    "size": 1416489,
+    "lastModified": "2025-07-28T01:46:12.000Z"
+  },
+  {
+    "name": "close-grip-lat-pulldown.gif",
+    "size": 1546831,
+    "lastModified": "2025-07-28T01:33:17.000Z"
+  },
+  {
+    "name": "cobra-push-up.gif",
+    "size": 2029347,
+    "lastModified": "2025-07-28T01:47:21.000Z"
+  },
+  {
+    "name": "concentration-curl.gif",
+    "size": 176052,
+    "lastModified": "2025-07-28T02:26:14.000Z"
+  },
+  {
+    "name": "crossbody-hammer-curl.gif",
+    "size": 1001742,
+    "lastModified": "2025-07-28T01:35:00.000Z"
+  },
+  {
+    "name": "crossfit-cluster.gif",
+    "size": 3384098,
+    "lastModified": "2025-07-28T01:46:33.000Z"
+  },
+  {
+    "name": "dead-hang.gif",
+    "size": 1301475,
+    "lastModified": "2025-07-28T01:34:50.000Z"
+  },
+  {
+    "name": "deck_of_cards_pushups.gif",
+    "size": 55731,
+    "lastModified": "2025-07-28T01:48:41.000Z"
+  },
+  {
+    "name": "deficit-deadlift.gif",
+    "size": 1832082,
+    "lastModified": "2025-07-28T01:34:15.000Z"
+  },
+  {
+    "name": "deficit-push-ups.gif",
+    "size": 1611178,
+    "lastModified": "2025-07-28T01:33:43.000Z"
+  },
+  {
+    "name": "deficit-reverse-lunge.gif",
+    "size": 1957426,
+    "lastModified": "2025-07-28T01:33:23.000Z"
+  },
+  {
+    "name": "diamond-pushup.gif",
+    "size": 237281,
+    "lastModified": "2025-07-28T02:26:09.000Z"
+  },
+  {
+    "name": "dips.gif",
+    "size": 676862,
+    "lastModified": "2025-07-28T01:46:27.000Z"
+  },
+  {
+    "name": "dive-bomber-push-ups.gif",
+    "size": 2721094,
+    "lastModified": "2025-07-28T01:47:06.000Z"
+  },
+  {
+    "name": "duck-walk.gif",
+    "size": 1134409,
+    "lastModified": "2025-07-28T01:46:49.000Z"
+  },
+  {
+    "name": "dumbbell_devils_press.gif",
+    "size": 1283393,
+    "lastModified": "2025-07-28T01:48:29.000Z"
+  },
+  {
+    "name": "dumbbell_push_jerk.gif",
+    "size": 1515585,
+    "lastModified": "2025-07-28T01:50:04.000Z"
+  },
+  {
+    "name": "dumbbell-bicep-curl.gif",
+    "size": 1310790,
+    "lastModified": "2025-07-28T01:45:35.000Z"
+  },
+  {
+    "name": "dumbbell-close-grip-press.gif",
+    "size": 1901468,
+    "lastModified": "2025-07-28T01:46:55.000Z"
+  },
+  {
+    "name": "dumbbell-face-pull.gif",
+    "size": 2394551,
+    "lastModified": "2025-07-28T01:33:59.000Z"
+  },
+  {
+    "name": "dumbbell-front-squat.gif",
+    "size": 1258034,
+    "lastModified": "2025-07-28T01:33:43.000Z"
+  },
+  {
+    "name": "dumbbell-glute-bridge.gif",
+    "size": 2384576,
+    "lastModified": "2025-07-28T01:47:11.000Z"
+  },
+  {
+    "name": "dumbbell-hack-squat.gif",
+    "size": 1167920,
+    "lastModified": "2025-07-28T01:34:09.000Z"
+  },
+  {
+    "name": "dumbbell-push-press.gif",
+    "size": 1893412,
+    "lastModified": "2025-07-28T01:46:55.000Z"
+  },
+  {
+    "name": "dumbbell-squat.gif",
+    "size": 1155835,
+    "lastModified": "2025-07-28T01:34:20.000Z"
+  },
+  {
+    "name": "dumbbell-sumo-squat.gif",
+    "size": 1261407,
+    "lastModified": "2025-07-28T01:33:28.000Z"
+  },
+  {
+    "name": "dumbbell-tricep-kickback.gif",
+    "size": 863208,
+    "lastModified": "2025-07-28T01:34:55.000Z"
+  },
+  {
+    "name": "elevated-glute-bridge.gif",
+    "size": 1530712,
+    "lastModified": "2025-07-28T01:33:53.000Z"
+  },
+  {
+    "name": "face-pull.gif",
+    "size": 2000511,
+    "lastModified": "2025-07-28T01:34:55.000Z"
+  },
+  {
+    "name": "finger_pushups.gif",
+    "size": 1602930,
+    "lastModified": "2025-07-28T01:47:56.000Z"
+  },
+  {
+    "name": "floor-press.gif",
+    "size": 1259739,
+    "lastModified": "2025-07-28T01:33:48.000Z"
+  },
+  {
+    "name": "frog-hip-thrust.gif",
+    "size": 2480420,
+    "lastModified": "2025-07-28T01:46:17.000Z"
+  },
+  {
+    "name": "frog-squat.gif",
+    "size": 1865984,
+    "lastModified": "2025-07-28T01:47:26.000Z"
+  },
+  {
+    "name": "front-squat.gif",
+    "size": 1526426,
+    "lastModified": "2025-07-28T01:35:06.000Z"
+  },
+  {
+    "name": "goblet-squat.gif",
+    "size": 234109,
+    "lastModified": "2025-07-28T02:25:56.000Z"
+  },
+  {
+    "name": "hack_squat.gif",
+    "size": 72699,
+    "lastModified": "2025-07-28T06:41:42.000Z"
+  },
+  {
+    "name": "hack-squat.gif",
+    "size": 223945,
+    "lastModified": "2025-07-28T02:26:34.000Z"
+  },
+  {
+    "name": "half-knee-bends.gif",
+    "size": 1398209,
+    "lastModified": "2025-07-28T01:46:17.000Z"
+  },
+  {
+    "name": "hammer-curls.gif",
+    "size": 1145860,
+    "lastModified": "2025-07-28T01:46:17.000Z"
+  },
+  {
+    "name": "handstand-push-up.gif",
+    "size": 1011229,
+    "lastModified": "2025-07-28T01:35:10.000Z"
+  },
+  {
+    "name": "hang-clean.gif",
+    "size": 196591,
+    "lastModified": "2025-07-28T02:26:50.000Z"
+  },
+  {
+    "name": "hex_press.gif",
+    "size": 1453374,
+    "lastModified": "2025-07-28T01:48:01.000Z"
+  },
+  {
+    "name": "high-pulley-cable-curl.gif",
+    "size": 1496880,
+    "lastModified": "2025-07-28T01:34:45.000Z"
+  },
+  {
+    "name": "incline-barbell-bench-press.gif",
+    "size": 1726197,
+    "lastModified": "2025-07-28T01:34:30.000Z"
+  },
+  {
+    "name": "incline-dumbbell-curl.gif",
+    "size": 1681282,
+    "lastModified": "2025-07-28T01:45:30.000Z"
+  },
+  {
+    "name": "incline-hammer-curls.gif",
+    "size": 1769430,
+    "lastModified": "2025-07-28T01:46:23.000Z"
+  },
+  {
+    "name": "incline-push-up.gif",
+    "size": 1478330,
+    "lastModified": "2025-07-28T01:45:35.000Z"
+  },
+  {
+    "name": "inner-biceps-curl.gif",
+    "size": 1663971,
+    "lastModified": "2025-07-28T01:46:33.000Z"
+  },
+  {
+    "name": "inverted-row.gif",
+    "size": 924845,
+    "lastModified": "2025-07-28T01:34:30.000Z"
+  },
+  {
+    "name": "jumping_pull_ups.gif",
+    "size": 1768933,
+    "lastModified": "2025-07-28T01:50:04.000Z"
+  },
+  {
+    "name": "kettlebell_deadlift.gif",
+    "size": 70671,
+    "lastModified": "2025-07-28T01:49:58.000Z"
+  },
+  {
+    "name": "kettlebell-squat-clean.gif",
+    "size": 2293250,
+    "lastModified": "2025-07-28T01:33:53.000Z"
+  },
+  {
+    "name": "kettlebell-sumo-deadlift.gif",
+    "size": 1228092,
+    "lastModified": "2025-07-28T01:46:12.000Z"
+  },
+  {
+    "name": "kettlebell-upright-row.gif",
+    "size": 1413820,
+    "lastModified": "2025-07-28T01:47:00.000Z"
+  },
+  {
+    "name": "knee-push-up.gif",
+    "size": 2597637,
+    "lastModified": "2025-07-28T01:35:01.000Z"
+  },
+  {
+    "name": "knee-touch-crunch.gif",
+    "size": 1670749,
+    "lastModified": "2025-07-28T01:46:44.000Z"
+  },
+  {
+    "name": "kneeling_squat.gif",
+    "size": 70801,
+    "lastModified": "2025-07-28T01:50:02.000Z"
+  },
+  {
+    "name": "knuckle_pushups.gif",
+    "size": 1797473,
+    "lastModified": "2025-07-28T01:47:51.000Z"
+  },
+  {
+    "name": "landmine-deadlift.gif",
+    "size": 707988,
+    "lastModified": "2025-07-28T01:33:52.000Z"
+  },
+  {
+    "name": "landmine-press.gif",
+    "size": 1000346,
+    "lastModified": "2025-07-28T01:33:38.000Z"
+  },
+  {
+    "name": "landmine-squat.gif",
+    "size": 1072704,
+    "lastModified": "2025-07-28T01:34:14.000Z"
+  },
+  {
+    "name": "lat_pulldown.gif",
+    "size": 1556631,
+    "lastModified": "2025-07-28T01:48:42.000Z"
+  },
+  {
+    "name": "leg-extension.gif",
+    "size": 317517,
+    "lastModified": "2025-07-28T02:26:01.000Z"
+  },
+  {
+    "name": "low-bar-squat.gif",
+    "size": 1607772,
+    "lastModified": "2025-07-28T01:46:44.000Z"
+  },
+  {
+    "name": "lunges.gif",
+    "size": 1336617,
+    "lastModified": "2025-07-28T01:47:46.000Z"
+  },
+  {
+    "name": "military_press.gif",
+    "size": 726540,
+    "lastModified": "2025-07-28T01:48:21.000Z"
+  },
+  {
+    "name": "military-press.gif",
+    "size": 726540,
+    "lastModified": "2025-07-28T01:33:27.000Z"
+  },
+  {
+    "name": "mixed_grip_deadlift.gif",
+    "size": 68914,
+    "lastModified": "2025-07-28T01:48:45.000Z"
+  },
+  {
+    "name": "muscle-up.gif",
+    "size": 640229,
+    "lastModified": "2025-07-28T01:35:10.000Z"
+  },
+  {
+    "name": "negative_squat.gif",
+    "size": 1624038,
+    "lastModified": "2025-07-28T01:47:56.000Z"
+  },
+  {
+    "name": "negative-pull-up.gif",
+    "size": 1967260,
+    "lastModified": "2025-07-28T01:35:16.000Z"
+  },
+  {
+    "name": "neutral-grip-lat-pulldown.gif",
+    "size": 1490392,
+    "lastModified": "2025-07-28T01:33:18.000Z"
+  },
+  {
+    "name": "neutral-grip-pull-up.gif",
+    "size": 1220114,
+    "lastModified": "2025-07-28T01:45:45.000Z"
+  },
+  {
+    "name": "nordic-curl.gif",
+    "size": 1669241,
+    "lastModified": "2025-07-28T01:34:04.000Z"
+  },
+  {
+    "name": "overhead-squat.gif",
+    "size": 1336327,
+    "lastModified": "2025-07-28T01:46:55.000Z"
+  },
+  {
+    "name": "overhead-tricep-stretch.gif",
+    "size": 1096745,
+    "lastModified": "2025-07-28T01:34:34.000Z"
+  },
+  {
+    "name": "parallel-dips.gif",
+    "size": 1419404,
+    "lastModified": "2025-07-28T01:33:33.000Z"
+  },
+  {
+    "name": "pause-deadlift.gif",
+    "size": 189356,
+    "lastModified": "2025-07-28T02:26:56.000Z"
+  },
+  {
+    "name": "pec-deck.gif",
+    "size": 1895679,
+    "lastModified": "2025-07-28T01:34:04.000Z"
+  },
+  {
+    "name": "pike-push-up.gif",
+    "size": 2518365,
+    "lastModified": "2025-07-28T01:46:12.000Z"
+  },
+  {
+    "name": "pin-press.gif",
+    "size": 841595,
+    "lastModified": "2025-07-28T01:33:38.000Z"
+  },
+  {
+    "name": "pistol-squat.gif",
+    "size": 1120614,
+    "lastModified": "2025-07-28T01:34:50.000Z"
+  },
+  {
+    "name": "plyometric-push-up.gif",
+    "size": 1372883,
+    "lastModified": "2025-07-28T01:34:55.000Z"
+  },
+  {
+    "name": "preacher-curls.gif",
+    "size": 1057615,
+    "lastModified": "2025-07-28T01:46:22.000Z"
+  },
+  {
+    "name": "prone-y-raises.gif",
+    "size": 978946,
+    "lastModified": "2025-07-28T01:47:26.000Z"
+  },
+  {
+    "name": "push-jerk.gif",
+    "size": 1205529,
+    "lastModified": "2025-07-28T01:47:05.000Z"
+  },
+  {
+    "name": "push-ups-with-rotation.gif",
+    "size": 1832269,
+    "lastModified": "2025-07-28T01:46:33.000Z"
+  },
+  {
+    "name": "rack_pull.gif",
+    "size": 71594,
+    "lastModified": "2025-07-28T01:49:58.000Z"
+  },
+  {
+    "name": "resistance-band-glute-bridge.gif",
+    "size": 2534790,
+    "lastModified": "2025-07-28T01:46:39.000Z"
+  },
+  {
+    "name": "resistance-band-lunge.gif",
+    "size": 1439839,
+    "lastModified": "2025-07-28T01:47:11.000Z"
+  },
+  {
+    "name": "resistance-band-push-up.gif",
+    "size": 1763890,
+    "lastModified": "2025-07-28T01:45:25.000Z"
+  },
+  {
+    "name": "reverse_nordic_curl.gif",
+    "size": 1750994,
+    "lastModified": "2025-07-28T01:48:11.000Z"
+  },
+  {
+    "name": "reverse-squat.gif",
+    "size": 591243,
+    "lastModified": "2025-07-28T01:45:58.000Z"
+  },
+  {
+    "name": "ring-muscle-up.gif",
+    "size": 1487003,
+    "lastModified": "2025-07-28T01:33:33.000Z"
+  },
+  {
+    "name": "romanian_deadlift.gif",
+    "size": 1817222,
+    "lastModified": "2025-07-28T01:48:16.000Z"
+  },
+  {
+    "name": "seated-calf-raise.gif",
+    "size": 197754,
+    "lastModified": "2025-07-28T02:26:05.000Z"
+  },
+  {
+    "name": "seated-knee-extension.gif",
+    "size": 1813993,
+    "lastModified": "2025-07-28T01:34:50.000Z"
+  },
+  {
+    "name": "shoulder-push-up.gif",
+    "size": 2518365,
+    "lastModified": "2025-07-28T01:34:10.000Z"
+  },
+  {
+    "name": "shrimp-squat.gif",
+    "size": 1242064,
+    "lastModified": "2025-07-28T01:47:21.000Z"
+  },
+  {
+    "name": "single-arm-cable-lateral-raises.gif",
+    "size": 1041834,
+    "lastModified": "2025-07-28T01:47:26.000Z"
+  },
+  {
+    "name": "single-arm-landmine-row.gif",
+    "size": 1012245,
+    "lastModified": "2025-07-28T01:33:38.000Z"
+  },
+  {
+    "name": "single-leg-calf-raise.gif",
+    "size": 1292645,
+    "lastModified": "2025-07-28T01:33:23.000Z"
+  },
+  {
+    "name": "single-leg-hip-thrust.gif",
+    "size": 1309459,
+    "lastModified": "2025-07-28T01:33:48.000Z"
+  },
+  {
+    "name": "sled-push.gif",
+    "size": 866052,
+    "lastModified": "2025-07-28T01:34:44.000Z"
+  },
+  {
+    "name": "smith-machine-calf-raise.gif",
+    "size": 1314749,
+    "lastModified": "2025-07-28T01:33:58.000Z"
+  },
+  {
+    "name": "smith-machine-squat.gif",
+    "size": 202430,
+    "lastModified": "2025-07-28T02:26:26.000Z"
+  },
+  {
+    "name": "sphinx-push-up.gif",
+    "size": 1312959,
+    "lastModified": "2025-07-28T01:35:06.000Z"
+  },
+  {
+    "name": "spider-curl.gif",
+    "size": 2146832,
+    "lastModified": "2025-07-28T01:34:20.000Z"
+  },
+  {
+    "name": "standing-straight-arm-lat-pulldown.gif",
+    "size": 895197,
+    "lastModified": "2025-07-28T01:33:48.000Z"
+  },
+  {
+    "name": "step-ups.gif",
+    "size": 1120467,
+    "lastModified": "2025-07-28T01:34:45.000Z"
+  },
+  {
+    "name": "straight-leg-deadlift.gif",
+    "size": 1565939,
+    "lastModified": "2025-07-28T01:47:00.000Z"
+  },
+  {
+    "name": "suicide_grip_bench_press.gif",
+    "size": 73096,
+    "lastModified": "2025-07-28T01:48:40.000Z"
+  },
+  {
+    "name": "suitcase-deadlift.gif",
+    "size": 1319263,
+    "lastModified": "2025-07-28T01:33:58.000Z"
+  },
+  {
+    "name": "sumo_deadlift.gif",
+    "size": 70873,
+    "lastModified": "2025-07-28T01:49:54.000Z"
+  },
+  {
+    "name": "svend-press.gif",
+    "size": 1218740,
+    "lastModified": "2025-07-28T01:45:54.000Z"
+  },
+  {
+    "name": "t-bar-row.gif",
+    "size": 327808,
+    "lastModified": "2025-07-28T02:26:18.000Z"
+  },
+  {
+    "name": "tempo_bench_press.gif",
+    "size": 1080534,
+    "lastModified": "2025-07-28T01:48:37.000Z"
+  },
+  {
+    "name": "tempo_squat.gif",
+    "size": 784330,
+    "lastModified": "2025-07-28T01:48:06.000Z"
+  },
+  {
+    "name": "tempo_squats.gif",
+    "size": 784330,
+    "lastModified": "2025-07-28T01:48:37.000Z"
+  },
+  {
+    "name": "test-barbell-squat.gif",
+    "size": 1556927,
+    "lastModified": "2025-07-28T01:32:43.000Z"
+  },
+  {
+    "name": "tire-flip.gif",
+    "size": 1265533,
+    "lastModified": "2025-07-28T01:47:16.000Z"
+  },
+  {
+    "name": "trap_bar_deadlift.gif",
+    "size": 69055,
+    "lastModified": "2025-07-28T01:49:54.000Z"
+  },
+  {
+    "name": "tricep-overhead-extension.gif",
+    "size": 162144,
+    "lastModified": "2025-07-28T02:26:22.000Z"
+  },
+  {
+    "name": "triceps-pushdown.gif",
+    "size": 755228,
+    "lastModified": "2025-07-28T01:45:59.000Z"
+  },
+  {
+    "name": "tuck-crunch.gif",
+    "size": 2003650,
+    "lastModified": "2025-07-28T01:46:39.000Z"
+  },
+  {
+    "name": "underhand-tricep-pushdown.gif",
+    "size": 1301901,
+    "lastModified": "2025-07-28T01:47:41.000Z"
+  },
+  {
+    "name": "upright_row.gif",
+    "size": 1615077,
+    "lastModified": "2025-07-28T06:41:43.000Z"
+  },
+  {
+    "name": "upright-row.gif",
+    "size": 1615077,
+    "lastModified": "2025-07-28T01:34:30.000Z"
+  },
+  {
+    "name": "weighted-pull-up.gif",
+    "size": 2002549,
+    "lastModified": "2025-07-28T01:46:22.000Z"
+  },
+  {
+    "name": "weighted-push-up.gif",
+    "size": 2045162,
+    "lastModified": "2025-07-28T01:45:49.000Z"
+  },
+  {
+    "name": "wide_grip_bench_press.gif",
+    "size": 1452076,
+    "lastModified": "2025-07-28T01:49:59.000Z"
+  },
+  {
+    "name": "wide_stance_squat.gif",
+    "size": 61452,
+    "lastModified": "2025-07-28T01:48:36.000Z"
+  },
+  {
+    "name": "wide-grip-barbell-curl.gif",
+    "size": 1791721,
+    "lastModified": "2025-07-28T01:35:16.000Z"
+  },
+  {
+    "name": "wide-grip-lat-pulldown.gif",
+    "size": 1556631,
+    "lastModified": "2025-07-28T01:46:49.000Z"
+  },
+  {
+    "name": "wrist-push-up.gif",
+    "size": 2966488,
+    "lastModified": "2025-07-28T01:45:40.000Z"
+  },
+  {
+    "name": "yates-row.gif",
+    "size": 1484767,
+    "lastModified": "2025-07-28T01:34:25.000Z"
+  },
+  {
+    "name": "zercher-squat.gif",
+    "size": 772398,
+    "lastModified": "2025-07-28T01:34:24.000Z"
+  },
+  {
+    "name": "zottman-curl.gif",
+    "size": 1392556,
+    "lastModified": "2025-07-28T01:45:30.000Z"
+  }
+]

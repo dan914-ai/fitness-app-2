@@ -1,0 +1,97 @@
+dumbbell_rear_delt_raise.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/덤벨 리어 델트 레이즈.gif
+dumbbell_shrug.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/덤벨 슈러그.gif
+dumbbell_upright_row.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/덤벨 업라이트 로우.gif
+barbell_shrug.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/바벨 슈러그.gif
+barbell_upright_row.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/바벨 업라이트 로우.gif
+smith_machine_shrug.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/스미스 머신 슈러그.gif
+one_arm_dumbbell_upright_row.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/원 암 덤벨 업라이트 로우.gif
+ez_bar_upright_row.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/이지바 업라이트 로우.gif
+chest_supported_dumbbell_shrug.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/체스트 서포티드 덤벨 슈러그.gif
+cable_shrug.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/케이블 슈러그.gif
+cable_upright_row.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/shoulders/케이블 업라이트 로우.gif
+kneeling_cable_overhead_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/닐링 케이블 오버헤드 트라이셉 익스텐션.gif
+dumbbell_tricep_extension_seated.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/덤벨 트라이센 익스텐션.gif
+dumbbell_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/덤벨 트라이셉 익스텐션.gif
+dumbbell_tricep_kickback.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/덤벨 트라이셉 킥백.gif
+machine_dips.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/머신 딥스.gif
+machine_tricep_extension_2.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/머신 트라이셉 익스텐션 2.gif
+machine_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/머신 트라이셉 익스텐션.gif
+barbell_lying_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/바벨 라잉 트라이셉 익스텐션.gif
+barbell_incline_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/바벨 인클라인 트라이셉 익스텐션.gif
+barbell_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/바벨 트라이셉 익스텐션.gif
+bench_dips.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/벤치 딥스.gif
+assisted_tricep_dips.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/어시스트 딥스.gif
+one_arm_dumbbell_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/원 암 덤벨 트라이셉 익스텐션.gif
+one_arm_cable_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/원 암 케이블 트라이셉 익스텐션.gif
+cable_v_bar_tricep_pushdown.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 v-bar 트라이셉 푸시다운.gif
+cable_rope_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 로프 트라이셉 익스텐션.gif
+cable_reverse_grip_tricep_pushdown.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 리버스 그립 트라이셉 푸시다운.gif
+cable_overhead_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 오버헤드 트라이셉 익스텐션.gif
+cable_one_arm_reverse_grip_tricep_pushdown.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 원 암 리버스 그립 트라이셉 푸시다운.gif
+cable_incline_tricep_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 인클라인 트라이셉 익스텐션.gif
+cable_tricep_kickback.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 트라이셉 킥백.gif
+close_grip_bench_press.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/클로즈 그립 벤치 프레스.gif
+leg_press_calf_raise.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/레그 프레스 카프 레이즈.gif
+standing_calf_raise.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/스탠딩 카프 레이즈.gif
+seated_calf_raise.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/시티드 카프 레이즈.gif
+step_mill.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/cardio/스텝 밀.gif
+stationary_bike.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/cardio/싸이클.gif
+elliptical_machine.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/cardio/일립티컬 머신.gif
+treadmill.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/cardio/트레드밀 (런닝머신).gif
+dumbbell_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/덤벨 바이셉 컬.gif
+dumbbell_concentration_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/덤벨 컨센트레이션 컬.gif
+dumbbell_hammer_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/덤벨 해머 컬.gif
+barbell_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/바벨 바이셉 컬.gif
+barbell_preacher_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/바벨 프리처 컬.gif
+spider_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/스파이더 바이셉 컬.gif
+one_arm_dumbbell_preacher_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/원 암 덤벨 프리처 컬.gif
+one_arm_cable_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/원 암 케이블 바이셉 컬.gif
+ez_bar_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/이지 바 바이셉 컬.gif
+ez_bar_reverse_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/이지바 리버스 바이셉 컬.gif
+cable_double_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 더블 바이셉 컬.gif
+cable_rope_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 로프 바이셉 컬.gif
+cable_bicep_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/케이블 바이셉 컬.gif
+close_grip_lat_pulldown_bicep.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/arms/클로즈 그립 랫 풀다운.gif
+kneeling_leg_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/닐링 레그컬.gif
+dumbbell_reverse_wrist_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/덤벨 리버스 리스트 컬.gif
+dumbbell_wrist_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/덤벨 리스트 컬.gif
+dumbbell_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/덤벨 스쿼트.gif
+dumbbell_stiff_leg_deadlift.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/덤벨 스티프 레그 데드리프트.gif
+lying_leg_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/라잉 레그컬.gif
+landmine_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/랜드마인 스쿼트.gif
+leg_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/레그 익스텐션.gif
+leg_press.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/레그 프레스.gif
+romanian_deadlift.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/루마니안 데드리프트.gif
+reverse_v_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/리버스 브이 스쿼트.gif
+bodyweight_lunge.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/맨몸 런지.gif
+bodyweight_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/맨몸 스쿼트.gif
+machine_leg_press.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/머신 레그 프레스.gif
+barbell_good_morning.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 굿모닝.gif
+barbell_lunge.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 런지.gif
+barbell_reverse_wrist_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 리버스 리스트 컬.gif
+barbell_wrist_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 리스트 컬.gif
+barbell_bulgarian_split_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 불가리안 스필릿 스쿼트.gif
+barbell_front_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 프론트 스쿼트.gif
+barbell_hip_thrust.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/바벨 힙 쓰러스트.gif
+belt_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/벨트 스쿼트.gif
+bulgarian_split_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/불가리안 스플릿 스쿼트.gif
+sumo_deadlift.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/스모 데드리프트.gif
+smith_machine_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/스미스 머신 스쿼트.gif
+smith_machine_lunge.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/스미스머신 런지.gif
+stiff_leg_deadlift.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/스티프 레그 데드리프트.gif
+seated_leg_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/시티드 레그컬.gif
+single_leg_extension.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/싱글 레그 익스텐션.gif
+single_leg_curl.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/싱글 레그 컬.gif
+single_leg_press.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/싱글 레그 프레스.gif
+swiss_ball_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/짐볼 스쿼트.gif
+kettlebell_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/케틀벨 스쿼트.gif
+trap_bar_deadlift.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/트랩 바 데드리프트.gif
+hack_squat.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/핵 스쿼트.gif
+hip_adduction_machine.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/힙 어덕션 (이너싸이 머신).gif
+glute_kickback.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/글루트 킥 백 (힙 익스텐션).gif
+glute_kickback_machine.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/글루트 킥 백 머신.gif
+standing_hip_abduction_machine.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/머신 스탠딩 힙 어브덕션 (스탠딩 아웃 타이 머신).gif
+smith_machine_hip_thrust.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/스미스 머신 힙 쓰러스트.gif
+single_leg_cable_kickback.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/싱글 레그 케이블 킥백.gif
+cable_hip_adduction.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/케이블 힙 어덕션.gif
+hip_abduction.gif	/mnt/c/Users/danny/.vscode/new finess app/mobile/assets/exercise-gifs/legs/힙 어브덕션.gif

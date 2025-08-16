@@ -1,0 +1,507 @@
+{
+  "summary": {
+    "totalFiles": 332,
+    "koreanFiles": 132,
+    "englishFiles": 200,
+    "problematicNames": 0,
+    "duplicates": 9,
+    "categoryMismatches": 60
+  },
+  "details": {
+    "problematicNames": [],
+    "duplicates": {
+      "arnold-press": [
+        {
+          "file": "arnold-press.gif",
+          "category": "all"
+        },
+        {
+          "file": "arnold-press.gif",
+          "category": "matched"
+        }
+      ],
+      "barbell-pullover": [
+        {
+          "file": "barbell-pullover.gif",
+          "category": "all"
+        },
+        {
+          "file": "barbell-pullover.gif",
+          "category": "matched"
+        }
+      ],
+      "barbell-row": [
+        {
+          "file": "barbell-row.gif",
+          "category": "all"
+        },
+        {
+          "file": "barbell-row.gif",
+          "category": "matched"
+        }
+      ],
+      "bent-over-dumbbell-row": [
+        {
+          "file": "bent-over-dumbbell-row.gif",
+          "category": "all"
+        },
+        {
+          "file": "bent-over-dumbbell-row.gif",
+          "category": "matched"
+        }
+      ],
+      "cable-row": [
+        {
+          "file": "cable-row.gif",
+          "category": "all"
+        },
+        {
+          "file": "cable-row.gif",
+          "category": "matched"
+        }
+      ],
+      "close-grip-lat-pulldown": [
+        {
+          "file": "close-grip-lat-pulldown.gif",
+          "category": "all"
+        },
+        {
+          "file": "close-grip-lat-pulldown.gif",
+          "category": "matched"
+        }
+      ],
+      "face-pull": [
+        {
+          "file": "face-pull.gif",
+          "category": "all"
+        },
+        {
+          "file": "face-pull.gif",
+          "category": "matched"
+        }
+      ],
+      "t-bar-row": [
+        {
+          "file": "t-bar-row.gif",
+          "category": "all"
+        },
+        {
+          "file": "t-bar-row.gif",
+          "category": "matched"
+        }
+      ],
+      "wide-grip-lat-pulldown": [
+        {
+          "file": "wide-grip-lat-pulldown.gif",
+          "category": "all"
+        },
+        {
+          "file": "wide-grip-lat-pulldown.gif",
+          "category": "matched"
+        }
+      ]
+    },
+    "categoryMismatches": [
+      {
+        "file": "barbell-decline-bench-press.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "barbell-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "barbell-sumo-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "barbell_bench_press.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "barbell_squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "bent-over-dumbbell-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "board-bench-press.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "cable-chest-fly.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "cable-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "chest-press-machine.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "close-grip-lat-pulldown.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "close-grip-pull-up.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "deficit-reverse-lunge.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "dumbbell-front-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "dumbbell-hack-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "dumbbell-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "dumbbell-sumo-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "front-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "goblet-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "hack_squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "incline-barbell-bench-press.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "inverted-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "kettlebell-squat-clean.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "kneeling_squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "landmine-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "leg-extension.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "leg-press-calf-raise.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "low-bar-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "negative-pull-up.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "neutral-grip-lat-pulldown.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "neutral-grip-pull-up.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "overhead-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "pistol-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "reverse-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "scapular-pull-up.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "single-arm-landmine-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "single-leg-calf-raise.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "single-leg-hip-thrust.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "sissy_squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "smith-machine-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "standing-straight-arm-lat-pulldown.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "suicide_grip_bench_press.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "t-bar-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "weighted-pull-up.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "wide-grip-lat-pulldown.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "wide_stance_squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "yates-row.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "zercher-squat.gif",
+        "currentCategory": "all",
+        "suggestedCategory": "legs"
+      },
+      {
+        "file": "chest-supported-barbell-row.gif",
+        "currentCategory": "back",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "chest-supported-dumbbell-row.gif",
+        "currentCategory": "back",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "chest-supported-t-bar-row-machine.gif",
+        "currentCategory": "back",
+        "suggestedCategory": "chest"
+      },
+      {
+        "file": "barbell-row.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "bent-over-dumbbell-row.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "cable-row.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "close-grip-lat-pulldown.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "pull-ups.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "single-arm-cable-row.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "t-bar-row.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "wide-grip-lat-pulldown.gif",
+        "currentCategory": "matched",
+        "suggestedCategory": "back"
+      },
+      {
+        "file": "machine-rear-delt-fly.gif",
+        "currentCategory": "shoulders",
+        "suggestedCategory": "chest"
+      }
+    ],
+    "categories": [
+      {
+        "category": "all",
+        "fileCount": 144,
+        "sampleFiles": [
+          "alternate-heel-touches.gif",
+          "arnold-press.gif",
+          "assisted-push-up.gif",
+          "band-pull-apart.gif",
+          "banded-face-pull.gif"
+        ]
+      },
+      {
+        "category": "arms",
+        "fileCount": 36,
+        "sampleFiles": [
+          "닐링 케이블 오버헤드 트라이셉 익스텐션.gif",
+          "덤벨 바이셉 컬.gif",
+          "덤벨 컨센트레이션 컬.gif",
+          "덤벨 트라이센 익스텐션.gif",
+          "덤벨 트라이셉 익스텐션.gif"
+        ]
+      },
+      {
+        "category": "back",
+        "fileCount": 31,
+        "sampleFiles": [
+          "assisted-pull-ups.gif",
+          "behind-neck-pulldown.gif",
+          "cable-pullover.gif",
+          "cable-rope-arm-pulldown.gif",
+          "cable-seated-row.gif"
+        ]
+      },
+      {
+        "category": "cardio",
+        "fileCount": 4,
+        "sampleFiles": [
+          "스텝 밀.gif",
+          "싸이클.gif",
+          "일립티컬 머신.gif",
+          "트레드밀 (런닝머신).gif"
+        ]
+      },
+      {
+        "category": "chest",
+        "fileCount": 14,
+        "sampleFiles": [
+          "덤벨 벤치프레스.gif",
+          "덤벨 체스트 플라이.gif",
+          "디클라인 덤벨 플라이.gif",
+          "디클라인 바벨 벤치프레스.gif",
+          "디클라인 케이블 플라이.gif"
+        ]
+      },
+      {
+        "category": "legs",
+        "fileCount": 46,
+        "sampleFiles": [
+          "글루트 킥 백 (힙 익스텐션).gif",
+          "글루트 킥 백 머신.gif",
+          "닐링 레그컬.gif",
+          "덤벨 리버스 리스트 컬.gif",
+          "덤벨 리스트 컬.gif"
+        ]
+      },
+      {
+        "category": "matched",
+        "fileCount": 11,
+        "sampleFiles": [
+          "arnold-press.gif",
+          "barbell-pullover.gif",
+          "barbell-row.gif",
+          "bent-over-dumbbell-row.gif",
+          "cable-row.gif"
+        ]
+      },
+      {
+        "category": "shoulder",
+        "fileCount": 10,
+        "sampleFiles": [
+          "덤벨 레터럴 레이즈.gif",
+          "머신 레터럴 레이즈.gif",
+          "머신 숄더 프레스.gif",
+          "바벨 숄더프레스.gif",
+          "바벨 프론트 레이즈.gif"
+        ]
+      },
+      {
+        "category": "shoulders",
+        "fileCount": 36,
+        "sampleFiles": [
+          "barbell-front-raise.gif",
+          "barbell-shoulder-press.gif",
+          "cable-front-raise.gif",
+          "cable-kneeling-shoulder-press.gif",
+          "dumbbell-bent-over-lateral-raise.gif"
+        ]
+      }
+    ]
+  }
+}

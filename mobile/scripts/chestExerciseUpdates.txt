@@ -1,0 +1,5 @@
+
+// Existing exercises to update with chest GIFs:
+// 1. barbell_bench_press - add gifUrl: './assets/exercise-gifs/chest/바벨 벤치프레스.gif'
+// 2. dips - add gifUrl: './assets/exercise-gifs/chest/딥스.gif'  
+// 3. decline_cable_fly - add gifUrl: './assets/exercise-gifs/chest/디클라인 케이블 플라이.gif'

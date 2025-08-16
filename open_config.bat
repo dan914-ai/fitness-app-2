@@ -1,0 +1,3 @@
+@echo off
+echo Opening configuration file at GitHub token line...
+code --goto "%USERPROFILE%\.claude.json:55"

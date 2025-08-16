@@ -1,0 +1,28 @@
+{
+  "totalGifsAvailable": 274,
+  "exercisesNeedingGifs": 0,
+  "matched": [],
+  "unmatched": [],
+  "sampleGifFiles": [
+    "alternate-heel-touches.gif",
+    "arnold-press.gif",
+    "assisted-push-up.gif",
+    "band-pull-apart.gif",
+    "banded-face-pull.gif",
+    "barbell-cheat-curl.gif",
+    "barbell-decline-bench-press.gif",
+    "barbell-power-clean.gif",
+    "barbell-pullover.gif",
+    "barbell-push-press.gif",
+    "barbell-reverse-wrist-curl.gif",
+    "barbell-row.gif",
+    "barbell-shrug.gif",
+    "barbell-sumo-squat.gif",
+    "barbell-wrist-curl.gif",
+    "barbell_bench_press.gif",
+    "barbell_squat.gif",
+    "bent-over-dumbbell-row.gif",
+    "block_pull_deadlift.gif",
+    "board-bench-press.gif"
+  ]
+}

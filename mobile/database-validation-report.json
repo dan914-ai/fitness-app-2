@@ -1,0 +1,22 @@
+{
+  "missingFiles": [],
+  "corruptedFiles": [],
+  "slowThumbnails": [],
+  "translationIssues": [
+    {
+      "id": "prone-y-raises",
+      "korean": "프론 Y 레이즈",
+      "issue": "Contains hyphens or English characters"
+    },
+    {
+      "id": "romanian_deadlift",
+      "korean": "루마니안 데드리프트 (RDL)",
+      "issue": "Contains hyphens or English characters"
+    },
+    {
+      "id": "romanian_deadlift",
+      "korean": "루마니안 데드리프트 (RDL)",
+      "issue": "Contains hyphens or English characters"
+    }
+  ]
+}

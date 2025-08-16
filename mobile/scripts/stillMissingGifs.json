@@ -1,0 +1,102 @@
+[
+  {
+    "id": "barbell-power-clean",
+    "name": "바벨 파워 클린"
+  },
+  {
+    "id": "forearm-push-up",
+    "name": "전완 푸시업"
+  },
+  {
+    "id": "close-grip-pull-up",
+    "name": "클로즈 그립 풀업"
+  },
+  {
+    "id": "assisted-push-up",
+    "name": "보조 푸시업"
+  },
+  {
+    "id": "scapular-pull-up",
+    "name": "견갑골 풀업"
+  },
+  {
+    "id": "donkey-calf-raise",
+    "name": "동키 종아리 레이즈"
+  },
+  {
+    "id": "dumbbell-hip-thrust",
+    "name": "덤벨 힙 스러스트"
+  },
+  {
+    "id": "leg-press-calf-raise",
+    "name": "레그 프레스 종아리 레이즈"
+  },
+  {
+    "id": "dumbbell-sumo-deadlift",
+    "name": "덤벨 스모 데드리프트"
+  },
+  {
+    "id": "negative-push-up",
+    "name": "네거티브 푸시업"
+  },
+  {
+    "id": "kettlebell-clean-and-jerk",
+    "name": "케틀벨 클린 앤 저크"
+  },
+  {
+    "id": "hang-clean-and-jerk",
+    "name": "행 클린 앤 저크"
+  },
+  {
+    "id": "sissy_squat",
+    "name": "시씨 스쿼트"
+  },
+  {
+    "id": "reverse-curl",
+    "name": "리버스 컬"
+  },
+  {
+    "id": "decline_cable_fly",
+    "name": "디클라인 케이블 플라이"
+  },
+  {
+    "id": "hercules_hold",
+    "name": "헤라클레스 홀드"
+  },
+  {
+    "id": "negative_squat",
+    "name": "네거티브 (에센트릭) 스쿼트"
+  },
+  {
+    "id": "atg_split_squat",
+    "name": "ATG 스플릿 스쿼트"
+  },
+  {
+    "id": "pin_squat",
+    "name": "핀 스쿼트"
+  },
+  {
+    "id": "suicide_grip_bench",
+    "name": "수어사이드 그립 벤치 프레스"
+  },
+  {
+    "id": "battle_ropes",
+    "name": "배틀 로프"
+  },
+  {
+    "id": "heel_elevated_squat",
+    "name": "힐 엘리베이티드 스쿼트"
+  },
+  {
+    "id": "drag_curl",
+    "name": "드래그 컬"
+  },
+  {
+    "id": "kettlebell_single_arm_swing",
+    "name": "케틀벨 원암 스윙"
+  },
+  {
+    "id": "bear_crawl",
+    "name": "베어 크롤"
+  }
+]

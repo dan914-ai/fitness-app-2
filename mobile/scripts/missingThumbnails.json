@@ -1,0 +1,258 @@
+[
+  {
+    "id": "close-grip-pull-up",
+    "name": "클로즈 그립 풀업"
+  },
+  {
+    "id": "forearm-push-up",
+    "name": "전완 푸시업"
+  },
+  {
+    "id": "assisted-push-up",
+    "name": "보조 푸시업"
+  },
+  {
+    "id": "scapular-pull-up",
+    "name": "견갑골 풀업"
+  },
+  {
+    "id": "barbell-power-clean",
+    "name": "바벨 파워 클린"
+  },
+  {
+    "id": "donkey-calf-raise",
+    "name": "동키 종아리 레이즈"
+  },
+  {
+    "id": "dumbbell-sumo-deadlift",
+    "name": "덤벨 스모 데드리프트"
+  },
+  {
+    "id": "dumbbell-hip-thrust",
+    "name": "덤벨 힙 스러스트"
+  },
+  {
+    "id": "leg-press-calf-raise",
+    "name": "레그 프레스 종아리 레이즈"
+  },
+  {
+    "id": "negative-push-up",
+    "name": "네거티브 푸시업"
+  },
+  {
+    "id": "reverse-curl",
+    "name": "리버스 컬"
+  },
+  {
+    "id": "kettlebell-clean-and-jerk",
+    "name": "케틀벨 클린 앤 저크"
+  },
+  {
+    "id": "hang-clean-and-jerk",
+    "name": "행 클린 앤 저크"
+  },
+  {
+    "id": "cable-pushdown",
+    "name": "케이블 푸시다운"
+  },
+  {
+    "id": "sissy_squat",
+    "name": "시씨 스쿼트"
+  },
+  {
+    "id": "hercules_hold",
+    "name": "헤라클레스 홀드"
+  },
+  {
+    "id": "finger_pushups",
+    "name": "손가락 푸시업"
+  },
+  {
+    "id": "decline_cable_fly",
+    "name": "디클라인 케이블 플라이"
+  },
+  {
+    "id": "negative_squat",
+    "name": "네거티브 (에센트릭) 스쿼트"
+  },
+  {
+    "id": "hex_press",
+    "name": "헥스 프레스"
+  },
+  {
+    "id": "atg_split_squat",
+    "name": "ATG 스플릿 스쿼트"
+  },
+  {
+    "id": "anderson_squat",
+    "name": "앤더슨 스쿼트 (바텀업 스쿼트)"
+  },
+  {
+    "id": "pin_squat",
+    "name": "핀 스쿼트"
+  },
+  {
+    "id": "tempo_squat",
+    "name": "템포 스쿼트"
+  },
+  {
+    "id": "lat_pulldown",
+    "name": "랫 풀다운"
+  },
+  {
+    "id": "suicide_grip_bench",
+    "name": "수어사이드 그립 벤치 프레스"
+  },
+  {
+    "id": "reverse_nordic_curl",
+    "name": "리버스 노르딕 컬"
+  },
+  {
+    "id": "mixed_grip_deadlift",
+    "name": "믹스드 그립 데드리프트"
+  },
+  {
+    "id": "block_pull_deadlift",
+    "name": "블록 풀 데드리프트"
+  },
+  {
+    "id": "hack_squat",
+    "name": "핵 스쿼트"
+  },
+  {
+    "id": "romanian_deadlift",
+    "name": "루마니안 데드리프트 (RDL)"
+  },
+  {
+    "id": "heel_elevated_squat",
+    "name": "힐 엘리베이티드 스쿼트"
+  },
+  {
+    "id": "battle_ropes",
+    "name": "배틀 로프"
+  },
+  {
+    "id": "military_press",
+    "name": "밀리터리 프레스"
+  },
+  {
+    "id": "trap_bar_deadlift",
+    "name": "트랩 바 데드리프트"
+  },
+  {
+    "id": "rack_pull",
+    "name": "랙 풀"
+  },
+  {
+    "id": "wide_grip_bench_press",
+    "name": "와이드 그립 벤치 프레스"
+  },
+  {
+    "id": "dumbbell_devils_press",
+    "name": "덤벨 데빌스 프레스"
+  },
+  {
+    "id": "drag_curl",
+    "name": "드래그 컬"
+  },
+  {
+    "id": "concentration_curl",
+    "name": "컨센트레이션 컬"
+  },
+  {
+    "id": "bear_crawl",
+    "name": "베어 크롤"
+  },
+  {
+    "id": "kettlebell_single_arm_swing",
+    "name": "케틀벨 원암 스윙"
+  },
+  {
+    "id": "diamond_pushup",
+    "name": "다이아몬드 푸시업"
+  },
+  {
+    "id": "wide_stance_squat",
+    "name": "와이드 스탠스 스쿼트"
+  },
+  {
+    "id": "tempo_bench_press",
+    "name": "템포 벤치 프레스"
+  },
+  {
+    "id": "tempo_squats",
+    "name": "템포 스쿼트"
+  },
+  {
+    "id": "deck_of_cards_pushups",
+    "name": "카드덱 푸시업"
+  },
+  {
+    "id": "lat_pulldown",
+    "name": "랫 풀다운"
+  },
+  {
+    "id": "suicide_grip_bench_press",
+    "name": "수사이드 그립 벤치 프레스"
+  },
+  {
+    "id": "mixed_grip_deadlift",
+    "name": "믹스드 그립 데드리프트"
+  },
+  {
+    "id": "block_pull_deadlift",
+    "name": "블록 풀 데드리프트"
+  },
+  {
+    "id": "hack_squat",
+    "name": "핵 스쿼트"
+  },
+  {
+    "id": "barbell_deadlift",
+    "name": "바벨 데드리프트"
+  },
+  {
+    "id": "romanian_deadlift",
+    "name": "루마니안 데드리프트"
+  },
+  {
+    "id": "barbell_bench_press",
+    "name": "바벨 벤치 프레스"
+  },
+  {
+    "id": "barbell_squat",
+    "name": "바벨 스쿼트"
+  },
+  {
+    "id": "sumo_deadlift",
+    "name": "스모 데드리프트"
+  },
+  {
+    "id": "trap_bar_deadlift",
+    "name": "트랩 바 데드리프트"
+  },
+  {
+    "id": "rack_pull",
+    "name": "랙 풀"
+  },
+  {
+    "id": "wide_grip_bench_press",
+    "name": "와이드 그립 벤치 프레스"
+  },
+  {
+    "id": "kettlebell_deadlift",
+    "name": "케틀벨 데드리프트"
+  },
+  {
+    "id": "jumping_pull_ups",
+    "name": "점핑 풀업"
+  },
+  {
+    "id": "kneeling_squat",
+    "name": "니링 스쿼트"
+  },
+  {
+    "id": "dumbbell_push_jerk",
+    "name": "덤벨 푸시 저크"
+  }
+]

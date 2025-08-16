@@ -1,0 +1,23 @@
+=== Database Cleanup Action Plan ===
+
+IMMEDIATE FIXES NEEDED:
+1. Remove duplicate GIF files (9 duplicates found)
+2. Move 144 files from /all/ folder to proper categories  
+3. Fix 60 exercises in wrong category folders
+4. Create English filenames for 132 Korean GIFs
+5. Merge shoulder/ and shoulders/ folders
+
+MAIN ISSUES:
+- 1,995 exercises but only 332 GIFs (many share same GIF)
+- Mix of Korean and English filenames
+- Files scattered in wrong folders
+- Some exercises might have wrong GIFs
+
+RECOMMENDED APPROACH:
+1. First, consolidate and organize existing GIFs
+2. Create proper English IDs for all files
+3. Update database to match new structure
+4. Re-upload to Supabase with clean names
+5. Validate all exercises have correct GIFs
+
+This will give you a clean, organized exercise database!

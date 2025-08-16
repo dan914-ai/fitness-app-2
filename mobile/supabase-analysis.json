@@ -1,0 +1,3789 @@
+{
+  "analysis": {
+    "totalFiles": 321,
+    "workingFiles": 309,
+    "issues": 29
+  },
+  "issues": {
+    "emptyFiles": [
+      {
+        "folder": "back",
+        "name": "close-grip-pull-up.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/close-grip-pull-up.gif"
+      },
+      {
+        "folder": "back",
+        "name": "scapular-pull-up.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/scapular-pull-up.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "donkey-calf-raise.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/donkey-calf-raise.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "leg-press-calf-raise.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/leg-press-calf-raise.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "forearm-push-up.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/forearm-push-up.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "hercules_hold.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/hercules_hold.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "reverse-curl.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/reverse-curl.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "dumbbell-hip-thrust.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/dumbbell-hip-thrust.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "dumbbell-sumo-deadlift.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/dumbbell-sumo-deadlift.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "assisted-push-up.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/assisted-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "negative-push-up.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/negative-push-up.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "sissy_squat.gif",
+        "size": 69,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/sissy_squat.gif"
+      }
+    ],
+    "duplicates": [
+      {
+        "baseName": "dumbbell-bicep-curl.gif",
+        "files": [
+          {
+            "folder": "biceps",
+            "name": "dumbbell-bicep-curl-2.gif",
+            "size": 6003846,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl-2.gif"
+          },
+          {
+            "folder": "biceps",
+            "name": "dumbbell-bicep-curl.gif",
+            "size": 1310790,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "seated-calf-raise.gif",
+        "files": [
+          {
+            "folder": "calves",
+            "name": "seated-calf-raise-2.gif",
+            "size": 6059078,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise-2.gif"
+          },
+          {
+            "folder": "calves",
+            "name": "seated-calf-raise.gif",
+            "size": 197754,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "machine-lateral-raise.gif",
+        "files": [
+          {
+            "folder": "deltoids",
+            "name": "machine-lateral-raise-2.gif",
+            "size": 7708340,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise-2.gif"
+          },
+          {
+            "folder": "deltoids",
+            "name": "machine-lateral-raise.gif",
+            "size": 5905217,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "machine-shoulder-press.gif",
+        "files": [
+          {
+            "folder": "deltoids",
+            "name": "machine-shoulder-press-2.gif",
+            "size": 8486934,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press-2.gif"
+          },
+          {
+            "folder": "deltoids",
+            "name": "machine-shoulder-press.gif",
+            "size": 7244425,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "cable-crossover.gif",
+        "files": [
+          {
+            "folder": "pectorals",
+            "name": "cable-crossover-2.gif",
+            "size": 286571,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover-2.gif"
+          },
+          {
+            "folder": "pectorals",
+            "name": "cable-crossover.gif",
+            "size": 1556927,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "dips.gif",
+        "files": [
+          {
+            "folder": "pectorals",
+            "name": "dips-2.gif",
+            "size": 5533337,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips-2.gif"
+          },
+          {
+            "folder": "pectorals",
+            "name": "dips.gif",
+            "size": 676862,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "incline-barbell-bench-press.gif",
+        "files": [
+          {
+            "folder": "pectorals",
+            "name": "incline-barbell-bench-press-2.gif",
+            "size": 5170085,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press-2.gif"
+          },
+          {
+            "folder": "pectorals",
+            "name": "incline-barbell-bench-press.gif",
+            "size": 1726197,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "bulgarian-split-squat.gif",
+        "files": [
+          {
+            "folder": "quadriceps",
+            "name": "bulgarian-split-squat-2.gif",
+            "size": 5437343,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat-2.gif"
+          },
+          {
+            "folder": "quadriceps",
+            "name": "bulgarian-split-squat.gif",
+            "size": 1298902,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "dumbbell-squat.gif",
+        "files": [
+          {
+            "folder": "quadriceps",
+            "name": "dumbbell-squat-2.gif",
+            "size": 4625235,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat-2.gif"
+          },
+          {
+            "folder": "quadriceps",
+            "name": "dumbbell-squat.gif",
+            "size": 1155835,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "landmine-squat.gif",
+        "files": [
+          {
+            "folder": "quadriceps",
+            "name": "landmine-squat-2.gif",
+            "size": 4498455,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat-2.gif"
+          },
+          {
+            "folder": "quadriceps",
+            "name": "landmine-squat.gif",
+            "size": 1072704,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "leg-extension.gif",
+        "files": [
+          {
+            "folder": "quadriceps",
+            "name": "leg-extension-2.gif",
+            "size": 6635555,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension-2.gif"
+          },
+          {
+            "folder": "quadriceps",
+            "name": "leg-extension.gif",
+            "size": 317517,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "smith-machine-squat.gif",
+        "files": [
+          {
+            "folder": "quadriceps",
+            "name": "smith-machine-squat-1754132897721.gif",
+            "size": 202430,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-1754132897721.gif"
+          },
+          {
+            "folder": "quadriceps",
+            "name": "smith-machine-squat-2.gif",
+            "size": 10644612,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-2.gif"
+          },
+          {
+            "folder": "quadriceps",
+            "name": "smith-machine-squat.gif",
+            "size": 202430,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "barbell-shrug.gif",
+        "files": [
+          {
+            "folder": "traps",
+            "name": "barbell-shrug-2.gif",
+            "size": 5023709,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug-2.gif"
+          },
+          {
+            "folder": "traps",
+            "name": "barbell-shrug.gif",
+            "size": 1852091,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "dumbbell-tricep-extension.gif",
+        "files": [
+          {
+            "folder": "triceps",
+            "name": "dumbbell-tricep-extension-2.gif",
+            "size": 2521237,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension-2.gif"
+          },
+          {
+            "folder": "triceps",
+            "name": "dumbbell-tricep-extension.gif",
+            "size": 3197311,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "dumbbell-tricep-kickback.gif",
+        "files": [
+          {
+            "folder": "triceps",
+            "name": "dumbbell-tricep-kickback-2.gif",
+            "size": 4756050,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback-2.gif"
+          },
+          {
+            "folder": "triceps",
+            "name": "dumbbell-tricep-kickback.gif",
+            "size": 863208,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback.gif"
+          }
+        ]
+      },
+      {
+        "baseName": "machine-tricep-extension.gif",
+        "files": [
+          {
+            "folder": "triceps",
+            "name": "machine-tricep-extension-2.gif",
+            "size": 5372304,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension-2.gif"
+          },
+          {
+            "folder": "triceps",
+            "name": "machine-tricep-extension.gif",
+            "size": 7079589,
+            "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension.gif"
+          }
+        ]
+      }
+    ],
+    "unusualSizes": [],
+    "workingFiles": [
+      {
+        "folder": "back",
+        "name": "assisted-pull-ups.gif",
+        "size": 5378165,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/assisted-pull-ups.gif"
+      },
+      {
+        "folder": "back",
+        "name": "band-pull-apart.gif",
+        "size": 1054811,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/band-pull-apart.gif"
+      },
+      {
+        "folder": "back",
+        "name": "band-pull-aparts.gif",
+        "size": 1054811,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/band-pull-aparts.gif"
+      },
+      {
+        "folder": "back",
+        "name": "banded-face-pull.gif",
+        "size": 1518123,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/banded-face-pull.gif"
+      },
+      {
+        "folder": "back",
+        "name": "barbell-pendlay-row.gif",
+        "size": 1082383,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-pendlay-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "barbell-pullover.gif",
+        "size": 3918765,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-pullover.gif"
+      },
+      {
+        "folder": "back",
+        "name": "barbell-row.gif",
+        "size": 7197992,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "behind-neck-pulldown.gif",
+        "size": 4974348,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/behind-neck-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "bent-over-dumbbell-row.gif",
+        "size": 1636640,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/bent-over-dumbbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "cable-face-pull.gif",
+        "size": 2972834,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-face-pull.gif"
+      },
+      {
+        "folder": "back",
+        "name": "cable-pullover.gif",
+        "size": 4618409,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-pullover.gif"
+      },
+      {
+        "folder": "back",
+        "name": "cable-rope-arm-pulldown.gif",
+        "size": 6081379,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-rope-arm-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "cable-row.gif",
+        "size": 5343007,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "cable-seated-row.gif",
+        "size": 7624567,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-seated-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "chest-supported-barbell-row.gif",
+        "size": 5615766,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-barbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "chest-supported-dumbbell-row.gif",
+        "size": 5900002,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-dumbbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "chest-supported-t-bar-row-machine.gif",
+        "size": 6311758,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-t-bar-row-machine.gif"
+      },
+      {
+        "folder": "back",
+        "name": "chin-up.gif",
+        "size": 1473884,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chin-up.gif"
+      },
+      {
+        "folder": "back",
+        "name": "close-grip-lat-pulldown.gif",
+        "size": 3760189,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/close-grip-lat-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "dead-hang.gif",
+        "size": 1301475,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dead-hang.gif"
+      },
+      {
+        "folder": "back",
+        "name": "dumbbell-face-pull.gif",
+        "size": 2394551,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-face-pull.gif"
+      },
+      {
+        "folder": "back",
+        "name": "dumbbell-row-seated.gif",
+        "size": 6750712,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-row-seated.gif"
+      },
+      {
+        "folder": "back",
+        "name": "dumbbell-row.gif",
+        "size": 6750712,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "face-pull.gif",
+        "size": 2972834,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/face-pull.gif"
+      },
+      {
+        "folder": "back",
+        "name": "inverted-row.gif",
+        "size": 924845,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/inverted-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "jumping_pull_ups.gif",
+        "size": 1768933,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/jumping_pull_ups.gif"
+      },
+      {
+        "folder": "back",
+        "name": "kettlebell-upright-row.gif",
+        "size": 1413820,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/kettlebell-upright-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "lat_pulldown.gif",
+        "size": 1556631,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/lat_pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "lat-pulldown-standard.gif",
+        "size": 4972941,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/lat-pulldown-standard.gif"
+      },
+      {
+        "folder": "back",
+        "name": "lat-pulldown.gif",
+        "size": 4972941,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/lat-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "machine-high-row.gif",
+        "size": 6811591,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-high-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "machine-pullover.gif",
+        "size": 6853677,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-pullover.gif"
+      },
+      {
+        "folder": "back",
+        "name": "machine-seated-row.gif",
+        "size": 8663475,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-seated-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "machine-t-bar-row.gif",
+        "size": 5612922,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-t-bar-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "machine-wide-pulldown.gif",
+        "size": 8323785,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-wide-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "negative-pull-up.gif",
+        "size": 1967260,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/negative-pull-up.gif"
+      },
+      {
+        "folder": "back",
+        "name": "neutral-grip-lat-pulldown.gif",
+        "size": 1490392,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/neutral-grip-lat-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "neutral-grip-pull-up.gif",
+        "size": 1220114,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/neutral-grip-pull-up.gif"
+      },
+      {
+        "folder": "back",
+        "name": "plate-row.gif",
+        "size": 8142244,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/plate-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "pull-up.gif",
+        "size": 1460948,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/pull-up.gif"
+      },
+      {
+        "folder": "back",
+        "name": "pull-ups.gif",
+        "size": 1460948,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/pull-ups.gif"
+      },
+      {
+        "folder": "back",
+        "name": "rack_pull.gif",
+        "size": 71594,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/rack_pull.gif"
+      },
+      {
+        "folder": "back",
+        "name": "rowing-machine.gif",
+        "size": 5022831,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/rowing-machine.gif"
+      },
+      {
+        "folder": "back",
+        "name": "single-arm-landmine-row.gif",
+        "size": 1012245,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/single-arm-landmine-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "single-arm-lat-pulldown.gif",
+        "size": 4476568,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/single-arm-lat-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "smith-barbell-row.gif",
+        "size": 5720385,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/smith-barbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "standing-straight-arm-lat-pulldown.gif",
+        "size": 895197,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/standing-straight-arm-lat-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "t-bar-row.gif",
+        "size": 4572257,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/t-bar-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "underhand-barbell-row.gif",
+        "size": 6664426,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/underhand-barbell-row.gif"
+      },
+      {
+        "folder": "back",
+        "name": "weighted-pull-up.gif",
+        "size": 2002549,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/weighted-pull-up.gif"
+      },
+      {
+        "folder": "back",
+        "name": "wide-grip-lat-pulldown.gif",
+        "size": 4972941,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/wide-grip-lat-pulldown.gif"
+      },
+      {
+        "folder": "back",
+        "name": "yates-row.gif",
+        "size": 1484767,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/yates-row.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "barbell-bicep-curl.gif",
+        "size": 6017278,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "barbell-cheat-curl.gif",
+        "size": 1790217,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-cheat-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "barbell-preacher-curl.gif",
+        "size": 7097982,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-preacher-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "cable-bicep-curl.gif",
+        "size": 3628213,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "cable-double-bicep-curl.gif",
+        "size": 2958294,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-double-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "cable-drag-curl.gif",
+        "size": 1682477,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-drag-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "cable-rope-bicep-curl.gif",
+        "size": 3471070,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-rope-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "crossbody-hammer-curl.gif",
+        "size": 1001742,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/crossbody-hammer-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "dumbbell-bicep-curl-2.gif",
+        "size": 6003846,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl-2.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "dumbbell-bicep-curl.gif",
+        "size": 1310790,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "dumbbell-concentration-curl.gif",
+        "size": 4993686,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-concentration-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "dumbbell-hammer-curl.gif",
+        "size": 3906504,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-hammer-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "ez-bar-bicep-curl.gif",
+        "size": 4218158,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/ez-bar-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "ez-bar-reverse-bicep-curl.gif",
+        "size": 4400747,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/ez-bar-reverse-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "hammer-curls.gif",
+        "size": 1145860,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/hammer-curls.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "high-pulley-cable-curl.gif",
+        "size": 1496880,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/high-pulley-cable-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "incline-dumbbell-curl.gif",
+        "size": 1681282,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/incline-dumbbell-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "incline-hammer-curls.gif",
+        "size": 1769430,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/incline-hammer-curls.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "inner-biceps-curl.gif",
+        "size": 1663971,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/inner-biceps-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "preacher-curls.gif",
+        "size": 1057615,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/preacher-curls.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "single-arm-cable-bicep-curl.gif",
+        "size": 3022095,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/single-arm-cable-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "single-arm-dumbbell-preacher-curl.gif",
+        "size": 3745490,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/single-arm-dumbbell-preacher-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "spider-bicep-curl.gif",
+        "size": 6322739,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-bicep-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "spider-curl.gif",
+        "size": 2146832,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "spider-ez-bar-curl.gif",
+        "size": 2146832,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-ez-bar-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "wide-grip-barbell-curl.gif",
+        "size": 1791721,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/wide-grip-barbell-curl.gif"
+      },
+      {
+        "folder": "biceps",
+        "name": "zottman-curl.gif",
+        "size": 1392556,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/zottman-curl.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "leg-press-calf-raise-2.gif",
+        "size": 5403052,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/leg-press-calf-raise-2.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "seated-calf-raise-2.gif",
+        "size": 6059078,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise-2.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "seated-calf-raise.gif",
+        "size": 197754,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "single-leg-calf-raise.gif",
+        "size": 1292645,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/single-leg-calf-raise.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "smith-machine-calf-raise.gif",
+        "size": 1314749,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/smith-machine-calf-raise.gif"
+      },
+      {
+        "folder": "calves",
+        "name": "standing-calf-raise.gif",
+        "size": 6747190,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/standing-calf-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "arnold-press.gif",
+        "size": 2945473,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/arnold-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "barbell-front-raise.gif",
+        "size": 6649637,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-front-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "barbell-push-press.gif",
+        "size": 1343955,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-push-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "barbell-shoulder-press.gif",
+        "size": 5193515,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "cable-front-raise.gif",
+        "size": 4309379,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-front-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "cable-kneeling-shoulder-press.gif",
+        "size": 4921280,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-kneeling-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "cable-rear-delt-row.gif",
+        "size": 1808485,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-rear-delt-row.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "dumbbell-bent-over-lateral-raise.gif",
+        "size": 6267495,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-bent-over-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "dumbbell-lateral-raise.gif",
+        "size": 4313748,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "dumbbell-push-press.gif",
+        "size": 1893412,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-push-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "dumbbell-rear-delt-raise.gif",
+        "size": 5908101,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-rear-delt-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "handstand-push-up.gif",
+        "size": 1011229,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/handstand-push-up.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "incline-leaning-dumbbell-lateral-raise.gif",
+        "size": 3436510,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/incline-leaning-dumbbell-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "landmine-press.gif",
+        "size": 1000346,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/landmine-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "leaning-single-arm-dumbbell-lateral-raise.gif",
+        "size": 3175757,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/leaning-single-arm-dumbbell-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "machine-lateral-raise-2.gif",
+        "size": 7708340,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise-2.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "machine-lateral-raise.gif",
+        "size": 5905217,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "machine-rear-delt-fly.gif",
+        "size": 7430897,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-rear-delt-fly.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "machine-shoulder-press-2.gif",
+        "size": 8486934,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press-2.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "machine-shoulder-press.gif",
+        "size": 7244425,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "military_press.gif",
+        "size": 726540,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/military_press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "military-press.gif",
+        "size": 726540,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/military-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "pike-push-up.gif",
+        "size": 2518365,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/pike-push-up.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "plate-front-raise.gif",
+        "size": 3686110,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/plate-front-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "prone-y-raises.gif",
+        "size": 978946,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/prone-y-raises.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "seated-barbell-shoulder-press.gif",
+        "size": 8790923,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-barbell-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "seated-dumbbell-front-raise.gif",
+        "size": 4246913,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-front-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "seated-dumbbell-lateral-raise.gif",
+        "size": 5767146,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "seated-dumbbell-shoulder-press.gif",
+        "size": 3905121,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "seated-ez-bar-front-raise.gif",
+        "size": 4583044,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-ez-bar-front-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "seated-smith-shoulder-press.gif",
+        "size": 7490873,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-smith-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "shoulder-push-up.gif",
+        "size": 2518365,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/shoulder-push-up.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "single-arm-cable-lateral-raise.gif",
+        "size": 3957111,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-cable-lateral-raise.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "single-arm-cable-lateral-raises.gif",
+        "size": 1041834,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-cable-lateral-raises.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "single-arm-dumbbell-shoulder-press.gif",
+        "size": 2673588,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-dumbbell-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "smith-behind-neck-shoulder-press.gif",
+        "size": 7660119,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/smith-behind-neck-shoulder-press.gif"
+      },
+      {
+        "folder": "deltoids",
+        "name": "standing-smith-shoulder-press.gif",
+        "size": 6703546,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/standing-smith-shoulder-press.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "barbell-reverse-wrist-curl.gif",
+        "size": 6861702,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/barbell-reverse-wrist-curl.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "barbell-wrist-curl.gif",
+        "size": 4614650,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/barbell-wrist-curl.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "dumbbell-reverse-wrist-curl.gif",
+        "size": 4383923,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/dumbbell-reverse-wrist-curl.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "dumbbell-wrist-curl.gif",
+        "size": 4547027,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/dumbbell-wrist-curl.gif"
+      },
+      {
+        "folder": "forearms",
+        "name": "wrist-push-up.gif",
+        "size": 2966488,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/wrist-push-up.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "banded-hip-thrust.gif",
+        "size": 1636552,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/banded-hip-thrust.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "barbell-hip-thrust.gif",
+        "size": 5875938,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/barbell-hip-thrust.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "cable-hip-adduction.gif",
+        "size": 5951245,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/cable-hip-adduction.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "cable-pull-through.gif",
+        "size": 1352637,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/cable-pull-through.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "dumbbell-glute-bridge.gif",
+        "size": 2384576,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/dumbbell-glute-bridge.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "elevated-glute-bridge.gif",
+        "size": 1530712,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/elevated-glute-bridge.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "frog-hip-thrust.gif",
+        "size": 2480420,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/frog-hip-thrust.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "glute-kickback-hip-extension.gif",
+        "size": 5539967,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/glute-kickback-hip-extension.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "glute-kickback-machine.gif",
+        "size": 7940070,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/glute-kickback-machine.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "hip-abduction.gif",
+        "size": 9109416,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/hip-abduction.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "hip-adduction-inner-thigh-machine.gif",
+        "size": 5988042,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/hip-adduction-inner-thigh-machine.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "machine-standing-hip-abduction.gif",
+        "size": 7898433,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/machine-standing-hip-abduction.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "resistance-band-glute-bridge.gif",
+        "size": 2534790,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/resistance-band-glute-bridge.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "single-leg-cable-kickback.gif",
+        "size": 4827393,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/single-leg-cable-kickback.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "single-leg-hip-thrust.gif",
+        "size": 1309459,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/single-leg-hip-thrust.gif"
+      },
+      {
+        "folder": "glutes",
+        "name": "smith-machine-hip-thrust.gif",
+        "size": 7614507,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/smith-machine-hip-thrust.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "barbell_deadlift.gif",
+        "size": 1545561,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/barbell_deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "barbell-good-morning.gif",
+        "size": 4068524,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/barbell-good-morning.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "block_pull_deadlift.gif",
+        "size": 71978,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/block_pull_deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "deficit-deadlift.gif",
+        "size": 1832082,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/deficit-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "dumbbell-stiff-leg-deadlift.gif",
+        "size": 4570517,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/dumbbell-stiff-leg-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "kettlebell_deadlift.gif",
+        "size": 70671,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kettlebell_deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "kettlebell-sumo-deadlift.gif",
+        "size": 1228092,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kettlebell-sumo-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "kneeling-leg-curl.gif",
+        "size": 4475967,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kneeling-leg-curl.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "landmine-deadlift.gif",
+        "size": 707988,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/landmine-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "lying-leg-curl.gif",
+        "size": 8566473,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/lying-leg-curl.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "mixed_grip_deadlift.gif",
+        "size": 68914,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/mixed_grip_deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "nordic-curl.gif",
+        "size": 1669241,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/nordic-curl.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "pause-deadlift.gif",
+        "size": 189356,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/pause-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "reverse_nordic_curl.gif",
+        "size": 1750994,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/reverse_nordic_curl.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "romanian_deadlift.gif",
+        "size": 1817222,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/romanian_deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "romanian-deadlift.gif",
+        "size": 5571669,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/romanian-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "seated-leg-curl.gif",
+        "size": 5926028,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/seated-leg-curl.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "single-leg-curl.gif",
+        "size": 5683792,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/single-leg-curl.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "stiff-leg-deadlift.gif",
+        "size": 6232127,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/stiff-leg-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "straight-leg-deadlift.gif",
+        "size": 1565939,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/straight-leg-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "suitcase-deadlift.gif",
+        "size": 1319263,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/suitcase-deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "sumo_deadlift.gif",
+        "size": 70873,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/sumo_deadlift.gif"
+      },
+      {
+        "folder": "hamstrings",
+        "name": "sumo-deadlift.gif",
+        "size": 6688810,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/sumo-deadlift.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "assisted-dips.gif",
+        "size": 6373021,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/assisted-dips.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "barbell_bench_press.gif",
+        "size": 72693,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell_bench_press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "barbell-bench-press.gif",
+        "size": 5903059,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "barbell-decline-bench-press.gif",
+        "size": 1608220,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell-decline-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "bench-dips.gif",
+        "size": 5204461,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/bench-dips.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "board-bench-press.gif",
+        "size": 1017561,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/board-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "cable-chest-fly.gif",
+        "size": 1860729,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-chest-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "cable-crossover-2.gif",
+        "size": 286571,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover-2.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "cable-crossover.gif",
+        "size": 1556927,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "chest-press-machine.gif",
+        "size": 1809611,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/chest-press-machine.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "clapping-push-up.gif",
+        "size": 209777,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/clapping-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "deck_of_cards_pushups.gif",
+        "size": 55731,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/deck_of_cards_pushups.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "decline-barbell-bench-press.gif",
+        "size": 6825498,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-barbell-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "decline-cable-fly.gif",
+        "size": 4250658,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-cable-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "decline-dumbbell-fly.gif",
+        "size": 5682535,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-dumbbell-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "deficit-push-ups.gif",
+        "size": 1611178,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/deficit-push-ups.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "dips-2.gif",
+        "size": 5533337,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips-2.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "dips.gif",
+        "size": 676862,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "dumbbell-bench-press.gif",
+        "size": 6462858,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "dumbbell-chest-fly.gif",
+        "size": 8120738,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-chest-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "dumbbell-close-grip-press.gif",
+        "size": 1901468,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-close-grip-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "finger_pushups.gif",
+        "size": 1602930,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/finger_pushups.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "floor-press.gif",
+        "size": 1259739,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/floor-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "hex_press.gif",
+        "size": 1453374,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/hex_press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "incline-barbell-bench-press-2.gif",
+        "size": 5170085,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press-2.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "incline-barbell-bench-press.gif",
+        "size": 1726197,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "incline-dumbbell-fly.gif",
+        "size": 5897275,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-dumbbell-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "incline-push-up.gif",
+        "size": 1478330,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "knee-push-up.gif",
+        "size": 2597637,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knee-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "knuckle_pushups.gif",
+        "size": 1797473,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knuckle_pushups.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "machine-chest-fly.gif",
+        "size": 6890323,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-chest-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "machine-chest-press.gif",
+        "size": 6047126,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-chest-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "machine-dips.gif",
+        "size": 7825857,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-dips.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "parallel-dips.gif",
+        "size": 1419404,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/parallel-dips.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "pec-dec-fly.gif",
+        "size": 1895679,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pec-dec-fly.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "pec-deck.gif",
+        "size": 1895679,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pec-deck.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "pin-press.gif",
+        "size": 841595,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pin-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "plate-chest-press.gif",
+        "size": 5879752,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/plate-chest-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "plyometric-push-up.gif",
+        "size": 1372883,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/plyometric-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "push-ups-with-rotation.gif",
+        "size": 1832269,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/push-ups-with-rotation.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "resistance-band-push-up.gif",
+        "size": 1763890,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/resistance-band-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "single-arm-dumbbell-press.gif",
+        "size": 2709780,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/single-arm-dumbbell-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "smith-bench-press.gif",
+        "size": 6630674,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/smith-bench-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "sphinx-push-up.gif",
+        "size": 1312959,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/sphinx-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "suicide_grip_bench_press.gif",
+        "size": 73096,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/suicide_grip_bench_press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "svend-press.gif",
+        "size": 1218740,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/svend-press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "tempo_bench_press.gif",
+        "size": 1080534,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/tempo_bench_press.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "weighted-push-up.gif",
+        "size": 2045162,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/weighted-push-up.gif"
+      },
+      {
+        "folder": "pectorals",
+        "name": "wide_grip_bench_press.gif",
+        "size": 1452076,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/wide_grip_bench_press.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "anderson_squat.gif",
+        "size": 2145055,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/anderson_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "barbell_squat.gif",
+        "size": 71379,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "barbell-bulgarian-split-squat.gif",
+        "size": 6690590,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-bulgarian-split-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "barbell-front-squat.gif",
+        "size": 7586742,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-front-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "barbell-lunge.gif",
+        "size": 6104771,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-lunge.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "barbell-sumo-squat.gif",
+        "size": 1804428,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-sumo-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "belt-squat.gif",
+        "size": 8715279,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/belt-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "bodyweight-lunge.gif",
+        "size": 6596473,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bodyweight-lunge.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "bodyweight-squat.gif",
+        "size": 3934907,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bodyweight-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "bulgarian-split-squat-2.gif",
+        "size": 5437343,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat-2.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "bulgarian-split-squat.gif",
+        "size": 1298902,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "deficit-reverse-lunge.gif",
+        "size": 1957426,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/deficit-reverse-lunge.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "dumbbell-front-squat.gif",
+        "size": 1258034,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-front-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "dumbbell-hack-squat.gif",
+        "size": 1167920,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-hack-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "dumbbell-squat-2.gif",
+        "size": 4625235,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat-2.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "dumbbell-squat.gif",
+        "size": 1155835,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "dumbbell-sumo-squat.gif",
+        "size": 1261407,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-sumo-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "frog-squat.gif",
+        "size": 1865984,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/frog-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "front-squat.gif",
+        "size": 1526426,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/front-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "goblet-squat.gif",
+        "size": 234109,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/goblet-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "gym-ball-squat.gif",
+        "size": 5253025,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/gym-ball-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "hack_squat.gif",
+        "size": 72699,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/hack_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "hack-squat.gif",
+        "size": 6838675,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/hack-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "half-knee-bends.gif",
+        "size": 1398209,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/half-knee-bends.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "kettlebell-squat-clean.gif",
+        "size": 2293250,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kettlebell-squat-clean.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "kettlebell-squat.gif",
+        "size": 3943023,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kettlebell-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "kneeling_squat.gif",
+        "size": 70801,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kneeling_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "landmine-squat-2.gif",
+        "size": 4498455,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat-2.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "landmine-squat.gif",
+        "size": 1072704,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "leg-extension-2.gif",
+        "size": 6635555,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension-2.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "leg-extension.gif",
+        "size": 317517,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "low-bar-squat.gif",
+        "size": 1607772,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/low-bar-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "lunges.gif",
+        "size": 1336617,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/lunges.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "machine-leg-press.gif",
+        "size": 7248052,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/machine-leg-press.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "negative_squat.gif",
+        "size": 1624038,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/negative_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "overhead-squat.gif",
+        "size": 1336327,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/overhead-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "pistol-squat.gif",
+        "size": 1120614,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/pistol-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "resistance-band-lunge.gif",
+        "size": 1439839,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/resistance-band-lunge.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "reverse-squat.gif",
+        "size": 591243,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/reverse-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "reverse-v-squat.gif",
+        "size": 7223415,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/reverse-v-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "seated-knee-extension.gif",
+        "size": 1813993,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/seated-knee-extension.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "shrimp-squat.gif",
+        "size": 1242064,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/shrimp-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "single-leg-extension.gif",
+        "size": 9600884,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/single-leg-extension.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "single-leg-press.gif",
+        "size": 6068146,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/single-leg-press.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "smith-machine-lunge.gif",
+        "size": 8049154,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-lunge.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "smith-machine-squat-1754132897721.gif",
+        "size": 202430,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-1754132897721.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "smith-machine-squat-2.gif",
+        "size": 10644612,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-2.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "smith-machine-squat.gif",
+        "size": 202430,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "step-ups.gif",
+        "size": 1120467,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/step-ups.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "tempo_squat.gif",
+        "size": 784330,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "tempo_squats.gif",
+        "size": 784330,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squats.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "trap_bar_deadlift.gif",
+        "size": 69055,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/trap_bar_deadlift.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "trap-bar-deadlift.gif",
+        "size": 6021843,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/trap-bar-deadlift.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "wide_stance_squat.gif",
+        "size": 61452,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/wide_stance_squat.gif"
+      },
+      {
+        "folder": "quadriceps",
+        "name": "zercher-squat.gif",
+        "size": 772398,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/zercher-squat.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "barbell-shrug-2.gif",
+        "size": 5023709,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug-2.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "barbell-shrug.gif",
+        "size": 1852091,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "barbell-upright-row.gif",
+        "size": 5756319,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-upright-row.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "cable-shrug.gif",
+        "size": 3337193,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/cable-shrug.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "cable-upright-row.gif",
+        "size": 6421770,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/cable-upright-row.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "chest-supported-dumbbell-shrug.gif",
+        "size": 6192541,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/chest-supported-dumbbell-shrug.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "dumbbell-shrug.gif",
+        "size": 3613128,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/dumbbell-shrug.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "dumbbell-upright-row.gif",
+        "size": 3820378,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/dumbbell-upright-row.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "ez-bar-upright-row.gif",
+        "size": 4129188,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/ez-bar-upright-row.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "single-arm-dumbbell-upright-row.gif",
+        "size": 3353338,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/single-arm-dumbbell-upright-row.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "smith-machine-shrug.gif",
+        "size": 5221815,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/smith-machine-shrug.gif"
+      },
+      {
+        "folder": "traps",
+        "name": "upright-row.gif",
+        "size": 1615077,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/upright-row.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "barbell-incline-tricep-extension.gif",
+        "size": 4203931,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-incline-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "barbell-lying-tricep-extension.gif",
+        "size": 5805640,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-lying-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "barbell-tricep-extension.gif",
+        "size": 3185954,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-incline-tricep-extension.gif",
+        "size": 3942917,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-incline-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-overhead-tricep-extension.gif",
+        "size": 4011262,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-overhead-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-pushdown.gif",
+        "size": 755228,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-pushdown.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-reverse-grip-tricep-pushdown.gif",
+        "size": 5694170,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-reverse-grip-tricep-pushdown.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-rope-tricep-extension.gif",
+        "size": 6029280,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-rope-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-single-arm-reverse-grip-tricep-pushdown.gif",
+        "size": 2101026,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-single-arm-reverse-grip-tricep-pushdown.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-tricep-kickback.gif",
+        "size": 8174880,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-tricep-kickback.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cable-v-bar-tricep-pushdown.gif",
+        "size": 4821856,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-v-bar-tricep-pushdown.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "close-grip-bench-press.gif",
+        "size": 6050905,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/close-grip-bench-press.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "cobra-push-up.gif",
+        "size": 2029347,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cobra-push-up.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "dive-bomber-push-ups.gif",
+        "size": 2721094,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dive-bomber-push-ups.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "dumbbell-tricep-extension-2.gif",
+        "size": 2521237,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension-2.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "dumbbell-tricep-extension.gif",
+        "size": 3197311,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "dumbbell-tricep-kickback-2.gif",
+        "size": 4756050,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback-2.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "dumbbell-tricep-kickback.gif",
+        "size": 863208,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "kneeling-cable-overhead-tricep-extension.gif",
+        "size": 6110205,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/kneeling-cable-overhead-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "machine-tricep-extension-2.gif",
+        "size": 5372304,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension-2.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "machine-tricep-extension.gif",
+        "size": 7079589,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "overhead-tricep-stretch.gif",
+        "size": 1096745,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/overhead-tricep-stretch.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "single-arm-cable-tricep-extension.gif",
+        "size": 5740567,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/single-arm-cable-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "single-arm-dumbbell-tricep-extension.gif",
+        "size": 3556301,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/single-arm-dumbbell-tricep-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "tricep-overhead-extension.gif",
+        "size": 162144,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/tricep-overhead-extension.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "triceps-pushdown.gif",
+        "size": 755228,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/triceps-pushdown.gif"
+      },
+      {
+        "folder": "triceps",
+        "name": "underhand-tricep-pushdown.gif",
+        "size": 1301901,
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/underhand-tricep-pushdown.gif"
+      }
+    ]
+  },
+  "cleanFiles": {
+    "back": [
+      {
+        "name": "assisted-pull-ups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/assisted-pull-ups.gif",
+        "size": 5378165
+      },
+      {
+        "name": "band-pull-apart.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/band-pull-apart.gif",
+        "size": 1054811
+      },
+      {
+        "name": "band-pull-aparts.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/band-pull-aparts.gif",
+        "size": 1054811
+      },
+      {
+        "name": "banded-face-pull.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/banded-face-pull.gif",
+        "size": 1518123
+      },
+      {
+        "name": "barbell-pendlay-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-pendlay-row.gif",
+        "size": 1082383
+      },
+      {
+        "name": "barbell-pullover.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-pullover.gif",
+        "size": 3918765
+      },
+      {
+        "name": "barbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-row.gif",
+        "size": 7197992
+      },
+      {
+        "name": "behind-neck-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/behind-neck-pulldown.gif",
+        "size": 4974348
+      },
+      {
+        "name": "bent-over-dumbbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/bent-over-dumbbell-row.gif",
+        "size": 1636640
+      },
+      {
+        "name": "cable-face-pull.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-face-pull.gif",
+        "size": 2972834
+      },
+      {
+        "name": "cable-pullover.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-pullover.gif",
+        "size": 4618409
+      },
+      {
+        "name": "cable-rope-arm-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-rope-arm-pulldown.gif",
+        "size": 6081379
+      },
+      {
+        "name": "cable-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-row.gif",
+        "size": 5343007
+      },
+      {
+        "name": "cable-seated-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-seated-row.gif",
+        "size": 7624567
+      },
+      {
+        "name": "chest-supported-barbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-barbell-row.gif",
+        "size": 5615766
+      },
+      {
+        "name": "chest-supported-dumbbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-dumbbell-row.gif",
+        "size": 5900002
+      },
+      {
+        "name": "chest-supported-t-bar-row-machine.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-t-bar-row-machine.gif",
+        "size": 6311758
+      },
+      {
+        "name": "chin-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/chin-up.gif",
+        "size": 1473884
+      },
+      {
+        "name": "close-grip-lat-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/close-grip-lat-pulldown.gif",
+        "size": 3760189
+      },
+      {
+        "name": "dead-hang.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dead-hang.gif",
+        "size": 1301475
+      },
+      {
+        "name": "dumbbell-face-pull.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-face-pull.gif",
+        "size": 2394551
+      },
+      {
+        "name": "dumbbell-row-seated.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-row-seated.gif",
+        "size": 6750712
+      },
+      {
+        "name": "dumbbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-row.gif",
+        "size": 6750712
+      },
+      {
+        "name": "face-pull.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/face-pull.gif",
+        "size": 2972834
+      },
+      {
+        "name": "inverted-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/inverted-row.gif",
+        "size": 924845
+      },
+      {
+        "name": "jumping_pull_ups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/jumping_pull_ups.gif",
+        "size": 1768933
+      },
+      {
+        "name": "kettlebell-upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/kettlebell-upright-row.gif",
+        "size": 1413820
+      },
+      {
+        "name": "lat_pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/lat_pulldown.gif",
+        "size": 1556631
+      },
+      {
+        "name": "lat-pulldown-standard.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/lat-pulldown-standard.gif",
+        "size": 4972941
+      },
+      {
+        "name": "lat-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/lat-pulldown.gif",
+        "size": 4972941
+      },
+      {
+        "name": "machine-high-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-high-row.gif",
+        "size": 6811591
+      },
+      {
+        "name": "machine-pullover.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-pullover.gif",
+        "size": 6853677
+      },
+      {
+        "name": "machine-seated-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-seated-row.gif",
+        "size": 8663475
+      },
+      {
+        "name": "machine-t-bar-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-t-bar-row.gif",
+        "size": 5612922
+      },
+      {
+        "name": "machine-wide-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-wide-pulldown.gif",
+        "size": 8323785
+      },
+      {
+        "name": "negative-pull-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/negative-pull-up.gif",
+        "size": 1967260
+      },
+      {
+        "name": "neutral-grip-lat-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/neutral-grip-lat-pulldown.gif",
+        "size": 1490392
+      },
+      {
+        "name": "neutral-grip-pull-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/neutral-grip-pull-up.gif",
+        "size": 1220114
+      },
+      {
+        "name": "plate-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/plate-row.gif",
+        "size": 8142244
+      },
+      {
+        "name": "pull-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/pull-up.gif",
+        "size": 1460948
+      },
+      {
+        "name": "pull-ups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/pull-ups.gif",
+        "size": 1460948
+      },
+      {
+        "name": "rack_pull.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/rack_pull.gif",
+        "size": 71594
+      },
+      {
+        "name": "rowing-machine.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/rowing-machine.gif",
+        "size": 5022831
+      },
+      {
+        "name": "single-arm-landmine-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/single-arm-landmine-row.gif",
+        "size": 1012245
+      },
+      {
+        "name": "single-arm-lat-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/single-arm-lat-pulldown.gif",
+        "size": 4476568
+      },
+      {
+        "name": "smith-barbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/smith-barbell-row.gif",
+        "size": 5720385
+      },
+      {
+        "name": "standing-straight-arm-lat-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/standing-straight-arm-lat-pulldown.gif",
+        "size": 895197
+      },
+      {
+        "name": "t-bar-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/t-bar-row.gif",
+        "size": 4572257
+      },
+      {
+        "name": "underhand-barbell-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/underhand-barbell-row.gif",
+        "size": 6664426
+      },
+      {
+        "name": "weighted-pull-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/weighted-pull-up.gif",
+        "size": 2002549
+      },
+      {
+        "name": "wide-grip-lat-pulldown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/wide-grip-lat-pulldown.gif",
+        "size": 4972941
+      },
+      {
+        "name": "yates-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/back/yates-row.gif",
+        "size": 1484767
+      }
+    ],
+    "biceps": [
+      {
+        "name": "barbell-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-bicep-curl.gif",
+        "size": 6017278
+      },
+      {
+        "name": "barbell-cheat-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-cheat-curl.gif",
+        "size": 1790217
+      },
+      {
+        "name": "barbell-preacher-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-preacher-curl.gif",
+        "size": 7097982
+      },
+      {
+        "name": "cable-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-bicep-curl.gif",
+        "size": 3628213
+      },
+      {
+        "name": "cable-double-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-double-bicep-curl.gif",
+        "size": 2958294
+      },
+      {
+        "name": "cable-drag-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-drag-curl.gif",
+        "size": 1682477
+      },
+      {
+        "name": "cable-rope-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-rope-bicep-curl.gif",
+        "size": 3471070
+      },
+      {
+        "name": "crossbody-hammer-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/crossbody-hammer-curl.gif",
+        "size": 1001742
+      },
+      {
+        "name": "dumbbell-bicep-curl-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl-2.gif",
+        "size": 6003846
+      },
+      {
+        "name": "dumbbell-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl.gif",
+        "size": 1310790
+      },
+      {
+        "name": "dumbbell-concentration-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-concentration-curl.gif",
+        "size": 4993686
+      },
+      {
+        "name": "dumbbell-hammer-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-hammer-curl.gif",
+        "size": 3906504
+      },
+      {
+        "name": "ez-bar-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/ez-bar-bicep-curl.gif",
+        "size": 4218158
+      },
+      {
+        "name": "ez-bar-reverse-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/ez-bar-reverse-bicep-curl.gif",
+        "size": 4400747
+      },
+      {
+        "name": "hammer-curls.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/hammer-curls.gif",
+        "size": 1145860
+      },
+      {
+        "name": "high-pulley-cable-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/high-pulley-cable-curl.gif",
+        "size": 1496880
+      },
+      {
+        "name": "incline-dumbbell-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/incline-dumbbell-curl.gif",
+        "size": 1681282
+      },
+      {
+        "name": "incline-hammer-curls.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/incline-hammer-curls.gif",
+        "size": 1769430
+      },
+      {
+        "name": "inner-biceps-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/inner-biceps-curl.gif",
+        "size": 1663971
+      },
+      {
+        "name": "preacher-curls.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/preacher-curls.gif",
+        "size": 1057615
+      },
+      {
+        "name": "single-arm-cable-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/single-arm-cable-bicep-curl.gif",
+        "size": 3022095
+      },
+      {
+        "name": "single-arm-dumbbell-preacher-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/single-arm-dumbbell-preacher-curl.gif",
+        "size": 3745490
+      },
+      {
+        "name": "spider-bicep-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-bicep-curl.gif",
+        "size": 6322739
+      },
+      {
+        "name": "spider-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-curl.gif",
+        "size": 2146832
+      },
+      {
+        "name": "spider-ez-bar-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-ez-bar-curl.gif",
+        "size": 2146832
+      },
+      {
+        "name": "wide-grip-barbell-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/wide-grip-barbell-curl.gif",
+        "size": 1791721
+      },
+      {
+        "name": "zottman-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/biceps/zottman-curl.gif",
+        "size": 1392556
+      }
+    ],
+    "calves": [
+      {
+        "name": "leg-press-calf-raise-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/leg-press-calf-raise-2.gif",
+        "size": 5403052
+      },
+      {
+        "name": "seated-calf-raise-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise-2.gif",
+        "size": 6059078
+      },
+      {
+        "name": "seated-calf-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise.gif",
+        "size": 197754
+      },
+      {
+        "name": "single-leg-calf-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/single-leg-calf-raise.gif",
+        "size": 1292645
+      },
+      {
+        "name": "smith-machine-calf-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/smith-machine-calf-raise.gif",
+        "size": 1314749
+      },
+      {
+        "name": "standing-calf-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/calves/standing-calf-raise.gif",
+        "size": 6747190
+      }
+    ],
+    "deltoids": [
+      {
+        "name": "arnold-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/arnold-press.gif",
+        "size": 2945473
+      },
+      {
+        "name": "barbell-front-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-front-raise.gif",
+        "size": 6649637
+      },
+      {
+        "name": "barbell-push-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-push-press.gif",
+        "size": 1343955
+      },
+      {
+        "name": "barbell-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-shoulder-press.gif",
+        "size": 5193515
+      },
+      {
+        "name": "cable-front-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-front-raise.gif",
+        "size": 4309379
+      },
+      {
+        "name": "cable-kneeling-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-kneeling-shoulder-press.gif",
+        "size": 4921280
+      },
+      {
+        "name": "cable-rear-delt-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-rear-delt-row.gif",
+        "size": 1808485
+      },
+      {
+        "name": "dumbbell-bent-over-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-bent-over-lateral-raise.gif",
+        "size": 6267495
+      },
+      {
+        "name": "dumbbell-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-lateral-raise.gif",
+        "size": 4313748
+      },
+      {
+        "name": "dumbbell-push-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-push-press.gif",
+        "size": 1893412
+      },
+      {
+        "name": "dumbbell-rear-delt-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-rear-delt-raise.gif",
+        "size": 5908101
+      },
+      {
+        "name": "handstand-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/handstand-push-up.gif",
+        "size": 1011229
+      },
+      {
+        "name": "incline-leaning-dumbbell-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/incline-leaning-dumbbell-lateral-raise.gif",
+        "size": 3436510
+      },
+      {
+        "name": "landmine-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/landmine-press.gif",
+        "size": 1000346
+      },
+      {
+        "name": "leaning-single-arm-dumbbell-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/leaning-single-arm-dumbbell-lateral-raise.gif",
+        "size": 3175757
+      },
+      {
+        "name": "machine-lateral-raise-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise-2.gif",
+        "size": 7708340
+      },
+      {
+        "name": "machine-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise.gif",
+        "size": 5905217
+      },
+      {
+        "name": "machine-rear-delt-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-rear-delt-fly.gif",
+        "size": 7430897
+      },
+      {
+        "name": "machine-shoulder-press-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press-2.gif",
+        "size": 8486934
+      },
+      {
+        "name": "machine-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press.gif",
+        "size": 7244425
+      },
+      {
+        "name": "military_press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/military_press.gif",
+        "size": 726540
+      },
+      {
+        "name": "military-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/military-press.gif",
+        "size": 726540
+      },
+      {
+        "name": "pike-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/pike-push-up.gif",
+        "size": 2518365
+      },
+      {
+        "name": "plate-front-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/plate-front-raise.gif",
+        "size": 3686110
+      },
+      {
+        "name": "prone-y-raises.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/prone-y-raises.gif",
+        "size": 978946
+      },
+      {
+        "name": "seated-barbell-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-barbell-shoulder-press.gif",
+        "size": 8790923
+      },
+      {
+        "name": "seated-dumbbell-front-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-front-raise.gif",
+        "size": 4246913
+      },
+      {
+        "name": "seated-dumbbell-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-lateral-raise.gif",
+        "size": 5767146
+      },
+      {
+        "name": "seated-dumbbell-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-shoulder-press.gif",
+        "size": 3905121
+      },
+      {
+        "name": "seated-ez-bar-front-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-ez-bar-front-raise.gif",
+        "size": 4583044
+      },
+      {
+        "name": "seated-smith-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-smith-shoulder-press.gif",
+        "size": 7490873
+      },
+      {
+        "name": "shoulder-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/shoulder-push-up.gif",
+        "size": 2518365
+      },
+      {
+        "name": "single-arm-cable-lateral-raise.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-cable-lateral-raise.gif",
+        "size": 3957111
+      },
+      {
+        "name": "single-arm-cable-lateral-raises.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-cable-lateral-raises.gif",
+        "size": 1041834
+      },
+      {
+        "name": "single-arm-dumbbell-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-dumbbell-shoulder-press.gif",
+        "size": 2673588
+      },
+      {
+        "name": "smith-behind-neck-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/smith-behind-neck-shoulder-press.gif",
+        "size": 7660119
+      },
+      {
+        "name": "standing-smith-shoulder-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/standing-smith-shoulder-press.gif",
+        "size": 6703546
+      }
+    ],
+    "forearms": [
+      {
+        "name": "barbell-reverse-wrist-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/barbell-reverse-wrist-curl.gif",
+        "size": 6861702
+      },
+      {
+        "name": "barbell-wrist-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/barbell-wrist-curl.gif",
+        "size": 4614650
+      },
+      {
+        "name": "dumbbell-reverse-wrist-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/dumbbell-reverse-wrist-curl.gif",
+        "size": 4383923
+      },
+      {
+        "name": "dumbbell-wrist-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/dumbbell-wrist-curl.gif",
+        "size": 4547027
+      },
+      {
+        "name": "wrist-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/forearms/wrist-push-up.gif",
+        "size": 2966488
+      }
+    ],
+    "glutes": [
+      {
+        "name": "banded-hip-thrust.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/banded-hip-thrust.gif",
+        "size": 1636552
+      },
+      {
+        "name": "barbell-hip-thrust.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/barbell-hip-thrust.gif",
+        "size": 5875938
+      },
+      {
+        "name": "cable-hip-adduction.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/cable-hip-adduction.gif",
+        "size": 5951245
+      },
+      {
+        "name": "cable-pull-through.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/cable-pull-through.gif",
+        "size": 1352637
+      },
+      {
+        "name": "dumbbell-glute-bridge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/dumbbell-glute-bridge.gif",
+        "size": 2384576
+      },
+      {
+        "name": "elevated-glute-bridge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/elevated-glute-bridge.gif",
+        "size": 1530712
+      },
+      {
+        "name": "frog-hip-thrust.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/frog-hip-thrust.gif",
+        "size": 2480420
+      },
+      {
+        "name": "glute-kickback-hip-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/glute-kickback-hip-extension.gif",
+        "size": 5539967
+      },
+      {
+        "name": "glute-kickback-machine.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/glute-kickback-machine.gif",
+        "size": 7940070
+      },
+      {
+        "name": "hip-abduction.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/hip-abduction.gif",
+        "size": 9109416
+      },
+      {
+        "name": "hip-adduction-inner-thigh-machine.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/hip-adduction-inner-thigh-machine.gif",
+        "size": 5988042
+      },
+      {
+        "name": "machine-standing-hip-abduction.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/machine-standing-hip-abduction.gif",
+        "size": 7898433
+      },
+      {
+        "name": "resistance-band-glute-bridge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/resistance-band-glute-bridge.gif",
+        "size": 2534790
+      },
+      {
+        "name": "single-leg-cable-kickback.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/single-leg-cable-kickback.gif",
+        "size": 4827393
+      },
+      {
+        "name": "single-leg-hip-thrust.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/single-leg-hip-thrust.gif",
+        "size": 1309459
+      },
+      {
+        "name": "smith-machine-hip-thrust.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/glutes/smith-machine-hip-thrust.gif",
+        "size": 7614507
+      }
+    ],
+    "hamstrings": [
+      {
+        "name": "barbell_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/barbell_deadlift.gif",
+        "size": 1545561
+      },
+      {
+        "name": "barbell-good-morning.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/barbell-good-morning.gif",
+        "size": 4068524
+      },
+      {
+        "name": "block_pull_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/block_pull_deadlift.gif",
+        "size": 71978
+      },
+      {
+        "name": "deficit-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/deficit-deadlift.gif",
+        "size": 1832082
+      },
+      {
+        "name": "dumbbell-stiff-leg-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/dumbbell-stiff-leg-deadlift.gif",
+        "size": 4570517
+      },
+      {
+        "name": "kettlebell_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kettlebell_deadlift.gif",
+        "size": 70671
+      },
+      {
+        "name": "kettlebell-sumo-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kettlebell-sumo-deadlift.gif",
+        "size": 1228092
+      },
+      {
+        "name": "kneeling-leg-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kneeling-leg-curl.gif",
+        "size": 4475967
+      },
+      {
+        "name": "landmine-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/landmine-deadlift.gif",
+        "size": 707988
+      },
+      {
+        "name": "lying-leg-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/lying-leg-curl.gif",
+        "size": 8566473
+      },
+      {
+        "name": "mixed_grip_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/mixed_grip_deadlift.gif",
+        "size": 68914
+      },
+      {
+        "name": "nordic-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/nordic-curl.gif",
+        "size": 1669241
+      },
+      {
+        "name": "pause-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/pause-deadlift.gif",
+        "size": 189356
+      },
+      {
+        "name": "reverse_nordic_curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/reverse_nordic_curl.gif",
+        "size": 1750994
+      },
+      {
+        "name": "romanian_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/romanian_deadlift.gif",
+        "size": 1817222
+      },
+      {
+        "name": "romanian-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/romanian-deadlift.gif",
+        "size": 5571669
+      },
+      {
+        "name": "seated-leg-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/seated-leg-curl.gif",
+        "size": 5926028
+      },
+      {
+        "name": "single-leg-curl.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/single-leg-curl.gif",
+        "size": 5683792
+      },
+      {
+        "name": "stiff-leg-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/stiff-leg-deadlift.gif",
+        "size": 6232127
+      },
+      {
+        "name": "straight-leg-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/straight-leg-deadlift.gif",
+        "size": 1565939
+      },
+      {
+        "name": "suitcase-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/suitcase-deadlift.gif",
+        "size": 1319263
+      },
+      {
+        "name": "sumo_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/sumo_deadlift.gif",
+        "size": 70873
+      },
+      {
+        "name": "sumo-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/sumo-deadlift.gif",
+        "size": 6688810
+      }
+    ],
+    "pectorals": [
+      {
+        "name": "assisted-dips.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/assisted-dips.gif",
+        "size": 6373021
+      },
+      {
+        "name": "barbell_bench_press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell_bench_press.gif",
+        "size": 72693
+      },
+      {
+        "name": "barbell-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell-bench-press.gif",
+        "size": 5903059
+      },
+      {
+        "name": "barbell-decline-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell-decline-bench-press.gif",
+        "size": 1608220
+      },
+      {
+        "name": "bench-dips.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/bench-dips.gif",
+        "size": 5204461
+      },
+      {
+        "name": "board-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/board-bench-press.gif",
+        "size": 1017561
+      },
+      {
+        "name": "cable-chest-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-chest-fly.gif",
+        "size": 1860729
+      },
+      {
+        "name": "cable-crossover-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover-2.gif",
+        "size": 286571
+      },
+      {
+        "name": "cable-crossover.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover.gif",
+        "size": 1556927
+      },
+      {
+        "name": "chest-press-machine.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/chest-press-machine.gif",
+        "size": 1809611
+      },
+      {
+        "name": "clapping-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/clapping-push-up.gif",
+        "size": 209777
+      },
+      {
+        "name": "deck_of_cards_pushups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/deck_of_cards_pushups.gif",
+        "size": 55731
+      },
+      {
+        "name": "decline-barbell-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-barbell-bench-press.gif",
+        "size": 6825498
+      },
+      {
+        "name": "decline-cable-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-cable-fly.gif",
+        "size": 4250658
+      },
+      {
+        "name": "decline-dumbbell-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-dumbbell-fly.gif",
+        "size": 5682535
+      },
+      {
+        "name": "deficit-push-ups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/deficit-push-ups.gif",
+        "size": 1611178
+      },
+      {
+        "name": "dips-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips-2.gif",
+        "size": 5533337
+      },
+      {
+        "name": "dips.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips.gif",
+        "size": 676862
+      },
+      {
+        "name": "dumbbell-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-bench-press.gif",
+        "size": 6462858
+      },
+      {
+        "name": "dumbbell-chest-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-chest-fly.gif",
+        "size": 8120738
+      },
+      {
+        "name": "dumbbell-close-grip-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-close-grip-press.gif",
+        "size": 1901468
+      },
+      {
+        "name": "finger_pushups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/finger_pushups.gif",
+        "size": 1602930
+      },
+      {
+        "name": "floor-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/floor-press.gif",
+        "size": 1259739
+      },
+      {
+        "name": "hex_press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/hex_press.gif",
+        "size": 1453374
+      },
+      {
+        "name": "incline-barbell-bench-press-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press-2.gif",
+        "size": 5170085
+      },
+      {
+        "name": "incline-barbell-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press.gif",
+        "size": 1726197
+      },
+      {
+        "name": "incline-dumbbell-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-dumbbell-fly.gif",
+        "size": 5897275
+      },
+      {
+        "name": "incline-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-push-up.gif",
+        "size": 1478330
+      },
+      {
+        "name": "knee-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knee-push-up.gif",
+        "size": 2597637
+      },
+      {
+        "name": "knuckle_pushups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knuckle_pushups.gif",
+        "size": 1797473
+      },
+      {
+        "name": "machine-chest-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-chest-fly.gif",
+        "size": 6890323
+      },
+      {
+        "name": "machine-chest-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-chest-press.gif",
+        "size": 6047126
+      },
+      {
+        "name": "machine-dips.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-dips.gif",
+        "size": 7825857
+      },
+      {
+        "name": "parallel-dips.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/parallel-dips.gif",
+        "size": 1419404
+      },
+      {
+        "name": "pec-dec-fly.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pec-dec-fly.gif",
+        "size": 1895679
+      },
+      {
+        "name": "pec-deck.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pec-deck.gif",
+        "size": 1895679
+      },
+      {
+        "name": "pin-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pin-press.gif",
+        "size": 841595
+      },
+      {
+        "name": "plate-chest-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/plate-chest-press.gif",
+        "size": 5879752
+      },
+      {
+        "name": "plyometric-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/plyometric-push-up.gif",
+        "size": 1372883
+      },
+      {
+        "name": "push-ups-with-rotation.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/push-ups-with-rotation.gif",
+        "size": 1832269
+      },
+      {
+        "name": "resistance-band-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/resistance-band-push-up.gif",
+        "size": 1763890
+      },
+      {
+        "name": "single-arm-dumbbell-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/single-arm-dumbbell-press.gif",
+        "size": 2709780
+      },
+      {
+        "name": "smith-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/smith-bench-press.gif",
+        "size": 6630674
+      },
+      {
+        "name": "sphinx-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/sphinx-push-up.gif",
+        "size": 1312959
+      },
+      {
+        "name": "suicide_grip_bench_press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/suicide_grip_bench_press.gif",
+        "size": 73096
+      },
+      {
+        "name": "svend-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/svend-press.gif",
+        "size": 1218740
+      },
+      {
+        "name": "tempo_bench_press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/tempo_bench_press.gif",
+        "size": 1080534
+      },
+      {
+        "name": "weighted-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/weighted-push-up.gif",
+        "size": 2045162
+      },
+      {
+        "name": "wide_grip_bench_press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/wide_grip_bench_press.gif",
+        "size": 1452076
+      }
+    ],
+    "quadriceps": [
+      {
+        "name": "anderson_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/anderson_squat.gif",
+        "size": 2145055
+      },
+      {
+        "name": "barbell_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell_squat.gif",
+        "size": 71379
+      },
+      {
+        "name": "barbell-bulgarian-split-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-bulgarian-split-squat.gif",
+        "size": 6690590
+      },
+      {
+        "name": "barbell-front-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-front-squat.gif",
+        "size": 7586742
+      },
+      {
+        "name": "barbell-lunge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-lunge.gif",
+        "size": 6104771
+      },
+      {
+        "name": "barbell-sumo-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-sumo-squat.gif",
+        "size": 1804428
+      },
+      {
+        "name": "belt-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/belt-squat.gif",
+        "size": 8715279
+      },
+      {
+        "name": "bodyweight-lunge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bodyweight-lunge.gif",
+        "size": 6596473
+      },
+      {
+        "name": "bodyweight-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bodyweight-squat.gif",
+        "size": 3934907
+      },
+      {
+        "name": "bulgarian-split-squat-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat-2.gif",
+        "size": 5437343
+      },
+      {
+        "name": "bulgarian-split-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat.gif",
+        "size": 1298902
+      },
+      {
+        "name": "deficit-reverse-lunge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/deficit-reverse-lunge.gif",
+        "size": 1957426
+      },
+      {
+        "name": "dumbbell-front-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-front-squat.gif",
+        "size": 1258034
+      },
+      {
+        "name": "dumbbell-hack-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-hack-squat.gif",
+        "size": 1167920
+      },
+      {
+        "name": "dumbbell-squat-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat-2.gif",
+        "size": 4625235
+      },
+      {
+        "name": "dumbbell-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat.gif",
+        "size": 1155835
+      },
+      {
+        "name": "dumbbell-sumo-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-sumo-squat.gif",
+        "size": 1261407
+      },
+      {
+        "name": "frog-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/frog-squat.gif",
+        "size": 1865984
+      },
+      {
+        "name": "front-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/front-squat.gif",
+        "size": 1526426
+      },
+      {
+        "name": "goblet-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/goblet-squat.gif",
+        "size": 234109
+      },
+      {
+        "name": "gym-ball-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/gym-ball-squat.gif",
+        "size": 5253025
+      },
+      {
+        "name": "hack_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/hack_squat.gif",
+        "size": 72699
+      },
+      {
+        "name": "hack-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/hack-squat.gif",
+        "size": 6838675
+      },
+      {
+        "name": "half-knee-bends.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/half-knee-bends.gif",
+        "size": 1398209
+      },
+      {
+        "name": "kettlebell-squat-clean.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kettlebell-squat-clean.gif",
+        "size": 2293250
+      },
+      {
+        "name": "kettlebell-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kettlebell-squat.gif",
+        "size": 3943023
+      },
+      {
+        "name": "kneeling_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kneeling_squat.gif",
+        "size": 70801
+      },
+      {
+        "name": "landmine-squat-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat-2.gif",
+        "size": 4498455
+      },
+      {
+        "name": "landmine-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat.gif",
+        "size": 1072704
+      },
+      {
+        "name": "leg-extension-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension-2.gif",
+        "size": 6635555
+      },
+      {
+        "name": "leg-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension.gif",
+        "size": 317517
+      },
+      {
+        "name": "low-bar-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/low-bar-squat.gif",
+        "size": 1607772
+      },
+      {
+        "name": "lunges.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/lunges.gif",
+        "size": 1336617
+      },
+      {
+        "name": "machine-leg-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/machine-leg-press.gif",
+        "size": 7248052
+      },
+      {
+        "name": "negative_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/negative_squat.gif",
+        "size": 1624038
+      },
+      {
+        "name": "overhead-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/overhead-squat.gif",
+        "size": 1336327
+      },
+      {
+        "name": "pistol-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/pistol-squat.gif",
+        "size": 1120614
+      },
+      {
+        "name": "resistance-band-lunge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/resistance-band-lunge.gif",
+        "size": 1439839
+      },
+      {
+        "name": "reverse-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/reverse-squat.gif",
+        "size": 591243
+      },
+      {
+        "name": "reverse-v-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/reverse-v-squat.gif",
+        "size": 7223415
+      },
+      {
+        "name": "seated-knee-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/seated-knee-extension.gif",
+        "size": 1813993
+      },
+      {
+        "name": "shrimp-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/shrimp-squat.gif",
+        "size": 1242064
+      },
+      {
+        "name": "single-leg-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/single-leg-extension.gif",
+        "size": 9600884
+      },
+      {
+        "name": "single-leg-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/single-leg-press.gif",
+        "size": 6068146
+      },
+      {
+        "name": "smith-machine-lunge.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-lunge.gif",
+        "size": 8049154
+      },
+      {
+        "name": "smith-machine-squat-1754132897721.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-1754132897721.gif",
+        "size": 202430
+      },
+      {
+        "name": "smith-machine-squat-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-2.gif",
+        "size": 10644612
+      },
+      {
+        "name": "smith-machine-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat.gif",
+        "size": 202430
+      },
+      {
+        "name": "step-ups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/step-ups.gif",
+        "size": 1120467
+      },
+      {
+        "name": "tempo_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squat.gif",
+        "size": 784330
+      },
+      {
+        "name": "tempo_squats.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squats.gif",
+        "size": 784330
+      },
+      {
+        "name": "trap_bar_deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/trap_bar_deadlift.gif",
+        "size": 69055
+      },
+      {
+        "name": "trap-bar-deadlift.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/trap-bar-deadlift.gif",
+        "size": 6021843
+      },
+      {
+        "name": "wide_stance_squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/wide_stance_squat.gif",
+        "size": 61452
+      },
+      {
+        "name": "zercher-squat.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/zercher-squat.gif",
+        "size": 772398
+      }
+    ],
+    "traps": [
+      {
+        "name": "barbell-shrug-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug-2.gif",
+        "size": 5023709
+      },
+      {
+        "name": "barbell-shrug.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug.gif",
+        "size": 1852091
+      },
+      {
+        "name": "barbell-upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-upright-row.gif",
+        "size": 5756319
+      },
+      {
+        "name": "cable-shrug.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/cable-shrug.gif",
+        "size": 3337193
+      },
+      {
+        "name": "cable-upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/cable-upright-row.gif",
+        "size": 6421770
+      },
+      {
+        "name": "chest-supported-dumbbell-shrug.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/chest-supported-dumbbell-shrug.gif",
+        "size": 6192541
+      },
+      {
+        "name": "dumbbell-shrug.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/dumbbell-shrug.gif",
+        "size": 3613128
+      },
+      {
+        "name": "dumbbell-upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/dumbbell-upright-row.gif",
+        "size": 3820378
+      },
+      {
+        "name": "ez-bar-upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/ez-bar-upright-row.gif",
+        "size": 4129188
+      },
+      {
+        "name": "single-arm-dumbbell-upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/single-arm-dumbbell-upright-row.gif",
+        "size": 3353338
+      },
+      {
+        "name": "smith-machine-shrug.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/smith-machine-shrug.gif",
+        "size": 5221815
+      },
+      {
+        "name": "upright-row.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/traps/upright-row.gif",
+        "size": 1615077
+      }
+    ],
+    "triceps": [
+      {
+        "name": "barbell-incline-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-incline-tricep-extension.gif",
+        "size": 4203931
+      },
+      {
+        "name": "barbell-lying-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-lying-tricep-extension.gif",
+        "size": 5805640
+      },
+      {
+        "name": "barbell-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-tricep-extension.gif",
+        "size": 3185954
+      },
+      {
+        "name": "cable-incline-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-incline-tricep-extension.gif",
+        "size": 3942917
+      },
+      {
+        "name": "cable-overhead-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-overhead-tricep-extension.gif",
+        "size": 4011262
+      },
+      {
+        "name": "cable-pushdown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-pushdown.gif",
+        "size": 755228
+      },
+      {
+        "name": "cable-reverse-grip-tricep-pushdown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-reverse-grip-tricep-pushdown.gif",
+        "size": 5694170
+      },
+      {
+        "name": "cable-rope-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-rope-tricep-extension.gif",
+        "size": 6029280
+      },
+      {
+        "name": "cable-single-arm-reverse-grip-tricep-pushdown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-single-arm-reverse-grip-tricep-pushdown.gif",
+        "size": 2101026
+      },
+      {
+        "name": "cable-tricep-kickback.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-tricep-kickback.gif",
+        "size": 8174880
+      },
+      {
+        "name": "cable-v-bar-tricep-pushdown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-v-bar-tricep-pushdown.gif",
+        "size": 4821856
+      },
+      {
+        "name": "close-grip-bench-press.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/close-grip-bench-press.gif",
+        "size": 6050905
+      },
+      {
+        "name": "cobra-push-up.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cobra-push-up.gif",
+        "size": 2029347
+      },
+      {
+        "name": "dive-bomber-push-ups.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dive-bomber-push-ups.gif",
+        "size": 2721094
+      },
+      {
+        "name": "dumbbell-tricep-extension-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension-2.gif",
+        "size": 2521237
+      },
+      {
+        "name": "dumbbell-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension.gif",
+        "size": 3197311
+      },
+      {
+        "name": "dumbbell-tricep-kickback-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback-2.gif",
+        "size": 4756050
+      },
+      {
+        "name": "dumbbell-tricep-kickback.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback.gif",
+        "size": 863208
+      },
+      {
+        "name": "kneeling-cable-overhead-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/kneeling-cable-overhead-tricep-extension.gif",
+        "size": 6110205
+      },
+      {
+        "name": "machine-tricep-extension-2.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension-2.gif",
+        "size": 5372304
+      },
+      {
+        "name": "machine-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension.gif",
+        "size": 7079589
+      },
+      {
+        "name": "overhead-tricep-stretch.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/overhead-tricep-stretch.gif",
+        "size": 1096745
+      },
+      {
+        "name": "single-arm-cable-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/single-arm-cable-tricep-extension.gif",
+        "size": 5740567
+      },
+      {
+        "name": "single-arm-dumbbell-tricep-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/single-arm-dumbbell-tricep-extension.gif",
+        "size": 3556301
+      },
+      {
+        "name": "tricep-overhead-extension.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/tricep-overhead-extension.gif",
+        "size": 162144
+      },
+      {
+        "name": "triceps-pushdown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/triceps-pushdown.gif",
+        "size": 755228
+      },
+      {
+        "name": "underhand-tricep-pushdown.gif",
+        "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/underhand-tricep-pushdown.gif",
+        "size": 1301901
+      }
+    ]
+  }
+}

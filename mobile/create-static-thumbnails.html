@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Thumbnail Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .status {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .thumbnail-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .thumbnail-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+        .thumbnail-item h3 {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .error {
+            background: #ffe6e6;
+            color: #d63384;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success {
+            background: #e6ffe6;
+            color: #198754;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 Exercise Static Thumbnail Generator</h1>
+    <p>This tool converts animated GIF exercises to static PNG thumbnails.</p>
+    
+    <div class="controls">
+        <button id="loadExercises">1. Load Exercise Database</button>
+        <button id="generateThumbnails" disabled>2. Generate Static Thumbnails</button>
+        <button id="downloadThumbnails" disabled>3. Download All Thumbnails</button>
+    </div>
+    
+    <div id="status" class="status">Ready to start...</div>
+    
+    <div id="thumbnails" class="thumbnails"></div>
+
+    <script>
+        // Exercise database - you'll need to paste your data here
+        const EXERCISE_DATABASE = []; // Paste your exercise data here
+        
+        let thumbnails = [];
+        let processedCount = 0;
+        
+        // DOM elements
+        const statusDiv = document.getElementById('status');
+        const thumbnailsDiv = document.getElementById('thumbnails');
+        const loadBtn = document.getElementById('loadExercises');
+        const generateBtn = document.getElementById('generateThumbnails');
+        const downloadBtn = document.getElementById('downloadThumbnails');
+        
+        // Update status
+        function updateStatus(message) {
+            statusDiv.textContent += message + '\n';
+            statusDiv.scrollTop = statusDiv.scrollHeight;
+        }
+        
+        // Convert GIF to static PNG using Canvas
+        function gifToStatic(gifUrl, exerciseId) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                
+                img.onload = function() {
+                    try {
+                        // Create canvas
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        // Set canvas size
+                        canvas.width = 200;
+                        canvas.height = 200;
+                        
+                        // Draw first frame
+                        ctx.drawImage(img, 0, 0, 200, 200);
+                        
+                        // Convert to PNG
+                        canvas.toBlob(function(blob) {
+                            const url = URL.createObjectURL(blob);
+                            resolve({
+                                blob: blob,
+                                url: url,
+                                exerciseId: exerciseId
+                            });
+                        }, 'image/png');
+                        
+                    } catch (error) {
+                        reject(error);
+                    }
+                };
+                
+                img.onerror = function(error) {
+                    reject(new Error(`Failed to load image: ${gifUrl}`));
+                };
+                
+                img.src = gifUrl;
+            });
+        }
+        
+        // Process single exercise
+        async function processExercise(exercise, index) {
+            const exerciseId = exercise.id;
+            updateStatus(`Processing ${index + 1}: ${exerciseId}`);
+            
+            try {
+                // Get GIF URLs (try both variants)
+                const baseUrl = 'https://your-supabase-url.supabase.co/storage/v1/object/public/exercise-gifs/';
+                const gifUrls = [
+                    `${baseUrl}${exerciseId}.gif`,
+                    `${baseUrl}${exerciseId.replace(/-/g, '_')}.gif`
+                ];
+                
+                let thumbnail = null;
+                
+                // Try each URL
+                for (const gifUrl of gifUrls) {
+                    try {
+                        thumbnail = await gifToStatic(gifUrl, exerciseId);
+                        break;
+                    } catch (error) {
+                        continue;
+                    }
+                }
+                
+                if (thumbnail) {
+                    thumbnails.push(thumbnail);
+                    displayThumbnail(thumbnail, exercise);
+                    processedCount++;
+                    updateStatus(`✅ ${exerciseId} processed successfully`);
+                } else {
+                    updateStatus(`❌ ${exerciseId} - no valid GIF found`);
+                }
+                
+            } catch (error) {
+                updateStatus(`❌ ${exerciseId} - error: ${error.message}`);
+            }
+        }
+        
+        // Display thumbnail in UI
+        function displayThumbnail(thumbnail, exercise) {
+            const div = document.createElement('div');
+            div.className = 'thumbnail-item';
+            div.innerHTML = `
+                <img src="${thumbnail.url}" alt="${thumbnail.exerciseId}">
+                <h3>${exercise.name?.korean || exercise.id}</h3>
+                <small>${thumbnail.exerciseId}</small>
+            `;
+            thumbnailsDiv.appendChild(div);
+        }
+        
+        // Load exercises
+        loadBtn.addEventListener('click', function() {
+            if (EXERCISE_DATABASE.length === 0) {
+                statusDiv.innerHTML = '<div class="error">Please paste your exercise database into the EXERCISE_DATABASE array in the script</div>';
+                return;
+            }
+            
+            updateStatus(`Loaded ${EXERCISE_DATABASE.length} exercises`);
+            generateBtn.disabled = false;
+            loadBtn.disabled = true;
+        });
+        
+        // Generate thumbnails
+        generateBtn.addEventListener('click', async function() {
+            generateBtn.disabled = true;
+            updateStatus('Starting thumbnail generation...');
+            
+            // Process exercises in batches
+            const batchSize = 5;
+            for (let i = 0; i < EXERCISE_DATABASE.length; i += batchSize) {
+                const batch = EXERCISE_DATABASE.slice(i, i + batchSize);
+                await Promise.all(batch.map((exercise, batchIndex) => 
+                    processExercise(exercise, i + batchIndex)
+                ));
+                
+                // Small delay between batches
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            updateStatus(`\n🎉 Generation complete!`);
+            updateStatus(`✅ Processed: ${processedCount}`);
+            updateStatus(`❌ Failed: ${EXERCISE_DATABASE.length - processedCount}`);
+            
+            if (thumbnails.length > 0) {
+                downloadBtn.disabled = false;
+            }
+        });
+        
+        // Download all thumbnails as ZIP
+        downloadBtn.addEventListener('click', function() {
+            // Create download links for each thumbnail
+            thumbnails.forEach(thumbnail => {
+                const link = document.createElement('a');
+                link.download = `${thumbnail.exerciseId}.png`;
+                link.href = thumbnail.url;
+                link.click();
+            });
+            
+            updateStatus(`\nDownloaded ${thumbnails.length} thumbnails`);
+        });
+        
+        // Initial instructions
+        updateStatus('Instructions:');
+        updateStatus('1. Open browser developer tools (F12)');
+        updateStatus('2. Paste your exercise database into EXERCISE_DATABASE array');
+        updateStatus('3. Update the Supabase URL in the script');
+        updateStatus('4. Click "Load Exercise Database"');
+        updateStatus('5. Click "Generate Static Thumbnails"');
+        updateStatus('6. Download the generated PNG files');
+        updateStatus('7. Upload them to Supabase in a "thumbnails" folder');
+        updateStatus('');
+        
+    </script>
+</body>
+</html>

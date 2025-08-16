@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ctx_1753422144361_bd2qccdg1",
+    "name": "fitness-app-overview",
+    "content": "Fitness App Overview:\n- Korean language fitness tracking app\n- 5 main sections: 홈 (Home), 기록 (Records), 통계 (Statistics), 소셜 (Social), 메뉴 (Menu)\n- Core features: Workout tracking, AI programs, progress photos, body metrics, social feed, rankings\n- User: dan914 (Diamond tier)\n- Database center: User entity connects all features organically",
+    "tags": [
+      "fitness-app",
+      "overview",
+      "korean",
+      "structure"
+    ],
+    "metadata": {
+      "language": "Korean",
+      "mainSections": 5,
+      "userTier": "Diamond"
+    },
+    "createdAt": "2025-07-25T05:42:24.361Z",
+    "updatedAt": "2025-07-25T05:42:24.361Z"
+  },
+  {
+    "id": "ctx_1753422363018_9m82x5rz1",
+    "name": "features-documentation",
+    "content": "Created comprehensive FEATURES.md documenting all fitness app features including:\n- Home: Dashboard, workout tracking, exercise details, AI programs\n- Records: Calendar views, workout history, progress photos, body metrics\n- Statistics: Muscle group analysis, volume tracking, performance graphs\n- Social: Feed, interactions, content creation, cardio integration\n- Menu: Profile, calculators, rankings, settings, data management\nFile saved at: /mnt/c/Users/danny/.vscode/new finess app/documentation/FEATURES.md",
+    "tags": [
+      "documentation",
+      "features",
+      "completed"
+    ],
+    "metadata": {},
+    "createdAt": "2025-07-25T05:46:03.018Z",
+    "updatedAt": "2025-07-25T05:46:03.018Z"
+  },
+  {
+    "id": "ctx_1753422487106_q1mbhbu5x",
+    "name": "navigation-documentation",
+    "content": "Created NAVIGATION_FLOW.md documenting:\n- Primary bottom tab navigation structure\n- Complete screen-to-screen flow mappings\n- Modal and overlay patterns\n- Navigation gestures (swipe, pull)\n- Deep linking URL scheme\n- Navigation state management\n- Error states and redirects\nFile saved at: /mnt/c/Users/danny/.vscode/new finess app/documentation/NAVIGATION_FLOW.md",
+    "tags": [
+      "documentation",
+      "navigation",
+      "UX",
+      "completed"
+    ],
+    "metadata": {},
+    "createdAt": "2025-07-25T05:48:07.106Z",
+    "updatedAt": "2025-07-25T05:48:07.106Z"
+  },
+  {
+    "id": "ctx_1753422639338_boz0304fx",
+    "name": "database-schema-documentation",
+    "content": "Created comprehensive DATABASE_SCHEMA.md with:\n- 20 interconnected tables with User as central hub\n- Complete SQL CREATE statements with proper constraints\n- Foreign key relationships ensuring organic connections\n- Indexes for performance optimization\n- Data integrity rules with cascading deletes\n- Social features (posts, likes, comments, follows)\n- Workout tracking (exercises, sets, programs)\n- Body metrics and progress photos\n- Gamification (achievements, rankings)\n- Settings and notifications\nFile saved at: /mnt/c/Users/danny/.vscode/new finess app/documentation/DATABASE_SCHEMA.md",
+    "tags": [
+      "documentation",
+      "database",
+      "schema",
+      "SQL",
+      "completed"
+    ],
+    "metadata": {},
+    "createdAt": "2025-07-25T05:50:39.338Z",
+    "updatedAt": "2025-07-25T05:50:39.338Z"
+  }
+]

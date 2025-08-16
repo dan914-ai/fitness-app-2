@@ -1,0 +1,235 @@
+{
+  "summary": {
+    "duplicateExercises": 9,
+    "totalFilesScanned": 332,
+    "duplicateFiles": 9,
+    "spaceToFree": "10.83 MB"
+  },
+  "duplicates": [
+    {
+      "exerciseName": "arnold-press",
+      "files": [
+        {
+          "path": "matched/arnold-press.gif",
+          "fileName": "arnold-press.gif",
+          "sizeKB": "2876.44",
+          "sizeMB": "2.81",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:49.951Z"
+        },
+        {
+          "path": "all/arnold-press.gif",
+          "fileName": "arnold-press.gif",
+          "sizeKB": "674.95",
+          "sizeMB": "0.66",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:07.367Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/arnold-press.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "barbell-pullover",
+      "files": [
+        {
+          "path": "matched/barbell-pullover.gif",
+          "fileName": "barbell-pullover.gif",
+          "sizeKB": "3826.92",
+          "sizeMB": "3.74",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:49.221Z"
+        },
+        {
+          "path": "all/barbell-pullover.gif",
+          "fileName": "barbell-pullover.gif",
+          "sizeKB": "1228.67",
+          "sizeMB": "1.20",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:07.527Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/barbell-pullover.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "barbell-row",
+      "files": [
+        {
+          "path": "matched/barbell-row.gif",
+          "fileName": "barbell-row.gif",
+          "sizeKB": "7029.29",
+          "sizeMB": "6.86",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:49.141Z"
+        },
+        {
+          "path": "all/barbell-row.gif",
+          "fileName": "barbell-row.gif",
+          "sizeKB": "721.31",
+          "sizeMB": "0.70",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:07.590Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/barbell-row.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "bent-over-dumbbell-row",
+      "files": [
+        {
+          "path": "matched/bent-over-dumbbell-row.gif",
+          "fileName": "bent-over-dumbbell-row.gif",
+          "sizeKB": "6592.49",
+          "sizeMB": "6.44",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:48.901Z"
+        },
+        {
+          "path": "all/bent-over-dumbbell-row.gif",
+          "fileName": "bent-over-dumbbell-row.gif",
+          "sizeKB": "1598.28",
+          "sizeMB": "1.56",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:07.749Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/bent-over-dumbbell-row.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "cable-row",
+      "files": [
+        {
+          "path": "matched/cable-row.gif",
+          "fileName": "cable-row.gif",
+          "sizeKB": "5217.78",
+          "sizeMB": "5.10",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:49.614Z"
+        },
+        {
+          "path": "all/cable-row.gif",
+          "fileName": "cable-row.gif",
+          "sizeKB": "1560.81",
+          "sizeMB": "1.52",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:07.972Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/cable-row.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "close-grip-lat-pulldown",
+      "files": [
+        {
+          "path": "matched/close-grip-lat-pulldown.gif",
+          "fileName": "close-grip-lat-pulldown.gif",
+          "sizeKB": "5636.50",
+          "sizeMB": "5.50",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:49.732Z"
+        },
+        {
+          "path": "all/close-grip-lat-pulldown.gif",
+          "fileName": "close-grip-lat-pulldown.gif",
+          "sizeKB": "1510.58",
+          "sizeMB": "1.48",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:08.098Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/close-grip-lat-pulldown.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "face-pull",
+      "files": [
+        {
+          "path": "matched/face-pull.gif",
+          "fileName": "face-pull.gif",
+          "sizeKB": "2903.16",
+          "sizeMB": "2.84",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:50.015Z"
+        },
+        {
+          "path": "all/face-pull.gif",
+          "fileName": "face-pull.gif",
+          "sizeKB": "1953.62",
+          "sizeMB": "1.91",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:08.614Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/face-pull.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "t-bar-row",
+      "files": [
+        {
+          "path": "matched/t-bar-row.gif",
+          "fileName": "t-bar-row.gif",
+          "sizeKB": "4465.09",
+          "sizeMB": "4.36",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:49.847Z"
+        },
+        {
+          "path": "all/t-bar-row.gif",
+          "fileName": "t-bar-row.gif",
+          "sizeKB": "320.13",
+          "sizeMB": "0.31",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:10.313Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/t-bar-row.gif",
+        "reason": "Largest file"
+      }
+    },
+    {
+      "exerciseName": "wide-grip-lat-pulldown",
+      "files": [
+        {
+          "path": "matched/wide-grip-lat-pulldown.gif",
+          "fileName": "wide-grip-lat-pulldown.gif",
+          "sizeKB": "4856.39",
+          "sizeMB": "4.74",
+          "isKorean": false,
+          "modified": "2025-08-01T06:41:48.993Z"
+        },
+        {
+          "path": "all/wide-grip-lat-pulldown.gif",
+          "fileName": "wide-grip-lat-pulldown.gif",
+          "sizeKB": "1520.15",
+          "sizeMB": "1.48",
+          "isKorean": false,
+          "modified": "2025-08-01T01:42:10.550Z"
+        }
+      ],
+      "recommendation": {
+        "keep": "matched/wide-grip-lat-pulldown.gif",
+        "reason": "Largest file"
+      }
+    }
+  ]
+}

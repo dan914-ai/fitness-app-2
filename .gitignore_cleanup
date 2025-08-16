@@ -1,0 +1,38 @@
+# Node modules
+**/node_modules/
+node_modules/
+
+# Build outputs
+**/build/
+**/dist/
+**/.next/
+**/.expo/
+
+# Large binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.tar.gz
+*.zip
+*.rar
+
+# Prisma binaries
+**/.prisma/
+**/prisma/engines/
+
+# Supabase binaries
+supabase.exe
+supabase
+
+# Backup files
+*backup*
+*.backup
+
+# Large media files (keep only essential ones)
+*.mp4
+*.mov
+*.avi
+
+# Patch files over 10MB
+*.patch

@@ -1,0 +1,1230 @@
+// Chest exercises to add to database
+const newChestExercises = [
+  {
+    id: 'dumbbell_bench_press',
+    name: {
+      english: '덤벨 벤치프레스',
+      korean: '덤벨 벤치프레스',
+      romanization: '덤벨 벤치프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["덤벨","플랫 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/덤벨 벤치프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell_bench_press.gif'
+  },
+  {
+    id: 'dumbbell_incline_bench_press',
+    name: {
+      english: '덤벨 인클라인 벤치 프레스',
+      korean: '덤벨 인클라인 벤치 프레스',
+      romanization: '덤벨 인클라인 벤치 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["덤벨","인클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/덤벨 인클라인 벤치 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell_incline_bench_press.gif'
+  },
+  {
+    id: 'dumbbell_chest_fly',
+    name: {
+      english: '덤벨 체스트 플라이',
+      korean: '덤벨 체스트 플라이',
+      romanization: '덤벨 체스트 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["덤벨","플랫 벤치"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/덤벨 체스트 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell_chest_fly.gif'
+  },
+  {
+    id: 'decline_dumbbell_fly',
+    name: {
+      english: '디클라인 덤벨 플라이',
+      korean: '디클라인 덤벨 플라이',
+      romanization: '디클라인 덤벨 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["덤벨","디클라인 벤치"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/디클라인 덤벨 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/decline_dumbbell_fly.gif'
+  },
+  {
+    id: 'decline_barbell_bench_press',
+    name: {
+      english: '디클라인 바벨 벤치프레스',
+      korean: '디클라인 바벨 벤치프레스',
+      romanization: '디클라인 바벨 벤치프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["바벨","디클라인 벤치","중량 플레이트"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/디클라인 바벨 벤치프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/decline_barbell_bench_press.gif'
+  },
+  {
+    id: 'decline_plate_chest_press',
+    name: {
+      english: '디클라인 플레이트 체스트 프레스',
+      korean: '디클라인 플레이트 체스트 프레스',
+      romanization: '디클라인 플레이트 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["중량 플레이트","디클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/디클라인 플레이트 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/decline_plate_chest_press.gif'
+  },
+  {
+    id: 'machine_decline_chest_press',
+    name: {
+      english: '머신 디클라인 체스트 프레스',
+      korean: '머신 디클라인 체스트 프레스',
+      romanization: '머신 디클라인 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["체스트 프레스 머신"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/머신 디클라인 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/machine_decline_chest_press.gif'
+  },
+  {
+    id: 'machine_chest_press',
+    name: {
+      english: '머신 체스트 프레스',
+      korean: '머신 체스트 프레스',
+      romanization: '머신 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["체스트 프레스 머신"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/머신 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/machine_chest_press.gif'
+  },
+  {
+    id: 'machine_chest_fly',
+    name: {
+      english: '머신 체스트 플라이',
+      korean: '머신 체스트 플라이',
+      romanization: '머신 체스트 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["펙덱 머신"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/머신 체스트 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/machine_chest_fly.gif'
+  },
+  {
+    id: 'barbell_incline_bench_press',
+    name: {
+      english: '바벨 인클라인 벤치 프레스',
+      korean: '바벨 인클라인 벤치 프레스',
+      romanization: '바벨 인클라인 벤치 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["바벨","인클라인 벤치","중량 플레이트"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/바벨 인클라인 벤치 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/barbell_incline_bench_press.gif'
+  },
+  {
+    id: 'smith_decline_bench_press',
+    name: {
+      english: '스미스 디클라인 벤치 프레스',
+      korean: '스미스 디클라인 벤치 프레스',
+      romanization: '스미스 디클라인 벤치 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["스미스 머신","디클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/스미스 디클라인 벤치 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/smith_decline_bench_press.gif'
+  },
+  {
+    id: 'smith_bench_press',
+    name: {
+      english: '스미스 벤치 프레스',
+      korean: '스미스 벤치 프레스',
+      romanization: '스미스 벤치 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["스미스 머신","플랫 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/스미스 벤치 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/smith_bench_press.gif'
+  },
+  {
+    id: 'smith_incline_bench_press',
+    name: {
+      english: '스미스 인클라인 벤치프레스',
+      korean: '스미스 인클라인 벤치프레스',
+      romanization: '스미스 인클라인 벤치프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["스미스 머신","인클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/스미스 인클라인 벤치프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/smith_incline_bench_press.gif'
+  },
+  {
+    id: 'assisted_dips',
+    name: {
+      english: '어시스트 딥스',
+      korean: '어시스트 딥스',
+      romanization: '어시스트 딥스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["어시스트 딥스 머신"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/어시스트 딥스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/assisted_dips.gif'
+  },
+  {
+    id: 'one_arm_cable_fly',
+    name: {
+      english: '원 암 케이블 플라이',
+      korean: '원 암 케이블 플라이',
+      romanization: '원 암 케이블 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["케이블 머신","싱글 핸들"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/원 암 케이블 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/one_arm_cable_fly.gif'
+  },
+  {
+    id: 'one_arm_plate_chest_press',
+    name: {
+      english: '원 암 플레이트 체스트 프레스',
+      korean: '원 암 플레이트 체스트 프레스',
+      romanization: '원 암 플레이트 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["중량 플레이트","벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/원 암 플레이트 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/one_arm_plate_chest_press.gif'
+  },
+  {
+    id: 'incline_dumbbell_fly',
+    name: {
+      english: '인클라인 덤벨 플라이',
+      korean: '인클라인 덤벨 플라이',
+      romanization: '인클라인 덤벨 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["덤벨","인클라인 벤치"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/인클라인 덤벨 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/incline_dumbbell_fly.gif'
+  },
+  {
+    id: 'incline_cable_fly',
+    name: {
+      english: '인클라인 케이블 플라이',
+      korean: '인클라인 케이블 플라이',
+      romanization: '인클라인 케이블 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["케이블 머신","케이블 핸들","인클라인 벤치"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/인클라인 케이블 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/incline_cable_fly.gif'
+  },
+  {
+    id: 'cable_incline_chest_press',
+    name: {
+      english: '케이블 인클라인 체스트 프레스',
+      korean: '케이블 인클라인 체스트 프레스',
+      romanization: '케이블 인클라인 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["케이블 머신","케이블 핸들","인클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/케이블 인클라인 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/cable_incline_chest_press.gif'
+  },
+  {
+    id: 'cable_chest_press',
+    name: {
+      english: '케이블 체스트 프레스',
+      korean: '케이블 체스트 프레스',
+      romanization: '케이블 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["케이블 머신","케이블 핸들"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/케이블 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/cable_chest_press.gif'
+  },
+  {
+    id: 'cable_crossover',
+    name: {
+      english: '케이블 크로스오버',
+      korean: '케이블 크로스오버',
+      romanization: '케이블 크로스오버'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["케이블 머신","케이블 핸들"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/케이블 크로스오버.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/cable_crossover.gif'
+  },
+  {
+    id: 'plate_decline_chest_press',
+    name: {
+      english: '플레이트 디클라인 체스트 프레스',
+      korean: '플레이트 디클라인 체스트 프레스',
+      romanization: '플레이트 디클라인 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["중량 플레이트","디클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/플레이트 디클라인 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/plate_decline_chest_press.gif'
+  },
+  {
+    id: 'plate_incline_chest_press',
+    name: {
+      english: '플레이트 인클라인 체스트 프레스',
+      korean: '플레이트 인클라인 체스트 프레스',
+      romanization: '플레이트 인클라인 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["중량 플레이트","인클라인 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/플레이트 인클라인 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/plate_incline_chest_press.gif'
+  },
+  {
+    id: 'plate_chest_press',
+    name: {
+      english: '플레이트 체스트 프레스',
+      korean: '플레이트 체스트 프레스',
+      romanization: '플레이트 체스트 프레스'
+    },
+    description: {
+      english: 'A compound chest exercise',
+      korean: '가슴을 대상으로 하는 복합 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["삼두근","전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["중량 플레이트","플랫 벤치"],
+    category: 'compound',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/플레이트 체스트 프레스.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/plate_chest_press.gif'
+  },
+  {
+    id: 'plate_chest_fly',
+    name: {
+      english: '플레이트 체스트 플라이',
+      korean: '플레이트 체스트 플라이',
+      romanization: '플레이트 체스트 플라이'
+    },
+    description: {
+      english: 'A isolation chest exercise',
+      korean: '가슴을 대상으로 하는 고립 운동'
+    },
+    targetMuscles: {
+      primary: ["가슴근"],
+      secondary: ["전삼각근"],
+      stabilizers: ['코어']
+    },
+    equipment: ["중량 플레이트","플랫 벤치"],
+    category: 'isolation',
+    bodyParts: ['가슴', '팔', '어깨'],
+    difficulty: 'intermediate',
+    instructions: {
+      english: [
+        'Set up in the starting position',
+        'Perform the movement with control',
+        'Focus on chest contraction',
+        'Return to starting position'
+      ],
+      korean: [
+        '시작 자세를 취합니다',
+        '제어하며 동작을 수행합니다',
+        '가슴 수축에 집중합니다',
+        '시작 자세로 돌아갑니다'
+      ]
+    },
+    sets: {
+      recommended: '3-4',
+      beginner: '3',
+      intermediate: '4',
+      advanced: '4-5'
+    },
+    reps: {
+      recommended: '8-12',
+      beginner: '10-12',
+      intermediate: '8-10',
+      advanced: '6-8'
+    },
+    gifUrl: './assets/exercise-gifs/chest/플레이트 체스트 플라이.gif',
+    supabaseGifUrl: 'https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/plate_chest_fly.gif'
+  }
+];
+
+// To add these to the database, insert them before the closing bracket of EXERCISE_DATABASE array

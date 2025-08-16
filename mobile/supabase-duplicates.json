@@ -1,0 +1,683 @@
+{
+  "duplicates": [
+    {
+      "file": "alternate-heel-touches.gif",
+      "folder": "abdominals"
+    },
+    {
+      "file": "anderson_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "arnold-press.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "band-pull-apart.gif",
+      "folder": "back"
+    },
+    {
+      "file": "band-pull-aparts.gif",
+      "folder": "back"
+    },
+    {
+      "file": "banded-face-pull.gif",
+      "folder": "back"
+    },
+    {
+      "file": "banded-hip-thrust.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "barbell_bench_press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "barbell_deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "barbell_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "barbell-cheat-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "barbell-decline-bench-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "barbell-pendlay-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "barbell-pullover.gif",
+      "folder": "back"
+    },
+    {
+      "file": "barbell-push-press.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "barbell-reverse-wrist-curl.gif",
+      "folder": "forearms"
+    },
+    {
+      "file": "barbell-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "barbell-shrug.gif",
+      "folder": "traps"
+    },
+    {
+      "file": "barbell-sumo-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "barbell-wrist-curl.gif",
+      "folder": "forearms"
+    },
+    {
+      "file": "bent-over-dumbbell-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "block_pull_deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "board-bench-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "body-saw-plank.gif",
+      "folder": "abdominals"
+    },
+    {
+      "file": "bulgarian-split-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "cable-chest-fly.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "cable-crossover.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "cable-drag-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "cable-pull-through.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "cable-pushdown.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "cable-rear-delt-row.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "cable-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "captains-chair-leg-raise.gif",
+      "folder": "abdominals"
+    },
+    {
+      "file": "chest-press-machine.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "chin-up.gif",
+      "folder": "back"
+    },
+    {
+      "file": "clapping-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "clean-and-press.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "close-grip-lat-pulldown.gif",
+      "folder": "back"
+    },
+    {
+      "file": "cobra-push-up.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "crossbody-hammer-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "crossfit-cluster.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "dead-hang.gif",
+      "folder": "back"
+    },
+    {
+      "file": "deck_of_cards_pushups.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "deficit-deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "deficit-push-ups.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "deficit-reverse-lunge.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "dips.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "dive-bomber-push-ups.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "duck-walk.gif",
+      "folder": "cardio"
+    },
+    {
+      "file": "dumbbell_devils_press.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "dumbbell_push_jerk.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "dumbbell-bicep-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "dumbbell-close-grip-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "dumbbell-face-pull.gif",
+      "folder": "back"
+    },
+    {
+      "file": "dumbbell-front-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "dumbbell-glute-bridge.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "dumbbell-hack-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "dumbbell-push-press.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "dumbbell-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "dumbbell-sumo-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "dumbbell-tricep-kickback.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "elevated-glute-bridge.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "face-pull.gif",
+      "folder": "back"
+    },
+    {
+      "file": "finger_pushups.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "floor-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "frog-hip-thrust.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "frog-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "front-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "goblet-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "hack_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "hack-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "half-knee-bends.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "hammer-curls.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "handstand-push-up.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "hang-clean.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "hex_press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "high-pulley-cable-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "incline-barbell-bench-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "incline-dumbbell-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "incline-hammer-curls.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "incline-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "inner-biceps-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "inverted-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "jumping_pull_ups.gif",
+      "folder": "back"
+    },
+    {
+      "file": "kettlebell_deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "kettlebell-squat-clean.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "kettlebell-sumo-deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "kettlebell-upright-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "knee-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "knee-touch-crunch.gif",
+      "folder": "abdominals"
+    },
+    {
+      "file": "kneeling_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "knuckle_pushups.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "landmine-deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "landmine-press.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "landmine-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "lat_pulldown.gif",
+      "folder": "back"
+    },
+    {
+      "file": "leg-extension.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "low-bar-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "lunges.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "military_press.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "military-press.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "mixed_grip_deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "muscle-up.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "negative_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "negative-pull-up.gif",
+      "folder": "back"
+    },
+    {
+      "file": "neutral-grip-lat-pulldown.gif",
+      "folder": "back"
+    },
+    {
+      "file": "neutral-grip-pull-up.gif",
+      "folder": "back"
+    },
+    {
+      "file": "nordic-curl.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "overhead-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "overhead-tricep-stretch.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "parallel-dips.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "pause-deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "pec-deck.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "pike-push-up.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "pin-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "pistol-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "plyometric-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "preacher-curls.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "prone-y-raises.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "push-jerk.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "push-ups-with-rotation.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "rack_pull.gif",
+      "folder": "back"
+    },
+    {
+      "file": "resistance-band-glute-bridge.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "resistance-band-lunge.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "resistance-band-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "reverse_nordic_curl.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "reverse-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "ring-muscle-up.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "romanian_deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "seated-knee-extension.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "shoulder-push-up.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "shrimp-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "single-arm-cable-lateral-raises.gif",
+      "folder": "deltoids"
+    },
+    {
+      "file": "single-arm-landmine-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "single-leg-hip-thrust.gif",
+      "folder": "glutes"
+    },
+    {
+      "file": "sled-push.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "smith-machine-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "sphinx-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "spider-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "standing-straight-arm-lat-pulldown.gif",
+      "folder": "back"
+    },
+    {
+      "file": "step-ups.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "straight-leg-deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "suicide_grip_bench_press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "suitcase-deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "sumo_deadlift.gif",
+      "folder": "hamstrings"
+    },
+    {
+      "file": "svend-press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "t-bar-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "tempo_bench_press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "tempo_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "tempo_squats.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "tire-flip.gif",
+      "folder": "compound"
+    },
+    {
+      "file": "trap_bar_deadlift.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "tricep-overhead-extension.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "triceps-pushdown.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "tuck-crunch.gif",
+      "folder": "abdominals"
+    },
+    {
+      "file": "underhand-tricep-pushdown.gif",
+      "folder": "triceps"
+    },
+    {
+      "file": "upright-row.gif",
+      "folder": "traps"
+    },
+    {
+      "file": "weighted-pull-up.gif",
+      "folder": "back"
+    },
+    {
+      "file": "weighted-push-up.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "wide_grip_bench_press.gif",
+      "folder": "pectorals"
+    },
+    {
+      "file": "wide_stance_squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "wide-grip-barbell-curl.gif",
+      "folder": "biceps"
+    },
+    {
+      "file": "wide-grip-lat-pulldown.gif",
+      "folder": "back"
+    },
+    {
+      "file": "wrist-push-up.gif",
+      "folder": "forearms"
+    },
+    {
+      "file": "yates-row.gif",
+      "folder": "back"
+    },
+    {
+      "file": "zercher-squat.gif",
+      "folder": "quadriceps"
+    },
+    {
+      "file": "zottman-curl.gif",
+      "folder": "biceps"
+    }
+  ],
+  "uniqueToRoot": [
+    "concentration-curl.gif",
+    "diamond-pushup.gif",
+    "seated-calf-raise.gif",
+    "single-leg-calf-raise.gif",
+    "smith-machine-calf-raise.gif",
+    "test-barbell-squat.gif",
+    "upright_row.gif"
+  ],
+  "totalRootFiles": 174,
+  "totalFolderFiles": 336
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Connection Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Korean Fitness App - API Connection Test</h1>
+    <button onclick="testAll()">Test All Endpoints</button>
+    <div id="results"></div>
+
+    <script>
+        const endpoints = [
+            'http://localhost:3000/health',
+            'http://127.0.0.1:3000/health',
+            'http://172.28.204.132:3000/health',
+            // Add your actual IP here after running ipconfig
+        ];
+
+        async function testEndpoint(url) {
+            const div = document.createElement('div');
+            div.className = 'test';
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                div.className += ' success';
+                div.innerHTML = `✅ ${url}<br>Response: ${JSON.stringify(data)}`;
+            } catch (error) {
+                div.className += ' error';
+                div.innerHTML = `❌ ${url}<br>Error: ${error.message}`;
+            }
+            
+            document.getElementById('results').appendChild(div);
+        }
+
+        async function testAll() {
+            document.getElementById('results').innerHTML = '';
+            
+            // Get Windows IP
+            const ipDiv = document.createElement('div');
+            ipDiv.className = 'test';
+            ipDiv.innerHTML = `<strong>Open PowerShell and run: ipconfig</strong><br>
+                Look for IPv4 Address (usually 192.168.x.x)<br>
+                Then add http://YOUR_IP:3000/health to test`;
+            document.getElementById('results').appendChild(ipDiv);
+            
+            for (const url of endpoints) {
+                await testEndpoint(url);
+            }
+        }
+    </script>
+</body>
+</html>

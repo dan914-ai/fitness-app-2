@@ -1,0 +1,55 @@
+{
+  "timestamp": "2025-08-02T08:48:11.669Z",
+  "totalProcessed": 42,
+  "successfulCopies": 42,
+  "errorCount": 0,
+  "successRate": 100,
+  "errors": [],
+  "muscleGroupBreakdown": {
+    "deltoids": {
+      "total": 6,
+      "successful": 6,
+      "errors": 0
+    },
+    "back": {
+      "total": 6,
+      "successful": 6,
+      "errors": 0
+    },
+    "abdominals": {
+      "total": 2,
+      "successful": 2,
+      "errors": 0
+    },
+    "pectorals": {
+      "total": 6,
+      "successful": 6,
+      "errors": 0
+    },
+    "hamstrings": {
+      "total": 4,
+      "successful": 4,
+      "errors": 0
+    },
+    "compound": {
+      "total": 4,
+      "successful": 4,
+      "errors": 0
+    },
+    "triceps": {
+      "total": 4,
+      "successful": 4,
+      "errors": 0
+    },
+    "glutes": {
+      "total": 2,
+      "successful": 2,
+      "errors": 0
+    },
+    "quadriceps": {
+      "total": 8,
+      "successful": 8,
+      "errors": 0
+    }
+  }
+}

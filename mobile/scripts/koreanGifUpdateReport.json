@@ -1,0 +1,24 @@
+{
+  "totalMappings": 15,
+  "canBeUpdated": 3,
+  "missingGifFiles": [
+    {
+      "exerciseId": "lat_pulldown",
+      "expectedFile": "/mnt/c/Users/danny/Downloads/back exercises/랫 풀다운.gif"
+    }
+  ],
+  "updates": [
+    {
+      "id": "barbell_bench_press",
+      "koreanGif": "바벨 벤치프레스.gif"
+    },
+    {
+      "id": "dips",
+      "koreanGif": "딥스.gif"
+    },
+    {
+      "id": "decline_cable_fly",
+      "koreanGif": "디클라인 케이블 플라이.gif"
+    }
+  ]
+}

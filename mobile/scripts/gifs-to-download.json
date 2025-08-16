@@ -1,0 +1,176 @@
+[
+  {
+    "id": 192,
+    "name": "Romanian Deadlift",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/romanian_deadlift.gif",
+    "localPath": "hamstrings/romanian_deadlift.gif"
+  },
+  {
+    "id": 209,
+    "name": "Cable Crossover",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover-2.gif",
+    "localPath": "pectorals/cable-crossover-2.gif"
+  },
+  {
+    "id": 223,
+    "name": "Dumbbell Close Grip Press",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-close-grip-press.gif",
+    "localPath": "pectorals/dumbbell-close-grip-press.gif"
+  },
+  {
+    "id": 224,
+    "name": "Finger Pushups",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/finger_pushups.gif",
+    "localPath": "pectorals/finger_pushups.gif"
+  },
+  {
+    "id": 226,
+    "name": "Hex Press",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/hex_press.gif",
+    "localPath": "pectorals/hex_press.gif"
+  },
+  {
+    "id": 232,
+    "name": "Knuckle Pushups",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knuckle_pushups.gif",
+    "localPath": "pectorals/knuckle_pushups.gif"
+  },
+  {
+    "id": 238,
+    "name": "Pec Dec Fly",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pec-dec-fly.gif",
+    "localPath": "pectorals/pec-dec-fly.gif"
+  },
+  {
+    "id": 250,
+    "name": "Tempo Bench Press",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/tempo_bench_press.gif",
+    "localPath": "pectorals/tempo_bench_press.gif"
+  },
+  {
+    "id": 252,
+    "name": "Wide Grip Bench Press",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/wide_grip_bench_press.gif",
+    "localPath": "pectorals/wide_grip_bench_press.gif"
+  },
+  {
+    "id": 253,
+    "name": "Anderson Squat",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/anderson_squat.gif",
+    "localPath": "quadriceps/anderson_squat.gif"
+  },
+  {
+    "id": 262,
+    "name": "Bulgarian Split Squat 2",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat-2.gif",
+    "localPath": "quadriceps/bulgarian-split-squat-2.gif"
+  },
+  {
+    "id": 267,
+    "name": "Dumbbell Squat 2",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat-2.gif",
+    "localPath": "quadriceps/dumbbell-squat-2.gif"
+  },
+  {
+    "id": 270,
+    "name": "Frog Squat",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/frog-squat.gif",
+    "localPath": "quadriceps/frog-squat.gif"
+  },
+  {
+    "id": 280,
+    "name": "Landmine Squat 2",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat-2.gif",
+    "localPath": "quadriceps/landmine-squat-2.gif"
+  },
+  {
+    "id": 282,
+    "name": "Leg Extension",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension-2.gif",
+    "localPath": "quadriceps/leg-extension-2.gif"
+  },
+  {
+    "id": 285,
+    "name": "Lunges",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/lunges.gif",
+    "localPath": "quadriceps/lunges.gif"
+  },
+  {
+    "id": 287,
+    "name": "Negative Squat",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/negative_squat.gif",
+    "localPath": "quadriceps/negative_squat.gif"
+  },
+  {
+    "id": 290,
+    "name": "Resistance Band Lunge",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/resistance-band-lunge.gif",
+    "localPath": "quadriceps/resistance-band-lunge.gif"
+  },
+  {
+    "id": 294,
+    "name": "Shrimp Squat",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/shrimp-squat.gif",
+    "localPath": "quadriceps/shrimp-squat.gif"
+  },
+  {
+    "id": 300,
+    "name": "Smith Machine Squat",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-2.gif",
+    "localPath": "quadriceps/smith-machine-squat-2.gif"
+  },
+  {
+    "id": 303,
+    "name": "Tempo Squat",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squat.gif",
+    "localPath": "quadriceps/tempo_squat.gif"
+  },
+  {
+    "id": 304,
+    "name": "Tempo Squats",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squats.gif",
+    "localPath": "quadriceps/tempo_squats.gif"
+  },
+  {
+    "id": 326,
+    "name": "Cable Pushdown",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-pushdown.gif",
+    "localPath": "triceps/cable-pushdown.gif"
+  },
+  {
+    "id": 333,
+    "name": "Cobra Push Up",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cobra-push-up.gif",
+    "localPath": "triceps/cobra-push-up.gif"
+  },
+  {
+    "id": 334,
+    "name": "Dive Bomber Push Ups",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dive-bomber-push-ups.gif",
+    "localPath": "triceps/dive-bomber-push-ups.gif"
+  },
+  {
+    "id": 335,
+    "name": "Dumbbell Tricep Extension 2",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension-2.gif",
+    "localPath": "triceps/dumbbell-tricep-extension-2.gif"
+  },
+  {
+    "id": 337,
+    "name": "Dumbbell Tricep Kickback 2",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback-2.gif",
+    "localPath": "triceps/dumbbell-tricep-kickback-2.gif"
+  },
+  {
+    "id": 340,
+    "name": "Machine Tricep Extension 2",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension-2.gif",
+    "localPath": "triceps/machine-tricep-extension-2.gif"
+  },
+  {
+    "id": 347,
+    "name": "Underhand Tricep Pushdown",
+    "url": "https://nwpyliujuimufkfjolsj.supabase.co/storage/v1/object/public/exercise-gifs/triceps/underhand-tricep-pushdown.gif",
+    "localPath": "triceps/underhand-tricep-pushdown.gif"
+  }
+]

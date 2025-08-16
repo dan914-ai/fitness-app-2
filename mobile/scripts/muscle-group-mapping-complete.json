@@ -1,0 +1,2094 @@
+{
+  "timestamp": "2025-08-02T07:07:36.921Z",
+  "muscleGroupCategories": {
+    "biceps": {
+      "keywords": [
+        "bicep",
+        "curl",
+        "preacher",
+        "concentration",
+        "hammer",
+        "spider"
+      ],
+      "excludeKeywords": [
+        "tricep",
+        "reverse-curl"
+      ]
+    },
+    "triceps": {
+      "keywords": [
+        "tricep",
+        "extension",
+        "kickback",
+        "pushdown",
+        "overhead-tricep",
+        "close-grip"
+      ],
+      "excludeKeywords": [
+        "bicep"
+      ]
+    },
+    "forearms": {
+      "keywords": [
+        "wrist",
+        "forearm",
+        "reverse-curl"
+      ],
+      "excludeKeywords": []
+    },
+    "lats": {
+      "keywords": [
+        "pulldown",
+        "lat",
+        "pull-up",
+        "pullup",
+        "chin-up"
+      ],
+      "excludeKeywords": [
+        "upright"
+      ]
+    },
+    "rhomboids-traps": {
+      "keywords": [
+        "row",
+        "shrug",
+        "t-bar",
+        "face-pull",
+        "reverse-fly"
+      ],
+      "excludeKeywords": [
+        "upright-row"
+      ]
+    },
+    "erector-spinae": {
+      "keywords": [
+        "deadlift",
+        "good-morning",
+        "hyperextension"
+      ],
+      "excludeKeywords": []
+    },
+    "pectorals": {
+      "keywords": [
+        "bench",
+        "press",
+        "fly",
+        "chest",
+        "pec",
+        "push-up",
+        "pushup",
+        "dips"
+      ],
+      "excludeKeywords": [
+        "shoulder",
+        "military",
+        "overhead"
+      ]
+    },
+    "anterior-deltoids": {
+      "keywords": [
+        "front-raise",
+        "military-press",
+        "shoulder-press",
+        "overhead-press"
+      ],
+      "excludeKeywords": [
+        "lateral",
+        "rear"
+      ]
+    },
+    "lateral-deltoids": {
+      "keywords": [
+        "lateral-raise",
+        "side-raise",
+        "upright-row"
+      ],
+      "excludeKeywords": [
+        "front",
+        "rear"
+      ]
+    },
+    "posterior-deltoids": {
+      "keywords": [
+        "rear-delt",
+        "reverse-fly",
+        "face-pull"
+      ],
+      "excludeKeywords": [
+        "front",
+        "lateral"
+      ]
+    },
+    "trapezius": {
+      "keywords": [
+        "shrug"
+      ],
+      "excludeKeywords": []
+    },
+    "quadriceps": {
+      "keywords": [
+        "squat",
+        "leg-extension",
+        "leg-press",
+        "lunge",
+        "front-squat"
+      ],
+      "excludeKeywords": [
+        "curl",
+        "deadlift",
+        "calf",
+        "glute",
+        "hip"
+      ]
+    },
+    "hamstrings": {
+      "keywords": [
+        "leg-curl",
+        "deadlift",
+        "good-morning",
+        "stiff-leg"
+      ],
+      "excludeKeywords": [
+        "extension",
+        "calf",
+        "press"
+      ]
+    },
+    "glutes": {
+      "keywords": [
+        "hip-thrust",
+        "glute",
+        "bridge",
+        "kickback",
+        "abduction"
+      ],
+      "excludeKeywords": [
+        "calf"
+      ]
+    },
+    "calves": {
+      "keywords": [
+        "calf-raise",
+        "calf"
+      ],
+      "excludeKeywords": []
+    },
+    "abdominals": {
+      "keywords": [
+        "crunch",
+        "abs",
+        "plank",
+        "sit-up",
+        "heel-touches"
+      ],
+      "excludeKeywords": []
+    },
+    "obliques": {
+      "keywords": [
+        "oblique",
+        "side-bend",
+        "russian-twist"
+      ],
+      "excludeKeywords": []
+    },
+    "cardio": {
+      "keywords": [
+        "treadmill",
+        "bike",
+        "elliptical",
+        "step-mill",
+        "run",
+        "walk"
+      ],
+      "excludeKeywords": []
+    },
+    "compound": {
+      "keywords": [
+        "clean",
+        "snatch",
+        "thruster",
+        "burpee",
+        "mountain-climber",
+        "power"
+      ],
+      "excludeKeywords": []
+    }
+  },
+  "currentOrganization": {
+    "arms": 58,
+    "back": 56,
+    "cardio": 6,
+    "chest": 42,
+    "core": 3,
+    "legs": 83,
+    "shoulders": 54
+  },
+  "newOrganization": {
+    "pectorals": [
+      {
+        "file": "assisted-dips.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "pectorals/assisted-dips.gif"
+      },
+      {
+        "file": "bench-dips.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "pectorals/bench-dips.gif"
+      },
+      {
+        "file": "machine-dips.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "pectorals/machine-dips.gif"
+      },
+      {
+        "file": "assisted-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/assisted-push-up.gif"
+      },
+      {
+        "file": "barbell-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/barbell-bench-press.gif"
+      },
+      {
+        "file": "barbell-decline-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/barbell-decline-bench-press.gif"
+      },
+      {
+        "file": "barbell_bench_press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/barbell_bench_press.gif"
+      },
+      {
+        "file": "board-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/board-bench-press.gif"
+      },
+      {
+        "file": "cable-chest-fly.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/cable-chest-fly.gif"
+      },
+      {
+        "file": "chest-press-machine.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/chest-press-machine.gif"
+      },
+      {
+        "file": "clapping-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/clapping-push-up.gif"
+      },
+      {
+        "file": "deck_of_cards_pushups.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/deck_of_cards_pushups.gif"
+      },
+      {
+        "file": "decline-barbell-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/decline-barbell-bench-press.gif"
+      },
+      {
+        "file": "decline-cable-fly.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/decline-cable-fly.gif"
+      },
+      {
+        "file": "decline-dumbbell-fly.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/decline-dumbbell-fly.gif"
+      },
+      {
+        "file": "deficit-push-ups.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/deficit-push-ups.gif"
+      },
+      {
+        "file": "dips-2.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/dips-2.gif"
+      },
+      {
+        "file": "dips.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/dips.gif"
+      },
+      {
+        "file": "dumbbell-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/dumbbell-bench-press.gif"
+      },
+      {
+        "file": "dumbbell-chest-fly.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/dumbbell-chest-fly.gif"
+      },
+      {
+        "file": "floor-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/floor-press.gif"
+      },
+      {
+        "file": "incline-barbell-bench-press-2.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/incline-barbell-bench-press-2.gif"
+      },
+      {
+        "file": "incline-barbell-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/incline-barbell-bench-press.gif"
+      },
+      {
+        "file": "incline-dumbbell-fly.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/incline-dumbbell-fly.gif"
+      },
+      {
+        "file": "incline-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/incline-push-up.gif"
+      },
+      {
+        "file": "knee-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/knee-push-up.gif"
+      },
+      {
+        "file": "machine-chest-fly.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/machine-chest-fly.gif"
+      },
+      {
+        "file": "machine-chest-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/machine-chest-press.gif"
+      },
+      {
+        "file": "negative-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/negative-push-up.gif"
+      },
+      {
+        "file": "parallel-dips.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/parallel-dips.gif"
+      },
+      {
+        "file": "pec-deck.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/pec-deck.gif"
+      },
+      {
+        "file": "pin-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/pin-press.gif"
+      },
+      {
+        "file": "plyometric-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/plyometric-push-up.gif"
+      },
+      {
+        "file": "push-ups-with-rotation.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/push-ups-with-rotation.gif"
+      },
+      {
+        "file": "resistance-band-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/resistance-band-push-up.gif"
+      },
+      {
+        "file": "smith-bench-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/smith-bench-press.gif"
+      },
+      {
+        "file": "sphinx-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/sphinx-push-up.gif"
+      },
+      {
+        "file": "suicide_grip_bench_press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/suicide_grip_bench_press.gif"
+      },
+      {
+        "file": "svend-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/svend-press.gif"
+      },
+      {
+        "file": "weighted-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "pectorals/weighted-push-up.gif"
+      },
+      {
+        "file": "leg-press-calf-raise-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "pectorals/leg-press-calf-raise-2.gif"
+      },
+      {
+        "file": "leg-press-calf-raise.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "pectorals/leg-press-calf-raise.gif"
+      },
+      {
+        "file": "leg-press.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "pectorals/leg-press.gif"
+      },
+      {
+        "file": "machine-leg-press.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "pectorals/machine-leg-press.gif"
+      },
+      {
+        "file": "single-leg-press.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "pectorals/single-leg-press.gif"
+      },
+      {
+        "file": "arnold-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/arnold-press.gif"
+      },
+      {
+        "file": "barbell-push-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/barbell-push-press.gif"
+      },
+      {
+        "file": "clean-and-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/clean-and-press.gif"
+      },
+      {
+        "file": "handstand-push-up.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/handstand-push-up.gif"
+      },
+      {
+        "file": "landmine-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/landmine-press.gif"
+      },
+      {
+        "file": "machine-rear-delt-fly.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/machine-rear-delt-fly.gif"
+      },
+      {
+        "file": "pike-push-up.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/pike-push-up.gif"
+      },
+      {
+        "file": "single-arm-dumbbell-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "pectorals/single-arm-dumbbell-press.gif"
+      },
+      {
+        "file": "cable-crossover-2.gif",
+        "currentCategory": "chest",
+        "confidence": "manual",
+        "newPath": "pectorals/cable-crossover-2.gif"
+      }
+    ],
+    "biceps": [
+      {
+        "file": "barbell-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/barbell-bicep-curl.gif"
+      },
+      {
+        "file": "barbell-cheat-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/barbell-cheat-curl.gif"
+      },
+      {
+        "file": "barbell-preacher-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/barbell-preacher-curl.gif"
+      },
+      {
+        "file": "barbell-reverse-wrist-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/barbell-reverse-wrist-curl.gif"
+      },
+      {
+        "file": "barbell-wrist-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/barbell-wrist-curl.gif"
+      },
+      {
+        "file": "cable-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/cable-bicep-curl.gif"
+      },
+      {
+        "file": "cable-double-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/cable-double-bicep-curl.gif"
+      },
+      {
+        "file": "cable-drag-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/cable-drag-curl.gif"
+      },
+      {
+        "file": "cable-rope-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/cable-rope-bicep-curl.gif"
+      },
+      {
+        "file": "crossbody-hammer-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/crossbody-hammer-curl.gif"
+      },
+      {
+        "file": "dumbbell-bicep-curl-2.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/dumbbell-bicep-curl-2.gif"
+      },
+      {
+        "file": "dumbbell-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/dumbbell-bicep-curl.gif"
+      },
+      {
+        "file": "dumbbell-concentration-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/dumbbell-concentration-curl.gif"
+      },
+      {
+        "file": "dumbbell-hammer-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/dumbbell-hammer-curl.gif"
+      },
+      {
+        "file": "ez-bar-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/ez-bar-bicep-curl.gif"
+      },
+      {
+        "file": "ez-bar-reverse-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/ez-bar-reverse-bicep-curl.gif"
+      },
+      {
+        "file": "hammer-curls.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/hammer-curls.gif"
+      },
+      {
+        "file": "high-pulley-cable-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/high-pulley-cable-curl.gif"
+      },
+      {
+        "file": "incline-dumbbell-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/incline-dumbbell-curl.gif"
+      },
+      {
+        "file": "incline-hammer-curls.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/incline-hammer-curls.gif"
+      },
+      {
+        "file": "inner-biceps-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/inner-biceps-curl.gif"
+      },
+      {
+        "file": "preacher-curls.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/preacher-curls.gif"
+      },
+      {
+        "file": "single-arm-cable-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/single-arm-cable-bicep-curl.gif"
+      },
+      {
+        "file": "single-arm-dumbbell-preacher-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/single-arm-dumbbell-preacher-curl.gif"
+      },
+      {
+        "file": "spider-bicep-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/spider-bicep-curl.gif"
+      },
+      {
+        "file": "spider-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/spider-curl.gif"
+      },
+      {
+        "file": "wide-grip-barbell-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/wide-grip-barbell-curl.gif"
+      },
+      {
+        "file": "zottman-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "biceps/zottman-curl.gif"
+      },
+      {
+        "file": "barbell-reverse-wrist-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/barbell-reverse-wrist-curl.gif"
+      },
+      {
+        "file": "barbell-wrist-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/barbell-wrist-curl.gif"
+      },
+      {
+        "file": "dumbbell-reverse-wrist-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/dumbbell-reverse-wrist-curl.gif"
+      },
+      {
+        "file": "dumbbell-wrist-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/dumbbell-wrist-curl.gif"
+      },
+      {
+        "file": "kneeling-leg-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/kneeling-leg-curl.gif"
+      },
+      {
+        "file": "lying-leg-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/lying-leg-curl.gif"
+      },
+      {
+        "file": "nordic-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/nordic-curl.gif"
+      },
+      {
+        "file": "seated-leg-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/seated-leg-curl.gif"
+      },
+      {
+        "file": "single-leg-curl.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "biceps/single-leg-curl.gif"
+      }
+    ],
+    "triceps": [
+      {
+        "file": "barbell-incline-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/barbell-incline-tricep-extension.gif"
+      },
+      {
+        "file": "barbell-lying-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/barbell-lying-tricep-extension.gif"
+      },
+      {
+        "file": "barbell-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/barbell-tricep-extension.gif"
+      },
+      {
+        "file": "cable-incline-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-incline-tricep-extension.gif"
+      },
+      {
+        "file": "cable-overhead-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-overhead-tricep-extension.gif"
+      },
+      {
+        "file": "cable-reverse-grip-tricep-pushdown.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-reverse-grip-tricep-pushdown.gif"
+      },
+      {
+        "file": "cable-rope-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-rope-tricep-extension.gif"
+      },
+      {
+        "file": "cable-single-arm-reverse-grip-tricep-pushdown.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-single-arm-reverse-grip-tricep-pushdown.gif"
+      },
+      {
+        "file": "cable-tricep-kickback.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-tricep-kickback.gif"
+      },
+      {
+        "file": "cable-v-bar-tricep-pushdown.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/cable-v-bar-tricep-pushdown.gif"
+      },
+      {
+        "file": "close-grip-bench-press.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/close-grip-bench-press.gif"
+      },
+      {
+        "file": "close-grip-lat-pulldown.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/close-grip-lat-pulldown.gif"
+      },
+      {
+        "file": "dumbbell-tricep-extension-2.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/dumbbell-tricep-extension-2.gif"
+      },
+      {
+        "file": "dumbbell-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/dumbbell-tricep-extension.gif"
+      },
+      {
+        "file": "dumbbell-tricep-kickback-2.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/dumbbell-tricep-kickback-2.gif"
+      },
+      {
+        "file": "dumbbell-tricep-kickback.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/dumbbell-tricep-kickback.gif"
+      },
+      {
+        "file": "kneeling-cable-overhead-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/kneeling-cable-overhead-tricep-extension.gif"
+      },
+      {
+        "file": "machine-tricep-extension-2.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/machine-tricep-extension-2.gif"
+      },
+      {
+        "file": "machine-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/machine-tricep-extension.gif"
+      },
+      {
+        "file": "overhead-tricep-stretch.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/overhead-tricep-stretch.gif"
+      },
+      {
+        "file": "single-arm-cable-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/single-arm-cable-tricep-extension.gif"
+      },
+      {
+        "file": "single-arm-dumbbell-tricep-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/single-arm-dumbbell-tricep-extension.gif"
+      },
+      {
+        "file": "tricep-overhead-extension.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/tricep-overhead-extension.gif"
+      },
+      {
+        "file": "triceps-pushdown.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "triceps/triceps-pushdown.gif"
+      },
+      {
+        "file": "close-grip-pull-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "triceps/close-grip-pull-up.gif"
+      },
+      {
+        "file": "glute-kickback-hip-extension.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/glute-kickback-hip-extension.gif"
+      },
+      {
+        "file": "glute-kickback-machine.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/glute-kickback-machine.gif"
+      },
+      {
+        "file": "leg-extension-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/leg-extension-2.gif"
+      },
+      {
+        "file": "leg-extension.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/leg-extension.gif"
+      },
+      {
+        "file": "seated-knee-extension.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/seated-knee-extension.gif"
+      },
+      {
+        "file": "single-leg-cable-kickback.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/single-leg-cable-kickback.gif"
+      },
+      {
+        "file": "single-leg-extension.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "triceps/single-leg-extension.gif"
+      }
+    ],
+    "forearms": [
+      {
+        "file": "reverse-curl.gif",
+        "currentCategory": "arms",
+        "confidence": "high",
+        "newPath": "forearms/reverse-curl.gif"
+      },
+      {
+        "file": "forearm-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "forearms/forearm-push-up.gif"
+      },
+      {
+        "file": "wrist-push-up.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "forearms/wrist-push-up.gif"
+      },
+      {
+        "file": "hercules_hold.gif",
+        "currentCategory": "arms",
+        "confidence": "manual",
+        "newPath": "forearms/hercules_hold.gif"
+      }
+    ],
+    "lats": [
+      {
+        "file": "assisted-pull-ups.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/assisted-pull-ups.gif"
+      },
+      {
+        "file": "behind-neck-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/behind-neck-pulldown.gif"
+      },
+      {
+        "file": "cable-rope-arm-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/cable-rope-arm-pulldown.gif"
+      },
+      {
+        "file": "chin-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/chin-up.gif"
+      },
+      {
+        "file": "lat-pulldown-standard.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/lat-pulldown-standard.gif"
+      },
+      {
+        "file": "lat-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/lat-pulldown.gif"
+      },
+      {
+        "file": "machine-wide-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/machine-wide-pulldown.gif"
+      },
+      {
+        "file": "negative-pull-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/negative-pull-up.gif"
+      },
+      {
+        "file": "neutral-grip-lat-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/neutral-grip-lat-pulldown.gif"
+      },
+      {
+        "file": "neutral-grip-pull-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/neutral-grip-pull-up.gif"
+      },
+      {
+        "file": "plate-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/plate-row.gif"
+      },
+      {
+        "file": "pull-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/pull-up.gif"
+      },
+      {
+        "file": "pull-ups.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/pull-ups.gif"
+      },
+      {
+        "file": "scapular-pull-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/scapular-pull-up.gif"
+      },
+      {
+        "file": "single-arm-lat-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/single-arm-lat-pulldown.gif"
+      },
+      {
+        "file": "standing-straight-arm-lat-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/standing-straight-arm-lat-pulldown.gif"
+      },
+      {
+        "file": "weighted-pull-up.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/weighted-pull-up.gif"
+      },
+      {
+        "file": "wide-grip-lat-pulldown.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "lats/wide-grip-lat-pulldown.gif"
+      },
+      {
+        "file": "plate-chest-press.gif",
+        "currentCategory": "chest",
+        "confidence": "high",
+        "newPath": "lats/plate-chest-press.gif"
+      },
+      {
+        "file": "dumbbell-bent-over-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/dumbbell-bent-over-lateral-raise.gif"
+      },
+      {
+        "file": "dumbbell-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/dumbbell-lateral-raise.gif"
+      },
+      {
+        "file": "incline-leaning-dumbbell-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/incline-leaning-dumbbell-lateral-raise.gif"
+      },
+      {
+        "file": "leaning-single-arm-dumbbell-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/leaning-single-arm-dumbbell-lateral-raise.gif"
+      },
+      {
+        "file": "machine-lateral-raise-2.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/machine-lateral-raise-2.gif"
+      },
+      {
+        "file": "machine-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/machine-lateral-raise.gif"
+      },
+      {
+        "file": "plate-front-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/plate-front-raise.gif"
+      },
+      {
+        "file": "seated-dumbbell-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/seated-dumbbell-lateral-raise.gif"
+      },
+      {
+        "file": "single-arm-cable-lateral-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lats/single-arm-cable-lateral-raise.gif"
+      },
+      {
+        "file": "dead-hang.gif",
+        "currentCategory": "arms",
+        "confidence": "manual",
+        "newPath": "lats/dead-hang.gif"
+      },
+      {
+        "file": "barbell-pullover.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "lats/barbell-pullover.gif"
+      },
+      {
+        "file": "cable-pullover.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "lats/cable-pullover.gif"
+      },
+      {
+        "file": "machine-pullover.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "lats/machine-pullover.gif"
+      }
+    ],
+    "rhomboids-traps": [
+      {
+        "file": "barbell-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/barbell-row.gif"
+      },
+      {
+        "file": "cable-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/cable-row.gif"
+      },
+      {
+        "file": "cable-seated-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/cable-seated-row.gif"
+      },
+      {
+        "file": "chest-supported-barbell-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/chest-supported-barbell-row.gif"
+      },
+      {
+        "file": "chest-supported-dumbbell-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/chest-supported-dumbbell-row.gif"
+      },
+      {
+        "file": "chest-supported-t-bar-row-machine.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/chest-supported-t-bar-row-machine.gif"
+      },
+      {
+        "file": "dumbbell-row-seated.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/dumbbell-row-seated.gif"
+      },
+      {
+        "file": "dumbbell-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/dumbbell-row.gif"
+      },
+      {
+        "file": "inverted-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/inverted-row.gif"
+      },
+      {
+        "file": "machine-high-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/machine-high-row.gif"
+      },
+      {
+        "file": "machine-seated-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/machine-seated-row.gif"
+      },
+      {
+        "file": "machine-t-bar-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/machine-t-bar-row.gif"
+      },
+      {
+        "file": "rowing-machine.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/rowing-machine.gif"
+      },
+      {
+        "file": "single-arm-landmine-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/single-arm-landmine-row.gif"
+      },
+      {
+        "file": "smith-barbell-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/smith-barbell-row.gif"
+      },
+      {
+        "file": "t-bar-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/t-bar-row.gif"
+      },
+      {
+        "file": "underhand-barbell-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/underhand-barbell-row.gif"
+      },
+      {
+        "file": "yates-row.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/yates-row.gif"
+      },
+      {
+        "file": "banded-face-pull.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/banded-face-pull.gif"
+      },
+      {
+        "file": "barbell-shrug-2.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/barbell-shrug-2.gif"
+      },
+      {
+        "file": "barbell-shrug.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/barbell-shrug.gif"
+      },
+      {
+        "file": "cable-face-pull.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/cable-face-pull.gif"
+      },
+      {
+        "file": "cable-shrug.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/cable-shrug.gif"
+      },
+      {
+        "file": "chest-supported-dumbbell-shrug.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/chest-supported-dumbbell-shrug.gif"
+      },
+      {
+        "file": "dumbbell-face-pull.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/dumbbell-face-pull.gif"
+      },
+      {
+        "file": "dumbbell-shrug.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/dumbbell-shrug.gif"
+      },
+      {
+        "file": "face-pull.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/face-pull.gif"
+      },
+      {
+        "file": "smith-machine-shrug.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "rhomboids-traps/smith-machine-shrug.gif"
+      },
+      {
+        "file": "band-pull-apart.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "rhomboids-traps/band-pull-apart.gif"
+      }
+    ],
+    "erector-spinae": [
+      {
+        "file": "block_pull_deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/block_pull_deadlift.gif"
+      },
+      {
+        "file": "deficit-deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/deficit-deadlift.gif"
+      },
+      {
+        "file": "dumbbell-sumo-deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/dumbbell-sumo-deadlift.gif"
+      },
+      {
+        "file": "kettlebell-sumo-deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/kettlebell-sumo-deadlift.gif"
+      },
+      {
+        "file": "kettlebell_deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/kettlebell_deadlift.gif"
+      },
+      {
+        "file": "landmine-deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/landmine-deadlift.gif"
+      },
+      {
+        "file": "mixed_grip_deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/mixed_grip_deadlift.gif"
+      },
+      {
+        "file": "pause-deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/pause-deadlift.gif"
+      },
+      {
+        "file": "suitcase-deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/suitcase-deadlift.gif"
+      },
+      {
+        "file": "sumo_deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/sumo_deadlift.gif"
+      },
+      {
+        "file": "trap_bar_deadlift.gif",
+        "currentCategory": "back",
+        "confidence": "high",
+        "newPath": "erector-spinae/trap_bar_deadlift.gif"
+      },
+      {
+        "file": "barbell-good-morning.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "erector-spinae/barbell-good-morning.gif"
+      },
+      {
+        "file": "dumbbell-stiff-leg-deadlift.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "erector-spinae/dumbbell-stiff-leg-deadlift.gif"
+      },
+      {
+        "file": "romanian-deadlift.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "erector-spinae/romanian-deadlift.gif"
+      },
+      {
+        "file": "stiff-leg-deadlift.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "erector-spinae/stiff-leg-deadlift.gif"
+      },
+      {
+        "file": "sumo-deadlift.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "erector-spinae/sumo-deadlift.gif"
+      },
+      {
+        "file": "trap-bar-deadlift.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "erector-spinae/trap-bar-deadlift.gif"
+      },
+      {
+        "file": "rack_pull.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "erector-spinae/rack_pull.gif"
+      }
+    ],
+    "cardio": [
+      {
+        "file": "bike.gif",
+        "currentCategory": "cardio",
+        "confidence": "high",
+        "newPath": "cardio/bike.gif"
+      },
+      {
+        "file": "duck-walk.gif",
+        "currentCategory": "cardio",
+        "confidence": "high",
+        "newPath": "cardio/duck-walk.gif"
+      },
+      {
+        "file": "elliptical-machine.gif",
+        "currentCategory": "cardio",
+        "confidence": "high",
+        "newPath": "cardio/elliptical-machine.gif"
+      },
+      {
+        "file": "step-mill.gif",
+        "currentCategory": "cardio",
+        "confidence": "high",
+        "newPath": "cardio/step-mill.gif"
+      },
+      {
+        "file": "treadmill.gif",
+        "currentCategory": "cardio",
+        "confidence": "high",
+        "newPath": "cardio/treadmill.gif"
+      }
+    ],
+    "abdominals": [
+      {
+        "file": "alternate-heel-touches.gif",
+        "currentCategory": "core",
+        "confidence": "high",
+        "newPath": "abdominals/alternate-heel-touches.gif"
+      },
+      {
+        "file": "knee-touch-crunch.gif",
+        "currentCategory": "core",
+        "confidence": "high",
+        "newPath": "abdominals/knee-touch-crunch.gif"
+      },
+      {
+        "file": "tuck-crunch.gif",
+        "currentCategory": "core",
+        "confidence": "high",
+        "newPath": "abdominals/tuck-crunch.gif"
+      }
+    ],
+    "quadriceps": [
+      {
+        "file": "barbell-bulgarian-split-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/barbell-bulgarian-split-squat.gif"
+      },
+      {
+        "file": "barbell-front-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/barbell-front-squat.gif"
+      },
+      {
+        "file": "barbell-lunge.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/barbell-lunge.gif"
+      },
+      {
+        "file": "barbell-sumo-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/barbell-sumo-squat.gif"
+      },
+      {
+        "file": "barbell_squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/barbell_squat.gif"
+      },
+      {
+        "file": "belt-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/belt-squat.gif"
+      },
+      {
+        "file": "bodyweight-lunge.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/bodyweight-lunge.gif"
+      },
+      {
+        "file": "bodyweight-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/bodyweight-squat.gif"
+      },
+      {
+        "file": "bulgarian-split-squat-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/bulgarian-split-squat-2.gif"
+      },
+      {
+        "file": "bulgarian-split-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/bulgarian-split-squat.gif"
+      },
+      {
+        "file": "deficit-reverse-lunge.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/deficit-reverse-lunge.gif"
+      },
+      {
+        "file": "dumbbell-front-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/dumbbell-front-squat.gif"
+      },
+      {
+        "file": "dumbbell-hack-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/dumbbell-hack-squat.gif"
+      },
+      {
+        "file": "dumbbell-squat-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/dumbbell-squat-2.gif"
+      },
+      {
+        "file": "dumbbell-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/dumbbell-squat.gif"
+      },
+      {
+        "file": "dumbbell-sumo-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/dumbbell-sumo-squat.gif"
+      },
+      {
+        "file": "front-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/front-squat.gif"
+      },
+      {
+        "file": "goblet-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/goblet-squat.gif"
+      },
+      {
+        "file": "gym-ball-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/gym-ball-squat.gif"
+      },
+      {
+        "file": "hack-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/hack-squat.gif"
+      },
+      {
+        "file": "hack_squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/hack_squat.gif"
+      },
+      {
+        "file": "kettlebell-squat-clean.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/kettlebell-squat-clean.gif"
+      },
+      {
+        "file": "kettlebell-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/kettlebell-squat.gif"
+      },
+      {
+        "file": "kneeling_squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/kneeling_squat.gif"
+      },
+      {
+        "file": "landmine-squat-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/landmine-squat-2.gif"
+      },
+      {
+        "file": "landmine-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/landmine-squat.gif"
+      },
+      {
+        "file": "low-bar-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/low-bar-squat.gif"
+      },
+      {
+        "file": "overhead-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/overhead-squat.gif"
+      },
+      {
+        "file": "pistol-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/pistol-squat.gif"
+      },
+      {
+        "file": "reverse-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/reverse-squat.gif"
+      },
+      {
+        "file": "reverse-v-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/reverse-v-squat.gif"
+      },
+      {
+        "file": "sissy_squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/sissy_squat.gif"
+      },
+      {
+        "file": "smith-machine-lunge.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/smith-machine-lunge.gif"
+      },
+      {
+        "file": "smith-machine-squat-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/smith-machine-squat-2.gif"
+      },
+      {
+        "file": "smith-machine-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/smith-machine-squat.gif"
+      },
+      {
+        "file": "wide_stance_squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/wide_stance_squat.gif"
+      },
+      {
+        "file": "zercher-squat.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "quadriceps/zercher-squat.gif"
+      },
+      {
+        "file": "half-knee-bends.gif",
+        "currentCategory": "legs",
+        "confidence": "manual",
+        "newPath": "quadriceps/half-knee-bends.gif"
+      },
+      {
+        "file": "step-ups.gif",
+        "currentCategory": "legs",
+        "confidence": "manual",
+        "newPath": "quadriceps/step-ups.gif"
+      }
+    ],
+    "glutes": [
+      {
+        "file": "barbell-hip-thrust.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/barbell-hip-thrust.gif"
+      },
+      {
+        "file": "dumbbell-hip-thrust.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/dumbbell-hip-thrust.gif"
+      },
+      {
+        "file": "elevated-glute-bridge.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/elevated-glute-bridge.gif"
+      },
+      {
+        "file": "frog-hip-thrust.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/frog-hip-thrust.gif"
+      },
+      {
+        "file": "hip-abduction.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/hip-abduction.gif"
+      },
+      {
+        "file": "machine-standing-hip-abduction.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/machine-standing-hip-abduction.gif"
+      },
+      {
+        "file": "resistance-band-glute-bridge.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/resistance-band-glute-bridge.gif"
+      },
+      {
+        "file": "single-leg-hip-thrust.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/single-leg-hip-thrust.gif"
+      },
+      {
+        "file": "smith-machine-hip-thrust.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "glutes/smith-machine-hip-thrust.gif"
+      },
+      {
+        "file": "cable-pull-through.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "glutes/cable-pull-through.gif"
+      }
+    ],
+    "calves": [
+      {
+        "file": "donkey-calf-raise.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "calves/donkey-calf-raise.gif"
+      },
+      {
+        "file": "seated-calf-raise-2.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "calves/seated-calf-raise-2.gif"
+      },
+      {
+        "file": "seated-calf-raise.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "calves/seated-calf-raise.gif"
+      },
+      {
+        "file": "single-leg-calf-raise.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "calves/single-leg-calf-raise.gif"
+      },
+      {
+        "file": "smith-machine-calf-raise.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "calves/smith-machine-calf-raise.gif"
+      },
+      {
+        "file": "standing-calf-raise.gif",
+        "currentCategory": "legs",
+        "confidence": "high",
+        "newPath": "calves/standing-calf-raise.gif"
+      }
+    ],
+    "anterior-deltoids": [
+      {
+        "file": "barbell-front-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/barbell-front-raise.gif"
+      },
+      {
+        "file": "barbell-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/barbell-shoulder-press.gif"
+      },
+      {
+        "file": "cable-front-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/cable-front-raise.gif"
+      },
+      {
+        "file": "cable-kneeling-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/cable-kneeling-shoulder-press.gif"
+      },
+      {
+        "file": "machine-shoulder-press-2.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/machine-shoulder-press-2.gif"
+      },
+      {
+        "file": "machine-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/machine-shoulder-press.gif"
+      },
+      {
+        "file": "seated-barbell-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/seated-barbell-shoulder-press.gif"
+      },
+      {
+        "file": "seated-dumbbell-front-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/seated-dumbbell-front-raise.gif"
+      },
+      {
+        "file": "seated-dumbbell-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/seated-dumbbell-shoulder-press.gif"
+      },
+      {
+        "file": "seated-ez-bar-front-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/seated-ez-bar-front-raise.gif"
+      },
+      {
+        "file": "seated-smith-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/seated-smith-shoulder-press.gif"
+      },
+      {
+        "file": "single-arm-dumbbell-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/single-arm-dumbbell-shoulder-press.gif"
+      },
+      {
+        "file": "smith-behind-neck-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/smith-behind-neck-shoulder-press.gif"
+      },
+      {
+        "file": "standing-smith-shoulder-press.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "anterior-deltoids/standing-smith-shoulder-press.gif"
+      }
+    ],
+    "compound": [
+      {
+        "file": "barbell-power-clean.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "compound/barbell-power-clean.gif"
+      },
+      {
+        "file": "hang-clean-and-jerk.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "compound/hang-clean-and-jerk.gif"
+      },
+      {
+        "file": "hang-clean.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "compound/hang-clean.gif"
+      },
+      {
+        "file": "kettlebell-clean-and-jerk.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "compound/kettlebell-clean-and-jerk.gif"
+      },
+      {
+        "file": "muscle-up.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "compound/muscle-up.gif"
+      },
+      {
+        "file": "ring-muscle-up.gif",
+        "currentCategory": "back",
+        "confidence": "manual",
+        "newPath": "compound/ring-muscle-up.gif"
+      },
+      {
+        "file": "sled-push.gif",
+        "currentCategory": "cardio",
+        "confidence": "manual",
+        "newPath": "compound/sled-push.gif"
+      },
+      {
+        "file": "crossfit-cluster.gif",
+        "currentCategory": "shoulders",
+        "confidence": "manual",
+        "newPath": "compound/crossfit-cluster.gif"
+      }
+    ],
+    "lateral-deltoids": [
+      {
+        "file": "barbell-upright-row.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lateral-deltoids/barbell-upright-row.gif"
+      },
+      {
+        "file": "cable-upright-row.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lateral-deltoids/cable-upright-row.gif"
+      },
+      {
+        "file": "dumbbell-upright-row.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lateral-deltoids/dumbbell-upright-row.gif"
+      },
+      {
+        "file": "ez-bar-upright-row.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lateral-deltoids/ez-bar-upright-row.gif"
+      },
+      {
+        "file": "single-arm-dumbbell-upright-row.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lateral-deltoids/single-arm-dumbbell-upright-row.gif"
+      },
+      {
+        "file": "upright-row.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "lateral-deltoids/upright-row.gif"
+      }
+    ],
+    "posterior-deltoids": [
+      {
+        "file": "dumbbell-rear-delt-raise.gif",
+        "currentCategory": "shoulders",
+        "confidence": "high",
+        "newPath": "posterior-deltoids/dumbbell-rear-delt-raise.gif"
+      }
+    ]
+  },
+  "unmappedFiles": [
+    {
+      "file": "cable-crossover.gif",
+      "currentCategory": "chest"
+    },
+    {
+      "file": "cable-hip-adduction.gif",
+      "currentCategory": "legs"
+    },
+    {
+      "file": "hip-adduction-inner-thigh-machine.gif",
+      "currentCategory": "legs"
+    },
+    {
+      "file": "shoulder-push-up.gif",
+      "currentCategory": "shoulders"
+    }
+  ],
+  "statistics": {
+    "total": 302,
+    "mapped": 298,
+    "unmapped": 4,
+    "successRate": "98.7"
+  },
+  "manualMappings": {
+    "dead-hang.gif": "lats",
+    "hercules_hold.gif": "forearms",
+    "band-pull-apart.gif": "rhomboids-traps",
+    "barbell-pullover.gif": "lats",
+    "cable-pull-through.gif": "glutes",
+    "cable-pullover.gif": "lats",
+    "machine-pullover.gif": "lats",
+    "muscle-up.gif": "compound",
+    "rack_pull.gif": "erector-spinae",
+    "ring-muscle-up.gif": "compound",
+    "scapular-pull-up.gif": "rhomboids-traps",
+    "standing-straight-arm-lat-pulldown.gif": "lats",
+    "cable-crossover-2.gif": "pectorals",
+    "svend-press.gif": "pectorals",
+    "sled-push.gif": "compound",
+    "step-ups.gif": "quadriceps",
+    "landmine-press.gif": "anterior-deltoids",
+    "crossfit-cluster.gif": "compound",
+    "half-knee-bends.gif": "quadriceps"
+  },
+  "lastUpdated": "2025-08-02T07:08:14.485Z"
+}

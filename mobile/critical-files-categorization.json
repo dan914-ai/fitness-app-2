@@ -1,0 +1,76 @@
+{
+  "timestamp": "2025-08-02T08:45:43.684Z",
+  "totalCriticalFiles": 42,
+  "categorized": 42,
+  "needsManualReview": 0,
+  "categorization": {
+    "deltoids": [
+      "military-press.gif",
+      "dumbbell-push-press.gif",
+      "cable-rear-delt-row.gif",
+      "single-arm-cable-lateral-raises.gif",
+      "prone-y-raises.gif",
+      "military_press.gif"
+    ],
+    "back": [
+      "bent-over-dumbbell-row.gif",
+      "kettlebell-upright-row.gif",
+      "barbell-pendlay-row.gif",
+      "band-pull-aparts.gif",
+      "lat_pulldown.gif",
+      "jumping_pull_ups.gif"
+    ],
+    "abdominals": [
+      "captains-chair-leg-raise.gif",
+      "body-saw-plank.gif"
+    ],
+    "pectorals": [
+      "dumbbell-close-grip-press.gif",
+      "knuckle_pushups.gif",
+      "finger_pushups.gif",
+      "hex_press.gif",
+      "wide_grip_bench_press.gif",
+      "tempo_bench_press.gif"
+    ],
+    "hamstrings": [
+      "straight-leg-deadlift.gif",
+      "reverse_nordic_curl.gif",
+      "romanian_deadlift.gif",
+      "barbell_deadlift.gif"
+    ],
+    "compound": [
+      "push-jerk.gif",
+      "tire-flip.gif",
+      "dumbbell_devils_press.gif",
+      "dumbbell_push_jerk.gif"
+    ],
+    "triceps": [
+      "dive-bomber-push-ups.gif",
+      "cable-pushdown.gif",
+      "cobra-push-up.gif",
+      "underhand-tricep-pushdown.gif"
+    ],
+    "glutes": [
+      "dumbbell-glute-bridge.gif",
+      "banded-hip-thrust.gif"
+    ],
+    "quadriceps": [
+      "resistance-band-lunge.gif",
+      "shrimp-squat.gif",
+      "frog-squat.gif",
+      "lunges.gif",
+      "negative_squat.gif",
+      "anderson_squat.gif",
+      "tempo_squat.gif",
+      "tempo_squats.gif"
+    ]
+  },
+  "unknownFiles": [],
+  "nextSteps": [
+    "1. Review and manually categorize unknown files",
+    "2. Verify files exist in Supabase flat structure",
+    "3. Copy files to appropriate categorized folders",
+    "4. Upload categorized versions to Supabase",
+    "5. Update database URLs to point to categorized versions"
+  ]
+}

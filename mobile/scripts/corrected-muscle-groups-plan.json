@@ -1,0 +1,2431 @@
+{
+  "timestamp": "2025-08-02T08:03:25.008Z",
+  "correctedMuscleGroups": {
+    "abdominals": [
+      "alternate-heel-touches.gif",
+      "knee-touch-crunch.gif",
+      "tuck-crunch.gif"
+    ],
+    "deltoids": [
+      "arnold-press.gif",
+      "barbell-front-raise.gif",
+      "barbell-push-press.gif",
+      "barbell-shoulder-press.gif",
+      "cable-front-raise.gif",
+      "cable-kneeling-shoulder-press.gif",
+      "dumbbell-bent-over-lateral-raise.gif",
+      "dumbbell-lateral-raise.gif",
+      "dumbbell-rear-delt-raise.gif",
+      "handstand-push-up.gif",
+      "incline-leaning-dumbbell-lateral-raise.gif",
+      "landmine-press.gif",
+      "leaning-single-arm-dumbbell-lateral-raise.gif",
+      "machine-lateral-raise.gif",
+      "machine-lateral-raise-2.gif",
+      "machine-rear-delt-fly.gif",
+      "machine-shoulder-press.gif",
+      "machine-shoulder-press-2.gif",
+      "pike-push-up.gif",
+      "plate-front-raise.gif",
+      "seated-barbell-shoulder-press.gif",
+      "seated-dumbbell-front-raise.gif",
+      "seated-dumbbell-lateral-raise.gif",
+      "seated-dumbbell-shoulder-press.gif",
+      "seated-ez-bar-front-raise.gif",
+      "seated-smith-shoulder-press.gif",
+      "shoulder-push-up.gif",
+      "single-arm-cable-lateral-raise.gif",
+      "single-arm-dumbbell-shoulder-press.gif",
+      "smith-behind-neck-shoulder-press.gif",
+      "standing-smith-shoulder-press.gif"
+    ],
+    "biceps": [
+      "barbell-bicep-curl.gif",
+      "barbell-cheat-curl.gif",
+      "barbell-preacher-curl.gif",
+      "cable-bicep-curl.gif",
+      "cable-double-bicep-curl.gif",
+      "cable-drag-curl.gif",
+      "cable-rope-bicep-curl.gif",
+      "crossbody-hammer-curl.gif",
+      "dumbbell-bicep-curl.gif",
+      "dumbbell-bicep-curl-2.gif",
+      "dumbbell-concentration-curl.gif",
+      "dumbbell-hammer-curl.gif",
+      "ez-bar-bicep-curl.gif",
+      "ez-bar-reverse-bicep-curl.gif",
+      "hammer-curls.gif",
+      "high-pulley-cable-curl.gif",
+      "incline-dumbbell-curl.gif",
+      "incline-hammer-curls.gif",
+      "inner-biceps-curl.gif",
+      "preacher-curls.gif",
+      "single-arm-cable-bicep-curl.gif",
+      "single-arm-dumbbell-preacher-curl.gif",
+      "spider-bicep-curl.gif",
+      "spider-curl.gif",
+      "wide-grip-barbell-curl.gif",
+      "zottman-curl.gif"
+    ],
+    "triceps": [
+      "barbell-incline-tricep-extension.gif",
+      "barbell-lying-tricep-extension.gif",
+      "barbell-tricep-extension.gif",
+      "cable-incline-tricep-extension.gif",
+      "cable-overhead-tricep-extension.gif",
+      "cable-reverse-grip-tricep-pushdown.gif",
+      "cable-rope-tricep-extension.gif",
+      "cable-single-arm-reverse-grip-tricep-pushdown.gif",
+      "cable-tricep-kickback.gif",
+      "cable-v-bar-tricep-pushdown.gif",
+      "close-grip-bench-press.gif",
+      "dumbbell-tricep-extension.gif",
+      "dumbbell-tricep-extension-2.gif",
+      "dumbbell-tricep-kickback.gif",
+      "dumbbell-tricep-kickback-2.gif",
+      "kneeling-cable-overhead-tricep-extension.gif",
+      "machine-tricep-extension.gif",
+      "machine-tricep-extension-2.gif",
+      "overhead-tricep-stretch.gif",
+      "single-arm-cable-tricep-extension.gif",
+      "single-arm-dumbbell-tricep-extension.gif",
+      "tricep-overhead-extension.gif",
+      "triceps-pushdown.gif"
+    ],
+    "forearms": [
+      "barbell-reverse-wrist-curl.gif",
+      "barbell-wrist-curl.gif",
+      "dumbbell-reverse-wrist-curl.gif",
+      "dumbbell-wrist-curl.gif",
+      "forearm-push-up.gif",
+      "hercules_hold.gif",
+      "reverse-curl.gif",
+      "wrist-push-up.gif"
+    ],
+    "pectorals": [
+      "assisted-dips.gif",
+      "assisted-push-up.gif",
+      "barbell-bench-press.gif",
+      "barbell-decline-bench-press.gif",
+      "barbell_bench_press.gif",
+      "bench-dips.gif",
+      "board-bench-press.gif",
+      "cable-chest-fly.gif",
+      "cable-crossover.gif",
+      "cable-crossover-2.gif",
+      "chest-press-machine.gif",
+      "clapping-push-up.gif",
+      "deck_of_cards_pushups.gif",
+      "decline-barbell-bench-press.gif",
+      "decline-cable-fly.gif",
+      "decline-dumbbell-fly.gif",
+      "deficit-push-ups.gif",
+      "dips.gif",
+      "dips-2.gif",
+      "dumbbell-bench-press.gif",
+      "dumbbell-chest-fly.gif",
+      "floor-press.gif",
+      "incline-barbell-bench-press.gif",
+      "incline-barbell-bench-press-2.gif",
+      "incline-dumbbell-fly.gif",
+      "incline-push-up.gif",
+      "knee-push-up.gif",
+      "machine-chest-fly.gif",
+      "machine-chest-press.gif",
+      "machine-dips.gif",
+      "negative-push-up.gif",
+      "parallel-dips.gif",
+      "pec-deck.gif",
+      "pin-press.gif",
+      "plate-chest-press.gif",
+      "plyometric-push-up.gif",
+      "push-ups-with-rotation.gif",
+      "resistance-band-push-up.gif",
+      "single-arm-dumbbell-press.gif",
+      "smith-bench-press.gif",
+      "sphinx-push-up.gif",
+      "suicide_grip_bench_press.gif",
+      "svend-press.gif",
+      "weighted-push-up.gif"
+    ],
+    "back": [
+      "assisted-pull-ups.gif",
+      "band-pull-apart.gif",
+      "banded-face-pull.gif",
+      "barbell-pullover.gif",
+      "barbell-row.gif",
+      "behind-neck-pulldown.gif",
+      "cable-face-pull.gif",
+      "cable-pullover.gif",
+      "cable-row.gif",
+      "cable-rope-arm-pulldown.gif",
+      "cable-seated-row.gif",
+      "chest-supported-barbell-row.gif",
+      "chest-supported-dumbbell-row.gif",
+      "chest-supported-t-bar-row-machine.gif",
+      "chin-up.gif",
+      "close-grip-lat-pulldown.gif",
+      "close-grip-pull-up.gif",
+      "dead-hang.gif",
+      "dumbbell-face-pull.gif",
+      "dumbbell-row.gif",
+      "dumbbell-row-seated.gif",
+      "face-pull.gif",
+      "inverted-row.gif",
+      "lat-pulldown.gif",
+      "lat-pulldown-standard.gif",
+      "machine-high-row.gif",
+      "machine-pullover.gif",
+      "machine-seated-row.gif",
+      "machine-t-bar-row.gif",
+      "machine-wide-pulldown.gif",
+      "negative-pull-up.gif",
+      "neutral-grip-lat-pulldown.gif",
+      "neutral-grip-pull-up.gif",
+      "plate-row.gif",
+      "pull-up.gif",
+      "pull-ups.gif",
+      "rack_pull.gif",
+      "rowing-machine.gif",
+      "scapular-pull-up.gif",
+      "single-arm-landmine-row.gif",
+      "single-arm-lat-pulldown.gif",
+      "smith-barbell-row.gif",
+      "standing-straight-arm-lat-pulldown.gif",
+      "t-bar-row.gif",
+      "underhand-barbell-row.gif",
+      "weighted-pull-up.gif",
+      "wide-grip-lat-pulldown.gif",
+      "yates-row.gif"
+    ],
+    "traps": [
+      "barbell-shrug.gif",
+      "barbell-shrug-2.gif",
+      "cable-shrug.gif",
+      "chest-supported-dumbbell-shrug.gif",
+      "dumbbell-shrug.gif",
+      "smith-machine-shrug.gif",
+      "barbell-upright-row.gif",
+      "cable-upright-row.gif",
+      "dumbbell-upright-row.gif",
+      "ez-bar-upright-row.gif",
+      "single-arm-dumbbell-upright-row.gif",
+      "upright-row.gif"
+    ],
+    "hamstrings": [
+      "barbell-good-morning.gif",
+      "block_pull_deadlift.gif",
+      "deficit-deadlift.gif",
+      "dumbbell-stiff-leg-deadlift.gif",
+      "dumbbell-sumo-deadlift.gif",
+      "kettlebell-sumo-deadlift.gif",
+      "kettlebell_deadlift.gif",
+      "landmine-deadlift.gif",
+      "mixed_grip_deadlift.gif",
+      "pause-deadlift.gif",
+      "romanian-deadlift.gif",
+      "stiff-leg-deadlift.gif",
+      "suitcase-deadlift.gif",
+      "sumo-deadlift.gif",
+      "sumo_deadlift.gif",
+      "kneeling-leg-curl.gif",
+      "lying-leg-curl.gif",
+      "nordic-curl.gif",
+      "seated-leg-curl.gif",
+      "single-leg-curl.gif"
+    ],
+    "glutes": [
+      "barbell-hip-thrust.gif",
+      "cable-hip-adduction.gif",
+      "cable-pull-through.gif",
+      "dumbbell-hip-thrust.gif",
+      "elevated-glute-bridge.gif",
+      "frog-hip-thrust.gif",
+      "glute-kickback-hip-extension.gif",
+      "glute-kickback-machine.gif",
+      "hip-abduction.gif",
+      "hip-adduction-inner-thigh-machine.gif",
+      "machine-standing-hip-abduction.gif",
+      "resistance-band-glute-bridge.gif",
+      "single-leg-cable-kickback.gif",
+      "single-leg-hip-thrust.gif",
+      "smith-machine-hip-thrust.gif"
+    ],
+    "quadriceps": [
+      "barbell-bulgarian-split-squat.gif",
+      "barbell-front-squat.gif",
+      "barbell-lunge.gif",
+      "barbell-sumo-squat.gif",
+      "barbell_squat.gif",
+      "belt-squat.gif",
+      "bodyweight-lunge.gif",
+      "bodyweight-squat.gif",
+      "bulgarian-split-squat.gif",
+      "bulgarian-split-squat-2.gif",
+      "deficit-reverse-lunge.gif",
+      "dumbbell-front-squat.gif",
+      "dumbbell-hack-squat.gif",
+      "dumbbell-squat.gif",
+      "dumbbell-squat-2.gif",
+      "dumbbell-sumo-squat.gif",
+      "front-squat.gif",
+      "goblet-squat.gif",
+      "gym-ball-squat.gif",
+      "hack-squat.gif",
+      "hack_squat.gif",
+      "half-knee-bends.gif",
+      "kettlebell-squat.gif",
+      "kettlebell-squat-clean.gif",
+      "kneeling_squat.gif",
+      "landmine-squat.gif",
+      "landmine-squat-2.gif",
+      "leg-extension.gif",
+      "leg-extension-2.gif",
+      "low-bar-squat.gif",
+      "machine-leg-press.gif",
+      "overhead-squat.gif",
+      "pistol-squat.gif",
+      "reverse-squat.gif",
+      "reverse-v-squat.gif",
+      "sissy_squat.gif",
+      "seated-knee-extension.gif",
+      "single-leg-extension.gif",
+      "single-leg-press.gif",
+      "smith-machine-lunge.gif",
+      "smith-machine-squat.gif",
+      "smith-machine-squat-2.gif",
+      "step-ups.gif",
+      "trap-bar-deadlift.gif",
+      "wide_stance_squat.gif",
+      "zercher-squat.gif"
+    ],
+    "calves": [
+      "donkey-calf-raise.gif",
+      "leg-press-calf-raise.gif",
+      "leg-press-calf-raise-2.gif",
+      "seated-calf-raise.gif",
+      "seated-calf-raise-2.gif",
+      "single-leg-calf-raise.gif",
+      "smith-machine-calf-raise.gif",
+      "standing-calf-raise.gif"
+    ],
+    "compound": [
+      "barbell-power-clean.gif",
+      "clean-and-press.gif",
+      "crossfit-cluster.gif",
+      "hang-clean.gif",
+      "hang-clean-and-jerk.gif",
+      "kettlebell-clean-and-jerk.gif",
+      "muscle-up.gif",
+      "ring-muscle-up.gif",
+      "sled-push.gif"
+    ],
+    "cardio": [
+      "bike.gif",
+      "duck-walk.gif",
+      "elliptical-machine.gif",
+      "step-mill.gif",
+      "treadmill.gif"
+    ]
+  },
+  "fileMappings": [
+    {
+      "file": "alternate-heel-touches.gif",
+      "from": "core",
+      "to": "abdominals",
+      "fromPath": "core/alternate-heel-touches.gif",
+      "toPath": "abdominals/alternate-heel-touches.gif"
+    },
+    {
+      "file": "knee-touch-crunch.gif",
+      "from": "core",
+      "to": "abdominals",
+      "fromPath": "core/knee-touch-crunch.gif",
+      "toPath": "abdominals/knee-touch-crunch.gif"
+    },
+    {
+      "file": "tuck-crunch.gif",
+      "from": "core",
+      "to": "abdominals",
+      "fromPath": "core/tuck-crunch.gif",
+      "toPath": "abdominals/tuck-crunch.gif"
+    },
+    {
+      "file": "arnold-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/arnold-press.gif",
+      "toPath": "deltoids/arnold-press.gif"
+    },
+    {
+      "file": "barbell-front-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/barbell-front-raise.gif",
+      "toPath": "deltoids/barbell-front-raise.gif"
+    },
+    {
+      "file": "barbell-push-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/barbell-push-press.gif",
+      "toPath": "deltoids/barbell-push-press.gif"
+    },
+    {
+      "file": "barbell-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/barbell-shoulder-press.gif",
+      "toPath": "deltoids/barbell-shoulder-press.gif"
+    },
+    {
+      "file": "cable-front-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/cable-front-raise.gif",
+      "toPath": "deltoids/cable-front-raise.gif"
+    },
+    {
+      "file": "cable-kneeling-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/cable-kneeling-shoulder-press.gif",
+      "toPath": "deltoids/cable-kneeling-shoulder-press.gif"
+    },
+    {
+      "file": "dumbbell-bent-over-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/dumbbell-bent-over-lateral-raise.gif",
+      "toPath": "deltoids/dumbbell-bent-over-lateral-raise.gif"
+    },
+    {
+      "file": "dumbbell-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/dumbbell-lateral-raise.gif",
+      "toPath": "deltoids/dumbbell-lateral-raise.gif"
+    },
+    {
+      "file": "dumbbell-rear-delt-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/dumbbell-rear-delt-raise.gif",
+      "toPath": "deltoids/dumbbell-rear-delt-raise.gif"
+    },
+    {
+      "file": "handstand-push-up.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/handstand-push-up.gif",
+      "toPath": "deltoids/handstand-push-up.gif"
+    },
+    {
+      "file": "incline-leaning-dumbbell-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/incline-leaning-dumbbell-lateral-raise.gif",
+      "toPath": "deltoids/incline-leaning-dumbbell-lateral-raise.gif"
+    },
+    {
+      "file": "landmine-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/landmine-press.gif",
+      "toPath": "deltoids/landmine-press.gif"
+    },
+    {
+      "file": "leaning-single-arm-dumbbell-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/leaning-single-arm-dumbbell-lateral-raise.gif",
+      "toPath": "deltoids/leaning-single-arm-dumbbell-lateral-raise.gif"
+    },
+    {
+      "file": "machine-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/machine-lateral-raise.gif",
+      "toPath": "deltoids/machine-lateral-raise.gif"
+    },
+    {
+      "file": "machine-lateral-raise-2.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/machine-lateral-raise-2.gif",
+      "toPath": "deltoids/machine-lateral-raise-2.gif"
+    },
+    {
+      "file": "machine-rear-delt-fly.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/machine-rear-delt-fly.gif",
+      "toPath": "deltoids/machine-rear-delt-fly.gif"
+    },
+    {
+      "file": "machine-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/machine-shoulder-press.gif",
+      "toPath": "deltoids/machine-shoulder-press.gif"
+    },
+    {
+      "file": "machine-shoulder-press-2.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/machine-shoulder-press-2.gif",
+      "toPath": "deltoids/machine-shoulder-press-2.gif"
+    },
+    {
+      "file": "pike-push-up.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/pike-push-up.gif",
+      "toPath": "deltoids/pike-push-up.gif"
+    },
+    {
+      "file": "plate-front-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/plate-front-raise.gif",
+      "toPath": "deltoids/plate-front-raise.gif"
+    },
+    {
+      "file": "seated-barbell-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/seated-barbell-shoulder-press.gif",
+      "toPath": "deltoids/seated-barbell-shoulder-press.gif"
+    },
+    {
+      "file": "seated-dumbbell-front-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/seated-dumbbell-front-raise.gif",
+      "toPath": "deltoids/seated-dumbbell-front-raise.gif"
+    },
+    {
+      "file": "seated-dumbbell-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/seated-dumbbell-lateral-raise.gif",
+      "toPath": "deltoids/seated-dumbbell-lateral-raise.gif"
+    },
+    {
+      "file": "seated-dumbbell-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/seated-dumbbell-shoulder-press.gif",
+      "toPath": "deltoids/seated-dumbbell-shoulder-press.gif"
+    },
+    {
+      "file": "seated-ez-bar-front-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/seated-ez-bar-front-raise.gif",
+      "toPath": "deltoids/seated-ez-bar-front-raise.gif"
+    },
+    {
+      "file": "seated-smith-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/seated-smith-shoulder-press.gif",
+      "toPath": "deltoids/seated-smith-shoulder-press.gif"
+    },
+    {
+      "file": "shoulder-push-up.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/shoulder-push-up.gif",
+      "toPath": "deltoids/shoulder-push-up.gif"
+    },
+    {
+      "file": "single-arm-cable-lateral-raise.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/single-arm-cable-lateral-raise.gif",
+      "toPath": "deltoids/single-arm-cable-lateral-raise.gif"
+    },
+    {
+      "file": "single-arm-dumbbell-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/single-arm-dumbbell-shoulder-press.gif",
+      "toPath": "deltoids/single-arm-dumbbell-shoulder-press.gif"
+    },
+    {
+      "file": "smith-behind-neck-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/smith-behind-neck-shoulder-press.gif",
+      "toPath": "deltoids/smith-behind-neck-shoulder-press.gif"
+    },
+    {
+      "file": "standing-smith-shoulder-press.gif",
+      "from": "shoulders",
+      "to": "deltoids",
+      "fromPath": "shoulders/standing-smith-shoulder-press.gif",
+      "toPath": "deltoids/standing-smith-shoulder-press.gif"
+    },
+    {
+      "file": "barbell-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/barbell-bicep-curl.gif",
+      "toPath": "biceps/barbell-bicep-curl.gif"
+    },
+    {
+      "file": "barbell-cheat-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/barbell-cheat-curl.gif",
+      "toPath": "biceps/barbell-cheat-curl.gif"
+    },
+    {
+      "file": "barbell-preacher-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/barbell-preacher-curl.gif",
+      "toPath": "biceps/barbell-preacher-curl.gif"
+    },
+    {
+      "file": "cable-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/cable-bicep-curl.gif",
+      "toPath": "biceps/cable-bicep-curl.gif"
+    },
+    {
+      "file": "cable-double-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/cable-double-bicep-curl.gif",
+      "toPath": "biceps/cable-double-bicep-curl.gif"
+    },
+    {
+      "file": "cable-drag-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/cable-drag-curl.gif",
+      "toPath": "biceps/cable-drag-curl.gif"
+    },
+    {
+      "file": "cable-rope-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/cable-rope-bicep-curl.gif",
+      "toPath": "biceps/cable-rope-bicep-curl.gif"
+    },
+    {
+      "file": "crossbody-hammer-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/crossbody-hammer-curl.gif",
+      "toPath": "biceps/crossbody-hammer-curl.gif"
+    },
+    {
+      "file": "dumbbell-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/dumbbell-bicep-curl.gif",
+      "toPath": "biceps/dumbbell-bicep-curl.gif"
+    },
+    {
+      "file": "dumbbell-bicep-curl-2.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/dumbbell-bicep-curl-2.gif",
+      "toPath": "biceps/dumbbell-bicep-curl-2.gif"
+    },
+    {
+      "file": "dumbbell-concentration-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/dumbbell-concentration-curl.gif",
+      "toPath": "biceps/dumbbell-concentration-curl.gif"
+    },
+    {
+      "file": "dumbbell-hammer-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/dumbbell-hammer-curl.gif",
+      "toPath": "biceps/dumbbell-hammer-curl.gif"
+    },
+    {
+      "file": "ez-bar-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/ez-bar-bicep-curl.gif",
+      "toPath": "biceps/ez-bar-bicep-curl.gif"
+    },
+    {
+      "file": "ez-bar-reverse-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/ez-bar-reverse-bicep-curl.gif",
+      "toPath": "biceps/ez-bar-reverse-bicep-curl.gif"
+    },
+    {
+      "file": "hammer-curls.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/hammer-curls.gif",
+      "toPath": "biceps/hammer-curls.gif"
+    },
+    {
+      "file": "high-pulley-cable-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/high-pulley-cable-curl.gif",
+      "toPath": "biceps/high-pulley-cable-curl.gif"
+    },
+    {
+      "file": "incline-dumbbell-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/incline-dumbbell-curl.gif",
+      "toPath": "biceps/incline-dumbbell-curl.gif"
+    },
+    {
+      "file": "incline-hammer-curls.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/incline-hammer-curls.gif",
+      "toPath": "biceps/incline-hammer-curls.gif"
+    },
+    {
+      "file": "inner-biceps-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/inner-biceps-curl.gif",
+      "toPath": "biceps/inner-biceps-curl.gif"
+    },
+    {
+      "file": "preacher-curls.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/preacher-curls.gif",
+      "toPath": "biceps/preacher-curls.gif"
+    },
+    {
+      "file": "single-arm-cable-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/single-arm-cable-bicep-curl.gif",
+      "toPath": "biceps/single-arm-cable-bicep-curl.gif"
+    },
+    {
+      "file": "single-arm-dumbbell-preacher-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/single-arm-dumbbell-preacher-curl.gif",
+      "toPath": "biceps/single-arm-dumbbell-preacher-curl.gif"
+    },
+    {
+      "file": "spider-bicep-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/spider-bicep-curl.gif",
+      "toPath": "biceps/spider-bicep-curl.gif"
+    },
+    {
+      "file": "spider-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/spider-curl.gif",
+      "toPath": "biceps/spider-curl.gif"
+    },
+    {
+      "file": "wide-grip-barbell-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/wide-grip-barbell-curl.gif",
+      "toPath": "biceps/wide-grip-barbell-curl.gif"
+    },
+    {
+      "file": "zottman-curl.gif",
+      "from": "arms",
+      "to": "biceps",
+      "fromPath": "arms/zottman-curl.gif",
+      "toPath": "biceps/zottman-curl.gif"
+    },
+    {
+      "file": "barbell-incline-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/barbell-incline-tricep-extension.gif",
+      "toPath": "triceps/barbell-incline-tricep-extension.gif"
+    },
+    {
+      "file": "barbell-lying-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/barbell-lying-tricep-extension.gif",
+      "toPath": "triceps/barbell-lying-tricep-extension.gif"
+    },
+    {
+      "file": "barbell-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/barbell-tricep-extension.gif",
+      "toPath": "triceps/barbell-tricep-extension.gif"
+    },
+    {
+      "file": "cable-incline-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-incline-tricep-extension.gif",
+      "toPath": "triceps/cable-incline-tricep-extension.gif"
+    },
+    {
+      "file": "cable-overhead-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-overhead-tricep-extension.gif",
+      "toPath": "triceps/cable-overhead-tricep-extension.gif"
+    },
+    {
+      "file": "cable-reverse-grip-tricep-pushdown.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-reverse-grip-tricep-pushdown.gif",
+      "toPath": "triceps/cable-reverse-grip-tricep-pushdown.gif"
+    },
+    {
+      "file": "cable-rope-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-rope-tricep-extension.gif",
+      "toPath": "triceps/cable-rope-tricep-extension.gif"
+    },
+    {
+      "file": "cable-single-arm-reverse-grip-tricep-pushdown.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-single-arm-reverse-grip-tricep-pushdown.gif",
+      "toPath": "triceps/cable-single-arm-reverse-grip-tricep-pushdown.gif"
+    },
+    {
+      "file": "cable-tricep-kickback.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-tricep-kickback.gif",
+      "toPath": "triceps/cable-tricep-kickback.gif"
+    },
+    {
+      "file": "cable-v-bar-tricep-pushdown.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/cable-v-bar-tricep-pushdown.gif",
+      "toPath": "triceps/cable-v-bar-tricep-pushdown.gif"
+    },
+    {
+      "file": "close-grip-bench-press.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/close-grip-bench-press.gif",
+      "toPath": "triceps/close-grip-bench-press.gif"
+    },
+    {
+      "file": "dumbbell-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/dumbbell-tricep-extension.gif",
+      "toPath": "triceps/dumbbell-tricep-extension.gif"
+    },
+    {
+      "file": "dumbbell-tricep-extension-2.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/dumbbell-tricep-extension-2.gif",
+      "toPath": "triceps/dumbbell-tricep-extension-2.gif"
+    },
+    {
+      "file": "dumbbell-tricep-kickback.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/dumbbell-tricep-kickback.gif",
+      "toPath": "triceps/dumbbell-tricep-kickback.gif"
+    },
+    {
+      "file": "dumbbell-tricep-kickback-2.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/dumbbell-tricep-kickback-2.gif",
+      "toPath": "triceps/dumbbell-tricep-kickback-2.gif"
+    },
+    {
+      "file": "kneeling-cable-overhead-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/kneeling-cable-overhead-tricep-extension.gif",
+      "toPath": "triceps/kneeling-cable-overhead-tricep-extension.gif"
+    },
+    {
+      "file": "machine-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/machine-tricep-extension.gif",
+      "toPath": "triceps/machine-tricep-extension.gif"
+    },
+    {
+      "file": "machine-tricep-extension-2.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/machine-tricep-extension-2.gif",
+      "toPath": "triceps/machine-tricep-extension-2.gif"
+    },
+    {
+      "file": "overhead-tricep-stretch.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/overhead-tricep-stretch.gif",
+      "toPath": "triceps/overhead-tricep-stretch.gif"
+    },
+    {
+      "file": "single-arm-cable-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/single-arm-cable-tricep-extension.gif",
+      "toPath": "triceps/single-arm-cable-tricep-extension.gif"
+    },
+    {
+      "file": "single-arm-dumbbell-tricep-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/single-arm-dumbbell-tricep-extension.gif",
+      "toPath": "triceps/single-arm-dumbbell-tricep-extension.gif"
+    },
+    {
+      "file": "tricep-overhead-extension.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/tricep-overhead-extension.gif",
+      "toPath": "triceps/tricep-overhead-extension.gif"
+    },
+    {
+      "file": "triceps-pushdown.gif",
+      "from": "arms",
+      "to": "triceps",
+      "fromPath": "arms/triceps-pushdown.gif",
+      "toPath": "triceps/triceps-pushdown.gif"
+    },
+    {
+      "file": "barbell-reverse-wrist-curl.gif",
+      "from": "legs",
+      "to": "forearms",
+      "fromPath": "legs/barbell-reverse-wrist-curl.gif",
+      "toPath": "forearms/barbell-reverse-wrist-curl.gif"
+    },
+    {
+      "file": "barbell-wrist-curl.gif",
+      "from": "legs",
+      "to": "forearms",
+      "fromPath": "legs/barbell-wrist-curl.gif",
+      "toPath": "forearms/barbell-wrist-curl.gif"
+    },
+    {
+      "file": "dumbbell-reverse-wrist-curl.gif",
+      "from": "legs",
+      "to": "forearms",
+      "fromPath": "legs/dumbbell-reverse-wrist-curl.gif",
+      "toPath": "forearms/dumbbell-reverse-wrist-curl.gif"
+    },
+    {
+      "file": "dumbbell-wrist-curl.gif",
+      "from": "legs",
+      "to": "forearms",
+      "fromPath": "legs/dumbbell-wrist-curl.gif",
+      "toPath": "forearms/dumbbell-wrist-curl.gif"
+    },
+    {
+      "file": "forearm-push-up.gif",
+      "from": "chest",
+      "to": "forearms",
+      "fromPath": "chest/forearm-push-up.gif",
+      "toPath": "forearms/forearm-push-up.gif"
+    },
+    {
+      "file": "hercules_hold.gif",
+      "from": "arms",
+      "to": "forearms",
+      "fromPath": "arms/hercules_hold.gif",
+      "toPath": "forearms/hercules_hold.gif"
+    },
+    {
+      "file": "reverse-curl.gif",
+      "from": "arms",
+      "to": "forearms",
+      "fromPath": "arms/reverse-curl.gif",
+      "toPath": "forearms/reverse-curl.gif"
+    },
+    {
+      "file": "wrist-push-up.gif",
+      "from": "chest",
+      "to": "forearms",
+      "fromPath": "chest/wrist-push-up.gif",
+      "toPath": "forearms/wrist-push-up.gif"
+    },
+    {
+      "file": "assisted-dips.gif",
+      "from": "arms",
+      "to": "pectorals",
+      "fromPath": "arms/assisted-dips.gif",
+      "toPath": "pectorals/assisted-dips.gif"
+    },
+    {
+      "file": "assisted-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/assisted-push-up.gif",
+      "toPath": "pectorals/assisted-push-up.gif"
+    },
+    {
+      "file": "barbell-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/barbell-bench-press.gif",
+      "toPath": "pectorals/barbell-bench-press.gif"
+    },
+    {
+      "file": "barbell-decline-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/barbell-decline-bench-press.gif",
+      "toPath": "pectorals/barbell-decline-bench-press.gif"
+    },
+    {
+      "file": "barbell_bench_press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/barbell_bench_press.gif",
+      "toPath": "pectorals/barbell_bench_press.gif"
+    },
+    {
+      "file": "bench-dips.gif",
+      "from": "arms",
+      "to": "pectorals",
+      "fromPath": "arms/bench-dips.gif",
+      "toPath": "pectorals/bench-dips.gif"
+    },
+    {
+      "file": "board-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/board-bench-press.gif",
+      "toPath": "pectorals/board-bench-press.gif"
+    },
+    {
+      "file": "cable-chest-fly.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/cable-chest-fly.gif",
+      "toPath": "pectorals/cable-chest-fly.gif"
+    },
+    {
+      "file": "cable-crossover.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/cable-crossover.gif",
+      "toPath": "pectorals/cable-crossover.gif"
+    },
+    {
+      "file": "cable-crossover-2.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/cable-crossover-2.gif",
+      "toPath": "pectorals/cable-crossover-2.gif"
+    },
+    {
+      "file": "chest-press-machine.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/chest-press-machine.gif",
+      "toPath": "pectorals/chest-press-machine.gif"
+    },
+    {
+      "file": "clapping-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/clapping-push-up.gif",
+      "toPath": "pectorals/clapping-push-up.gif"
+    },
+    {
+      "file": "deck_of_cards_pushups.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/deck_of_cards_pushups.gif",
+      "toPath": "pectorals/deck_of_cards_pushups.gif"
+    },
+    {
+      "file": "decline-barbell-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/decline-barbell-bench-press.gif",
+      "toPath": "pectorals/decline-barbell-bench-press.gif"
+    },
+    {
+      "file": "decline-cable-fly.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/decline-cable-fly.gif",
+      "toPath": "pectorals/decline-cable-fly.gif"
+    },
+    {
+      "file": "decline-dumbbell-fly.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/decline-dumbbell-fly.gif",
+      "toPath": "pectorals/decline-dumbbell-fly.gif"
+    },
+    {
+      "file": "deficit-push-ups.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/deficit-push-ups.gif",
+      "toPath": "pectorals/deficit-push-ups.gif"
+    },
+    {
+      "file": "dips.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/dips.gif",
+      "toPath": "pectorals/dips.gif"
+    },
+    {
+      "file": "dips-2.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/dips-2.gif",
+      "toPath": "pectorals/dips-2.gif"
+    },
+    {
+      "file": "dumbbell-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/dumbbell-bench-press.gif",
+      "toPath": "pectorals/dumbbell-bench-press.gif"
+    },
+    {
+      "file": "dumbbell-chest-fly.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/dumbbell-chest-fly.gif",
+      "toPath": "pectorals/dumbbell-chest-fly.gif"
+    },
+    {
+      "file": "floor-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/floor-press.gif",
+      "toPath": "pectorals/floor-press.gif"
+    },
+    {
+      "file": "incline-barbell-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/incline-barbell-bench-press.gif",
+      "toPath": "pectorals/incline-barbell-bench-press.gif"
+    },
+    {
+      "file": "incline-barbell-bench-press-2.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/incline-barbell-bench-press-2.gif",
+      "toPath": "pectorals/incline-barbell-bench-press-2.gif"
+    },
+    {
+      "file": "incline-dumbbell-fly.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/incline-dumbbell-fly.gif",
+      "toPath": "pectorals/incline-dumbbell-fly.gif"
+    },
+    {
+      "file": "incline-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/incline-push-up.gif",
+      "toPath": "pectorals/incline-push-up.gif"
+    },
+    {
+      "file": "knee-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/knee-push-up.gif",
+      "toPath": "pectorals/knee-push-up.gif"
+    },
+    {
+      "file": "machine-chest-fly.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/machine-chest-fly.gif",
+      "toPath": "pectorals/machine-chest-fly.gif"
+    },
+    {
+      "file": "machine-chest-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/machine-chest-press.gif",
+      "toPath": "pectorals/machine-chest-press.gif"
+    },
+    {
+      "file": "machine-dips.gif",
+      "from": "arms",
+      "to": "pectorals",
+      "fromPath": "arms/machine-dips.gif",
+      "toPath": "pectorals/machine-dips.gif"
+    },
+    {
+      "file": "negative-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/negative-push-up.gif",
+      "toPath": "pectorals/negative-push-up.gif"
+    },
+    {
+      "file": "parallel-dips.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/parallel-dips.gif",
+      "toPath": "pectorals/parallel-dips.gif"
+    },
+    {
+      "file": "pec-deck.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/pec-deck.gif",
+      "toPath": "pectorals/pec-deck.gif"
+    },
+    {
+      "file": "pin-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/pin-press.gif",
+      "toPath": "pectorals/pin-press.gif"
+    },
+    {
+      "file": "plate-chest-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/plate-chest-press.gif",
+      "toPath": "pectorals/plate-chest-press.gif"
+    },
+    {
+      "file": "plyometric-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/plyometric-push-up.gif",
+      "toPath": "pectorals/plyometric-push-up.gif"
+    },
+    {
+      "file": "push-ups-with-rotation.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/push-ups-with-rotation.gif",
+      "toPath": "pectorals/push-ups-with-rotation.gif"
+    },
+    {
+      "file": "resistance-band-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/resistance-band-push-up.gif",
+      "toPath": "pectorals/resistance-band-push-up.gif"
+    },
+    {
+      "file": "single-arm-dumbbell-press.gif",
+      "from": "shoulders",
+      "to": "pectorals",
+      "fromPath": "shoulders/single-arm-dumbbell-press.gif",
+      "toPath": "pectorals/single-arm-dumbbell-press.gif"
+    },
+    {
+      "file": "smith-bench-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/smith-bench-press.gif",
+      "toPath": "pectorals/smith-bench-press.gif"
+    },
+    {
+      "file": "sphinx-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/sphinx-push-up.gif",
+      "toPath": "pectorals/sphinx-push-up.gif"
+    },
+    {
+      "file": "suicide_grip_bench_press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/suicide_grip_bench_press.gif",
+      "toPath": "pectorals/suicide_grip_bench_press.gif"
+    },
+    {
+      "file": "svend-press.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/svend-press.gif",
+      "toPath": "pectorals/svend-press.gif"
+    },
+    {
+      "file": "weighted-push-up.gif",
+      "from": "chest",
+      "to": "pectorals",
+      "fromPath": "chest/weighted-push-up.gif",
+      "toPath": "pectorals/weighted-push-up.gif"
+    },
+    {
+      "file": "assisted-pull-ups.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/assisted-pull-ups.gif",
+      "toPath": "back/assisted-pull-ups.gif"
+    },
+    {
+      "file": "band-pull-apart.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/band-pull-apart.gif",
+      "toPath": "back/band-pull-apart.gif"
+    },
+    {
+      "file": "banded-face-pull.gif",
+      "from": "shoulders",
+      "to": "back",
+      "fromPath": "shoulders/banded-face-pull.gif",
+      "toPath": "back/banded-face-pull.gif"
+    },
+    {
+      "file": "barbell-pullover.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/barbell-pullover.gif",
+      "toPath": "back/barbell-pullover.gif"
+    },
+    {
+      "file": "barbell-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/barbell-row.gif",
+      "toPath": "back/barbell-row.gif"
+    },
+    {
+      "file": "behind-neck-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/behind-neck-pulldown.gif",
+      "toPath": "back/behind-neck-pulldown.gif"
+    },
+    {
+      "file": "cable-face-pull.gif",
+      "from": "shoulders",
+      "to": "back",
+      "fromPath": "shoulders/cable-face-pull.gif",
+      "toPath": "back/cable-face-pull.gif"
+    },
+    {
+      "file": "cable-pullover.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/cable-pullover.gif",
+      "toPath": "back/cable-pullover.gif"
+    },
+    {
+      "file": "cable-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/cable-row.gif",
+      "toPath": "back/cable-row.gif"
+    },
+    {
+      "file": "cable-rope-arm-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/cable-rope-arm-pulldown.gif",
+      "toPath": "back/cable-rope-arm-pulldown.gif"
+    },
+    {
+      "file": "cable-seated-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/cable-seated-row.gif",
+      "toPath": "back/cable-seated-row.gif"
+    },
+    {
+      "file": "chest-supported-barbell-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/chest-supported-barbell-row.gif",
+      "toPath": "back/chest-supported-barbell-row.gif"
+    },
+    {
+      "file": "chest-supported-dumbbell-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/chest-supported-dumbbell-row.gif",
+      "toPath": "back/chest-supported-dumbbell-row.gif"
+    },
+    {
+      "file": "chest-supported-t-bar-row-machine.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/chest-supported-t-bar-row-machine.gif",
+      "toPath": "back/chest-supported-t-bar-row-machine.gif"
+    },
+    {
+      "file": "chin-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/chin-up.gif",
+      "toPath": "back/chin-up.gif"
+    },
+    {
+      "file": "close-grip-lat-pulldown.gif",
+      "from": "arms",
+      "to": "back",
+      "fromPath": "arms/close-grip-lat-pulldown.gif",
+      "toPath": "back/close-grip-lat-pulldown.gif"
+    },
+    {
+      "file": "close-grip-pull-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/close-grip-pull-up.gif",
+      "toPath": "back/close-grip-pull-up.gif"
+    },
+    {
+      "file": "dead-hang.gif",
+      "from": "arms",
+      "to": "back",
+      "fromPath": "arms/dead-hang.gif",
+      "toPath": "back/dead-hang.gif"
+    },
+    {
+      "file": "dumbbell-face-pull.gif",
+      "from": "shoulders",
+      "to": "back",
+      "fromPath": "shoulders/dumbbell-face-pull.gif",
+      "toPath": "back/dumbbell-face-pull.gif"
+    },
+    {
+      "file": "dumbbell-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/dumbbell-row.gif",
+      "toPath": "back/dumbbell-row.gif"
+    },
+    {
+      "file": "dumbbell-row-seated.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/dumbbell-row-seated.gif",
+      "toPath": "back/dumbbell-row-seated.gif"
+    },
+    {
+      "file": "face-pull.gif",
+      "from": "shoulders",
+      "to": "back",
+      "fromPath": "shoulders/face-pull.gif",
+      "toPath": "back/face-pull.gif"
+    },
+    {
+      "file": "inverted-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/inverted-row.gif",
+      "toPath": "back/inverted-row.gif"
+    },
+    {
+      "file": "lat-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/lat-pulldown.gif",
+      "toPath": "back/lat-pulldown.gif"
+    },
+    {
+      "file": "lat-pulldown-standard.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/lat-pulldown-standard.gif",
+      "toPath": "back/lat-pulldown-standard.gif"
+    },
+    {
+      "file": "machine-high-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/machine-high-row.gif",
+      "toPath": "back/machine-high-row.gif"
+    },
+    {
+      "file": "machine-pullover.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/machine-pullover.gif",
+      "toPath": "back/machine-pullover.gif"
+    },
+    {
+      "file": "machine-seated-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/machine-seated-row.gif",
+      "toPath": "back/machine-seated-row.gif"
+    },
+    {
+      "file": "machine-t-bar-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/machine-t-bar-row.gif",
+      "toPath": "back/machine-t-bar-row.gif"
+    },
+    {
+      "file": "machine-wide-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/machine-wide-pulldown.gif",
+      "toPath": "back/machine-wide-pulldown.gif"
+    },
+    {
+      "file": "negative-pull-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/negative-pull-up.gif",
+      "toPath": "back/negative-pull-up.gif"
+    },
+    {
+      "file": "neutral-grip-lat-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/neutral-grip-lat-pulldown.gif",
+      "toPath": "back/neutral-grip-lat-pulldown.gif"
+    },
+    {
+      "file": "neutral-grip-pull-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/neutral-grip-pull-up.gif",
+      "toPath": "back/neutral-grip-pull-up.gif"
+    },
+    {
+      "file": "plate-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/plate-row.gif",
+      "toPath": "back/plate-row.gif"
+    },
+    {
+      "file": "pull-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/pull-up.gif",
+      "toPath": "back/pull-up.gif"
+    },
+    {
+      "file": "pull-ups.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/pull-ups.gif",
+      "toPath": "back/pull-ups.gif"
+    },
+    {
+      "file": "rack_pull.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/rack_pull.gif",
+      "toPath": "back/rack_pull.gif"
+    },
+    {
+      "file": "rowing-machine.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/rowing-machine.gif",
+      "toPath": "back/rowing-machine.gif"
+    },
+    {
+      "file": "scapular-pull-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/scapular-pull-up.gif",
+      "toPath": "back/scapular-pull-up.gif"
+    },
+    {
+      "file": "single-arm-landmine-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/single-arm-landmine-row.gif",
+      "toPath": "back/single-arm-landmine-row.gif"
+    },
+    {
+      "file": "single-arm-lat-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/single-arm-lat-pulldown.gif",
+      "toPath": "back/single-arm-lat-pulldown.gif"
+    },
+    {
+      "file": "smith-barbell-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/smith-barbell-row.gif",
+      "toPath": "back/smith-barbell-row.gif"
+    },
+    {
+      "file": "standing-straight-arm-lat-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/standing-straight-arm-lat-pulldown.gif",
+      "toPath": "back/standing-straight-arm-lat-pulldown.gif"
+    },
+    {
+      "file": "t-bar-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/t-bar-row.gif",
+      "toPath": "back/t-bar-row.gif"
+    },
+    {
+      "file": "underhand-barbell-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/underhand-barbell-row.gif",
+      "toPath": "back/underhand-barbell-row.gif"
+    },
+    {
+      "file": "weighted-pull-up.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/weighted-pull-up.gif",
+      "toPath": "back/weighted-pull-up.gif"
+    },
+    {
+      "file": "wide-grip-lat-pulldown.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/wide-grip-lat-pulldown.gif",
+      "toPath": "back/wide-grip-lat-pulldown.gif"
+    },
+    {
+      "file": "yates-row.gif",
+      "from": "back",
+      "to": "back",
+      "fromPath": "back/yates-row.gif",
+      "toPath": "back/yates-row.gif"
+    },
+    {
+      "file": "barbell-shrug.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/barbell-shrug.gif",
+      "toPath": "traps/barbell-shrug.gif"
+    },
+    {
+      "file": "barbell-shrug-2.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/barbell-shrug-2.gif",
+      "toPath": "traps/barbell-shrug-2.gif"
+    },
+    {
+      "file": "cable-shrug.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/cable-shrug.gif",
+      "toPath": "traps/cable-shrug.gif"
+    },
+    {
+      "file": "chest-supported-dumbbell-shrug.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/chest-supported-dumbbell-shrug.gif",
+      "toPath": "traps/chest-supported-dumbbell-shrug.gif"
+    },
+    {
+      "file": "dumbbell-shrug.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/dumbbell-shrug.gif",
+      "toPath": "traps/dumbbell-shrug.gif"
+    },
+    {
+      "file": "smith-machine-shrug.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/smith-machine-shrug.gif",
+      "toPath": "traps/smith-machine-shrug.gif"
+    },
+    {
+      "file": "barbell-upright-row.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/barbell-upright-row.gif",
+      "toPath": "traps/barbell-upright-row.gif"
+    },
+    {
+      "file": "cable-upright-row.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/cable-upright-row.gif",
+      "toPath": "traps/cable-upright-row.gif"
+    },
+    {
+      "file": "dumbbell-upright-row.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/dumbbell-upright-row.gif",
+      "toPath": "traps/dumbbell-upright-row.gif"
+    },
+    {
+      "file": "ez-bar-upright-row.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/ez-bar-upright-row.gif",
+      "toPath": "traps/ez-bar-upright-row.gif"
+    },
+    {
+      "file": "single-arm-dumbbell-upright-row.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/single-arm-dumbbell-upright-row.gif",
+      "toPath": "traps/single-arm-dumbbell-upright-row.gif"
+    },
+    {
+      "file": "upright-row.gif",
+      "from": "shoulders",
+      "to": "traps",
+      "fromPath": "shoulders/upright-row.gif",
+      "toPath": "traps/upright-row.gif"
+    },
+    {
+      "file": "barbell-good-morning.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/barbell-good-morning.gif",
+      "toPath": "hamstrings/barbell-good-morning.gif"
+    },
+    {
+      "file": "block_pull_deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/block_pull_deadlift.gif",
+      "toPath": "hamstrings/block_pull_deadlift.gif"
+    },
+    {
+      "file": "deficit-deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/deficit-deadlift.gif",
+      "toPath": "hamstrings/deficit-deadlift.gif"
+    },
+    {
+      "file": "dumbbell-stiff-leg-deadlift.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/dumbbell-stiff-leg-deadlift.gif",
+      "toPath": "hamstrings/dumbbell-stiff-leg-deadlift.gif"
+    },
+    {
+      "file": "dumbbell-sumo-deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/dumbbell-sumo-deadlift.gif",
+      "toPath": "hamstrings/dumbbell-sumo-deadlift.gif"
+    },
+    {
+      "file": "kettlebell-sumo-deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/kettlebell-sumo-deadlift.gif",
+      "toPath": "hamstrings/kettlebell-sumo-deadlift.gif"
+    },
+    {
+      "file": "kettlebell_deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/kettlebell_deadlift.gif",
+      "toPath": "hamstrings/kettlebell_deadlift.gif"
+    },
+    {
+      "file": "landmine-deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/landmine-deadlift.gif",
+      "toPath": "hamstrings/landmine-deadlift.gif"
+    },
+    {
+      "file": "mixed_grip_deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/mixed_grip_deadlift.gif",
+      "toPath": "hamstrings/mixed_grip_deadlift.gif"
+    },
+    {
+      "file": "pause-deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/pause-deadlift.gif",
+      "toPath": "hamstrings/pause-deadlift.gif"
+    },
+    {
+      "file": "romanian-deadlift.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/romanian-deadlift.gif",
+      "toPath": "hamstrings/romanian-deadlift.gif"
+    },
+    {
+      "file": "stiff-leg-deadlift.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/stiff-leg-deadlift.gif",
+      "toPath": "hamstrings/stiff-leg-deadlift.gif"
+    },
+    {
+      "file": "suitcase-deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/suitcase-deadlift.gif",
+      "toPath": "hamstrings/suitcase-deadlift.gif"
+    },
+    {
+      "file": "sumo-deadlift.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/sumo-deadlift.gif",
+      "toPath": "hamstrings/sumo-deadlift.gif"
+    },
+    {
+      "file": "sumo_deadlift.gif",
+      "from": "back",
+      "to": "hamstrings",
+      "fromPath": "back/sumo_deadlift.gif",
+      "toPath": "hamstrings/sumo_deadlift.gif"
+    },
+    {
+      "file": "kneeling-leg-curl.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/kneeling-leg-curl.gif",
+      "toPath": "hamstrings/kneeling-leg-curl.gif"
+    },
+    {
+      "file": "lying-leg-curl.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/lying-leg-curl.gif",
+      "toPath": "hamstrings/lying-leg-curl.gif"
+    },
+    {
+      "file": "nordic-curl.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/nordic-curl.gif",
+      "toPath": "hamstrings/nordic-curl.gif"
+    },
+    {
+      "file": "seated-leg-curl.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/seated-leg-curl.gif",
+      "toPath": "hamstrings/seated-leg-curl.gif"
+    },
+    {
+      "file": "single-leg-curl.gif",
+      "from": "legs",
+      "to": "hamstrings",
+      "fromPath": "legs/single-leg-curl.gif",
+      "toPath": "hamstrings/single-leg-curl.gif"
+    },
+    {
+      "file": "barbell-hip-thrust.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/barbell-hip-thrust.gif",
+      "toPath": "glutes/barbell-hip-thrust.gif"
+    },
+    {
+      "file": "cable-hip-adduction.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/cable-hip-adduction.gif",
+      "toPath": "glutes/cable-hip-adduction.gif"
+    },
+    {
+      "file": "cable-pull-through.gif",
+      "from": "back",
+      "to": "glutes",
+      "fromPath": "back/cable-pull-through.gif",
+      "toPath": "glutes/cable-pull-through.gif"
+    },
+    {
+      "file": "dumbbell-hip-thrust.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/dumbbell-hip-thrust.gif",
+      "toPath": "glutes/dumbbell-hip-thrust.gif"
+    },
+    {
+      "file": "elevated-glute-bridge.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/elevated-glute-bridge.gif",
+      "toPath": "glutes/elevated-glute-bridge.gif"
+    },
+    {
+      "file": "frog-hip-thrust.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/frog-hip-thrust.gif",
+      "toPath": "glutes/frog-hip-thrust.gif"
+    },
+    {
+      "file": "glute-kickback-hip-extension.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/glute-kickback-hip-extension.gif",
+      "toPath": "glutes/glute-kickback-hip-extension.gif"
+    },
+    {
+      "file": "glute-kickback-machine.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/glute-kickback-machine.gif",
+      "toPath": "glutes/glute-kickback-machine.gif"
+    },
+    {
+      "file": "hip-abduction.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/hip-abduction.gif",
+      "toPath": "glutes/hip-abduction.gif"
+    },
+    {
+      "file": "hip-adduction-inner-thigh-machine.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/hip-adduction-inner-thigh-machine.gif",
+      "toPath": "glutes/hip-adduction-inner-thigh-machine.gif"
+    },
+    {
+      "file": "machine-standing-hip-abduction.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/machine-standing-hip-abduction.gif",
+      "toPath": "glutes/machine-standing-hip-abduction.gif"
+    },
+    {
+      "file": "resistance-band-glute-bridge.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/resistance-band-glute-bridge.gif",
+      "toPath": "glutes/resistance-band-glute-bridge.gif"
+    },
+    {
+      "file": "single-leg-cable-kickback.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/single-leg-cable-kickback.gif",
+      "toPath": "glutes/single-leg-cable-kickback.gif"
+    },
+    {
+      "file": "single-leg-hip-thrust.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/single-leg-hip-thrust.gif",
+      "toPath": "glutes/single-leg-hip-thrust.gif"
+    },
+    {
+      "file": "smith-machine-hip-thrust.gif",
+      "from": "legs",
+      "to": "glutes",
+      "fromPath": "legs/smith-machine-hip-thrust.gif",
+      "toPath": "glutes/smith-machine-hip-thrust.gif"
+    },
+    {
+      "file": "barbell-bulgarian-split-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/barbell-bulgarian-split-squat.gif",
+      "toPath": "quadriceps/barbell-bulgarian-split-squat.gif"
+    },
+    {
+      "file": "barbell-front-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/barbell-front-squat.gif",
+      "toPath": "quadriceps/barbell-front-squat.gif"
+    },
+    {
+      "file": "barbell-lunge.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/barbell-lunge.gif",
+      "toPath": "quadriceps/barbell-lunge.gif"
+    },
+    {
+      "file": "barbell-sumo-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/barbell-sumo-squat.gif",
+      "toPath": "quadriceps/barbell-sumo-squat.gif"
+    },
+    {
+      "file": "barbell_squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/barbell_squat.gif",
+      "toPath": "quadriceps/barbell_squat.gif"
+    },
+    {
+      "file": "belt-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/belt-squat.gif",
+      "toPath": "quadriceps/belt-squat.gif"
+    },
+    {
+      "file": "bodyweight-lunge.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/bodyweight-lunge.gif",
+      "toPath": "quadriceps/bodyweight-lunge.gif"
+    },
+    {
+      "file": "bodyweight-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/bodyweight-squat.gif",
+      "toPath": "quadriceps/bodyweight-squat.gif"
+    },
+    {
+      "file": "bulgarian-split-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/bulgarian-split-squat.gif",
+      "toPath": "quadriceps/bulgarian-split-squat.gif"
+    },
+    {
+      "file": "bulgarian-split-squat-2.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/bulgarian-split-squat-2.gif",
+      "toPath": "quadriceps/bulgarian-split-squat-2.gif"
+    },
+    {
+      "file": "deficit-reverse-lunge.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/deficit-reverse-lunge.gif",
+      "toPath": "quadriceps/deficit-reverse-lunge.gif"
+    },
+    {
+      "file": "dumbbell-front-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/dumbbell-front-squat.gif",
+      "toPath": "quadriceps/dumbbell-front-squat.gif"
+    },
+    {
+      "file": "dumbbell-hack-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/dumbbell-hack-squat.gif",
+      "toPath": "quadriceps/dumbbell-hack-squat.gif"
+    },
+    {
+      "file": "dumbbell-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/dumbbell-squat.gif",
+      "toPath": "quadriceps/dumbbell-squat.gif"
+    },
+    {
+      "file": "dumbbell-squat-2.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/dumbbell-squat-2.gif",
+      "toPath": "quadriceps/dumbbell-squat-2.gif"
+    },
+    {
+      "file": "dumbbell-sumo-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/dumbbell-sumo-squat.gif",
+      "toPath": "quadriceps/dumbbell-sumo-squat.gif"
+    },
+    {
+      "file": "front-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/front-squat.gif",
+      "toPath": "quadriceps/front-squat.gif"
+    },
+    {
+      "file": "goblet-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/goblet-squat.gif",
+      "toPath": "quadriceps/goblet-squat.gif"
+    },
+    {
+      "file": "gym-ball-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/gym-ball-squat.gif",
+      "toPath": "quadriceps/gym-ball-squat.gif"
+    },
+    {
+      "file": "hack-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/hack-squat.gif",
+      "toPath": "quadriceps/hack-squat.gif"
+    },
+    {
+      "file": "hack_squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/hack_squat.gif",
+      "toPath": "quadriceps/hack_squat.gif"
+    },
+    {
+      "file": "half-knee-bends.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/half-knee-bends.gif",
+      "toPath": "quadriceps/half-knee-bends.gif"
+    },
+    {
+      "file": "kettlebell-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/kettlebell-squat.gif",
+      "toPath": "quadriceps/kettlebell-squat.gif"
+    },
+    {
+      "file": "kettlebell-squat-clean.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/kettlebell-squat-clean.gif",
+      "toPath": "quadriceps/kettlebell-squat-clean.gif"
+    },
+    {
+      "file": "kneeling_squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/kneeling_squat.gif",
+      "toPath": "quadriceps/kneeling_squat.gif"
+    },
+    {
+      "file": "landmine-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/landmine-squat.gif",
+      "toPath": "quadriceps/landmine-squat.gif"
+    },
+    {
+      "file": "landmine-squat-2.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/landmine-squat-2.gif",
+      "toPath": "quadriceps/landmine-squat-2.gif"
+    },
+    {
+      "file": "leg-extension.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/leg-extension.gif",
+      "toPath": "quadriceps/leg-extension.gif"
+    },
+    {
+      "file": "leg-extension-2.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/leg-extension-2.gif",
+      "toPath": "quadriceps/leg-extension-2.gif"
+    },
+    {
+      "file": "low-bar-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/low-bar-squat.gif",
+      "toPath": "quadriceps/low-bar-squat.gif"
+    },
+    {
+      "file": "machine-leg-press.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/machine-leg-press.gif",
+      "toPath": "quadriceps/machine-leg-press.gif"
+    },
+    {
+      "file": "overhead-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/overhead-squat.gif",
+      "toPath": "quadriceps/overhead-squat.gif"
+    },
+    {
+      "file": "pistol-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/pistol-squat.gif",
+      "toPath": "quadriceps/pistol-squat.gif"
+    },
+    {
+      "file": "reverse-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/reverse-squat.gif",
+      "toPath": "quadriceps/reverse-squat.gif"
+    },
+    {
+      "file": "reverse-v-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/reverse-v-squat.gif",
+      "toPath": "quadriceps/reverse-v-squat.gif"
+    },
+    {
+      "file": "sissy_squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/sissy_squat.gif",
+      "toPath": "quadriceps/sissy_squat.gif"
+    },
+    {
+      "file": "seated-knee-extension.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/seated-knee-extension.gif",
+      "toPath": "quadriceps/seated-knee-extension.gif"
+    },
+    {
+      "file": "single-leg-extension.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/single-leg-extension.gif",
+      "toPath": "quadriceps/single-leg-extension.gif"
+    },
+    {
+      "file": "single-leg-press.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/single-leg-press.gif",
+      "toPath": "quadriceps/single-leg-press.gif"
+    },
+    {
+      "file": "smith-machine-lunge.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/smith-machine-lunge.gif",
+      "toPath": "quadriceps/smith-machine-lunge.gif"
+    },
+    {
+      "file": "smith-machine-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/smith-machine-squat.gif",
+      "toPath": "quadriceps/smith-machine-squat.gif"
+    },
+    {
+      "file": "smith-machine-squat-2.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/smith-machine-squat-2.gif",
+      "toPath": "quadriceps/smith-machine-squat-2.gif"
+    },
+    {
+      "file": "step-ups.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/step-ups.gif",
+      "toPath": "quadriceps/step-ups.gif"
+    },
+    {
+      "file": "trap-bar-deadlift.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/trap-bar-deadlift.gif",
+      "toPath": "quadriceps/trap-bar-deadlift.gif"
+    },
+    {
+      "file": "wide_stance_squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/wide_stance_squat.gif",
+      "toPath": "quadriceps/wide_stance_squat.gif"
+    },
+    {
+      "file": "zercher-squat.gif",
+      "from": "legs",
+      "to": "quadriceps",
+      "fromPath": "legs/zercher-squat.gif",
+      "toPath": "quadriceps/zercher-squat.gif"
+    },
+    {
+      "file": "donkey-calf-raise.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/donkey-calf-raise.gif",
+      "toPath": "calves/donkey-calf-raise.gif"
+    },
+    {
+      "file": "leg-press-calf-raise.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/leg-press-calf-raise.gif",
+      "toPath": "calves/leg-press-calf-raise.gif"
+    },
+    {
+      "file": "leg-press-calf-raise-2.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/leg-press-calf-raise-2.gif",
+      "toPath": "calves/leg-press-calf-raise-2.gif"
+    },
+    {
+      "file": "seated-calf-raise.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/seated-calf-raise.gif",
+      "toPath": "calves/seated-calf-raise.gif"
+    },
+    {
+      "file": "seated-calf-raise-2.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/seated-calf-raise-2.gif",
+      "toPath": "calves/seated-calf-raise-2.gif"
+    },
+    {
+      "file": "single-leg-calf-raise.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/single-leg-calf-raise.gif",
+      "toPath": "calves/single-leg-calf-raise.gif"
+    },
+    {
+      "file": "smith-machine-calf-raise.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/smith-machine-calf-raise.gif",
+      "toPath": "calves/smith-machine-calf-raise.gif"
+    },
+    {
+      "file": "standing-calf-raise.gif",
+      "from": "legs",
+      "to": "calves",
+      "fromPath": "legs/standing-calf-raise.gif",
+      "toPath": "calves/standing-calf-raise.gif"
+    },
+    {
+      "file": "barbell-power-clean.gif",
+      "from": "shoulders",
+      "to": "compound",
+      "fromPath": "shoulders/barbell-power-clean.gif",
+      "toPath": "compound/barbell-power-clean.gif"
+    },
+    {
+      "file": "clean-and-press.gif",
+      "from": "shoulders",
+      "to": "compound",
+      "fromPath": "shoulders/clean-and-press.gif",
+      "toPath": "compound/clean-and-press.gif"
+    },
+    {
+      "file": "crossfit-cluster.gif",
+      "from": "shoulders",
+      "to": "compound",
+      "fromPath": "shoulders/crossfit-cluster.gif",
+      "toPath": "compound/crossfit-cluster.gif"
+    },
+    {
+      "file": "hang-clean.gif",
+      "from": "shoulders",
+      "to": "compound",
+      "fromPath": "shoulders/hang-clean.gif",
+      "toPath": "compound/hang-clean.gif"
+    },
+    {
+      "file": "hang-clean-and-jerk.gif",
+      "from": "shoulders",
+      "to": "compound",
+      "fromPath": "shoulders/hang-clean-and-jerk.gif",
+      "toPath": "compound/hang-clean-and-jerk.gif"
+    },
+    {
+      "file": "kettlebell-clean-and-jerk.gif",
+      "from": "shoulders",
+      "to": "compound",
+      "fromPath": "shoulders/kettlebell-clean-and-jerk.gif",
+      "toPath": "compound/kettlebell-clean-and-jerk.gif"
+    },
+    {
+      "file": "muscle-up.gif",
+      "from": "back",
+      "to": "compound",
+      "fromPath": "back/muscle-up.gif",
+      "toPath": "compound/muscle-up.gif"
+    },
+    {
+      "file": "ring-muscle-up.gif",
+      "from": "back",
+      "to": "compound",
+      "fromPath": "back/ring-muscle-up.gif",
+      "toPath": "compound/ring-muscle-up.gif"
+    },
+    {
+      "file": "sled-push.gif",
+      "from": "cardio",
+      "to": "compound",
+      "fromPath": "cardio/sled-push.gif",
+      "toPath": "compound/sled-push.gif"
+    },
+    {
+      "file": "bike.gif",
+      "from": "cardio",
+      "to": "cardio",
+      "fromPath": "cardio/bike.gif",
+      "toPath": "cardio/bike.gif"
+    },
+    {
+      "file": "duck-walk.gif",
+      "from": "cardio",
+      "to": "cardio",
+      "fromPath": "cardio/duck-walk.gif",
+      "toPath": "cardio/duck-walk.gif"
+    },
+    {
+      "file": "elliptical-machine.gif",
+      "from": "cardio",
+      "to": "cardio",
+      "fromPath": "cardio/elliptical-machine.gif",
+      "toPath": "cardio/elliptical-machine.gif"
+    },
+    {
+      "file": "step-mill.gif",
+      "from": "cardio",
+      "to": "cardio",
+      "fromPath": "cardio/step-mill.gif",
+      "toPath": "cardio/step-mill.gif"
+    },
+    {
+      "file": "treadmill.gif",
+      "from": "cardio",
+      "to": "cardio",
+      "fromPath": "cardio/treadmill.gif",
+      "toPath": "cardio/treadmill.gif"
+    }
+  ],
+  "statistics": {
+    "totalFiles": 298,
+    "muscleGroups": 14,
+    "movesRequired": 298
+  },
+  "nextSteps": [
+    "1. Create new muscle group directories",
+    "2. Move files from current categories to new muscle groups",
+    "3. Update exercise database to use new paths",
+    "4. Upload to Supabase with new structure",
+    "5. Test application"
+  ]
+}

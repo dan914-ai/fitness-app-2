@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-08-02T12:47:56.743Z",
+  "originalCount": 399,
+  "cleanCount": 210,
+  "muscleGroups": [
+    {
+      "muscle": "back",
+      "count": 49
+    },
+    {
+      "muscle": "biceps",
+      "count": 14
+    },
+    {
+      "muscle": "calves",
+      "count": 3
+    },
+    {
+      "muscle": "deltoids",
+      "count": 36
+    },
+    {
+      "muscle": "forearms",
+      "count": 3
+    },
+    {
+      "muscle": "glutes",
+      "count": 7
+    },
+    {
+      "muscle": "hamstrings",
+      "count": 16
+    },
+    {
+      "muscle": "pectorals",
+      "count": 36
+    },
+    {
+      "muscle": "quadriceps",
+      "count": 36
+    },
+    {
+      "muscle": "traps",
+      "count": 2
+    },
+    {
+      "muscle": "triceps",
+      "count": 8
+    }
+  ],
+  "allExercisesHaveWorkingGifs": true
+}
