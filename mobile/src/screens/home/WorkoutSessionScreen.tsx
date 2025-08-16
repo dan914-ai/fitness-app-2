@@ -315,7 +315,8 @@ export default function WorkoutSessionScreen() {
   }
 
   // Show authentication required indicator if not authenticated
-  if (!isAuthenticated) {
+  // DISABLED FOR TESTING - Authentication check bypassed
+  if (false && !isAuthenticated) {
     return (
       <SafeAreaView style={styles.container}>
         <AuthRequiredIndicator 
