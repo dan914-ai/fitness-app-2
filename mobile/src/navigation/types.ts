@@ -34,7 +34,6 @@ export type WellnessStackParamList = {
   NutritionTracking: undefined;
   CalorieCalculator: undefined;
   MacroCalculator: undefined;
-  BodyMeasurements: undefined;
   MoodTracking: undefined;
   StressManagement: undefined;
   WellnessGoals: undefined;
@@ -96,8 +95,6 @@ export type StatsStackParamList = {
   StatsMain: undefined;
   WorkoutAnalytics: undefined;
   StrengthProgress: undefined;
-  BodyMeasurements: undefined;
-  ProgressPhotos: undefined;
   Achievements: undefined;
   DataExport: undefined;
 };

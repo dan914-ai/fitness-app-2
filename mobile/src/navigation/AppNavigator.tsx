@@ -312,11 +312,6 @@ function WellnessStackNavigator() {
         component={NutritionTrackingScreen}
         options={{ title: '영양 & 칼로리' }}
       />
-      <WellnessStack.Screen 
-        name="BodyMeasurements" 
-        component={BodyMeasurementsScreen}
-        options={{ title: '신체 측정' }}
-      />
     </WellnessStack.Navigator>
   );
 }
