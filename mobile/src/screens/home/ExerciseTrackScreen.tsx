@@ -28,6 +28,7 @@ import ProgressionIndicator from '../../components/widgets/ProgressionIndicator'
 import storageService from '../../services/storage.service';
 import { saveWorkoutToHistory, getExerciseHistory, ExerciseHistoryRecord, getLastExerciseWeight } from '../../utils/workoutHistory';
 import progressionService from '../../services/progression.service';
+import { LoadingOverlay } from '../../components/common/LoadingOverlay';
 import { getExerciseGifUrls, getPlaceholderUrl } from '../../utils/gifUrlHelper';
 import { supabase } from '../../config/supabase';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
@@ -203,6 +204,7 @@ export default function ExerciseTrackScreen() {
   };
   
   const [sets, setSets] = useState<WorkoutSet[]>(getDefaultSets());
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
   
   // SIMPLIFIED WEIGHT PREFILL - Run once when component loads
   React.useEffect(() => {
@@ -224,6 +226,9 @@ export default function ExerciseTrackScreen() {
         
       } else {
       }
+      
+      // Set loading to false after prefill
+      setIsInitialLoading(false);
     };
     
     // Run prefill after a short delay to ensure component is ready
@@ -648,6 +653,13 @@ export default function ExerciseTrackScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Loading Overlay */}
+      <LoadingOverlay 
+        visible={isInitialLoading} 
+        message="운동 정보 불러오는 중..." 
+        fullScreen={false}
+      />
+      
       {/* Network Status Indicator */}
       <NetworkStatusIndicator
         showWhenOnline={false}

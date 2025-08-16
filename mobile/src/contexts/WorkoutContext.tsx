@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useReducer, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, ReactNode, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { safeJsonParse, safeJsonStringify } from '../utils/safeJsonParse';
+import { safeJsonParseWithDates, safeJsonStringifyWithDates, deepCloneWithDates } from '../utils/safeJsonParse';
 import { saveWorkoutToHistory } from '../utils/workoutHistory';
 
 export type SetType = 'Normal' | 'Warmup' | 'Compound' | 'Super' | 'Tri' | 'Drop' | 'Failure' | 'Assisted';
@@ -46,6 +46,16 @@ export interface WorkoutState {
   isWorkoutActive: boolean;
   startTime: Date | null;
   endTime: Date | null;
+  lastSaved: Date | null; // Track when state was last saved
+  version: number; // Version for migration support
+}
+
+export interface WorkoutContextState {
+  workoutState: WorkoutState;
+  isLoading: boolean;
+  isHydrated: boolean; // Has loaded from storage
+  isSaving: boolean;
+  lastError: string | null;
 }
 
 type WorkoutAction =
@@ -61,11 +71,18 @@ type WorkoutAction =
   | { type: 'REORDER_EXERCISES'; payload: string[] }
   | { type: 'ADD_EXERCISE'; payload: { exerciseId: string; exerciseName: string } }
   | { type: 'REMOVE_EXERCISE'; payload: string }
-  | { type: 'LOAD_WORKOUT_STATE'; payload: WorkoutState };
+  | { type: 'LOAD_WORKOUT_STATE'; payload: WorkoutState }
+  | { type: 'SET_LOADING'; payload: boolean }
+  | { type: 'SET_HYDRATED'; payload: boolean }
+  | { type: 'SET_SAVING'; payload: boolean }
+  | { type: 'SET_ERROR'; payload: string | null }
+  | { type: 'HYDRATE_FROM_STORAGE'; payload: WorkoutState | null };
 
 const WORKOUT_STATE_KEY = '@workout_state';
+const WORKOUT_BACKUP_KEY = '@workout_state_backup';
+const CURRENT_VERSION = 1;
 
-const initialState: WorkoutState = {
+const initialWorkoutState: WorkoutState = {
   routineId: null,
   routineName: null,
   exercises: {},
@@ -74,14 +91,223 @@ const initialState: WorkoutState = {
   isWorkoutActive: false,
   startTime: null,
   endTime: null,
+  lastSaved: null,
+  version: CURRENT_VERSION,
 };
 
-// Helper function to save state to AsyncStorage
-async function saveStateToStorage(state: WorkoutState) {
+const initialContextState: WorkoutContextState = {
+  workoutState: initialWorkoutState,
+  isLoading: true,
+  isHydrated: false,
+  isSaving: false,
+  lastError: null,
+};
+
+// Enhanced storage functions with backup and error recovery
+async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
   try {
-    await AsyncStorage.setItem(WORKOUT_STATE_KEY, JSON.stringify(state));
+    console.log('💾 WorkoutContext: Saving state to storage', { 
+      isActive: state.isWorkoutActive, 
+      exerciseCount: Object.keys(state.exercises).length 
+    });
+    
+    // Create backup first
+    try {
+      const currentState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
+      if (currentState) {
+        await AsyncStorage.setItem(WORKOUT_BACKUP_KEY, currentState);
+      }
+    } catch (backupError) {
+      console.warn('💾 WorkoutContext: Backup creation failed, continuing...', backupError);
+    }
+    
+    // Update state with save metadata
+    const stateToSave = {
+      ...state,
+      lastSaved: new Date(),
+      version: CURRENT_VERSION,
+    };
+    
+    // Save primary state
+    await AsyncStorage.setItem(WORKOUT_STATE_KEY, safeJsonStringifyWithDates(stateToSave));
+    console.log('✅ WorkoutContext: State saved successfully');
+    return true;
+    
   } catch (error) {
-    console.error('Error saving workout state:', error);
+    console.error('💥 WorkoutContext: Error saving workout state:', error);
+    return false;
+  }
+}
+
+async function loadStateFromStorage(): Promise<WorkoutState | null> {
+  try {
+    console.log('📖 WorkoutContext: Loading state from storage');
+    
+    const savedState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
+    if (!savedState) {
+      console.log('📖 WorkoutContext: No saved state found');
+      return null;
+    }
+    
+    const parsedState = safeJsonParseWithDates<WorkoutState>(savedState, null);
+    if (!parsedState) {
+      console.warn('📖 WorkoutContext: Failed to parse saved state, trying backup');
+      return await loadBackupState();
+    }
+    
+    // Validate the loaded state
+    if (!isValidWorkoutState(parsedState)) {
+      console.warn('📖 WorkoutContext: Invalid state structure, trying backup');
+      return await loadBackupState();
+    }
+    
+    // Migrate if needed
+    const migratedState = migrateWorkoutState(parsedState);
+    
+    console.log('✅ WorkoutContext: State loaded successfully', { 
+      isActive: migratedState.isWorkoutActive,
+      exerciseCount: Object.keys(migratedState.exercises).length,
+      lastSaved: migratedState.lastSaved 
+    });
+    
+    return migratedState;
+    
+  } catch (error) {
+    console.error('💥 WorkoutContext: Error loading workout state:', error);
+    return await loadBackupState();
+  }
+}
+
+async function loadBackupState(): Promise<WorkoutState | null> {
+  try {
+    console.log('🔄 WorkoutContext: Loading backup state');
+    
+    const backupState = await AsyncStorage.getItem(WORKOUT_BACKUP_KEY);
+    if (!backupState) {
+      console.log('🔄 WorkoutContext: No backup state found');
+      return null;
+    }
+    
+    const parsedBackup = safeJsonParseWithDates<WorkoutState>(backupState, null);
+    if (!parsedBackup || !isValidWorkoutState(parsedBackup)) {
+      console.warn('🔄 WorkoutContext: Backup state invalid');
+      return null;
+    }
+    
+    const migratedBackup = migrateWorkoutState(parsedBackup);
+    console.log('✅ WorkoutContext: Backup state loaded successfully');
+    
+    return migratedBackup;
+    
+  } catch (error) {
+    console.error('💥 WorkoutContext: Error loading backup state:', error);
+    return null;
+  }
+}
+
+function isValidWorkoutState(state: any): state is WorkoutState {
+  return (
+    state &&
+    typeof state === 'object' &&
+    typeof state.isWorkoutActive === 'boolean' &&
+    typeof state.exercises === 'object' &&
+    Array.isArray(state.exerciseOrder)
+  );
+}
+
+function migrateWorkoutState(state: WorkoutState): WorkoutState {
+  // Handle version migrations here
+  let migratedState = deepCloneWithDates(state);
+  
+  // Ensure required fields exist
+  if (!migratedState.version) migratedState.version = 1;
+  if (!migratedState.lastSaved) migratedState.lastSaved = null;
+  
+  // Convert date strings to Date objects if needed
+  if (migratedState.startTime && typeof migratedState.startTime === 'string') {
+    migratedState.startTime = new Date(migratedState.startTime);
+  }
+  if (migratedState.endTime && typeof migratedState.endTime === 'string') {
+    migratedState.endTime = new Date(migratedState.endTime);
+  }
+  if (migratedState.lastSaved && typeof migratedState.lastSaved === 'string') {
+    migratedState.lastSaved = new Date(migratedState.lastSaved);
+  }
+  
+  // Convert exercise dates
+  Object.values(migratedState.exercises).forEach((exercise: any) => {
+    if (exercise.completedAt && typeof exercise.completedAt === 'string') {
+      exercise.completedAt = new Date(exercise.completedAt);
+    }
+    // Convert set completion dates
+    if (exercise.sets) {
+      exercise.sets.forEach((set: any) => {
+        if (set.completedAt && typeof set.completedAt === 'string') {
+          set.completedAt = new Date(set.completedAt);
+        }
+      });
+    }
+  });
+  
+  return migratedState;
+}
+
+async function clearStorageState(): Promise<void> {
+  try {
+    await Promise.all([
+      AsyncStorage.removeItem(WORKOUT_STATE_KEY),
+      AsyncStorage.removeItem(WORKOUT_BACKUP_KEY)
+    ]);
+    console.log('🗑️ WorkoutContext: Storage cleared');
+  } catch (error) {
+    console.error('💥 WorkoutContext: Error clearing storage:', error);
+  }
+}
+
+function workoutContextReducer(state: WorkoutContextState, action: WorkoutAction): WorkoutContextState {
+  switch (action.type) {
+    case 'SET_LOADING':
+      return { ...state, isLoading: action.payload };
+    
+    case 'SET_HYDRATED':
+      return { ...state, isHydrated: action.payload };
+    
+    case 'SET_SAVING':
+      return { ...state, isSaving: action.payload };
+    
+    case 'SET_ERROR':
+      return { ...state, lastError: action.payload };
+    
+    case 'HYDRATE_FROM_STORAGE':
+      if (action.payload) {
+        return {
+          ...state,
+          workoutState: action.payload,
+          isLoading: false,
+          isHydrated: true,
+          lastError: null,
+        };
+      } else {
+        return {
+          ...state,
+          workoutState: initialWorkoutState,
+          isLoading: false,
+          isHydrated: true,
+          lastError: null,
+        };
+      }
+    
+    default:
+      // Handle workout state changes
+      const newWorkoutState = workoutReducer(state.workoutState, action);
+      if (newWorkoutState === state.workoutState) {
+        return state; // No change
+      }
+      return {
+        ...state,
+        workoutState: newWorkoutState,
+        lastError: null, // Clear errors on successful state change
+      };
   }
 }
 
@@ -106,7 +332,10 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
       // Save workout to history before ending
       saveWorkoutToHistory(state).then(savedWorkout => {
         if (savedWorkout) {
+          console.log('✅ WorkoutContext: Workout saved to history');
         }
+      }).catch(error => {
+        console.error('💥 WorkoutContext: Error saving workout to history:', error);
       });
       
       newState = {
@@ -116,12 +345,17 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
         currentExerciseId: null,
       };
       // Clear storage after workout ends
-      AsyncStorage.removeItem(WORKOUT_STATE_KEY);
-      return newState;
+      AsyncStorage.removeItem(WORKOUT_STATE_KEY).catch(error => {
+        console.error('Error clearing workout state:', error);
+      });
+      break;
 
     case 'RESET_WORKOUT':
-      AsyncStorage.removeItem(WORKOUT_STATE_KEY);
-      return initialState;
+      // Clear storage and return to initial state
+      AsyncStorage.removeItem(WORKOUT_STATE_KEY).catch(error => {
+        console.error('Error clearing workout state:', error);
+      });
+      return initialWorkoutState;
 
     case 'SET_CURRENT_EXERCISE':
       newState = {
@@ -265,9 +499,9 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
     default:
       return state;
   }
-
-  // Save state to AsyncStorage after each change (except END_WORKOUT and RESET)
-  if (action.type !== 'END_WORKOUT' && action.type !== 'RESET_WORKOUT') {
+  
+  // Save state to AsyncStorage after each change (except END_WORKOUT and RESET_WORKOUT)
+  if (action.type !== 'END_WORKOUT' && action.type !== 'RESET_WORKOUT' && action.type !== 'LOAD_WORKOUT_STATE') {
     saveStateToStorage(newState);
   }
   
@@ -275,7 +509,16 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
 }
 
 interface WorkoutContextType {
+  // Workout state
   state: WorkoutState;
+  
+  // Loading and hydration states
+  isLoading: boolean;
+  isHydrated: boolean;
+  isSaving: boolean;
+  lastError: string | null;
+  
+  // Workout actions
   startWorkout: (routineId: string, routineName: string) => void;
   endWorkout: () => void;
   resetWorkout: () => void;
@@ -291,6 +534,10 @@ interface WorkoutContextType {
   addExercise: (exerciseId: string, exerciseName: string) => void;
   removeExercise: (exerciseId: string) => void;
   getOrderedExercises: () => ExerciseData[];
+  
+  // Storage actions
+  forceSync: () => Promise<void>;
+  clearError: () => void;
 }
 
 const WorkoutContext = createContext<WorkoutContextType | undefined>(undefined);
@@ -303,40 +550,50 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const loadWorkoutState = async () => {
       try {
-        
-        // TEMPORARILY DISABLE AsyncStorage loading for debugging
-        setIsLoading(false);
-        return;
-        
         const savedState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
         if (savedState) {
           const parsedState = safeJsonParse(savedState, null);
-          if (!parsedState) return;
-          
-          // Check if current state has an active workout that's newer
-          const currentHasActiveWorkout = state.isWorkoutActive && state.startTime;
-          const savedIsOlderOrEmpty = !parsedState.isWorkoutActive || 
-            (currentHasActiveWorkout && state.startTime && parsedState.startTime && 
-             new Date(state.startTime).getTime() > new Date(parsedState.startTime).getTime());
-          
-          if (currentHasActiveWorkout && savedIsOlderOrEmpty) {
-          } else {
-            // Convert date strings back to Date objects
-            if (parsedState.startTime) {
-              parsedState.startTime = new Date(parsedState.startTime);
-            }
-            if (parsedState.endTime) {
-              parsedState.endTime = new Date(parsedState.endTime);
-            }
-            // Convert completedAt dates
-            Object.values(parsedState.exercises).forEach((exercise: any) => {
-              if (exercise.completedAt) {
-                exercise.completedAt = new Date(exercise.completedAt);
-              }
-            });
-            dispatch({ type: 'LOAD_WORKOUT_STATE', payload: parsedState });
+          if (!parsedState) {
+            setIsLoading(false);
+            return;
           }
-        } else {
+          
+          // Check if saved workout is still valid (not older than 24 hours)
+          if (parsedState.startTime) {
+            const startTime = new Date(parsedState.startTime);
+            const now = new Date();
+            const hoursSinceStart = (now.getTime() - startTime.getTime()) / (1000 * 60 * 60);
+            
+            // If workout is older than 24 hours and not active, clear it
+            if (hoursSinceStart > 24 && !parsedState.isWorkoutActive) {
+              await AsyncStorage.removeItem(WORKOUT_STATE_KEY);
+              setIsLoading(false);
+              return;
+            }
+          }
+          
+          // Convert date strings back to Date objects
+          if (parsedState.startTime) {
+            parsedState.startTime = new Date(parsedState.startTime);
+          }
+          if (parsedState.endTime) {
+            parsedState.endTime = new Date(parsedState.endTime);
+          }
+          // Convert completedAt dates
+          Object.values(parsedState.exercises).forEach((exercise: any) => {
+            if (exercise.completedAt) {
+              exercise.completedAt = new Date(exercise.completedAt);
+            }
+            // Convert set completedAt dates
+            if (exercise.sets) {
+              exercise.sets.forEach((set: any) => {
+                if (set.completedAt) {
+                  set.completedAt = new Date(set.completedAt);
+                }
+              });
+            }
+          });
+          dispatch({ type: 'LOAD_WORKOUT_STATE', payload: parsedState });
         }
       } catch (error) {
         console.error('WorkoutProvider: Error loading workout state:', error);
