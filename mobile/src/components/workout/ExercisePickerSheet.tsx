@@ -221,9 +221,12 @@ export default function ExercisePickerSheet({
       .filter(ex => ex && selectedIds.includes(ex.exerciseId))
       .map(ex => ({
         id: ex.exerciseId || '',
+        exerciseId: ex.exerciseId || '',  // Include both formats for compatibility
         name: ex.exerciseName || '운동',
+        exerciseName: ex.exerciseName || '운동',  // Include both formats for compatibility
         targetMuscles: [ex.muscleGroup] || [],
         category: ex.muscleGroup || '기타',
+        muscleGroup: ex.muscleGroup || '기타',  // Include original format
         gifUrl: ex.gifUrl || '',
       }));
     onSelectExercises(selectedExerciseObjects);

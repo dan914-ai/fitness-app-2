@@ -468,6 +468,13 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
       break;
 
     case 'ADD_EXERCISE':
+      // Create default sets for the new exercise
+      const defaultSetsForNew: WorkoutSet[] = [
+        { id: '1', weight: '', reps: '12', completed: false, type: 'Warmup' },
+        { id: '2', weight: '', reps: '10', completed: false, type: 'Normal' },
+        { id: '3', weight: '', reps: '8', completed: false, type: 'Normal' },
+      ];
+      
       newState = {
         ...state,
         exercises: {
@@ -475,7 +482,7 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
           [action.payload.exerciseId]: {
             exerciseId: action.payload.exerciseId,
             exerciseName: action.payload.exerciseName,
-            sets: [],
+            sets: defaultSetsForNew,
             isCompleted: false,
             order: state.exerciseOrder.length,
           },

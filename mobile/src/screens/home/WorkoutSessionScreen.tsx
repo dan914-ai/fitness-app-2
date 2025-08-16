@@ -137,9 +137,13 @@ export default function WorkoutSessionScreen() {
   const handleSelectExercises = (exercises: any[]) => {
     // Add each selected exercise to the workout
     exercises.forEach(exercise => {
+      // Handle both formats: { id, name } from picker and { exerciseId, exerciseName } from database
+      const exerciseId = exercise.id || exercise.exerciseId;
+      const exerciseName = exercise.name || exercise.exerciseName;
+      
       // Check if exercise is already in the workout
-      if (!workout.state.exercises[exercise.exerciseId]) {
-        workout.addExercise(exercise.exerciseId, exercise.exerciseName);
+      if (exerciseId && !workout.state.exercises[exerciseId]) {
+        workout.addExercise(exerciseId, exerciseName);
       }
     });
     setShowExerciseList(false);
