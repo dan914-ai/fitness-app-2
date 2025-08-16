@@ -55,7 +55,7 @@ export const StatCard: React.FC<StatCardProps> = ({
       <View style={styles.header}>
         <Text style={[styles.title, titleStyle]}>{title}</Text>
         {icon && (
-          <Icon name={icon} size={24} color={iconColor} style={styles.icon} />
+          <Icon name={icon as any} size={24} color={iconColor} style={styles.icon} />
         )}
       </View>
       

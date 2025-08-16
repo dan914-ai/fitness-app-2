@@ -389,9 +389,9 @@ export default function RecordScreen({ navigation }: RecordScreenProps) {
                                 screen: 'ExerciseTrack',
                                 params: {
                                   routineName: `${workout.date.split('T')[0]} 운동 반복`,
-                                  exercises: exercisesToRepeat,
+                                  fallbackExercises: exercisesToRepeat,
                                   isQuickWorkout: true,
-                                },
+                                } as any,
                               });
                             }
                           },
