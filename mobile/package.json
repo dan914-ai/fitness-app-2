@@ -37,7 +37,7 @@
     "expo-notifications": "~0.31.4",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-dom": "^19.0.0",
+    "react-dom": "19.0.0",
     "react-hook-form": "^7.61.1",
     "react-native": "0.79.5",
     "react-native-calendars": "^1.1313.0",
@@ -55,14 +55,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@types/node": "^22.0.0",
     "@types/react": "~19.0.10",
     "dotenv": "^17.2.1",
     "node-fetch": "^3.3.2",
+    "sharp": "^0.33.5",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.3",
-    "typescript": "~5.8.3",
-    "sharp": "^0.33.5",
-    "@types/node": "^22.0.0"
+    "typescript": "~5.8.3"
   },
   "private": true
 }
