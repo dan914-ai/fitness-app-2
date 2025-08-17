@@ -10,6 +10,7 @@ import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
 import { Card, CardHeader, CardContent, CardFooter } from '../../components/common/Card';
 import { useDesignSystem } from '../../contexts/ThemeContext';
+import UnifiedExerciseThumbnail from '../../components/common/UnifiedExerciseThumbnail';
 
 export const ComponentShowcase: React.FC = () => {
   const theme = useDesignSystem();
@@ -212,6 +213,93 @@ export const ComponentShowcase: React.FC = () => {
                 <Text style={styles.cardSubtitle}>Duration</Text>
               </CardContent>
             </Card>
+          </View>
+        </View>
+
+        {/* Thumbnail Examples - Testing Unified Component */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Unified Thumbnail Component</Text>
+          
+          <Text style={theme.typography.textStyles.h6}>Different Usage Patterns</Text>
+          
+          {/* Pattern 1: Using exerciseId (most common) */}
+          <View style={styles.row}>
+            <View>
+              <Text style={theme.typography.textStyles.caption}>With exerciseId</Text>
+              <UnifiedExerciseThumbnail
+                exerciseId="46"
+                exerciseName="풀업"
+                muscleGroup="등"
+                size={80}
+              />
+            </View>
+            
+            <View>
+              <Text style={theme.typography.textStyles.caption}>With GIF modal</Text>
+              <UnifiedExerciseThumbnail
+                exerciseId="169"
+                exerciseName="바벨 스쿼트"
+                muscleGroup="대퇴사두근"
+                gifUrl="https://example.com/squat.gif"
+                size={80}
+              />
+            </View>
+            
+            <View>
+              <Text style={theme.typography.textStyles.caption}>Fallback (no image)</Text>
+              <UnifiedExerciseThumbnail
+                exerciseId="999999"
+                exerciseName="테스트 운동"
+                muscleGroup="가슴"
+                size={80}
+              />
+            </View>
+          </View>
+
+          <Text style={theme.typography.textStyles.h6}>Simple Pattern (legacy support)</Text>
+          <View style={styles.row}>
+            <View>
+              <Text style={theme.typography.textStyles.caption}>With source</Text>
+              <UnifiedExerciseThumbnail
+                source={require('../../../assets/exercise-thumbnails/back/pull-up.jpg')}
+                variant="simple"
+                size={80}
+              />
+            </View>
+            
+            <View>
+              <Text style={theme.typography.textStyles.caption}>No source</Text>
+              <UnifiedExerciseThumbnail
+                source={null}
+                muscleGroup="등"
+                variant="simple"
+                size={80}
+              />
+            </View>
+          </View>
+
+          <Text style={theme.typography.textStyles.h6}>Different Sizes</Text>
+          <View style={styles.row}>
+            <UnifiedExerciseThumbnail exerciseId="46" size={40} />
+            <UnifiedExerciseThumbnail exerciseId="46" size={60} />
+            <UnifiedExerciseThumbnail exerciseId="46" size={80} />
+            <UnifiedExerciseThumbnail exerciseId="46" size={100} />
+          </View>
+
+          <Text style={theme.typography.textStyles.h6}>Static (non-interactive)</Text>
+          <View style={styles.row}>
+            <UnifiedExerciseThumbnail
+              exerciseId="46"
+              exerciseName="풀업"
+              variant="static"
+              size={80}
+            />
+            <UnifiedExerciseThumbnail
+              exerciseId="169"
+              exerciseName="바벨 스쿼트"
+              variant="static"
+              size={80}
+            />
           </View>
         </View>
       </ScrollView>

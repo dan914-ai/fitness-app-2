@@ -1,0 +1,86 @@
+=== THUMBNAIL COMPONENT DEPENDENCY MAP ===
+Generated: 2025-01-17
+Purpose: Safe consolidation of duplicate thumbnail components
+
+==================================================
+ACTIVE USAGE (Components being imported and used)
+==================================================
+
+1. ExerciseThumbnail (from /components/common/)
+   - Used by: ExercisePickerSheet.tsx (line 21)
+   
+2. ExerciseThumbnail (from /components/) - DIFFERENT PATH!
+   - Used by: RoutineDetailScreen.tsx (line 36) as 'GlobalExerciseThumbnail'
+   - Used by: ExerciseSelectionScreen.tsx (line 19)
+
+3. EnhancedExerciseGifDisplay (from /components/common/)
+   - Used by: ExerciseTrackScreen.tsx (line 41)
+
+4. StaticThumbnail (from /components/common/)
+   - Used by: ThumbnailDemo.tsx (line 3) - TEST FILE
+
+5. getStaticThumbnail (function from /constants/staticThumbnails)
+   - Used by: WorkoutHistoryScreen.tsx (line 22)
+   - Used by: WorkoutDetailScreen.tsx (line 23)
+   - Used by: CreateWorkoutScreen.tsx (line 17)
+   - Used by: ExerciseSelectionScreen.tsx (line 18)
+   - Used by: ExerciseTrackScreen.tsx (line 36)
+   - Used by: WorkoutSessionScreen.tsx (line 28)
+   - Used by: ExerciseTrackScreen_simple.tsx (line 23)
+   - Used by: RoutineDetailScreen.tsx (line 29)
+   - Used by: thumbnailMapping.ts (line 2)
+
+==================================================
+UNUSED COMPONENTS (No imports found - SAFE TO DEPRECATE)
+==================================================
+
+- FastThumbnail.tsx - NO USAGE FOUND
+- OptimizedThumbnail.tsx - NO USAGE FOUND
+- InstantThumbnail.tsx - NO USAGE FOUND
+- LocalThumbnail.tsx - NO USAGE FOUND
+- HybridThumbnail.tsx - NO USAGE FOUND
+- StaticGifThumbnail.tsx - NO USAGE FOUND
+- StaticFirstFrame.tsx - NO USAGE FOUND
+
+==================================================
+CRITICAL FINDINGS
+==================================================
+
+⚠️ WARNING: Two different ExerciseThumbnail components exist:
+   1. /components/common/ExerciseThumbnail.tsx
+   2. /components/ExerciseThumbnail.tsx
+
+⚠️ MOST USED: getStaticThumbnail function (9 screens)
+   - This is a function, not a component
+   - Used in core screens (Workout, Exercise, History)
+
+⚠️ TEST FILES: ThumbnailDemo.tsx uses StaticThumbnail
+
+==================================================
+MIGRATION RISK ASSESSMENT
+==================================================
+
+LOW RISK (can deprecate immediately):
+- FastThumbnail, OptimizedThumbnail, InstantThumbnail, 
+  LocalThumbnail, HybridThumbnail, StaticGifThumbnail, 
+  StaticFirstFrame
+
+MEDIUM RISK (test file only):
+- StaticThumbnail (only in demo)
+
+HIGH RISK (core functionality):
+- ExerciseThumbnail (both versions) - 3 screens
+- EnhancedExerciseGifDisplay - 1 screen
+- getStaticThumbnail function - 9 screens
+
+==================================================
+RECOMMENDED APPROACH
+==================================================
+
+1. FIRST: Understand why there are TWO ExerciseThumbnail components
+2. CRITICAL: Most screens use getStaticThumbnail FUNCTION, not components
+3. Create unified component that can replace both components AND function
+4. Start migration with ThumbnailDemo.tsx (test file)
+5. Then migrate the 3 ExerciseThumbnail usages
+6. Finally tackle the 9 getStaticThumbnail usages
+7. Keep EnhancedExerciseGifDisplay as it might be for detailed view

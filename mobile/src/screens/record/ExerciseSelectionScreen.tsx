@@ -16,7 +16,9 @@ import { Exercise } from '../../types';
 import { workoutService } from '../../services/workout.service';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import { getStaticThumbnail } from '../../constants/staticThumbnails';
-import ExerciseThumbnail from '../../components/ExerciseThumbnail';
+// MIGRATION: Replacing ExerciseThumbnail with UnifiedExerciseThumbnail
+// import ExerciseThumbnail from '../../components/ExerciseThumbnail';
+import UnifiedExerciseThumbnail from '../../components/common/UnifiedExerciseThumbnail';
 
 type ExerciseSelectionScreenProps = RecordStackScreenProps<'ExerciseSelection'>;
 
@@ -213,11 +215,12 @@ export default function ExerciseSelectionScreen({ navigation, route }: ExerciseS
             )}
           </View>
           
-          {/* Use simplified ExerciseThumbnail component */}
-          <ExerciseThumbnail
+          {/* Use unified thumbnail component */}
+          <UnifiedExerciseThumbnail
             source={item.thumbnail}
             exerciseName={item.exerciseName}
             muscleGroup={item.muscleGroup}
+            variant="simple"  // Use simple variant for backward compatibility
             style={styles.exerciseImage}
           />
         </View>

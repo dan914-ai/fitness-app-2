@@ -18,7 +18,9 @@ import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import { Exercise as ExerciseType } from '../../types';
-import ExerciseThumbnail from '../common/ExerciseThumbnail';
+// MIGRATION: Replacing ExerciseThumbnail with UnifiedExerciseThumbnail
+// import ExerciseThumbnail from '../common/ExerciseThumbnail';
+import UnifiedExerciseThumbnail from '../common/UnifiedExerciseThumbnail';
 
 interface Exercise {
   id: string;
@@ -236,7 +238,7 @@ export default function ExercisePickerSheet({
   // Static thumbnail in list, animated GIF on tap
   const ThumbnailDisplay = useCallback(({ exercise }: { exercise: ExerciseType }) => {
     return (
-      <ExerciseThumbnail
+      <UnifiedExerciseThumbnail
         exerciseId={exercise.exerciseId}
         exerciseName={exercise.exerciseName}
         muscleGroup={exercise.muscleGroup}

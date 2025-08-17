@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import StaticThumbnail from '../common/StaticThumbnail';
+// MIGRATION: Replacing StaticThumbnail with UnifiedExerciseThumbnail
+// import StaticThumbnail from '../common/StaticThumbnail';
+import UnifiedExerciseThumbnail from '../common/UnifiedExerciseThumbnail';
 import { Colors } from '../../constants/colors';
 
 /**
@@ -30,11 +32,12 @@ export default function ThumbnailDemo() {
       <ScrollView contentContainerStyle={styles.grid}>
         {testExercises.map((exercise) => (
           <View key={exercise.id} style={styles.exerciseCard}>
-            <StaticThumbnail
+            <UnifiedExerciseThumbnail
               exerciseId={exercise.id}
               exerciseName={exercise.name}
               muscleGroup={exercise.muscle}
               size={80}
+              variant="static"  // Use static variant for demo (no modal)
             />
             <Text style={styles.exerciseName} numberOfLines={2}>
               {exercise.name}

@@ -33,7 +33,9 @@ import { supabase } from '../../config/supabase';
 import { getLastExerciseWeight } from '../../utils/workoutHistory';
 import { getNumericExerciseId } from '../../utils/exerciseIdMapping';
 import { getThumbnail } from '../../constants/thumbnailMapping';
-import GlobalExerciseThumbnail from '../../components/ExerciseThumbnail';
+// MIGRATION: Replacing ExerciseThumbnail with UnifiedExerciseThumbnail
+// import GlobalExerciseThumbnail from '../../components/ExerciseThumbnail';
+import UnifiedExerciseThumbnail from '../../components/common/UnifiedExerciseThumbnail';
 
 type RoutineDetailScreenProps = {
   navigation: StackNavigationProp<HomeStackParamList, 'RoutineDetail'>;
@@ -70,10 +72,11 @@ const ExerciseThumbnail = ({ exerciseId, targetMuscles, thumbnail }: { exerciseI
   // Debug log
   
   return (
-    <GlobalExerciseThumbnail
+    <UnifiedExerciseThumbnail
       source={finalThumbnail}
       exerciseName={exerciseId}
       muscleGroup={muscleGroup}
+      variant="simple"  // Use simple variant for backward compatibility
       style={styles.exerciseThumbnail}
     />
   );
