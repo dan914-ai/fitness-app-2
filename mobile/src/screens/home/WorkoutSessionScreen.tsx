@@ -25,7 +25,7 @@ import { saveWorkoutToHistory } from '../../utils/workoutHistory';
 import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import ExercisePickerSheet from '../../components/workout/ExercisePickerSheet';
-import { getStaticThumbnail } from '../../constants/staticThumbnails';
+// MIGRATION: Removed unused getStaticThumbnail import
 import { getThumbnail } from '../../constants/thumbnailMapping';
 import { getNumericExerciseId } from '../../utils/exerciseIdMapping';
 import RestTimer from '../../components/workout/RestTimer';

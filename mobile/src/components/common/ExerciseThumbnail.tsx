@@ -47,6 +47,15 @@ const ExerciseThumbnail = memo(({
   style,
   showModal = true,
 }: ExerciseThumbnailProps) => {
+  // DEPRECATION WARNING
+  React.useEffect(() => {
+    console.warn(
+      '⚠️ ExerciseThumbnail in common/ is DEPRECATED. Please use UnifiedExerciseThumbnail instead.\n' +
+      `Usage: import UnifiedExerciseThumbnail from '../common/UnifiedExerciseThumbnail'\n` +
+      `Found in component using exerciseId: ${exerciseId}, exerciseName: ${exerciseName}`
+    );
+  }, []);
+
   const [modalVisible, setModalVisible] = useState(false);
   const [gifLoading, setGifLoading] = useState(true);
   const [thumbnailError, setThumbnailError] = useState(false);

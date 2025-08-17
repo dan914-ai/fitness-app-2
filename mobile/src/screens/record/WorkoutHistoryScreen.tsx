@@ -19,7 +19,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RecordStackParamList } from '../../navigation/types';
 import { getWorkoutHistory, WorkoutHistoryItem, deleteWorkout } from '../../utils/workoutHistory';
 import { Calendar } from 'react-native-calendars';
-import { getStaticThumbnail } from '../../constants/staticThumbnails';
+// MIGRATION: Removed unused getStaticThumbnail import
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
 

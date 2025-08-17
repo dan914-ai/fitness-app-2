@@ -41,6 +41,15 @@ export default function StaticThumbnail({
   style,
   size = 60,
 }: StaticThumbnailProps) {
+  // DEPRECATION WARNING
+  React.useEffect(() => {
+    console.warn(
+      '⚠️ StaticThumbnail is DEPRECATED. Please use UnifiedExerciseThumbnail instead.\n' +
+      `Usage: import UnifiedExerciseThumbnail from '../common/UnifiedExerciseThumbnail'\n` +
+      `Found in component using exerciseId: ${exerciseId}`
+    );
+  }, []);
+
   const thumbnailData = useMemo(() => {
     // Try to get exercise data if not provided
     let exercise;

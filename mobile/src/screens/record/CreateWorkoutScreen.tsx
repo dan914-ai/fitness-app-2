@@ -14,7 +14,9 @@ import { Colors } from '../../constants/colors';
 import { RecordStackScreenProps } from '../../navigation/types';
 import { Exercise } from '../../types';
 import { workoutService } from '../../services/workout.service';
-import { getStaticThumbnail } from '../../constants/staticThumbnails';
+// MIGRATION: Replaced getStaticThumbnail with UnifiedExerciseThumbnail
+// import { getStaticThumbnail } from '../../constants/staticThumbnails';
+import UnifiedExerciseThumbnail from '../../components/common/UnifiedExerciseThumbnail';
 
 type CreateWorkoutScreenProps = RecordStackScreenProps<'CreateWorkout'>;
 
@@ -128,9 +130,6 @@ export default function CreateWorkoutScreen({ navigation, route }: CreateWorkout
           </TouchableOpacity>
 
           {selectedExercises.map((exercise) => {
-            // Get thumbnail from local assets
-            const thumbnailAsset = getStaticThumbnail(exercise.exerciseId);
-            
             return (
               <View key={exercise.exerciseId} style={styles.exerciseCard}>
                 <View style={styles.exerciseHeader}>
@@ -141,18 +140,15 @@ export default function CreateWorkoutScreen({ navigation, route }: CreateWorkout
                     </Text>
                   </View>
                   
-                  {/* Thumbnail on the right */}
-                  {thumbnailAsset ? (
-                    <Image
-                      source={thumbnailAsset}
-                      style={styles.exerciseThumbnail}
-                      resizeMode="cover"
-                    />
-                  ) : (
-                    <View style={[styles.exerciseThumbnail, styles.thumbnailPlaceholder]}>
-                      <Text style={styles.thumbnailPlaceholderText}>No Image</Text>
-                    </View>
-                  )}
+                  {/* Unified thumbnail component */}
+                  <UnifiedExerciseThumbnail
+                    exerciseId={exercise.exerciseId}
+                    exerciseName={exercise.exerciseName}
+                    muscleGroup={exercise.muscleGroup}
+                    variant="static"
+                    size={60}
+                    style={styles.exerciseThumbnail}
+                  />
                   
                   <TouchableOpacity
                     style={styles.removeButton}

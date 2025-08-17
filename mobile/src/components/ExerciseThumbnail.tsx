@@ -16,6 +16,15 @@ const ExerciseThumbnail: React.FC<ExerciseThumbnailProps> = ({
   muscleGroup,
   style 
 }) => {
+  // DEPRECATION WARNING
+  React.useEffect(() => {
+    console.warn(
+      '⚠️ ExerciseThumbnail in components/ is DEPRECATED. Please use UnifiedExerciseThumbnail instead.\n' +
+      `Usage: import UnifiedExerciseThumbnail from './common/UnifiedExerciseThumbnail'\n` +
+      `Found in component using exerciseName: ${exerciseName}`
+    );
+  }, []);
+
   // If no source available, show placeholder
   if (!source) {
     return (

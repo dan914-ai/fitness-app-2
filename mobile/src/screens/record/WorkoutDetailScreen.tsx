@@ -20,7 +20,7 @@ import { getWorkoutById, WorkoutHistoryItem } from '../../utils/workoutHistory';
 import { exerciseService } from '../../services/exercise.service';
 import progressionService from '../../services/progression.service';
 import { supabase } from '../../config/supabase';
-import { getStaticThumbnail } from '../../constants/staticThumbnails';
+// MIGRATION: Removed unused getStaticThumbnail import
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
 

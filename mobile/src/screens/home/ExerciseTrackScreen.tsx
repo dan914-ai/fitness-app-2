@@ -33,7 +33,7 @@ import { LoadingOverlay } from '../../components/common/LoadingOverlay';
 import { getExerciseGifUrls, getPlaceholderUrl } from '../../utils/gifUrlHelper';
 import { supabase } from '../../config/supabase';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
-import { getStaticThumbnail } from '../../constants/staticThumbnails';
+// MIGRATION: Removed unused getStaticThumbnail import
 import RestTimer from '../../components/workout/RestTimer';
 import PlateCalculator from '../../components/workout/PlateCalculator';
 import ExerciseAlternatives from '../../components/workout/ExerciseAlternatives';

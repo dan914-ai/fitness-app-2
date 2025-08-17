@@ -26,7 +26,7 @@ import DraggableFlatList, { RenderItemParams } from 'react-native-draggable-flat
 import ExercisePickerSheet from '../../components/workout/ExercisePickerSheet';
 import storageService from '../../services/storage.service';
 import { routinesService, Routine, RoutineExercise as ExerciseType } from '../../services/routines.service';
-import { getStaticThumbnail } from '../../constants/staticThumbnails';
+// MIGRATION: Removed getStaticThumbnail, UnifiedExerciseThumbnail handles all cases
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import progressionService from '../../services/progression.service';
 import { supabase } from '../../config/supabase';
@@ -62,10 +62,7 @@ const ExerciseThumbnail = ({ exerciseId, targetMuscles, thumbnail }: { exerciseI
       const exercise = exerciseDatabaseService.getExerciseById(numericId);
       finalThumbnail = exercise?.thumbnail || null;
       
-      // If still no thumbnail, try direct static thumbnail lookup
-      if (!finalThumbnail) {
-        finalThumbnail = getStaticThumbnail(numericId);
-      }
+      // UnifiedExerciseThumbnail will handle fallback internally
     }
   }
   
