@@ -3149,7 +3149,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
   },
   {
     "id": 369,
-    "name": "58_wide Grip Lat Pulldown",
+    "name": "와이드 그립 랫 풀다운",
     "englishName": "58_wide Grip Lat Pulldown",
     "category": "상체",
     "muscleGroup": "등",
@@ -3353,7 +3353,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
   },
   {
     "id": 386,
-    "name": "Dumbbell_devils_press",
+    "name": "덤벨 데빌스 프레스",
     "englishName": "Dumbbell_devils_press",
     "category": "전신",
     "muscleGroup": "복합",
@@ -3365,7 +3365,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
   },
   {
     "id": 387,
-    "name": "Dumbbell_push_jerk",
+    "name": "덤벨 푸시 저크",
     "englishName": "Dumbbell_push_jerk",
     "category": "전신",
     "muscleGroup": "복합",
@@ -3497,7 +3497,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
   },
   {
     "id": 398,
-    "name": "Wide_grip_bench_press",
+    "name": "와이드 그립 벤치 프레스",
     "englishName": "Wide_grip_bench_press",
     "category": "상체",
     "muscleGroup": "가슴",
@@ -3509,7 +3509,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
   },
   {
     "id": 399,
-    "name": "300_smith Machine Squat 2",
+    "name": "스미스 머신 스쿼트",
     "englishName": "300_smith Machine Squat 2",
     "category": "하체",
     "muscleGroup": "대퇴사두근",
