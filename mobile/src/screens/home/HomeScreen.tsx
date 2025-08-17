@@ -20,6 +20,9 @@ import { getWorkoutHistory } from '../../utils/workoutHistory';
 import DOMSSurveyModal from '../../components/DOMSSurveyModal';
 import { supabase } from '../../config/supabase';
 import workoutProgramsService, { WorkoutProgram } from '../../services/workoutPrograms.service';
+// Import new design system components
+import { Button, Card, CardContent } from '../../components/common';
+import { useDesignSystem } from '../../contexts/ThemeContext';
 
 const { width } = Dimensions.get('window');
 
@@ -30,6 +33,7 @@ type NavigationProp = CompositeNavigationProp<
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const theme = useDesignSystem(); // Add theme access
   const [currentDate, setCurrentDate] = useState('');
   const [userRoutines, setUserRoutines] = useState<Routine[]>([]);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -205,24 +209,33 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Active Program Banner */}
+        {/* Active Program Banner - Using new Card component */}
         {activeProgram && (
-          <TouchableOpacity
-            style={styles.activeProgramBanner}
+          <Card
+            variant="elevated"
             onPress={() => navigation.navigate('Menu', { screen: 'WorkoutPrograms' })}
+            style={{ marginHorizontal: theme.spacing[4], marginVertical: theme.spacing[2] }}
           >
-            <View style={styles.activeProgramContent}>
-              <Icon name="fitness-center" size={24} color={Colors.primary} />
-              <View style={styles.activeProgramText}>
-                <Text style={styles.activeProgramLabel}>활성 프로그램</Text>
-                <Text style={styles.activeProgramName}>{activeProgram.name}</Text>
-                <Text style={styles.activeProgramWeek}>
-                  {activeProgram.currentWeek || 1}주차 • {activeProgram.currentDay || 1}일차
-                </Text>
+            <CardContent>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                  <Icon name="fitness-center" size={24} color={theme.colors.semantic.primary.main} />
+                  <View style={{ marginLeft: theme.spacing[3] }}>
+                    <Text style={{ ...theme.typography.textStyles.caption, color: theme.colors.semantic.text.secondary }}>
+                      활성 프로그램
+                    </Text>
+                    <Text style={{ ...theme.typography.textStyles.h5, color: theme.colors.semantic.text.primary }}>
+                      {activeProgram.name}
+                    </Text>
+                    <Text style={{ ...theme.typography.textStyles.bodySmall, color: theme.colors.semantic.text.secondary }}>
+                      {activeProgram.currentWeek || 1}주차 • {activeProgram.currentDay || 1}일차
+                    </Text>
+                  </View>
+                </View>
+                <Icon name="chevron-right" size={24} color={theme.colors.semantic.text.secondary} />
               </View>
-            </View>
-            <Icon name="chevron-right" size={24} color={Colors.textSecondary} />
-          </TouchableOpacity>
+            </CardContent>
+          </Card>
         )}
 
         {/* My Routine Section */}
@@ -230,54 +243,88 @@ export default function HomeScreen() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>내 루틴</Text>
             <View style={styles.routineHeaderActions}>
+              <Button
+                variant="secondary"
+                size="small"
+                onPress={() => navigation.navigate('ComponentShowcase')}
+              >
+                🎨 Design
+              </Button>
               <TouchableOpacity onPress={() => navigation.navigate('RoutineManagement')}>
                 <Text style={styles.seeAllText}>관리</Text>
               </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.addRoutineButton}
+              <Button
+                variant="primary"
+                size="small"
+                icon="plus" as any
                 onPress={() => navigation.navigate('CreateRoutine')}
               >
-                <Icon name="add" size={20} color={Colors.primary} />
-                <Text style={styles.addRoutineText}>루틴 추가</Text>
-              </TouchableOpacity>
+                루틴 추가
+              </Button>
             </View>
           </View>
           
-          {/* Saved Routines */}
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {/* Saved Routines - Using new Card component */}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: theme.spacing[4] }}>
             {userRoutines.map((routine) => (
-              <TouchableOpacity 
+              <Card
                 key={routine.id}
-                style={styles.routineCard}
+                variant="elevated"
+                style={{ width: 160, marginRight: theme.spacing[3] }}
                 onPress={() => navigation.navigate('RoutineDetail', { routineId: routine.id, routineName: routine.name })}
               >
-                <View style={styles.routineIcon}>
-                  <Icon name="fitness-center" size={24} color={Colors.primary} />
-                </View>
-                <Text style={styles.routineTitle}>{routine.name}</Text>
-                <Text style={styles.routineExercises}>
-                  {routine.exercises.length > 0 
-                    ? `${routine.exercises[0].name} 외 ${routine.exercises.length - 1}개`
-                    : '운동 없음'
-                  }
-                </Text>
-                <Text style={styles.routineLastUsed}>{routine.duration}</Text>
-                <TouchableOpacity 
-                  style={styles.routineStartButton}
-                  onPress={() => navigation.navigate('RoutineDetail', { routineId: routine.id, routineName: routine.name })}
-                >
-                  <Text style={styles.routineStartText}>시작</Text>
-                </TouchableOpacity>
-              </TouchableOpacity>
+                <CardContent>
+                  <View style={{ alignItems: 'center', marginBottom: theme.spacing[2] }}>
+                    <View style={{ 
+                      width: 48, 
+                      height: 48, 
+                      borderRadius: theme.borderRadius.full, 
+                      backgroundColor: theme.colors.semantic.primary.light,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: theme.spacing[2]
+                    }}>
+                      <Icon name="fitness-center" size={24} color={theme.colors.semantic.primary.main} />
+                    </View>
+                    <Text style={{ ...theme.typography.textStyles.h6, color: theme.colors.semantic.text.primary, textAlign: 'center' }}>
+                      {routine.name}
+                    </Text>
+                    <Text style={{ ...theme.typography.textStyles.caption, color: theme.colors.semantic.text.secondary, textAlign: 'center', marginTop: theme.spacing[1] }}>
+                      {routine.exercises.length > 0 
+                        ? `${routine.exercises[0].name} 외 ${routine.exercises.length - 1}개`
+                        : '운동 없음'
+                      }
+                    </Text>
+                    <Text style={{ ...theme.typography.textStyles.caption, color: theme.colors.semantic.text.secondary, marginTop: theme.spacing[1] }}>
+                      {routine.duration}
+                    </Text>
+                  </View>
+                  <Button
+                    variant="primary"
+                    size="small"
+                    fullWidth
+                    onPress={() => navigation.navigate('RoutineDetail', { routineId: routine.id, routineName: routine.name })}
+                  >
+                    시작
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
             
-            <TouchableOpacity 
-              style={styles.addRoutineCard}
+            <Card
+              variant="outlined"
+              style={{ width: 160, marginRight: theme.spacing[3], borderStyle: 'dashed' }}
               onPress={() => navigation.navigate('CreateRoutine')}
             >
-              <Icon name="add-circle-outline" size={48} color={Colors.textSecondary} />
-              <Text style={styles.addRoutineCardText}>새 루틴 만들기</Text>
-            </TouchableOpacity>
+              <CardContent>
+                <View style={{ alignItems: 'center', paddingVertical: theme.spacing[4] }}>
+                  <Icon name="add-circle-outline" size={48} color={theme.colors.semantic.primary.main} />
+                  <Text style={{ ...theme.typography.textStyles.body, color: theme.colors.semantic.primary.main, marginTop: theme.spacing[2] }}>
+                    새 루틴 만들기
+                  </Text>
+                </View>
+              </CardContent>
+            </Card>
           </ScrollView>
         </View>
 
@@ -512,7 +559,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: '#FAFAFA', // Using our new theme background color
   },
   header: {
     flexDirection: 'row',

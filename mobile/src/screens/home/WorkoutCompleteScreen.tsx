@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   ActivityIndicator,
   Modal,
+  TextInput,
 } from 'react-native';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
@@ -34,6 +35,7 @@ export default function WorkoutCompleteScreen() {
   const [showRating, setShowRating] = useState(true);
   const [showRPEModal, setShowRPEModal] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
+  const [memo, setMemo] = useState('');
 
   useEffect(() => {
     loadWorkoutData();
@@ -53,11 +55,21 @@ export default function WorkoutCompleteScreen() {
   };
 
   const loadWorkoutData = async () => {
+    console.log('[Complete] Loading workout with ID:', workoutId);
     try {
       const workoutData = await getWorkoutById(workoutId);
+      console.log('[Complete] Loaded workout:', workoutData ? 'Found' : 'Not found');
+      if (workoutData) {
+        console.log('[Complete] Workout details:', {
+          id: workoutData.id,
+          routineName: workoutData.routineName,
+          existingMemo: workoutData.memo,
+          existingRating: workoutData.rating,
+        });
+      }
       setWorkout(workoutData);
     } catch (error) {
-      console.error('Error loading workout data:', error);
+      console.error('[Complete] Error loading workout data:', error);
     } finally {
       setIsLoading(false);
     }
@@ -91,11 +103,31 @@ export default function WorkoutCompleteScreen() {
   const handleShare = async () => {
     if (!workout) return;
     
-    // Save rating
+    console.log('[Complete] handleShare - workoutId:', workoutId);
+    console.log('[Complete] handleShare - memo:', memo);
+    
+    // Save rating and memo
     try {
-      await storageService.saveWorkoutRating(workoutId, rating);
+      if (rating > 0) {
+        console.log('[Complete] Saving rating:', rating, 'for workout:', workoutId);
+        await storageService.saveWorkoutRating(workoutId, rating);
+      }
+      // Save memo to workout
+      if (memo.trim()) {
+        console.log('[Complete] Saving memo:', memo, 'for workout:', workoutId);
+        await storageService.saveWorkoutMemo(workoutId, memo);
+      }
+      
+      // Verify the memo was saved
+      const updatedHistory = await storageService.getWorkoutHistory();
+      const savedWorkout = updatedHistory.find(w => w.id === workoutId);
+      console.log('[Complete] Workout after saving memo:', {
+        id: savedWorkout?.id,
+        memo: savedWorkout?.memo,
+        rating: savedWorkout?.rating,
+      });
     } catch (error) {
-      console.error('Error saving rating:', error);
+      console.error('[Complete] Error saving rating/memo:', error);
     }
     
     // Navigate to home - use reset to clear navigation stack
@@ -105,7 +137,33 @@ export default function WorkoutCompleteScreen() {
     });
   };
 
-  const handleSkip = () => {
+  const handleSkip = async () => {
+    console.log('[Complete] handleSkip - workoutId:', workoutId);
+    console.log('[Complete] handleSkip - memo:', memo);
+    
+    // Save memo and rating before navigating
+    try {
+      if (rating > 0) {
+        console.log('[Complete] Saving rating:', rating, 'for workout:', workoutId);
+        await storageService.saveWorkoutRating(workoutId, rating);
+      }
+      if (memo.trim()) {
+        console.log('[Complete] Saving memo:', memo, 'for workout:', workoutId);
+        await storageService.saveWorkoutMemo(workoutId, memo);
+      }
+      
+      // Verify the memo was saved
+      const updatedHistory = await storageService.getWorkoutHistory();
+      const savedWorkout = updatedHistory.find(w => w.id === workoutId);
+      console.log('[Complete] Workout after saving memo:', {
+        id: savedWorkout?.id,
+        memo: savedWorkout?.memo,
+        rating: savedWorkout?.rating,
+      });
+    } catch (error) {
+      console.error('[Complete] Error saving rating/memo:', error);
+    }
+    
     // Use reset to clear navigation stack and prevent getting stuck
     navigation.reset({
       index: 0,
@@ -187,7 +245,16 @@ export default function WorkoutCompleteScreen() {
             ))}
           </View>
 
-          <Text style={styles.ratingText}>운동을 마치며 느낀 점을 메모해보세요.</Text>
+          <TextInput
+            style={styles.memoInput}
+            placeholder="운동을 마치며 느낀 점을 메모해보세요."
+            placeholderTextColor={Colors.textSecondary}
+            value={memo}
+            onChangeText={setMemo}
+            multiline
+            numberOfLines={3}
+            textAlignVertical="top"
+          />
         </View>
 
         {/* Test Button for RPE Modal */}
@@ -440,5 +507,16 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  memoInput: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 12,
+    padding: 16,
+    marginTop: 16,
+    fontSize: 16,
+    color: '#FFFFFF',
+    minHeight: 80,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
   },
 });

@@ -263,11 +263,39 @@ class StorageService {
       const history = await this.getWorkoutHistory();
       const workoutIndex = history.findIndex(w => w.id === workoutId);
       if (workoutIndex !== -1) {
-        (history[workoutIndex] as any).rating = rating;
+        history[workoutIndex].rating = rating;
         await this.setItem(STORAGE_KEYS.WORKOUT_HISTORY, history);
       }
     } catch (error) {
       console.error('Error saving workout rating:', error);
+    }
+  }
+
+  // Workout Memo
+  async saveWorkoutMemo(workoutId: string, memo: string): Promise<void> {
+    try {
+      console.log('[Storage] Attempting to save memo for workout:', workoutId);
+      const history = await this.getWorkoutHistory();
+      console.log('[Storage] Total workouts in history:', history.length);
+      
+      const workoutIndex = history.findIndex(w => w.id === workoutId);
+      console.log('[Storage] Workout index found:', workoutIndex);
+      
+      if (workoutIndex !== -1) {
+        history[workoutIndex].memo = memo;
+        await this.setItem(STORAGE_KEYS.WORKOUT_HISTORY, history);
+        console.log('[Storage] Memo saved successfully for workout:', workoutId);
+        
+        // Verify save
+        const verifyHistory = await this.getWorkoutHistory();
+        const verifyWorkout = verifyHistory[workoutIndex];
+        console.log('[Storage] Verification - Memo saved:', verifyWorkout.memo);
+      } else {
+        console.error('[Storage] ERROR: Workout not found with ID:', workoutId);
+        console.log('[Storage] Available workout IDs:', history.map(w => w.id));
+      }
+    } catch (error) {
+      console.error('[Storage] Error saving workout memo:', error);
     }
   }
 

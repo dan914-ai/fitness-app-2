@@ -48,6 +48,7 @@ export interface WorkoutState {
   endTime: Date | null;
   lastSaved: Date | null; // Track when state was last saved
   version: number; // Version for migration support
+  savedWorkoutId: string | null; // Track the saved workout ID to prevent duplicates
 }
 
 export interface WorkoutContextState {
@@ -76,7 +77,8 @@ type WorkoutAction =
   | { type: 'SET_HYDRATED'; payload: boolean }
   | { type: 'SET_SAVING'; payload: boolean }
   | { type: 'SET_ERROR'; payload: string | null }
-  | { type: 'HYDRATE_FROM_STORAGE'; payload: WorkoutState | null };
+  | { type: 'HYDRATE_FROM_STORAGE'; payload: WorkoutState | null }
+  | { type: 'SET_SAVED_WORKOUT_ID'; payload: string };
 
 const WORKOUT_STATE_KEY = '@workout_state';
 const WORKOUT_BACKUP_KEY = '@workout_state_backup';
@@ -93,6 +95,7 @@ const initialWorkoutState: WorkoutState = {
   endTime: null,
   lastSaved: null,
   version: CURRENT_VERSION,
+  savedWorkoutId: null,
 };
 
 const initialContextState: WorkoutContextState = {
@@ -329,25 +332,24 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
       break;
 
     case 'END_WORKOUT':
-      // Save workout to history before ending
-      saveWorkoutToHistory(state).then(savedWorkout => {
-        if (savedWorkout) {
-          console.log('✅ WorkoutContext: Workout saved to history');
-        }
-      }).catch(error => {
-        console.error('💥 WorkoutContext: Error saving workout to history:', error);
-      });
-      
+      // Don't save here - let the screens handle saving to prevent duplicates
       newState = {
         ...state,
         isWorkoutActive: false,
         endTime: new Date(),
         currentExerciseId: null,
+        savedWorkoutId: null, // Reset saved workout ID
       };
       // Clear storage after workout ends
       AsyncStorage.removeItem(WORKOUT_STATE_KEY).catch(error => {
         console.error('Error clearing workout state:', error);
       });
+      break;
+    case 'SET_SAVED_WORKOUT_ID':
+      newState = {
+        ...state,
+        savedWorkoutId: action.payload,
+      };
       break;
 
     case 'RESET_WORKOUT':
@@ -541,6 +543,7 @@ interface WorkoutContextType {
   addExercise: (exerciseId: string, exerciseName: string) => void;
   removeExercise: (exerciseId: string) => void;
   getOrderedExercises: () => ExerciseData[];
+  setSavedWorkoutId: (workoutId: string) => void;
   
   // Storage actions
   forceSync: () => Promise<void>;
@@ -614,6 +617,10 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
 
   const contextValue: WorkoutContextType = {
     state,
+    isLoading,
+    isHydrated: !isLoading,
+    isSaving: false,
+    lastError: null,
     startWorkout: (routineId: string, routineName: string) => {
       dispatch({ type: 'START_WORKOUT', payload: { routineId, routineName } });
     },
@@ -660,6 +667,18 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
       return state.exerciseOrder
         .map(id => state.exercises[id])
         .filter(Boolean);
+    },
+    setSavedWorkoutId: (workoutId: string) => {
+      dispatch({ type: 'SET_SAVED_WORKOUT_ID', payload: workoutId });
+    },
+    forceSync: async () => {
+      // Force save current state to storage
+      if (state.isWorkoutActive) {
+        await AsyncStorage.setItem(WORKOUT_STATE_KEY, JSON.stringify(state));
+      }
+    },
+    clearError: () => {
+      // Clear any errors (not implemented in this version)
     },
   };
 

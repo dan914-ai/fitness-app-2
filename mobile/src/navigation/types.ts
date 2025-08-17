@@ -44,6 +44,7 @@ export type WellnessStackParamList = {
 export type HomeStackParamList = {
   HomeScreen: undefined;
   ThumbnailTest: undefined;
+  ComponentShowcase: undefined;
   RoutineDetail: { routineId: string; routineName: string };
   CreateRoutine: undefined;
   RoutineManagement: undefined;

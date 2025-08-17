@@ -59,6 +59,7 @@ import MacroCalculatorScreen from '../screens/calculators/MacroCalculatorScreen'
 import DiagnosticScreen from '../screens/DiagnosticScreen';
 import QuickTimerScreen from '../screens/home/QuickTimerScreen';
 import WaterIntakeScreen from '../screens/home/WaterIntakeScreen';
+import { ComponentShowcase } from '../screens/test/ComponentShowcase';
 
 // Wellness Screens
 import WellnessScreen from '../screens/wellness/WellnessScreen';
@@ -144,6 +145,11 @@ function HomeStackNavigator() {
         name="TestWorkout" 
         component={TestWorkoutScreen}
         options={{ headerShown: false }}
+      />
+      <HomeStack.Screen 
+        name="ComponentShowcase" 
+        component={ComponentShowcase}
+        options={{ title: 'Design System Components' }}
       />
       <HomeStack.Screen 
         name="WorkoutComplete" 

@@ -7,6 +7,7 @@ import {
   Modal,
   Vibration,
   Platform,
+  TextInput,
 } from 'react-native';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
@@ -40,6 +41,8 @@ export default function RestTimer({ isActive, onComplete, onDismiss }: RestTimer
   const [selectedPreset, setSelectedPreset] = useState(90);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [vibrationEnabled, setVibrationEnabled] = useState(true);
+  const [customTime, setCustomTime] = useState('');
+  const [showCustomInput, setShowCustomInput] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   // const soundRef = useRef<Audio.Sound | null>(null); // Uncomment when expo-av is installed
 
@@ -342,7 +345,46 @@ export default function RestTimer({ isActive, onComplete, onDismiss }: RestTimer
                       </Text>
                     </TouchableOpacity>
                   ))}
+                  <TouchableOpacity
+                    style={[
+                      styles.presetButton,
+                      showCustomInput && styles.presetButtonActive
+                    ]}
+                    onPress={() => setShowCustomInput(!showCustomInput)}
+                  >
+                    <Text style={[
+                      styles.presetButtonText,
+                      showCustomInput && styles.presetButtonTextActive
+                    ]}>
+                      사용자 설정
+                    </Text>
+                  </TouchableOpacity>
                 </View>
+                
+                {showCustomInput && (
+                  <View style={styles.customTimeSection}>
+                    <TextInput
+                      style={styles.customTimeInput}
+                      placeholder="시간 입력 (초)"
+                      value={customTime}
+                      onChangeText={setCustomTime}
+                      keyboardType="numeric"
+                      maxLength={4}
+                    />
+                    <TouchableOpacity
+                      style={styles.customTimeButton}
+                      onPress={() => {
+                        const seconds = parseInt(customTime);
+                        if (seconds > 0 && seconds <= 9999) {
+                          selectPreset(seconds);
+                          setShowCustomInput(false);
+                        }
+                      }}
+                    >
+                      <Text style={styles.customTimeButtonText}>설정</Text>
+                    </TouchableOpacity>
+                  </View>
+                )}
               </View>
 
               <View style={styles.settingsSection}>
@@ -608,6 +650,34 @@ const styles = StyleSheet.create({
   modalButtonText: {
     color: '#FFFFFF',
     fontSize: 16,
+    fontWeight: '600',
+  },
+  customTimeSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 16,
+    gap: 12,
+  },
+  customTimeInput: {
+    flex: 1,
+    height: 44,
+    backgroundColor: Colors.background,
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    fontSize: 16,
+    color: Colors.text,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  customTimeButton: {
+    backgroundColor: Colors.primary,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  customTimeButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
     fontWeight: '600',
   },
 });

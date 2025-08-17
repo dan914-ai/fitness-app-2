@@ -35,6 +35,10 @@ class ExerciseService {
 
   // Get exercise by ID
   getExerciseById(id: string): ExerciseData | undefined {
+    if (!this.exercises || !Array.isArray(this.exercises)) {
+      console.warn('Exercise database not initialized');
+      return undefined;
+    }
     return this.exercises.find(exercise => exercise.id === id);
   }
 

@@ -22,8 +22,9 @@ import { HomeStackParamList } from '../../navigation/types';
 import { useWorkout } from '../../contexts/WorkoutContext';
 // import DraggableFlatList, { RenderItemParams } from 'react-native-draggable-flatlist';
 import { saveWorkoutToHistory } from '../../utils/workoutHistory';
-import ExercisePickerSheet from '../../components/workout/ExercisePickerSheet';
+import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
+import ExercisePickerSheet from '../../components/workout/ExercisePickerSheet';
 import { getStaticThumbnail } from '../../constants/staticThumbnails';
 import { getThumbnail } from '../../constants/thumbnailMapping';
 import { getNumericExerciseId } from '../../utils/exerciseIdMapping';
@@ -82,11 +83,25 @@ export default function WorkoutSessionScreen() {
   const completedExercises = exerciseItems.filter(ex => ex.isCompleted).length;
   const progress = totalExercises > 0 ? completedExercises / totalExercises : 0;
 
-  // Calculate total volume
+  // Calculate total volume with adjustments for dumbbells and unilateral movements
   const totalVolume = exercises && exercises.length > 0 ? exercises.reduce((total, exercise) => {
+    // Get exercise data to check equipment type
+    const exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId) || 
+                        exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
+    const equipment = exerciseData?.equipment || '기타';
+    const englishName = exerciseData?.englishName || '';
+    
     const exerciseVolume = exercise.sets.reduce((setTotal, set) => {
       if (set.completed && set.weight && set.reps) {
-        return setTotal + (parseFloat(set.weight) * parseInt(set.reps));
+        // Use adjusted volume calculation
+        const adjustedVolume = calculateAdjustedVolume(
+          parseFloat(set.weight),
+          parseInt(set.reps),
+          exercise.exerciseName,
+          equipment,
+          englishName
+        );
+        return setTotal + adjustedVolume;
       }
       return setTotal;
     }, 0);
@@ -185,36 +200,61 @@ export default function WorkoutSessionScreen() {
           onPress: async () => {
             try {
               setIsSaving(true);
-              // Save workout to history and get the workout ID
-              const workoutData = await saveWorkoutToHistory(workout.state);
+              // Check if there are any completed exercises
+              const hasCompletedExercises = Object.values(workout.state.exercises).some(
+                exercise => exercise.sets.some(set => set.completed)
+              );
               
-              // Process achievements for workout completion
-              if (workoutData) {
-                await achievementService.processEvent({
-                  type: 'workout_completed',
-                  data: workoutData,
-                  userId: 'current_user' // Will be replaced with actual user ID
-                });
-              }
-              
-              // End workout in context
-              workout.endWorkout();
-              setIsSaving(false);
-              
-              // Navigate to workout complete screen with the saved workout ID
-              if (workoutData) {
-                navigation.navigate('HomeScreen');
+              if (hasCompletedExercises) {
+                // Check if workout was already saved
+                if (workout.state.savedWorkoutId) {
+                  console.log('Workout already saved with ID:', workout.state.savedWorkoutId);
+                  setIsSaving(false);
+                  // Navigate to complete screen with existing ID
+                  navigation.navigate('WorkoutComplete', { workoutId: workout.state.savedWorkoutId });
+                  return;
+                }
+                
+                // Save workout to history and get the workout ID
+                const workoutData = await saveWorkoutToHistory(workout.state);
+                
+                // Process achievements for workout completion
+                if (workoutData) {
+                  await achievementService.processEvent({
+                    type: 'workout_completed',
+                    data: workoutData,
+                    userId: 'current_user' // Will be replaced with actual user ID
+                  });
+                  
+                  // Mark workout as saved
+                  workout.setSavedWorkoutId(workoutData.id);
+                }
+                
+                setIsSaving(false);
+                
+                // Navigate to workout complete screen with the saved workout ID
+                if (workoutData && workoutData.id) {
+                  navigation.navigate('WorkoutComplete', { workoutId: workoutData.id });
+                } else {
+                  Alert.alert(
+                    '알림',
+                    '운동이 완료되었지만 기록 저장에 실패했습니다.',
+                    [
+                      {
+                        text: '확인',
+                        onPress: () => {
+                          workout.endWorkout();
+                          navigation.navigate('HomeScreen');
+                        }
+                      }
+                    ]
+                  );
+                }
               } else {
-                Alert.alert(
-                  '알림',
-                  '운동이 완료되었지만 기록 저장에 실패했습니다.',
-                  [
-                    {
-                      text: '확인',
-                      onPress: () => navigation.navigate('HomeScreen')
-                    }
-                  ]
-                );
+                // No exercises completed, just end without saving
+                workout.endWorkout();
+                setIsSaving(false);
+                navigation.navigate('HomeScreen');
               }
             } catch (error) {
               console.error('Error in workout completion:', error);

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback, memo } from 'react';
 import {
   View,
   Text,
@@ -26,7 +26,8 @@ import { exerciseService } from '../../services/exercise.service';
 import { ExerciseData } from '../../data/exerciseDatabase';
 import ProgressionIndicator from '../../components/widgets/ProgressionIndicator';
 import storageService from '../../services/storage.service';
-import { saveWorkoutToHistory, getExerciseHistory, ExerciseHistoryRecord, getLastExerciseWeight } from '../../utils/workoutHistory';
+import { saveWorkoutToHistory, getExerciseHistory, ExerciseHistoryRecord, getLastExerciseWeight, getLastExerciseWeights } from '../../utils/workoutHistory';
+import { calculateAdjustedVolume, getVolumeAdjustmentReason } from '../../utils/workoutCalculations';
 import progressionService from '../../services/progression.service';
 import { LoadingOverlay } from '../../components/common/LoadingOverlay';
 import { getExerciseGifUrls, getPlaceholderUrl } from '../../utils/gifUrlHelper';
@@ -56,10 +57,60 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
   const [hasError, setHasError] = useState(false);
   const [currentUrlIndex, setCurrentUrlIndex] = useState(0);
   
-  // Get exercise data from database service
-  const exerciseData = exerciseDatabaseService.getExerciseById(exerciseId);
+  // Get exercise data from database service - try multiple methods for compatibility
+  let exerciseData = exerciseDatabaseService.getExerciseWithDetailsById(exerciseId);
   
-  // Debug logging removed for production
+  // Fallback to regular getExerciseById if detailed version fails
+  if (!exerciseData) {
+    const basicExercise = exerciseDatabaseService.getExerciseById(exerciseId);
+    if (basicExercise) {
+      // Convert basic exercise to detailed format
+      exerciseData = {
+        ...basicExercise,
+        koreanName: basicExercise.exerciseName,
+        englishName: '', // Will be empty but that's OK
+        romanization: '',
+        targetMuscles: { primary: [], secondary: [] },
+        bodyParts: [],
+        description: { korean: '', english: '' },
+        instructions: { korean: [], english: [] },
+        tips: { korean: [], english: [] },
+        commonMistakes: { korean: [], english: [] },
+        sets: { recommended: '3', beginner: '2', intermediate: '3', advanced: '4' },
+        reps: { recommended: '12', beginner: '10', intermediate: '12', advanced: '15' }
+      };
+    }
+  }
+  
+  // Final fallback - try by name
+  if (!exerciseData && exerciseName) {
+    const byName = exerciseDatabaseService.getExerciseByName(exerciseName);
+    if (byName) {
+      exerciseData = {
+        ...byName,
+        koreanName: byName.exerciseName,
+        englishName: '',
+        romanization: '',
+        targetMuscles: { primary: [], secondary: [] },
+        bodyParts: [],
+        description: { korean: '', english: '' },
+        instructions: { korean: [], english: [] },
+        tips: { korean: [], english: [] },
+        commonMistakes: { korean: [], english: [] },
+        sets: { recommended: '3', beginner: '2', intermediate: '3', advanced: '4' },
+        reps: { recommended: '12', beginner: '10', intermediate: '12', advanced: '15' }
+      };
+    }
+  }
+  
+  // DEBUG logging
+  console.log('[ExerciseTrack] Exercise lookup result:', {
+    exerciseId,
+    exerciseName,
+    found: !!exerciseData,
+    equipment: exerciseData?.equipment,
+    isDumbbell: exerciseData?.equipment?.includes('덤벨') || exerciseData?.equipment?.toLowerCase()?.includes('dumbbell')
+  });
   
   // Build an array of URLs to try in order
   const gifUrls = useMemo(() => {
@@ -182,6 +233,28 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
   );
 });
 
+// Memoized GIF display component to prevent unnecessary re-renders
+const MemoizedGifDisplay = memo(({ exerciseId, exerciseName }: { exerciseId: string; exerciseName: string }) => {
+  return (
+    <EnhancedExerciseGifDisplay 
+      exerciseId={exerciseId} 
+      exerciseName={exerciseName}
+      showDebugInfo={__DEV__}
+      height={200}
+      onFallbackUsed={(fallbackType) => {
+        console.log(`Exercise GIF fallback used: ${fallbackType}`);
+      }}
+      onNetworkError={(error) => {
+        console.error('Exercise GIF network error:', error);
+      }}
+    />
+  );
+}, (prevProps, nextProps) => {
+  // Only re-render if exerciseId or exerciseName changes
+  return prevProps.exerciseId === nextProps.exerciseId && 
+         prevProps.exerciseName === nextProps.exerciseName;
+});
+
 export default function ExerciseTrackScreen() {
   const navigation = useNavigation<StackNavigationProp<HomeStackParamList>>();
   const route = useRoute<RouteProp<HomeStackParamList, 'ExerciseTrack'>>();
@@ -200,41 +273,12 @@ export default function ExerciseTrackScreen() {
       { id: '1', weight: '', reps: '12', completed: false, type: 'Warmup' },
       { id: '2', weight: '', reps: '10', completed: false, type: 'Normal' },
       { id: '3', weight: '', reps: '8', completed: false, type: 'Normal' },
+      { id: '4', weight: '', reps: '8', completed: false, type: 'Normal' },
     ];
   };
   
   const [sets, setSets] = useState<WorkoutSet[]>(getDefaultSets());
-  const [isInitialLoading, setIsInitialLoading] = useState(true);
-  
-  // SIMPLIFIED WEIGHT PREFILL - Run once when component loads
-  React.useEffect(() => {
-    const prefillWeights = async () => {
-      
-      // Get last weight from workout history
-      const lastWeight = await getLastExerciseWeight(exerciseId);
-      
-      if (lastWeight > 0) {
-        
-        // Update sets with prefilled weights
-        setSets(currentSets => currentSets.map(set => {
-          const newWeight = set.type === 'Warmup' 
-            ? Math.round(lastWeight * 0.5).toString() // 50% for warmup
-            : lastWeight.toString(); // Full weight for normal sets
-          
-          return { ...set, weight: newWeight };
-        }));
-        
-      } else {
-      }
-      
-      // Set loading to false after prefill
-      setIsInitialLoading(false);
-    };
-    
-    // Run prefill after a short delay to ensure component is ready
-    const timer = setTimeout(prefillWeights, 100);
-    return () => clearTimeout(timer);
-  }, [exerciseId]); // Only run when exercise changes
+  const [isInitialLoading, setIsInitialLoading] = useState(false); // No longer need initial loading state
   const [restTimer, setRestTimer] = useState<number | null>(null);
   const [showRestTimer, setShowRestTimer] = useState(false);
   const [isResting, setIsResting] = useState(false);
@@ -282,7 +326,12 @@ export default function ExerciseTrackScreen() {
   }, [routineId, exerciseId]);
 
   // Initialize exercise in workout context (simplified)
+  const [hasInitialized, setHasInitialized] = useState(false);
+  
   useEffect(() => {
+    // Only initialize once per exercise, not on every workout change
+    if (hasInitialized) return;
+    
     workout.setCurrentExercise(exerciseId);
     
     const savedExerciseData = workout.getExerciseData(exerciseId);
@@ -294,10 +343,16 @@ export default function ExerciseTrackScreen() {
       workout.initializeExercise(exerciseId, exerciseName, defaultSets);
       setSets(defaultSets);
     }
-  }, [exerciseId, exerciseName]);
+    
+    setHasInitialized(true);
+  }, [exerciseId, exerciseName]); // Removed workout from dependencies
 
-  // Separate effect for weight pre-filling that runs after exercise is loaded
+  // Separate effect for weight pre-filling that runs ONCE after exercise is loaded
+  const [hasPrefilled, setHasPrefilled] = useState(false);
+  
   useEffect(() => {
+    // Only run prefill once per exercise
+    if (hasPrefilled) return;
     
     const performWeightPrefill = async () => {
       
@@ -329,53 +384,97 @@ export default function ExerciseTrackScreen() {
         
         
         if (!needsWeightPrefill) {
+          setHasPrefilled(true); // Mark as done
           return;
         }
 
         
         try {
-          // Get last weight from local history first
-          let lastWeight = await getLastExerciseWeight(exerciseId);
+          // Get actual weights from last workout (not just max)
+          const lastWeights = await getLastExerciseWeights(exerciseId);
           
-          // If no local history, try Supabase
-          if (lastWeight === 0) {
-            const { data: { user } } = await supabase.auth.getUser();
-            if (user) {
-              const { data: exerciseHistory } = await supabase
-                .from('workout_exercise_sets')
-                .select('weight')
-                .eq('exercise_id', exerciseId)
-                .eq('user_id', user.id)
-                .order('created_at', { ascending: false })
-                .limit(1);
-              
-              lastWeight = exerciseHistory && exerciseHistory.length > 0 
-                ? parseFloat(exerciseHistory[0].weight) 
-                : 0;
-            }
-          }
-          
-          if (lastWeight > 0) {
+          // If we have weights from history
+          if (lastWeights.normal.length > 0 || lastWeights.warmup > 0) {
+            let normalSetIndex = 0;
+            const totalHistoricalSets = (lastWeights.warmup > 0 ? 1 : 0) + lastWeights.normal.length;
+            let setsFilledCount = 0;
             
-            const prefilledSets = exerciseData.sets.map(set => {
+            const prefilledSets = exerciseData.sets.map((set, index) => {
               // Only pre-fill if weight is empty/zero
               if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
-                const newWeight = set.type === 'Warmup' 
-                  ? Math.round(lastWeight * 0.5).toString()
-                  : lastWeight.toString();
+                let newWeight = '';  // Default to empty, not '0'
+                
+                if (set.type === 'Warmup' || set.type === 'warmup') {
+                  // Use actual warmup weight from history if available
+                  if (lastWeights.warmup > 0 && setsFilledCount < totalHistoricalSets) {
+                    newWeight = lastWeights.warmup.toString();
+                    setsFilledCount++;
+                  }
+                  // Don't fill warmup if there was no warmup in history
+                } else {
+                  // For normal sets, only fill up to the number of sets done last time
+                  if (normalSetIndex < lastWeights.normal.length) {
+                    newWeight = lastWeights.normal[normalSetIndex].toString();
+                    normalSetIndex++;
+                    setsFilledCount++;
+                  }
+                  // Leave remaining sets empty - don't use last weight
+                }
+                
                 return { ...set, weight: newWeight };
               }
               return set;
             });
             
+            console.log('Prefilled weights from history:', {
+              warmup: lastWeights.warmup,
+              normal: lastWeights.normal,
+              sets: prefilledSets.map(s => ({ type: s.type, weight: s.weight }))
+            });
             
             // Update both local state and workout context
             setSets(prefilledSets);
             workout.updateExerciseSets(exerciseId, prefilledSets);
           } else {
+            // No local history, try Supabase as fallback
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+              const { data: exerciseHistory } = await supabase
+                .from('workout_exercise_sets')
+                .select('weight, set_type')
+                .eq('exercise_id', exerciseId)
+                .eq('user_id', user.id)
+                .order('created_at', { ascending: false })
+                .limit(10);
+              
+              if (exerciseHistory && exerciseHistory.length > 0) {
+                // Use the weights from Supabase
+                const weights = exerciseHistory.map(s => parseFloat(s.weight) || 0);
+                const maxWeight = Math.max(...weights);
+                
+                if (maxWeight > 0) {
+                  const prefilledSets = exerciseData.sets.map(set => {
+                    if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
+                      const newWeight = set.type === 'Warmup' 
+                        ? Math.round(maxWeight * 0.5).toString()
+                        : maxWeight.toString();
+                      return { ...set, weight: newWeight };
+                    }
+                    return set;
+                  });
+                  
+                  setSets(prefilledSets);
+                  workout.updateExerciseSets(exerciseId, prefilledSets);
+                }
+              }
+            }
           }
+          
+          // Mark as prefilled so it doesn't run again
+          setHasPrefilled(true);
         } catch (error) {
           console.error('🏋️ Error during weight pre-fill:', error);
+          setHasPrefilled(true); // Mark as done even on error
         }
       };
       
@@ -384,7 +483,13 @@ export default function ExerciseTrackScreen() {
     };
     
     performWeightPrefill();
-  }, [exerciseId, workout.state.exercises]); // Also depend on workout exercises to trigger when they change
+  }, [exerciseId, hasPrefilled]); // Removed workout from dependencies
+  
+  // Reset flags when exercise changes
+  useEffect(() => {
+    setHasPrefilled(false);
+    setHasInitialized(false);
+  }, [exerciseId]);
 
   // Fetch detailed exercise data for explanations
   useEffect(() => {
@@ -412,8 +517,15 @@ export default function ExerciseTrackScreen() {
     fetchExerciseData();
   }, [exerciseId]);
 
-  // Save sets whenever they change
+  // Save sets whenever they change (but not on initial mount)
+  const [isInitialMount, setIsInitialMount] = useState(true);
+  
   useEffect(() => {
+    if (isInitialMount) {
+      setIsInitialMount(false);
+      return;
+    }
+    // Update workout context with current sets
     workout.updateExerciseSets(exerciseId, sets);
   }, [sets, exerciseId]);
 
@@ -449,13 +561,25 @@ export default function ExerciseTrackScreen() {
   const handleCompleteWorkout = async () => {
     
     try {
+      // Check if workout was already saved
+      if (workout.state.savedWorkoutId) {
+        console.log('Workout already saved with ID:', workout.state.savedWorkoutId);
+        // Navigate to complete screen with existing ID
+        navigation.navigate('WorkoutComplete', { workoutId: workout.state.savedWorkoutId });
+        return;
+      }
+      
       // Save workout first
       const workoutData = await saveWorkoutToHistory(workout.state);
-      // Then end workout and navigate to completion screen
-      workout.endWorkout();
+      
       if (workoutData && workoutData.id) {
+        // Mark workout as saved
+        workout.setSavedWorkoutId(workoutData.id);
+        // Navigate to completion screen
         navigation.navigate('WorkoutComplete', { workoutId: workoutData.id });
       } else {
+        // Save failed, still end workout
+        workout.endWorkout();
         navigation.navigate('HomeScreen');
       }
     } catch (error) {
@@ -484,15 +608,15 @@ export default function ExerciseTrackScreen() {
     }
   };
 
-  const updateSet = (setId: string, field: 'weight' | 'reps' | 'rpe' | 'notes', value: string | number) => {
+  const updateSet = useCallback((setId: string, field: 'weight' | 'reps' | 'rpe' | 'notes', value: string | number) => {
     setSets(prevSets => 
       prevSets.map(set => 
         set.id === setId ? { ...set, [field]: value } : set
       )
     );
-  };
+  }, []);
 
-  const toggleSetExpansion = (setId: string) => {
+  const toggleSetExpansion = useCallback((setId: string) => {
     setExpandedSets(prev => {
       const newSet = new Set(prev);
       if (newSet.has(setId)) {
@@ -502,7 +626,7 @@ export default function ExerciseTrackScreen() {
       }
       return newSet;
     });
-  };
+  }, []);
 
   const toggleSetComplete = (setId: string) => {
     setSets(prevSets => 
@@ -560,7 +684,7 @@ export default function ExerciseTrackScreen() {
     }
   };
 
-  const adjustWeight = (setId: string, increment: number) => {
+  const adjustWeight = useCallback((setId: string, increment: number) => {
     setSets(prevSets => 
       prevSets.map(set => {
         if (set.id === setId) {
@@ -571,7 +695,7 @@ export default function ExerciseTrackScreen() {
         return set;
       })
     );
-  };
+  }, []);
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
@@ -624,13 +748,32 @@ export default function ExerciseTrackScreen() {
     );
   };
 
-  // Calculate enhanced workout statistics
+  // Get exercise data for volume calculation (use existing exerciseData from line 61)
+  const equipment = exerciseData?.equipment || '기타';
+  const englishName = exerciseData?.englishName || '';
+  
+  // Calculate enhanced workout statistics with adjusted volume
   const completedSets = sets.filter(set => set.completed);
   const totalVolume = completedSets.reduce((total, set) => {
     const weight = parseFloat(set.weight) || 0;
     const reps = parseInt(set.reps) || 0;
-    return total + (weight * reps);
+    // Use adjusted volume calculation for dumbbells and unilateral movements
+    const adjustedVolume = calculateAdjustedVolume(
+      weight,
+      reps,
+      exerciseName || '',
+      equipment,
+      englishName
+    );
+    return total + adjustedVolume;
   }, 0);
+  
+  // Get the adjustment reason if any
+  const volumeAdjustmentReason = getVolumeAdjustmentReason(
+    exerciseName || '',
+    equipment,
+    englishName
+  );
 
   // Calculate 1RM using Brzycki formula: Weight × (36 / (37 - Reps))
   const estimatedOneRM = completedSets.length > 0 ? Math.max(...completedSets.map(set => {
@@ -800,8 +943,15 @@ export default function ExerciseTrackScreen() {
         <View style={styles.statsSection}>
           <View style={styles.statsRow}>
             <View style={styles.statItem}>
-              <Text style={styles.statLabel}>총 볼륨</Text>
+              <Text style={styles.statLabel}>
+                총 볼륨 {volumeAdjustmentReason && '(2x)'}
+              </Text>
               <Text style={styles.statValue}>{totalVolume.toFixed(0)}kg</Text>
+              {volumeAdjustmentReason && (
+                <Text style={styles.volumeAdjustmentNote}>
+                  {volumeAdjustmentReason}
+                </Text>
+              )}
             </View>
             <View style={styles.statItem}>
               <Text style={styles.statLabel}>예상 1RM</Text>
@@ -1040,17 +1190,9 @@ export default function ExerciseTrackScreen() {
         >
           <View style={styles.mediaSection}>
             <Text style={styles.sectionTitle}>운동 동작</Text>
-            <EnhancedExerciseGifDisplay 
+            <MemoizedGifDisplay 
               exerciseId={exerciseId} 
               exerciseName={exerciseName}
-              showDebugInfo={__DEV__} // Show debug info in development
-              height={200}
-              onFallbackUsed={(fallbackType) => {
-                console.log(`Exercise GIF fallback used: ${fallbackType}`);
-              }}
-              onNetworkError={(error) => {
-                console.error('Exercise GIF network error:', error);
-              }}
             />
           </View>
         </NetworkErrorBoundary>
@@ -1471,6 +1613,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: Colors.primary,
+  },
+  volumeAdjustmentNote: {
+    fontSize: 11,
+    color: Colors.success,
+    marginTop: 2,
+    fontStyle: 'italic',
   },
   setsSection: {
     backgroundColor: Colors.surface,

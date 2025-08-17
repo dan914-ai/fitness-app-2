@@ -1,0 +1,26 @@
+id,screen,control,issue,repro,suspected_cause,severity
+1,Multiple Screens,TouchableOpacity buttons,Inconsistent button styles,Various screens use different button implementations,No unified button component,HIGH
+2,HomeScreen,Start Workout button,Multiple entry points for same action,Start workout accessible from 3+ different locations,Duplicate navigation paths,MEDIUM
+3,All Screens,Text colors,Hardcoded color values,#2D3436 and other hex values directly in styles,No consistent theme usage,HIGH
+4,Exercise Thumbnails,7 thumbnail components,Excessive duplication,Multiple thumbnail implementations with overlapping functionality,No single source of truth,HIGH
+5,Timer Components,3 timer implementations,Redundant timer logic,RestTimer/WorkoutTimer/QuickTimer with similar features,Component fragmentation,MEDIUM
+6,Navigation,Bottom tabs + buttons,Navigation redundancy,Same screens accessible via tabs and action buttons,Unclear IA,MEDIUM
+7,All Screens,Spacing,Inconsistent padding/margins,Mixed use of 8/12/16/20px spacing,No spacing grid system,MEDIUM
+8,Input Fields,TextInput,No consistent input styling,Different border/padding/font sizes across forms,No input component standard,HIGH
+9,Cards,Various card components,Inconsistent elevation and borders,Some cards use shadows others use borders,No card design pattern,MEDIUM
+10,Lists,ListItem variations,Different list item heights and padding,Exercise lists vs routine lists vs history lists,No list item component,MEDIUM
+11,Modal/Sheets,Modal overlays,Inconsistent backdrop opacity,0.5 vs 0.7 opacity values,No modal system,LOW
+12,Icons,Icon sizes,Inconsistent icon dimensions,16px to 32px icons without clear hierarchy,No icon size system,LOW
+13,Loading States,Loading indicators,Different loading patterns,Some use skeletons others use spinners,No loading state pattern,MEDIUM
+14,Empty States,Empty content,Inconsistent empty state messages,Different styles for "no data" displays,No empty state component,LOW
+15,Error States,Error displays,No consistent error handling UI,Errors shown as alerts vs inline vs toasts,No error state pattern,MEDIUM
+16,Forms,Form validation,Inconsistent validation feedback,Some forms show errors inline others don't,No form validation pattern,MEDIUM
+17,Typography,Font sizes,No clear hierarchy,Mixed font sizes without consistent scale,No typography system,HIGH
+18,Touch Targets,Clickable areas,Some targets below 44px,Small buttons and links hard to tap,Accessibility issue,HIGH
+19,Focus States,Keyboard navigation,Missing focus indicators,No visible focus states for keyboard users,Accessibility issue,HIGH
+20,Contrast,Text on backgrounds,Some text fails WCAG AA,Light grey text on white backgrounds,Accessibility issue,HIGH
+21,Animations,Transition timing,Inconsistent animation speeds,200ms to 500ms durations mixed,No animation system,LOW
+22,Safe Areas,Screen edges,Content too close to edges,Some screens don't respect safe areas,Layout issue,MEDIUM
+23,Dark Mode,Theme support,No dark mode implementation,All screens light mode only,Missing feature,LOW
+24,Responsive,Different screen sizes,Fixed dimensions,Some components use fixed width/height,Not responsive,MEDIUM
+25,Status Messages,Success/error feedback,Inconsistent feedback patterns,Different ways to show action results,No feedback system,MEDIUM

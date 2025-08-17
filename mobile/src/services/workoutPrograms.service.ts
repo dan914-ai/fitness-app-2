@@ -3,9 +3,12 @@ import { routinesService, Routine } from './routines.service';
 import { exerciseDatabaseService } from './exerciseDatabase.service';
 import { convertAllPrograms } from '../utils/programConverter';
 import { safeJsonParse, safeJsonStringify } from '../utils/safeJsonParse';
+import { forceProgramRefresh } from '../utils/forceProgramRefresh';
 
 const PROGRAMS_STORAGE_KEY = '@workout_programs';
 const ACTIVE_PROGRAM_KEY = '@active_program';
+const PROGRAMS_VERSION_KEY = '@programs_version';
+const CURRENT_PROGRAMS_VERSION = 'v5.0-no-bodyweight-weightlifting'; // Force refresh - no bodyweight in weightlifting programs
 
 export interface WorkoutDay {
   dayNumber: number;
@@ -48,11 +51,23 @@ class WorkoutProgramsService {
 
   async loadPrograms(): Promise<void> {
     try {
+      // Check version to force refresh when converter changes
+      const storedVersion = await AsyncStorage.getItem(PROGRAMS_VERSION_KEY);
+      const needsRefresh = storedVersion !== CURRENT_PROGRAMS_VERSION;
+      
+      if (needsRefresh) {
+        console.log(`[WorkoutPrograms] Version mismatch (stored: ${storedVersion}, current: ${CURRENT_PROGRAMS_VERSION}). Refreshing programs...`);
+        // Force complete refresh to fix PPL bodyweight issue
+        await forceProgramRefresh();
+        await AsyncStorage.setItem(PROGRAMS_VERSION_KEY, CURRENT_PROGRAMS_VERSION);
+      }
+      
       const storedPrograms = await AsyncStorage.getItem(PROGRAMS_STORAGE_KEY);
-      if (storedPrograms) {
+      if (storedPrograms && !needsRefresh) {
         this.programs = safeJsonParse(storedPrograms, []);
       } else {
         // Initialize with default programs (Korean beginner program)
+        console.log('[WorkoutPrograms] Converting programs from source data...');
         this.programs = this.getDefaultPrograms();
         await this.savePrograms();
       }

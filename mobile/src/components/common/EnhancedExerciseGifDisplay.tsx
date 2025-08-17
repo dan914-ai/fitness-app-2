@@ -57,16 +57,20 @@ const EnhancedExerciseGifDisplay = memo(({
     const generatedUrls = getExerciseGifUrls(exerciseId);
     generatedUrls.forEach(url => urls.push({ uri: url }));
     
-    // Update debug info
-    if (showDebugInfo) {
+    return urls;
+  }, [exerciseId, exerciseData]);
+  
+  // Update debug info in a separate effect
+  React.useEffect(() => {
+    if (showDebugInfo && exerciseData) {
+      const generatedUrls = getExerciseGifUrls(exerciseId);
       setDebugInfo({
         primaryUrl: exerciseData?.gifUrl,
         fallbackUrls: generatedUrls,
         currentSource: exerciseData?.gifUrl || generatedUrls[0],
+        fallbackType: undefined,
       });
     }
-    
-    return urls;
   }, [exerciseId, exerciseData, showDebugInfo]);
 
   const handleFallbackUsed = useCallback((fallbackType: 'fallback' | 'thumbnail' | 'placeholder') => {

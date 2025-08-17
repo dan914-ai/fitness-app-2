@@ -374,11 +374,37 @@ class ExerciseDatabaseService {
    * Get exercise by name (for compatibility)
    */
   getExerciseByName(name: string, forListView = true): Exercise | undefined {
-    const exercise = this.exercises.find(ex => 
+    // First try exact match
+    const exactMatch = this.exercises.find(ex => 
       ex.name === name || ex.englishName === name
     );
     
-    return exercise ? this.mapToApiExercise(exercise) : undefined;
+    if (exactMatch) {
+      return this.mapToApiExercise(exactMatch);
+    }
+    
+    // If no exact match and we're looking for a barbell exercise, don't fall back to bodyweight
+    // This prevents "바벨 스쿼트" from matching "바디웨이트 스쿼트"
+    if (name.includes('바벨') || name.includes('Barbell')) {
+      return undefined;
+    }
+    
+    // Then try partial match (but exclude bodyweight if looking for weighted exercises)
+    const partialMatch = this.exercises.find(ex => {
+      const nameLower = name.toLowerCase();
+      const exNameLower = ex.name.toLowerCase();
+      const exEnglishLower = ex.englishName.toLowerCase();
+      
+      // Don't match bodyweight exercises when looking for specific equipment
+      if ((name.includes('덤벨') || name.includes('바벨') || name.includes('케이블')) && 
+          (ex.equipment === '맨몸' || exNameLower.includes('바디웨이트') || exEnglishLower.includes('bodyweight'))) {
+        return false;
+      }
+      
+      return exNameLower.includes(nameLower) || exEnglishLower.includes(nameLower);
+    });
+    
+    return partialMatch ? this.mapToApiExercise(partialMatch) : undefined;
   }
 }
 

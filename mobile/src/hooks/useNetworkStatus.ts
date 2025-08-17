@@ -56,13 +56,15 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
       hasChanged: false, // Will be set below
     };
 
-    // Detect if status has meaningfully changed
-    if (previousStatus) {
+    setNetworkStatus((currentStatus) => {
+      setPreviousStatus(currentStatus);
+      
+      // Detect if status has meaningfully changed
       const statusChanged = (
-        previousStatus.isOnline !== newStatus.isOnline ||
-        previousStatus.isConnected !== newStatus.isConnected ||
-        previousStatus.isInternetReachable !== newStatus.isInternetReachable ||
-        previousStatus.connectionQuality !== newStatus.connectionQuality
+        currentStatus.isOnline !== newStatus.isOnline ||
+        currentStatus.isConnected !== newStatus.isConnected ||
+        currentStatus.isInternetReachable !== newStatus.isInternetReachable ||
+        currentStatus.connectionQuality !== newStatus.connectionQuality
       );
       
       newStatus.hasChanged = statusChanged;
@@ -71,8 +73,8 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
       if (statusChanged) {
         console.log('🌐 Network status changed:', {
           from: {
-            online: previousStatus.isOnline,
-            quality: previousStatus.connectionQuality,
+            online: currentStatus.isOnline,
+            quality: currentStatus.connectionQuality,
           },
           to: {
             online: newStatus.isOnline,
@@ -81,16 +83,20 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
         });
         
         // Auto-retry failed requests when network is restored
-        if (!previousStatus.isOnline && newStatus.isOnline) {
+        if (!currentStatus.isOnline && newStatus.isOnline) {
           console.log('🔄 Network restored - clearing failed request cache');
-          retryFailedRequests();
+          // Note: We'll call retryFailedRequests outside the state update
+          setTimeout(() => {
+            gifService.clearFailedUrlsCache();
+            gifService.initializeNetworkListeners();
+            console.log('✅ Failed request caches cleared - retries enabled');
+          }, 0);
         }
       }
-    }
-
-    setPreviousStatus(networkStatus);
-    setNetworkStatus(newStatus);
-  }, [networkStatus, previousStatus]);
+      
+      return newStatus;
+    });
+  }, []);
 
   const retryFailedRequests = useCallback(() => {
     try {
@@ -120,7 +126,7 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
   const refreshNetworkStatus = useCallback(async () => {
     console.log('🔄 Refreshing network status...');
     await updateNetworkStatus();
-  }, [updateNetworkStatus]);
+  }, []);
 
   // Initialize network monitoring
   useEffect(() => {
@@ -157,7 +163,7 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
         clearInterval(statusInterval);
       }
     };
-  }, [updateNetworkStatus]);
+  }, []);
 
   return {
     networkStatus,

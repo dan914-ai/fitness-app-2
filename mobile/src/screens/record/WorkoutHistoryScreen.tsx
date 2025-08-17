@@ -21,6 +21,7 @@ import { getWorkoutHistory, WorkoutHistoryItem, deleteWorkout } from '../../util
 import { Calendar } from 'react-native-calendars';
 import { getStaticThumbnail } from '../../constants/staticThumbnails';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
+import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
 
 type WorkoutHistoryScreenProps = {
   navigation: StackNavigationProp<RecordStackParamList, 'WorkoutHistory'>;
@@ -54,6 +55,17 @@ export default function WorkoutHistoryScreen() {
       const history = await getWorkoutHistory();
       if (history.length > 0 && history[0].exercises.length > 0) {
       }
+      // Debug: Log all workouts to check if memo exists
+      console.log('[History] Loading workouts, total count:', history.length);
+      history.forEach((workout, index) => {
+        console.log(`[History] Workout ${index}:`, {
+          id: workout.id,
+          routineName: workout.routineName,
+          date: workout.date,
+          memo: workout.memo,
+          rating: workout.rating,
+        });
+      });
       setWorkouts(history);
     } catch (error) {
       console.error('Error loading workouts:', error);
@@ -110,6 +122,35 @@ export default function WorkoutHistoryScreen() {
       return `${hours}시간 ${minutes}분`;
     }
     return `${minutes}분`;
+  };
+
+  // Recalculate volume with adjustments for dumbbells and unilateral movements
+  const getAdjustedVolume = (workout: WorkoutHistoryItem): number => {
+    let totalVolume = 0;
+    
+    workout.exercises.forEach(exercise => {
+      // Get exercise data to check equipment type
+      const exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId) || 
+                          exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
+      const equipment = exerciseData?.equipment || '기타';
+      const englishName = exerciseData?.englishName || '';
+      
+      // Calculate adjusted volume for each set
+      exercise.sets.forEach(set => {
+        const weight = parseFloat(set.weight) || 0;
+        const reps = parseInt(set.reps) || 0;
+        const adjustedVolume = calculateAdjustedVolume(
+          weight,
+          reps,
+          exercise.exerciseName,
+          equipment,
+          englishName
+        );
+        totalVolume += adjustedVolume;
+      });
+    });
+    
+    return totalVolume;
   };
 
   // Get marked dates for calendar
@@ -196,7 +237,7 @@ export default function WorkoutHistoryScreen() {
         </View>
         <View style={styles.statItem}>
           <Icon name="fitness-center" size={16} color={Colors.textSecondary} />
-          <Text style={styles.statText}>{workout.totalVolume.toLocaleString()}kg</Text>
+          <Text style={styles.statText}>{getAdjustedVolume(workout).toLocaleString()}kg</Text>
         </View>
         <View style={styles.statItem}>
           <Icon name="format-list-numbered" size={16} color={Colors.textSecondary} />
@@ -207,10 +248,17 @@ export default function WorkoutHistoryScreen() {
       <View style={styles.exercisesList}>
         <View style={[styles.exerciseThumbnails, { backgroundColor: '#f0f0f0', padding: 8 }]}>
           {workout.exercises.slice(0, 4).map((exercise, index) => {
-            // Try to find by ID first, then by name
-            let exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId);
-            if (!exerciseData) {
-              exerciseData = exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
+            // Safely try to find exercise data
+            let exerciseData = null;
+            try {
+              if (exercise.exerciseId) {
+                exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId);
+              }
+              if (!exerciseData && exercise.exerciseName) {
+                exerciseData = exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
+              }
+            } catch (error) {
+              console.warn('Error getting exercise data:', error);
             }
             
             const thumbnail = exerciseData?.thumbnail || null;
@@ -249,6 +297,30 @@ export default function WorkoutHistoryScreen() {
           )}
         </View>
       </View>
+      
+      {workout.memo && (
+        <View style={styles.memoSection}>
+          <Icon name="note" size={16} color={Colors.primary} />
+          <Text style={styles.memoText} numberOfLines={3}>
+            {workout.memo}
+          </Text>
+        </View>
+      )}
+      
+      {workout.rating && (
+        <View style={styles.ratingSection}>
+          <View style={styles.ratingStars}>
+            {[1, 2, 3, 4, 5].map(star => (
+              <Icon 
+                key={star} 
+                name="star" 
+                size={14} 
+                color={star <= workout.rating ? Colors.warning : Colors.border} 
+              />
+            ))}
+          </View>
+        </View>
+      )}
     </TouchableOpacity>
     );
   };
@@ -348,7 +420,7 @@ export default function WorkoutHistoryScreen() {
           </View>
           <View style={styles.summaryItem}>
             <Text style={styles.summaryValue}>
-              {filteredWorkouts.reduce((sum, w) => sum + w.totalVolume, 0).toLocaleString()}
+              {filteredWorkouts.reduce((sum, w) => sum + getAdjustedVolume(w), 0).toLocaleString()}
             </Text>
             <Text style={styles.summaryLabel}>총 볼륨(kg)</Text>
           </View>
@@ -618,5 +690,31 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  memoSection: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginTop: 12,
+    paddingTop: 12,
+    paddingHorizontal: 8,
+    backgroundColor: Colors.primaryLight,
+    borderRadius: 8,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+    gap: 8,
+  },
+  memoText: {
+    flex: 1,
+    fontSize: 14,
+    color: Colors.text,
+    lineHeight: 20,
+    fontStyle: 'italic',
+  },
+  ratingSection: {
+    marginTop: 8,
+  },
+  ratingStars: {
+    flexDirection: 'row',
+    gap: 2,
   },
 });

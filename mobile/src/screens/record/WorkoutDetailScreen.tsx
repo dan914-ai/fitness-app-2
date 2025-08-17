@@ -22,6 +22,7 @@ import progressionService from '../../services/progression.service';
 import { supabase } from '../../config/supabase';
 import { getStaticThumbnail } from '../../constants/staticThumbnails';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
+import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
 
 const { width } = Dimensions.get('window');
 
@@ -196,6 +197,35 @@ export default function WorkoutDetailScreen() {
     }).replace(/\. /g, '.');
   };
 
+  // Recalculate volume with adjustments for dumbbells and unilateral movements
+  const getAdjustedTotalVolume = (workoutData: WorkoutHistoryItem): number => {
+    let totalVolume = 0;
+    
+    workoutData.exercises.forEach(exercise => {
+      // Get exercise data to check equipment type
+      const exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId) || 
+                          exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
+      const equipment = exerciseData?.equipment || '기타';
+      const englishName = exerciseData?.englishName || '';
+      
+      // Calculate adjusted volume for each set
+      exercise.sets.forEach(set => {
+        const weight = parseFloat(set.weight) || 0;
+        const reps = parseInt(set.reps) || 0;
+        const adjustedVolume = calculateAdjustedVolume(
+          weight,
+          reps,
+          exercise.exerciseName,
+          equipment,
+          englishName
+        );
+        totalVolume += adjustedVolume;
+      });
+    });
+    
+    return totalVolume;
+  };
+
   const calculateCalories = (volume: number, duration: number): number => {
     // Rough estimation: ~0.05 calories per kg lifted + 5 calories per minute
     return Math.round(volume * 0.05 + (duration / 60) * 5);
@@ -242,7 +272,9 @@ export default function WorkoutDetailScreen() {
     );
   }
 
-  const calories = calculateCalories(workout.totalVolume, workout.duration);
+  // Calculate adjusted total volume for display
+  const adjustedTotalVolume = getAdjustedTotalVolume(workout);
+  const calories = calculateCalories(adjustedTotalVolume, workout.duration);
   const totalReps = workout.exercises.reduce((sum, ex) => 
     sum + ex.sets.reduce((setSum, set) => 
       setSum + parseInt(set.reps || '0'), 0
@@ -329,7 +361,7 @@ export default function WorkoutDetailScreen() {
               <Text style={styles.statLabel}>REPS</Text>
             </View>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>{workout.totalVolume.toLocaleString()}<Text style={styles.statUnit}>kg</Text></Text>
+              <Text style={styles.statValue}>{adjustedTotalVolume.toLocaleString()}<Text style={styles.statUnit}>kg</Text></Text>
               <Text style={styles.statLabel}>VOLUME</Text>
             </View>
           </View>
@@ -364,6 +396,19 @@ export default function WorkoutDetailScreen() {
             <Text style={styles.secondaryStatLabel}>INTENSITY</Text>
           </View>
         </View>
+
+        {/* Memo Section */}
+        {workout.memo && (
+          <View style={styles.memoSection}>
+            <View style={styles.memoHeader}>
+              <Icon name="note" size={20} color={Colors.primary} />
+              <Text style={styles.memoTitle}>운동 메모</Text>
+            </View>
+            <Text style={styles.memoText}>
+              {workout.memo}
+            </Text>
+          </View>
+        )}
 
         {/* Exercise List */}
         <View style={styles.exerciseSection}>
@@ -568,6 +613,31 @@ const styles = StyleSheet.create({
     color: '#666666',
     marginTop: 4,
     letterSpacing: 0.5,
+  },
+  memoSection: {
+    marginHorizontal: 20,
+    marginBottom: 20,
+    padding: 16,
+    backgroundColor: '#111111',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#222222',
+  },
+  memoHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 12,
+  },
+  memoTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
+  memoText: {
+    fontSize: 15,
+    color: '#CCCCCC',
+    lineHeight: 22,
   },
   exerciseSection: {
     paddingHorizontal: 20,

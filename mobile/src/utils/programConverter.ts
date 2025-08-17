@@ -48,12 +48,12 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
   "Dumbbell Shrug": { koreanName: "덤벨 슈러그" },
   
   // Legs - Quads
-  "Barbell Squat": { koreanName: "바벨 스쿼트", alternateNames: ["Back Squat"] }, // Fixed: Use actual barbell squat
-  "Front Squat": { koreanName: "프론트 스쿼트", alternateNames: ["바벨 프론트 스쿼트"] },
+  "Barbell Squat": { koreanName: "바벨 스쿼트", alternateNames: ["Back Squat", "Squat"] }, // Fixed: Use actual barbell squat
+  "Front Squat": { koreanName: "바벨 프론트 스쿼트", alternateNames: ["프론트 스쿼트"] }, // More specific name
   "Leg Press": { koreanName: "레그 프레스", alternateNames: ["Machine Leg Press"] },
   "Leg Extension": { koreanName: "레그 익스텐션" },
-  "Bulgarian Split Squat": { koreanName: "불가리안 스플릿 스쿼트" },
-  "Walking Lunge": { koreanName: "런지", alternateNames: ["Lunges", "바벨 런지"] }, // Fixed: Use actual lunge
+  "Bulgarian Split Squat": { koreanName: "불가리안 스플릿 스쿼트", alternateNames: ["Split Squat"] }, // This is typically done with dumbbells in PPL
+  "Walking Lunge": { koreanName: "바벨 런지", alternateNames: ["Lunges", "워킹 런지", "Barbell Lunge"] }, // Use barbell lunge for PPL
   "Bodyweight Squats": { koreanName: "바디웨이트 스쿼트", alternateNames: ["Air Squats", "맨몸 스쿼트"] },
   "Squat": { koreanName: "바벨 스쿼트" }, // Default squat to barbell squat for weightlifting
   "Squats": { koreanName: "바벨 스쿼트" }, // Default squats to barbell squat for weightlifting
@@ -96,50 +96,167 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
 };
 
 // Find exercise ID by name (searches both English and Korean names)
-function findExerciseId(exerciseName: string): string | null {
+function findExerciseId(exerciseName: string, programDiscipline?: string): string | null {
+  console.log(`[ProgramConverter] Finding exercise ID for: "${exerciseName}" (Program: ${programDiscipline})`);
+  
+  // IMPORTANT: Determine if this is a weightlifting program that should NOT use bodyweight exercises
+  const isWeightliftingProgram = programDiscipline && 
+    (programDiscipline.toLowerCase().includes('powerlifting') ||
+     programDiscipline.toLowerCase().includes('bodybuilding') ||
+     programDiscipline.toLowerCase().includes('strength') ||
+     programDiscipline.toLowerCase().includes('olympic'));
+  
+  const isCalisthenicsProgram = programDiscipline && 
+    programDiscipline.toLowerCase().includes('calisthenics');
+  
   // First try exact match with our mapping
   const mapping = EXERCISE_NAME_MAPPINGS[exerciseName];
   if (mapping) {
+    console.log(`[ProgramConverter] Found mapping: "${exerciseName}" → "${mapping.koreanName}"`);
+    
+    // For weightlifting programs, NEVER use bodyweight exercises unless explicitly specified
+    const isExplicitlyBodyweight = exerciseName.toLowerCase().includes('bodyweight') || 
+                                   exerciseName.toLowerCase().includes('맨몸');
+    
+    // If it's a weightlifting program and the exercise name doesn't explicitly say bodyweight,
+    // we should NEVER select a bodyweight exercise
+    const shouldAvoidBodyweight = isWeightliftingProgram && !isExplicitlyBodyweight;
+    
     // Search by Korean name in database
     const exercise = exerciseDatabaseService.getExerciseByName(mapping.koreanName);
-    if (exercise) return exercise.exerciseId;
+    if (exercise) {
+      // Double-check we're not getting a bodyweight version when we want weighted
+      const exerciseDetails = exerciseDatabaseService.getExerciseById(exercise.exerciseId);
+      const isBodyweightExercise = exerciseDetails?.exerciseName?.includes('바디웨이트') || 
+                                   exerciseDetails?.exerciseName?.includes('맨몸') ||
+                                   exerciseDetails?.equipment === '맨몸';
+      
+      if (shouldAvoidBodyweight && isBodyweightExercise) {
+        console.log(`[ProgramConverter] Skipping bodyweight version for weightlifting program, looking for weighted alternative`);
+      } else if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
+        console.log(`[ProgramConverter] Skipping bodyweight version, looking for weighted alternative`);
+      } else {
+        console.log(`[ProgramConverter] Found exercise by Korean name: ID ${exercise.exerciseId}, Name: ${exercise.exerciseName}`);
+        return exercise.exerciseId;
+      }
+    }
     
     // Try alternate names
     if (mapping.alternateNames) {
       for (const altName of mapping.alternateNames) {
         const altExercise = exerciseDatabaseService.getExerciseByName(altName);
-        if (altExercise) return altExercise.exerciseId;
+        if (altExercise) {
+          // Double-check we're not getting a bodyweight version when we want weighted
+          const exerciseDetails = exerciseDatabaseService.getExerciseById(altExercise.exerciseId);
+          const isBodyweightExercise = exerciseDetails?.exerciseName?.includes('바디웨이트') || 
+                                       exerciseDetails?.exerciseName?.includes('맨몸') ||
+                                       exerciseDetails?.equipment === '맨몸';
+          
+          if (shouldAvoidBodyweight && isBodyweightExercise) {
+            console.log(`[ProgramConverter] Skipping bodyweight alternate for weightlifting program`);
+            continue;
+          }
+          if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
+            console.log(`[ProgramConverter] Skipping bodyweight alternate, continuing search`);
+            continue;
+          }
+          
+          console.log(`[ProgramConverter] Found by alternate name "${altName}": ID ${altExercise.exerciseId}`);
+          return altExercise.exerciseId;
+        }
       }
     }
   }
   
   // Try direct search in database (in case the name is already in the database)
   const directSearch = exerciseDatabaseService.getExerciseByName(exerciseName);
-  if (directSearch) return directSearch.exerciseId;
+  if (directSearch) {
+    // Check if this is a bodyweight exercise when we're looking for weighted
+    const isExplicitlyBodyweight = exerciseName.toLowerCase().includes('bodyweight') || 
+                                   exerciseName.toLowerCase().includes('맨몸');
+    const shouldAvoidBodyweight = isWeightliftingProgram && !isExplicitlyBodyweight;
+    const exerciseDetails = exerciseDatabaseService.getExerciseById(directSearch.exerciseId);
+    const isBodyweightExercise = directSearch.exerciseName?.includes('바디웨이트') || 
+                                 directSearch.exerciseName?.includes('맨몸') ||
+                                 exerciseDetails?.equipment === '맨몸';
+    
+    if (shouldAvoidBodyweight && isBodyweightExercise) {
+      console.log(`[ProgramConverter] Direct search found bodyweight version, skipping for weightlifting program`);
+    } else if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
+      console.log(`[ProgramConverter] Direct search found bodyweight version, skipping`);
+    } else {
+      console.log(`[ProgramConverter] Found by direct search: ID ${directSearch.exerciseId}`);
+      return directSearch.exerciseId;
+    }
+  }
   
   // Try searching using detailed exercises (has englishName)
   const allExercisesWithDetails = exerciseDatabaseService.getAllExercisesWithDetails();
+  const isExplicitlyBodyweight = exerciseName.toLowerCase().includes('bodyweight') || 
+                                 exerciseName.toLowerCase().includes('맨몸');
+  const shouldAvoidBodyweight = isWeightliftingProgram && !isExplicitlyBodyweight;
+  
   const found = allExercisesWithDetails.find(ex => {
     if (!ex) return false;
-    const koreanMatch = ex.koreanName && ex.koreanName.toLowerCase() === exerciseName.toLowerCase();
+    const koreanMatch = ex.koreanName && ex.koreanName === exerciseName;
     const englishMatch = ex.englishName && ex.englishName.toLowerCase() === exerciseName.toLowerCase();
+    
+    // Check if this is a bodyweight exercise
+    const isBodyweightExercise = ex.equipment === '맨몸' || 
+                                 ex.koreanName?.includes('바디웨이트') ||
+                                 ex.koreanName?.includes('맨몸');
+    
+    // Skip if it's a weightlifting program and this is a bodyweight exercise
+    if (shouldAvoidBodyweight && isBodyweightExercise) return false;
+    if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) return false;
+    
     return koreanMatch || englishMatch;
   });
   
-  if (found) return found.exerciseId;
+  if (found) {
+    console.log(`[ProgramConverter] Found by exact detailed search: ID ${found.exerciseId}, Name: ${found.koreanName}`);
+    return found.exerciseId;
+  }
   
-  // Try partial match
+  // IMPORTANT: Don't do partial matching for specific equipment-based exercises
+  // This prevents "바벨 스쿼트" from matching "바디웨이트 스쿼트"
+  const targetKoreanName = mapping?.koreanName || exerciseName;
+  if (targetKoreanName.includes('바벨') || targetKoreanName.includes('덤벨') || 
+      targetKoreanName.includes('케이블') || targetKoreanName.includes('머신')) {
+    console.warn(`[ProgramConverter] No match found for weighted exercise: ${exerciseName} (${targetKoreanName})`);
+    return null;
+  }
+  
+  // Try partial match ONLY for non-equipment-specific exercises
   const partialMatch = allExercisesWithDetails.find(ex => {
     if (!ex) return false;
+    
+    // Check if this is a bodyweight exercise
+    const isBodyweightExercise = ex.equipment === '맨몸' || 
+                                 ex.koreanName?.includes('바디웨이트') ||
+                                 ex.koreanName?.includes('맨몸');
+    
+    // Skip bodyweight exercises for weightlifting programs
+    if (shouldAvoidBodyweight && isBodyweightExercise) {
+      return false;
+    }
+    // Skip bodyweight exercises when looking for weighted ones (unless it's calisthenics)
+    if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
+      return false;
+    }
+    
     const searchLower = exerciseName.toLowerCase();
     const koreanIncludes = ex.koreanName && ex.koreanName.toLowerCase().includes(searchLower);
     const englishIncludes = ex.englishName && ex.englishName.toLowerCase().includes(searchLower);
     return koreanIncludes || englishIncludes;
   });
   
-  if (partialMatch) return partialMatch.exerciseId;
+  if (partialMatch) {
+    console.log(`[ProgramConverter] Found by partial match: ID ${partialMatch.exerciseId}, Name: ${partialMatch.koreanName}`);
+    return partialMatch.exerciseId;
+  }
   
-  console.warn(`Exercise not found in database: ${exerciseName}`);
+  console.warn(`[ProgramConverter] Exercise not found in database: ${exerciseName}`);
   return null;
 }
 
@@ -162,7 +279,7 @@ export function convertProgramToAppFormat(programData: WorkoutProgramData): Omit
     const exercises: ProgramExercise[] = [];
     
     day.exercises.forEach(exercise => {
-      const exerciseId = findExerciseId(exercise.exercise_name);
+      const exerciseId = findExerciseId(exercise.exercise_name, programData.discipline);
       if (exerciseId) {
         // Get the Korean name from the database
         const dbExercise = exerciseDatabaseService.getExerciseById(exerciseId);

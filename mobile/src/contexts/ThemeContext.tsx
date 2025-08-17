@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useColorScheme } from 'react-native';
+import { lightTheme as designLightTheme, darkTheme as designDarkTheme, Theme } from '../styles/theme';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
+// For backward compatibility, map old interface to new theme
 export interface ThemeColors {
   primary: string;
   secondary: string;
@@ -18,49 +20,35 @@ export interface ThemeColors {
   error: string;
   info: string;
   shadow: string;
-  // Dark mode specific
   surfaceElevated?: string;
   primaryDark?: string;
 }
 
-const lightTheme: ThemeColors = {
-  primary: '#6366F1',
-  secondary: '#EC4899',
-  background: '#F8F9FA',
-  surface: '#FFFFFF',
-  text: '#1F2937',
-  textSecondary: '#6B7280',
-  textLight: '#9CA3AF',
-  border: '#E5E7EB',
-  success: '#10B981',
-  warning: '#F59E0B',
-  error: '#EF4444',
-  info: '#3B82F6',
+// Map new design tokens to old interface for compatibility
+const mapThemeToLegacy = (theme: Theme): ThemeColors => ({
+  primary: theme.colors.semantic.primary.main,
+  secondary: theme.colors.semantic.secondary.main,
+  background: theme.colors.background,
+  surface: theme.colors.surface,
+  text: theme.colors.text,
+  textSecondary: theme.colors.textSecondary,
+  textLight: theme.colors.textDisabled,
+  border: theme.colors.divider,
+  success: theme.colors.semantic.success.main,
+  warning: theme.colors.semantic.warning.main,
+  error: theme.colors.semantic.error.main,
+  info: theme.colors.semantic.info.main,
   shadow: '#000000',
-  surfaceElevated: '#FFFFFF',
-  primaryDark: '#4F46E5',
-};
+  surfaceElevated: theme.colors.surface,
+  primaryDark: theme.colors.semantic.primary.dark,
+});
 
-const darkTheme: ThemeColors = {
-  primary: '#818CF8',
-  secondary: '#F472B6',
-  background: '#0F172A',
-  surface: '#1E293B',
-  text: '#F1F5F9',
-  textSecondary: '#94A3B8',
-  textLight: '#64748B',
-  border: '#334155',
-  success: '#34D399',
-  warning: '#FBBF24',
-  error: '#F87171',
-  info: '#60A5FA',
-  shadow: '#000000',
-  surfaceElevated: '#334155',
-  primaryDark: '#6366F1',
-};
+const lightTheme: ThemeColors = mapThemeToLegacy(designLightTheme);
+const darkTheme: ThemeColors = mapThemeToLegacy(designDarkTheme);
 
 interface ThemeContextType {
   theme: ThemeColors;
+  fullTheme: Theme; // Add access to full design system theme
   isDarkMode: boolean;
   themeMode: ThemeMode;
   setThemeMode: (mode: ThemeMode) => void;
@@ -126,11 +114,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   const theme = isDarkMode ? darkTheme : lightTheme;
+  const fullTheme = isDarkMode ? designDarkTheme : designLightTheme;
 
   return (
     <ThemeContext.Provider
       value={{
         theme,
+        fullTheme,
         isDarkMode,
         themeMode,
         setThemeMode,
@@ -156,4 +146,13 @@ export function useThemedStyles<T>(
 ): T {
   const { theme, isDarkMode } = useTheme();
   return styleFactory(theme, isDarkMode);
+}
+
+// Hook to access full design system theme
+export function useDesignSystem() {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('useDesignSystem must be used within a ThemeProvider');
+  }
+  return context.fullTheme;
 }

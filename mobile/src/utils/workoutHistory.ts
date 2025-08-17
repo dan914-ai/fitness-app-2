@@ -1,5 +1,7 @@
 import { WorkoutState, ExerciseData } from '../contexts/WorkoutContext';
 import storageService from '../services/storage.service';
+import { calculateAdjustedVolume } from './workoutCalculations';
+import { exerciseDatabaseService } from '../services/exerciseDatabase.service';
 
 export interface WorkoutHistoryItem {
   id: string;
@@ -24,6 +26,7 @@ export interface WorkoutHistoryItem {
   totalSets: number;
   completedExercises: number;
   rating?: number; // 1-5 stars rating
+  memo?: string; // Added memo field
 }
 
 export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<WorkoutHistoryItem | null> {
@@ -42,12 +45,26 @@ export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<
     const completedExercises = Object.values(workoutState.exercises).filter(ex => ex.isCompleted).length;
 
     const exercises = Object.values(workoutState.exercises).map(exercise => {
+      // Get exercise data to check equipment type
+      const exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId) || 
+                          exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
+      
+      const equipment = exerciseData?.equipment || '기타';
+      const englishName = exerciseData?.englishName || '';
+      
       const exerciseVolume = exercise.sets.reduce((total, set) => {
         if (set.completed && set.weight && set.reps) {
-          const volume = parseFloat(set.weight) * parseInt(set.reps);
-          totalVolume += volume;
+          // Use the adjusted volume calculation
+          const adjustedVolume = calculateAdjustedVolume(
+            parseFloat(set.weight),
+            parseInt(set.reps),
+            exercise.exerciseName,
+            equipment,
+            englishName
+          );
+          totalVolume += adjustedVolume;
           totalSets++;
-          return total + volume;
+          return total + adjustedVolume;
         }
         return total;
       }, 0);
@@ -171,6 +188,58 @@ export async function getLastExerciseWeight(exerciseId: string): Promise<number>
   } catch (error) {
     console.error('Error getting last exercise weight:', error);
     return 0;
+  }
+}
+
+// Get the actual weights from the last workout (not just max)
+export async function getLastExerciseWeights(exerciseId: string): Promise<{ warmup: number; normal: number[] }> {
+  try {
+    const history = await getWorkoutHistory();
+    
+    // Sort workouts by date (most recent first)  
+    const sortedHistory = history.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    
+    // Find the most recent workout that contains this exercise
+    for (const workout of sortedHistory) {
+      const exercise = workout.exercises.find(ex => {
+        // Try different matching strategies
+        const exId = ex.exerciseId?.toLowerCase() || '';
+        const searchId = exerciseId.toLowerCase();
+        
+        // Direct match
+        if (exId === searchId) return true;
+        
+        // Try with/without hyphens and underscores
+        const normalizedExId = exId.replace(/[-_]/g, '');
+        const normalizedSearchId = searchId.replace(/[-_]/g, '');
+        if (normalizedExId === normalizedSearchId) return true;
+        
+        // Partial match for compound exercises
+        const match = normalizedExId.includes(normalizedSearchId) || normalizedSearchId.includes(normalizedExId);
+        return match;
+      });
+      
+      if (exercise && exercise.sets.length > 0) {
+        // Get warmup weight (first warmup set found)
+        const warmupSet = exercise.sets.find(set => set.type === 'Warmup' || set.type === 'warmup');
+        const warmupWeight = warmupSet ? (parseFloat(warmupSet.weight) || 0) : 0;
+        
+        // Get normal weights (all non-warmup sets)
+        const normalWeights = exercise.sets
+          .filter(set => set.type !== 'Warmup' && set.type !== 'warmup')
+          .map(set => parseFloat(set.weight) || 0);
+        
+        return {
+          warmup: warmupWeight,
+          normal: normalWeights
+        };
+      }
+    }
+    
+    return { warmup: 0, normal: [] };
+  } catch (error) {
+    console.error('Error getting last exercise weights:', error);
+    return { warmup: 0, normal: [] };
   }
 }
 
