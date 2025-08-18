@@ -3722,6 +3722,30 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "instructions": [],
     "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/close-grip-bench-press.gif",
     "videoUrl": ""
+  },
+  {
+    "id": 417,
+    "name": "인클라인 덤벨 프레스",
+    "englishName": "Incline Dumbbell Press",
+    "category": "상체",
+    "muscleGroup": "가슴",
+    "equipment": "덤벨",
+    "difficulty": "중급",
+    "instructions": [],
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-dumbbell-press.gif",
+    "videoUrl": ""
+  },
+  {
+    "id": 418,
+    "name": "머신 벤치 프레스",
+    "englishName": "Machine Bench Press",
+    "category": "상체",
+    "muscleGroup": "가슴",
+    "equipment": "머신",
+    "difficulty": "초급",
+    "instructions": [],
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-bench-press.gif",
+    "videoUrl": ""
   }
 ];
 

@@ -8,7 +8,7 @@ import { forceProgramRefresh } from '../utils/forceProgramRefresh';
 const PROGRAMS_STORAGE_KEY = '@workout_programs';
 const ACTIVE_PROGRAM_KEY = '@active_program';
 const PROGRAMS_VERSION_KEY = '@programs_version';
-const CURRENT_PROGRAMS_VERSION = 'v5.0-no-bodyweight-weightlifting'; // Force refresh - no bodyweight in weightlifting programs
+const CURRENT_PROGRAMS_VERSION = 'v7.0-more-programs-added'; // Force refresh - added new workout programs
 
 export interface WorkoutDay {
   dayNumber: number;

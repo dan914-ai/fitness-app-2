@@ -308,6 +308,8 @@ export const staticThumbnails: { [key: string]: any } = {
   '414': require('../../assets/exercise-thumbnails/traps/single-arm-dumbbell-upright-row.jpg'), // Single Arm Dumbbell Upright Row,
   '415': require('../../assets/exercise-thumbnails/traps/smith-machine-shrug.jpg'), // Smith Machine Shrug,
   '416': require('../../assets/exercise-thumbnails/triceps/close-grip-bench-press.jpg'), // Close Grip Bench Press,
+  '417': require('../../assets/exercise-thumbnails/pectorals/incline-dumbbell-press.jpg'), // Incline Dumbbell Press,
+  '418': require('../../assets/exercise-thumbnails/pectorals/machine-bench-press.jpg'), // Machine Bench Press,
   '369': require('../../assets/exercise-thumbnails/back/58_wide-grip-lat-pulldown.jpg'), // 58_wide Grip Lat Pulldown
   '399': require('../../assets/exercise-thumbnails/quadriceps/300_smith-machine-squat-2.jpg'), // 300_smith Machine Squat 2
   '402': require('../../assets/exercise-thumbnails/quadriceps/leg-press.jpg') // Leg Press

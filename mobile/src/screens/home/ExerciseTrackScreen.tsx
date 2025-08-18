@@ -34,10 +34,12 @@ import { getExerciseGifUrls, getPlaceholderUrl } from '../../utils/gifUrlHelper'
 import { supabase } from '../../config/supabase';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 // MIGRATION: Removed unused getStaticThumbnail import
-import RestTimer from '../../components/workout/RestTimer';
+import EnhancedRestTimer from '../../components/workout/EnhancedRestTimer';
 import PlateCalculator from '../../components/workout/PlateCalculator';
 import ExerciseAlternatives from '../../components/workout/ExerciseAlternatives';
-import PRCelebration from '../../components/workout/PRCelebration';
+import EnhancedPRCelebration from '../../components/workout/EnhancedPRCelebration';
+import PRIndicator from '../../components/workout/PRIndicator';
+import { prService, PRNotification } from '../../services/pr.service';
 import EnhancedExerciseGifDisplay from '../../components/common/EnhancedExerciseGifDisplay';
 import NetworkErrorBoundary from '../../components/common/NetworkErrorBoundary';
 import NetworkStatusIndicator from '../../components/common/NetworkStatusIndicator';
@@ -288,7 +290,8 @@ export default function ExerciseTrackScreen() {
   const [showPlateCalculator, setShowPlateCalculator] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [showPRCelebration, setShowPRCelebration] = useState(false);
-  const [prData, setPRData] = useState<any>(null);
+  const [prData, setPRData] = useState<PRNotification | null>(null);
+  const [milestones, setMilestones] = useState<string[]>([]);
   const [exerciseData, setExerciseData] = useState<ExerciseData | null>(null);
   const [routineExercises, setRoutineExercises] = useState<any[]>([]);
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
@@ -628,21 +631,49 @@ export default function ExerciseTrackScreen() {
     });
   }, []);
 
-  const toggleSetComplete = (setId: string) => {
-    setSets(prevSets => 
-      prevSets.map(set => {
-        if (set.id === setId) {
-          const isCompleting = !set.completed;
-          if (isCompleting) {
-            // Start rest timer when completing a set
-            setRestTimer(120); // 2 minutes
-            setIsResting(true);
-            setShowRestComplete(false);
-            setShowRestTimer(true); // Activate the RestTimer component
-          }
-          return { ...set, completed: isCompleting };
+  const toggleSetComplete = async (setId: string) => {
+    const set = sets.find(s => s.id === setId);
+    if (!set) return;
+    
+    const isCompleting = !set.completed;
+    
+    if (isCompleting && set.weight && set.reps) {
+      // Check for PR when completing a set
+      const weight = parseFloat(set.weight);
+      const reps = parseInt(set.reps);
+      
+      if (weight > 0 && reps > 0) {
+        const prNotification = await prService.checkAndUpdatePR(
+          exerciseId,
+          exerciseName,
+          weight,
+          reps
+        );
+        
+        if (prNotification) {
+          // Get achievement milestones
+          const milestones = prService.getAchievementMilestones(weight);
+          
+          // Set PR data for celebration
+          setPRData(prNotification);
+          setMilestones(milestones);
+          setShowPRCelebration(true);
         }
-        return set;
+      }
+      
+      // Start rest timer when completing a set
+      setRestTimer(120); // 2 minutes
+      setIsResting(true);
+      setShowRestComplete(false);
+      setShowRestTimer(true); // Activate the RestTimer component
+    }
+    
+    setSets(prevSets => 
+      prevSets.map(s => {
+        if (s.id === setId) {
+          return { ...s, completed: isCompleting };
+        }
+        return s;
       })
     );
   };
@@ -1499,8 +1530,8 @@ export default function ExerciseTrackScreen() {
         </View>
       </Modal>
       
-      {/* Rest Timer Component */}
-      <RestTimer 
+      {/* Enhanced Rest Timer Component */}
+      <EnhancedRestTimer 
         isActive={showRestTimer}
         onComplete={() => {
           setShowRestTimer(false);
@@ -1511,6 +1542,8 @@ export default function ExerciseTrackScreen() {
           setShowRestTimer(false);
           setIsResting(false);
         }}
+        exerciseName={exerciseName}
+        setNumber={sets.filter(s => s.completed).length + 1}
       />
       
       {/* Plate Calculator Modal */}
@@ -1532,16 +1565,17 @@ export default function ExerciseTrackScreen() {
         />
       )}
       
-      {/* PR Celebration Modal */}
-      {showPRCelebration && prData && (
-        <PRCelebration
-          visible={showPRCelebration}
-          onClose={() => setShowPRCelebration(false)}
-          exerciseName={exerciseName}
-          newRecord={prData}
-          previousRecord={prData.previousRecord}
-        />
-      )}
+      {/* Enhanced PR Celebration Modal */}
+      <EnhancedPRCelebration
+        visible={showPRCelebration}
+        prData={prData}
+        onDismiss={() => {
+          setShowPRCelebration(false);
+          setPRData(null);
+          setMilestones([]);
+        }}
+        milestones={milestones}
+      />
     </SafeAreaView>
   );
 }

@@ -28,8 +28,8 @@ import ExercisePickerSheet from '../../components/workout/ExercisePickerSheet';
 // MIGRATION: Removed unused getStaticThumbnail import
 import { getThumbnail } from '../../constants/thumbnailMapping';
 import { getNumericExerciseId } from '../../utils/exerciseIdMapping';
-import RestTimer from '../../components/workout/RestTimer';
-import WorkoutTimer from '../../components/workout/WorkoutTimer';
+import EnhancedRestTimer from '../../components/workout/EnhancedRestTimer';
+import EnhancedWorkoutTimer from '../../components/workout/EnhancedWorkoutTimer';
 import { achievementService } from '../../services/achievement.service';
 import LoadingState from '../../components/common/LoadingState';
 import useAuth from '../../hooks/useAuth';
@@ -387,7 +387,7 @@ export default function WorkoutSessionScreen() {
           
           <View style={styles.headerCenter}>
             <Text style={styles.headerTitle}>{workout.state.routineName || '운동 세션'}</Text>
-            <WorkoutTimer compact={true} />
+            <EnhancedWorkoutTimer compact={true} />
           </View>
         </View>
       </View>
@@ -405,6 +405,16 @@ export default function WorkoutSessionScreen() {
             />
           </View>
           <Text style={styles.progressText}>{`${completedExercises}/${totalExercises} 운동 완료`}</Text>
+        </View>
+
+        {/* Enhanced Workout Timer - Prominent Display */}
+        <View style={styles.timerSection}>
+          <EnhancedWorkoutTimer 
+            onTimeUpdate={(seconds) => {
+              // Could update duration state here if needed
+            }}
+            showFloating={true}
+          />
         </View>
 
         {/* Stats */}
@@ -541,11 +551,13 @@ export default function WorkoutSessionScreen() {
         onSelectExercises={handleSelectExercises}
       />
       
-      {/* Rest Timer - Floating Widget */}
-      <RestTimer 
+      {/* Enhanced Rest Timer - Modal with better UI */}
+      <EnhancedRestTimer 
         isActive={showRestTimer}
         onComplete={() => setShowRestTimer(false)}
         onDismiss={() => setShowRestTimer(false)}
+        exerciseName={exercises[0]?.exerciseName || "운동"}
+        setNumber={exercises[0]?.sets.filter(s => s.completed).length + 1 || 1}
       />
       
       {/* Loading overlay when saving */}
@@ -640,6 +652,10 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     marginTop: 8,
     textAlign: 'center',
+  },
+  timerSection: {
+    marginHorizontal: 20,
+    marginVertical: 8,
   },
   statsContainer: {
     flexDirection: 'row',

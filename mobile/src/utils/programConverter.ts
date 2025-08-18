@@ -20,7 +20,7 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
   "Close-Grip Bench Press": { koreanName: "클로즈 그립 벤치 프레스" },
   
   // Back
-  "Pull-Ups": { koreanName: "풀업", alternateNames: ["Pull-Ups (or Lat Pulldown)", "Weighted Pull-Ups"] },
+  "Pull-Ups": { koreanName: "풀업", alternateNames: ["Pull Up", "Pull-Ups (or Lat Pulldown)", "Weighted Pull-Ups"] },
   "Pull-Ups (or Lat Pulldown)": { koreanName: "풀업" },
   "Lat Pulldown": { koreanName: "랫 풀다운", alternateNames: ["Wide Grip Pulldown"] },
   "Barbell Row": { koreanName: "바벨 로우", alternateNames: ["Bent-Over Row", "Bent Over Barbell Row"] },
@@ -38,7 +38,7 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
   "Face Pulls": { koreanName: "페이스 풀" },
   
   // Shoulders
-  "Overhead Press": { koreanName: "오버헤드 프레스", alternateNames: ["Military Press", "Barbell Shoulder Press", "Seated Overhead Press"] },
+  "Overhead Press": { koreanName: "밀리터리 프레스", alternateNames: ["Military Press", "Barbell Shoulder Press", "바벨 숄더 프레스"] },
   "Dumbbell Shoulder Press": { koreanName: "덤벨 숄더 프레스", alternateNames: ["Seated Dumbbell Press"] },
   "Machine Shoulder Press": { koreanName: "머신 숄더 프레스" },
   "Arnold Press": { koreanName: "아놀드 프레스" },
@@ -71,7 +71,7 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
   
   // Arms - Triceps
   "Triceps Pushdown": { koreanName: "트라이셉 푸시다운", alternateNames: ["Cable Triceps Pushdown"] },
-  "Overhead Triceps Extension": { koreanName: "오버헤드 트라이셉 익스텐션", alternateNames: ["Triceps Extension (variation)"] },
+  "Overhead Triceps Extension": { koreanName: "케이블 오버헤드 트라이셉 익스텐션", alternateNames: ["Cable Overhead Tricep Extension", "덤벨 트라이셉 익스텐션", "바벨 트라이셉 익스텐션"] },
   "Skull Crusher": { koreanName: "바벨 라잉 트라이셉 익스텐션", alternateNames: ["Lying Triceps Extension"] },
   
   // Calves
