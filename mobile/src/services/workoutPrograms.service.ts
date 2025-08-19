@@ -8,7 +8,7 @@ import { forceProgramRefresh } from '../utils/forceProgramRefresh';
 const PROGRAMS_STORAGE_KEY = '@workout_programs';
 const ACTIVE_PROGRAM_KEY = '@active_program';
 const PROGRAMS_VERSION_KEY = '@programs_version';
-const CURRENT_PROGRAMS_VERSION = 'v7.0-more-programs-added'; // Force refresh - added new workout programs
+const CURRENT_PROGRAMS_VERSION = 'v13.2-debug-storage'; // Force refresh - debug storage issue
 
 export interface WorkoutDay {
   dayNumber: number;
@@ -92,11 +92,21 @@ class WorkoutProgramsService {
       
       if (professionalPrograms.length > 0) {
         // Add IDs and createdAt dates to the converted programs
-        programsWithMetadata = professionalPrograms.map((program, index) => ({
-          ...program,
-          id: `program-${Date.now()}-${index}`,
-          createdAt: new Date().toISOString()
-        }));
+        // Use stable IDs based on program name to prevent ID changes on reload
+        programsWithMetadata = professionalPrograms.map((program, index) => {
+          // Create a stable ID from the program name
+          const stableId = program.name
+            .toLowerCase()
+            .replace(/[^a-z0-9가-힣]/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
+          
+          return {
+            ...program,
+            id: `program-${stableId}-${index}`,
+            createdAt: new Date().toISOString()
+          };
+        });
       } else {
         console.warn('[workoutPrograms.service] No professional programs found');
       }
@@ -145,6 +155,10 @@ class WorkoutProgramsService {
       const programIndex = this.programs.findIndex(p => p.id === programId);
       if (programIndex === -1) {
         console.error('❌ Program not found with ID:', programId);
+        console.log('Available programs:', this.programs.map(p => ({ 
+          id: p.id, 
+          name: p.name 
+        })));
         return false;
       }
 
@@ -189,11 +203,26 @@ class WorkoutProgramsService {
           continue;
         }
 
-        const routineName = `${program.name} - ${day.name}`;
+        // Create shorter, cleaner routine names for better display
+        // Ensure the day name is properly encoded and not corrupted
+        const routineName = String(day.name || '').trim();
+        
+        // Validate routine name to prevent corrupted text
+        if (!routineName || routineName.length === 0) {
+          console.error(`Invalid routine name: empty or undefined. Skipping.`);
+          continue;
+        }
+        
+        if (routineName.length > 50) {
+          console.warn(`Routine name too long (${routineName.length} chars): "${routineName}". Truncating.`);
+        }
+        
+        console.log(`Creating routine: "${routineName}" from day.name: "${day.name}"`);
+        
         
         // Check if routine already exists
         const existingRoutines = await routinesService.getAllRoutines();
-        const exists = existingRoutines.some(r => r.name === routineName);
+        const exists = existingRoutines.some(r => r.name === routineName && r.programId === program.id);
         
         if (!exists) {
           // Create the routine
@@ -221,7 +250,7 @@ class WorkoutProgramsService {
           const newRoutine = {
             id: `${program.id}-day-${day.dayNumber}`,
             name: routineName,
-            description: day.name,
+            description: String(day.name).trim(),
             targetMuscles: [...new Set(day.exercises.flatMap(ex => {
               const dbExercise = exerciseDatabaseService.getExerciseById(ex.exerciseId);
               return dbExercise?.targetMuscles?.primary || [];

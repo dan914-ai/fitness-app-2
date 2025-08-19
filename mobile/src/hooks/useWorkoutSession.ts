@@ -35,7 +35,9 @@ export function useWorkoutSession() {
       }
       
       // Always start session in context (works offline)
+      console.log('[useWorkoutSession] Starting workout with routineId:', routineId, 'routineName:', routineName);
       workout.startWorkout(routineId, routineName);
+      console.log('[useWorkoutSession] Workout started, startTime:', workout.state.startTime);
       
       return { workoutId: currentWorkoutId, routineId, routineName };
     } catch (err) {
@@ -181,8 +183,41 @@ export function useWorkoutSession() {
           
           // Sync with context if needed
           if (!workout.state.isWorkoutActive) {
-            // TODO: Load session data into context
-            // This would require mapping backend data to context format
+            // Load session data into context
+            const sessionData = response.activeSession;
+            
+            // Start workout in context first
+            workout.startWorkout(
+              sessionData.routineId, 
+              sessionData.routineName || 'Active Workout'
+            );
+            
+            // Load exercises from the session
+            for (const workoutExercise of sessionData.workoutExercises) {
+              // Add exercise to context
+              workout.addExercise(
+                workoutExercise.exerciseId,
+                workoutExercise.exercise.exerciseName
+              );
+              
+              // Convert backend sets to context format
+              const sets: WorkoutSet[] = workoutExercise.exerciseSets.map(set => ({
+                id: set.setId,
+                weight: set.weight?.toString() || '0',
+                reps: set.reps?.toString() || '0',
+                completed: true, // Assume sets in the session are completed
+                type: set.isWarmup ? 'Warmup' : 'Normal',
+                restTime: set.restTime || undefined,
+                completedAt: new Date(),
+              }));
+              
+              // Update sets in context
+              if (sets.length > 0) {
+                workout.updateExerciseSets(workoutExercise.exerciseId, sets);
+              }
+            }
+            
+            console.log('Session data loaded into context successfully');
           }
         }
       } catch (err) {

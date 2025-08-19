@@ -886,7 +886,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.border,
     left: '50%',
     marginLeft: -1,
-    transformOrigin: 'bottom',
   },
   weightPoint: {
     backgroundColor: '#FF6B6B',
@@ -1056,7 +1055,6 @@ const styles = StyleSheet.create({
   simpleLine: {
     position: 'absolute',
     height: 2,
-    transformOrigin: 'left center',
   },
   simpleDataLabel: {
     position: 'absolute',

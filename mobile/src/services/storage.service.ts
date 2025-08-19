@@ -48,7 +48,20 @@ class StorageService {
   private async setItem<T>(key: string, value: T): Promise<void> {
     try {
       const jsonValue = JSON.stringify(value);
+      console.log(`[Storage.setItem] Saving ${key}, size: ${jsonValue.length} chars`);
+      
+      // Special logging for workout history
+      if (key === STORAGE_KEYS.WORKOUT_HISTORY) {
+        const workouts = value as any[];
+        console.log(`[Storage.setItem] Saving ${workouts.length} workouts`);
+        if (workouts.length > 0) {
+          console.log('[Storage.setItem] First workout ID:', workouts[0].id);
+          console.log('[Storage.setItem] Last workout ID:', workouts[workouts.length - 1].id);
+        }
+      }
+      
       await AsyncStorage.setItem(key, jsonValue);
+      console.log(`[Storage.setItem] Successfully saved ${key}`);
     } catch (error) {
       console.error(`Error saving ${key}:`, error);
       throw error;
@@ -58,9 +71,37 @@ class StorageService {
   private async getItem<T>(key: string, defaultValue: T): Promise<T> {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
-      return jsonValue != null ? JSON.parse(jsonValue) : defaultValue;
+      console.log(`[Storage.getItem] Loading ${key}, found: ${jsonValue ? 'yes' : 'no'}`);
+      
+      if (jsonValue) {
+        try {
+          const parsedValue = JSON.parse(jsonValue);
+          
+          // Special logging for workout history
+          if (key === STORAGE_KEYS.WORKOUT_HISTORY) {
+            if (Array.isArray(parsedValue)) {
+              console.log(`[Storage.getItem] Loaded ${parsedValue.length} workouts from storage`);
+              if (parsedValue.length > 0) {
+                console.log(`[Storage.getItem] First workout: ${parsedValue[0].routineName || 'unnamed'}`);
+                console.log(`[Storage.getItem] Last workout: ${parsedValue[parsedValue.length - 1].routineName || 'unnamed'}`);
+              }
+            } else {
+              console.error(`[Storage.getItem] WARNING: Workout history is not an array!`, typeof parsedValue);
+            }
+          }
+          
+          return parsedValue;
+        } catch (parseError) {
+          console.error(`[Storage.getItem] JSON parse error for ${key}:`, parseError);
+          console.error(`[Storage.getItem] Raw value (first 200 chars):`, jsonValue.substring(0, 200));
+          return defaultValue;
+        }
+      } else {
+        console.log(`[Storage.getItem] No value found for ${key}, returning default`);
+        return defaultValue;
+      }
     } catch (error) {
-      console.error(`Error loading ${key}:`, error);
+      console.error(`[Storage.getItem] Error loading ${key}:`, error);
       return defaultValue;
     }
   }
@@ -104,17 +145,126 @@ class StorageService {
 
   // Workout History
   async getWorkoutHistory(): Promise<WorkoutHistoryItem[]> {
-    return this.getItem(STORAGE_KEYS.WORKOUT_HISTORY, []);
+    try {
+      // DEBUG: Log all localStorage keys
+      if (typeof window !== 'undefined' && window.localStorage) {
+        console.log('[Storage DEBUG] === ALL LOCALSTORAGE KEYS ===');
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.includes('WORKOUT')) {
+            console.log(`[Storage DEBUG] Key: ${key}, Value preview: ${localStorage.getItem(key)?.substring(0, 100)}...`);
+          }
+        }
+        console.log('[Storage DEBUG] === END LOCALSTORAGE KEYS ===');
+      }
+      
+      const history = await this.getItem(STORAGE_KEYS.WORKOUT_HISTORY, []);
+      
+      // Validate that we have an array
+      if (!Array.isArray(history)) {
+        console.warn('[Storage] Retrieved history is not an array, returning empty array');
+        return [];
+      }
+      
+      console.log('[Storage] Retrieved workout history:', {
+        count: history.length,
+        firstWorkout: history[0]?.routineName || 'none',
+        firstWorkoutDate: history[0]?.date || 'none',
+        lastWorkout: history[history.length - 1]?.routineName || 'none',
+        lastWorkoutDate: history[history.length - 1]?.date || 'none',
+      });
+      
+      // Additional validation - filter out any invalid entries
+      const validHistory = history.filter(workout => 
+        workout && 
+        typeof workout === 'object' && 
+        workout.id && 
+        workout.routineName
+      );
+      
+      if (validHistory.length !== history.length) {
+        console.warn(`[Storage] Filtered out ${history.length - validHistory.length} invalid workout entries`);
+      }
+      
+      return validHistory;
+    } catch (error) {
+      console.error('[Storage] Error getting workout history:', error);
+      return [];
+    }
   }
 
   async saveWorkoutHistory(history: WorkoutHistoryItem[]): Promise<void> {
-    return this.setItem(STORAGE_KEYS.WORKOUT_HISTORY, history);
+    console.log('[Storage] Saving workout history with', history.length, 'items');
+    if (history.length > 0) {
+      console.log('[Storage] First workout:', history[0].routineName, history[0].date);
+      console.log('[Storage] Last workout:', history[history.length - 1].routineName, history[history.length - 1].date);
+      console.log('[Storage] First workout ID:', history[0].id);
+    }
+    
+    await this.setItem(STORAGE_KEYS.WORKOUT_HISTORY, history);
+    
+    // DEBUG: Immediately verify what was saved
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const savedData = localStorage.getItem(STORAGE_KEYS.WORKOUT_HISTORY);
+      console.log('[Storage DEBUG] Just saved to localStorage:', savedData ? 'Data exists' : 'NO DATA');
+      if (savedData) {
+        try {
+          const parsed = JSON.parse(savedData);
+          console.log('[Storage DEBUG] Parsed saved data length:', Array.isArray(parsed) ? parsed.length : 'Not an array');
+        } catch (e) {
+          console.error('[Storage DEBUG] Failed to parse saved data:', e);
+        }
+      }
+    }
   }
 
   async addWorkoutToHistory(workout: WorkoutHistoryItem): Promise<void> {
-    const existingHistory = await this.getWorkoutHistory();
-    existingHistory.unshift(workout); // Add to beginning for most recent first
-    return this.saveWorkoutHistory(existingHistory);
+    try {
+      // Get existing history with extra validation
+      let existingHistory = await this.getWorkoutHistory();
+      
+      // Ensure we have a valid array
+      if (!Array.isArray(existingHistory)) {
+        console.warn('[Storage] Existing history is not an array, initializing as empty array');
+        existingHistory = [];
+      }
+      
+      console.log('[Storage] Adding workout to history:', {
+        newWorkoutId: workout.id,
+        existingCount: existingHistory.length,
+        newWorkoutName: workout.routineName,
+      });
+      
+      // Check for duplicate ID (shouldn't happen but let's be safe)
+      const duplicateIndex = existingHistory.findIndex(w => w.id === workout.id);
+      if (duplicateIndex !== -1) {
+        console.warn('[Storage] Duplicate workout ID found, replacing existing:', workout.id);
+        existingHistory[duplicateIndex] = workout;
+      } else {
+        // Add to beginning for most recent first
+        existingHistory.unshift(workout);
+      }
+      
+      console.log('[Storage] After adding, total workouts:', existingHistory.length);
+      
+      // Save with validation
+      await this.saveWorkoutHistory(existingHistory);
+      
+      // Add a small delay to ensure AsyncStorage has persisted (web environment issue)
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      // Verify the save was successful
+      const verifyHistory = await this.getWorkoutHistory();
+      console.log('[Storage] Verification after save:', {
+        expectedCount: existingHistory.length,
+        actualCount: verifyHistory.length,
+        workoutFound: verifyHistory.some(w => w.id === workout.id)
+      });
+      
+    } catch (error) {
+      console.error('[Storage] Error in addWorkoutToHistory:', error);
+      throw error;
+    }
   }
 
   async deleteWorkoutFromHistory(workoutId: string): Promise<void> {

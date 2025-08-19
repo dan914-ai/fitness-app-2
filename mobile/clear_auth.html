@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Authentication</title>
+</head>
+<body>
+    <h1>Clear Authentication</h1>
+    <button onclick="clearAuth()">Clear Mock Auth Session</button>
+    <button onclick="clearAll()">Clear All Storage</button>
+    <p id="status"></p>
+    
+    <script>
+        function clearAuth() {
+            localStorage.removeItem('mock_auth_session');
+            localStorage.removeItem('mock_auth_user');
+            localStorage.removeItem('needs_reload');
+            document.getElementById('status').innerHTML = 'Mock auth cleared! Refresh the app to see login screen.';
+        }
+        
+        function clearAll() {
+            localStorage.clear();
+            document.getElementById('status').innerHTML = 'All storage cleared! Refresh the app to see login screen.';
+        }
+    </script>
+</body>
+</html>

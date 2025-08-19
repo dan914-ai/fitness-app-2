@@ -29,12 +29,14 @@ import storageService from '../../services/storage.service';
 import { saveWorkoutToHistory, getExerciseHistory, ExerciseHistoryRecord, getLastExerciseWeight, getLastExerciseWeights } from '../../utils/workoutHistory';
 import { calculateAdjustedVolume, getVolumeAdjustmentReason } from '../../utils/workoutCalculations';
 import progressionService from '../../services/progression.service';
+import localProgressionService from '../../services/localProgression.service';
 import { LoadingOverlay } from '../../components/common/LoadingOverlay';
 import { getExerciseGifUrls, getPlaceholderUrl } from '../../utils/gifUrlHelper';
 import { supabase } from '../../config/supabase';
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 // MIGRATION: Removed unused getStaticThumbnail import
 import EnhancedRestTimer from '../../components/workout/EnhancedRestTimer';
+import EnhancedWorkoutTimer from '../../components/workout/EnhancedWorkoutTimer';
 import PlateCalculator from '../../components/workout/PlateCalculator';
 import ExerciseAlternatives from '../../components/workout/ExerciseAlternatives';
 import EnhancedPRCelebration from '../../components/workout/EnhancedPRCelebration';
@@ -43,6 +45,7 @@ import { prService, PRNotification } from '../../services/pr.service';
 import EnhancedExerciseGifDisplay from '../../components/common/EnhancedExerciseGifDisplay';
 import NetworkErrorBoundary from '../../components/common/NetworkErrorBoundary';
 import NetworkStatusIndicator from '../../components/common/NetworkStatusIndicator';
+import { useSettings } from '../../hooks/useSettings';
 import { 
   getWarmupProtocol, 
   getExerciseType, 
@@ -105,14 +108,7 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
     }
   }
   
-  // DEBUG logging
-  console.log('[ExerciseTrack] Exercise lookup result:', {
-    exerciseId,
-    exerciseName,
-    found: !!exerciseData,
-    equipment: exerciseData?.equipment,
-    isDumbbell: exerciseData?.equipment?.includes('덤벨') || exerciseData?.equipment?.toLowerCase()?.includes('dumbbell')
-  });
+  // Exercise lookup completed
   
   // Build an array of URLs to try in order
   const gifUrls = useMemo(() => {
@@ -137,13 +133,7 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
   
   const currentGifUrl = gifUrls[currentUrlIndex] || gifUrls[0];
   
-  // Force log everything
-  console.error('[FORCE DEBUG]', {
-    gifUrls,
-    currentUrlIndex,
-    currentGifUrl,
-    exerciseDataGifUrl: exerciseData?.gifUrl,
-  });
+  // GIF URL processing completed
   
   // Debug: Check if this is a thumbnail URL
   if (currentGifUrl && currentGifUrl.includes('-thumb')) {
@@ -179,16 +169,7 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
     setIsLoading(true);
   }, [exerciseId]);
 
-  // Emergency debug
-  console.warn('[EMERGENCY DEBUG] ExerciseGifDisplay:', {
-    exerciseId,
-    exerciseName,
-    hasExerciseData: !!exerciseData,
-    gifUrl: exerciseData?.gifUrl,
-    gifUrlsCount: gifUrls.length,
-    currentUrlIndex,
-    currentGifUrl,
-  });
+  // Exercise GIF display ready
 
   return (
     <View style={styles.gifContainer}>
@@ -262,6 +243,7 @@ export default function ExerciseTrackScreen() {
   const route = useRoute<RouteProp<HomeStackParamList, 'ExerciseTrack'>>();
   const { exerciseId, exerciseName, routineId } = route.params;
   const workout = useWorkout();
+  const { settings } = useSettings();
   
   // Debug logging removed for production
   
@@ -269,13 +251,13 @@ export default function ExerciseTrackScreen() {
   const exercise = exerciseDatabaseService.getExerciseById(exerciseId);
   const thumbnail = exercise?.thumbnail || null;
   
-  // Simple default sets (empty - will be filled by effect)
+  // Simple default sets (empty - will be filled by effect from history)
   const getDefaultSets = (): WorkoutSet[] => {
     return [
-      { id: '1', weight: '', reps: '12', completed: false, type: 'Warmup' },
+      { id: '1', weight: '', reps: '10', completed: false, type: 'Warmup' },
       { id: '2', weight: '', reps: '10', completed: false, type: 'Normal' },
-      { id: '3', weight: '', reps: '8', completed: false, type: 'Normal' },
-      { id: '4', weight: '', reps: '8', completed: false, type: 'Normal' },
+      { id: '3', weight: '', reps: '10', completed: false, type: 'Normal' },
+      { id: '4', weight: '', reps: '10', completed: false, type: 'Normal' },
     ];
   };
   
@@ -337,23 +319,87 @@ export default function ExerciseTrackScreen() {
     
     workout.setCurrentExercise(exerciseId);
     
-    const savedExerciseData = workout.getExerciseData(exerciseId);
-    if (savedExerciseData) {
-      setSets(savedExerciseData.sets);
-    } else {
-      // Initialize with empty sets - weight pre-filling happens in separate effect
-      const defaultSets = getDefaultSets();
-      workout.initializeExercise(exerciseId, exerciseName, defaultSets);
-      setSets(defaultSets);
-    }
+    const initializeWithProgression = async () => {
+      // Get last weight first
+      const lastWeight = await getLastExerciseWeight(exerciseId);
+      
+      // Calculate progression suggestion
+      const exerciseType = exerciseName.toLowerCase().includes('squat') || 
+                          exerciseName.toLowerCase().includes('bench') || 
+                          exerciseName.toLowerCase().includes('deadlift') || 
+                          exerciseName.toLowerCase().includes('press') ? 'compound' : 'isolation';
+      
+      // Try to get user ID for Supabase progression
+      let progressionSuggestion = null;
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          // Use Supabase progression service with real user data
+          const suggestion = await progressionService.getProgressionSuggestion(
+            user.id,
+            lastWeight || 0,
+            exerciseType
+          );
+          
+          if (suggestion) {
+            progressionSuggestion = {
+              originalWeight: lastWeight || 0,
+              suggestedWeight: suggestion.suggested_load || lastWeight || 0,
+              reason: suggestion.reason || '',
+              readiness: suggestion.readiness_index || 0.5
+            };
+          }
+        }
+      } catch (error) {
+        console.log('[ExerciseTrack] Supabase progression failed, using local:', error);
+      }
+      
+      // Fallback to local progression if Supabase fails
+      if (!progressionSuggestion) {
+        progressionSuggestion = await localProgressionService.getProgressionSuggestion(
+          exerciseId,
+          exerciseName,
+          exerciseType
+        );
+      }
+      
+      console.log('[ExerciseTrack] Progression calculated:', progressionSuggestion);
+      
+      const savedExerciseData = workout.getExerciseData(exerciseId);
+      if (savedExerciseData) {
+        // Ensure all set fields are valid strings to prevent controlled/uncontrolled input warnings
+        const sanitizedSets = savedExerciseData.sets.map(set => ({
+          ...set,
+          weight: set.weight || '',
+          reps: set.reps || '',
+          notes: set.notes || ''
+        }));
+        setSets(sanitizedSets);
+      } else {
+        // Initialize with empty sets - weight pre-filling happens in separate effect
+        const defaultSets = getDefaultSets();
+        workout.initializeExercise(exerciseId, exerciseName, defaultSets, progressionSuggestion);
+        setSets(defaultSets);
+      }
+    };
     
+    initializeWithProgression();
     setHasInitialized(true);
   }, [exerciseId, exerciseName]); // Removed workout from dependencies
 
-  // Separate effect for weight pre-filling that runs ONCE after exercise is loaded
+  // Separate effect for weight and reps pre-filling that runs ONCE after exercise is loaded
   const [hasPrefilled, setHasPrefilled] = useState(false);
+  const [currentExerciseId, setCurrentExerciseId] = useState(exerciseId);
   
   useEffect(() => {
+    // Reset when exercise changes
+    if (currentExerciseId !== exerciseId) {
+      setCurrentExerciseId(exerciseId);
+      setHasPrefilled(false);
+      setHasInitialized(false);
+      return;
+    }
+    
     // Only run prefill once per exercise
     if (hasPrefilled) return;
     
@@ -393,46 +439,57 @@ export default function ExerciseTrackScreen() {
 
         
         try {
-          // Get actual weights from last workout (not just max)
-          const lastWeights = await getLastExerciseWeights(exerciseId);
+          // Get complete exercise history including weights AND reps
+          const history = await getExerciseHistory(exerciseId);
           
-          // If we have weights from history
-          if (lastWeights.normal.length > 0 || lastWeights.warmup > 0) {
+          // If we have history from previous workouts
+          if (history && history.length > 0 && history[0].sets && history[0].sets.length > 0) {
+            const lastWorkoutSets = history[0].sets;
+            
+            // Separate warmup and normal sets from history
+            const warmupSets = lastWorkoutSets.filter(set => set.type === 'Warmup' || set.type === 'warmup');
+            const normalSets = lastWorkoutSets.filter(set => set.type !== 'Warmup' && set.type !== 'warmup');
+            
             let normalSetIndex = 0;
-            const totalHistoricalSets = (lastWeights.warmup > 0 ? 1 : 0) + lastWeights.normal.length;
-            let setsFilledCount = 0;
+            let warmupSetIndex = 0;
             
             const prefilledSets = exerciseData.sets.map((set, index) => {
-              // Only pre-fill if weight is empty/zero
-              if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
-                let newWeight = '';  // Default to empty, not '0'
-                
-                if (set.type === 'Warmup' || set.type === 'warmup') {
-                  // Use actual warmup weight from history if available
-                  if (lastWeights.warmup > 0 && setsFilledCount < totalHistoricalSets) {
-                    newWeight = lastWeights.warmup.toString();
-                    setsFilledCount++;
+              // Create a new set with data from history
+              let updatedSet = { ...set };
+              
+              if (set.type === 'Warmup' || set.type === 'warmup') {
+                // Use warmup data from history if available
+                if (warmupSetIndex < warmupSets.length) {
+                  const historySet = warmupSets[warmupSetIndex];
+                  // Only update if weight is empty
+                  if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
+                    updatedSet.weight = String(historySet.weight || '');
                   }
-                  // Don't fill warmup if there was no warmup in history
-                } else {
-                  // For normal sets, only fill up to the number of sets done last time
-                  if (normalSetIndex < lastWeights.normal.length) {
-                    newWeight = lastWeights.normal[normalSetIndex].toString();
-                    normalSetIndex++;
-                    setsFilledCount++;
-                  }
-                  // Leave remaining sets empty - don't use last weight
+                  // Always update reps to match history
+                  updatedSet.reps = String(historySet.reps || '12');
+                  warmupSetIndex++;
                 }
-                
-                return { ...set, weight: newWeight };
+              } else {
+                // For normal sets, use data from history normal sets
+                if (normalSetIndex < normalSets.length) {
+                  const historySet = normalSets[normalSetIndex];
+                  // Only update weight if empty
+                  if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
+                    updatedSet.weight = String(historySet.weight || '');
+                  }
+                  // Always update reps to match history
+                  updatedSet.reps = String(historySet.reps || '10');
+                  normalSetIndex++;
+                }
+                // Leave remaining sets with default reps if no history
               }
-              return set;
+              
+              return updatedSet;
             });
             
-            console.log('Prefilled weights from history:', {
-              warmup: lastWeights.warmup,
-              normal: lastWeights.normal,
-              sets: prefilledSets.map(s => ({ type: s.type, weight: s.weight }))
+            console.log('Prefilled weights and reps from history:', {
+              historySets: lastWorkoutSets.length,
+              sets: prefilledSets.map(s => ({ type: s.type, weight: s.weight, reps: s.reps }))
             });
             
             // Update both local state and workout context
@@ -444,31 +501,48 @@ export default function ExerciseTrackScreen() {
             if (user) {
               const { data: exerciseHistory } = await supabase
                 .from('workout_exercise_sets')
-                .select('weight, set_type')
+                .select('weight, reps, set_type')
                 .eq('exercise_id', exerciseId)
                 .eq('user_id', user.id)
                 .order('created_at', { ascending: false })
                 .limit(10);
               
               if (exerciseHistory && exerciseHistory.length > 0) {
-                // Use the weights from Supabase
-                const weights = exerciseHistory.map(s => parseFloat(s.weight) || 0);
-                const maxWeight = Math.max(...weights);
+                // Group sets by type
+                const warmupSets = exerciseHistory.filter(s => s.set_type === 'Warmup' || s.set_type === 'warmup');
+                const normalSets = exerciseHistory.filter(s => s.set_type !== 'Warmup' && s.set_type !== 'warmup');
                 
-                if (maxWeight > 0) {
-                  const prefilledSets = exerciseData.sets.map(set => {
-                    if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
-                      const newWeight = set.type === 'Warmup' 
-                        ? Math.round(maxWeight * 0.5).toString()
-                        : maxWeight.toString();
-                      return { ...set, weight: newWeight };
-                    }
-                    return set;
-                  });
+                let normalSetIndex = 0;
+                let warmupSetIndex = 0;
+                
+                const prefilledSets = exerciseData.sets.map(set => {
+                  let updatedSet = { ...set };
                   
-                  setSets(prefilledSets);
-                  workout.updateExerciseSets(exerciseId, prefilledSets);
-                }
+                  if (set.type === 'Warmup' || set.type === 'warmup') {
+                    if (warmupSetIndex < warmupSets.length) {
+                      const historySet = warmupSets[warmupSetIndex];
+                      if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
+                        updatedSet.weight = String(historySet.weight || '');
+                      }
+                      updatedSet.reps = String(historySet.reps || '12');
+                      warmupSetIndex++;
+                    }
+                  } else {
+                    if (normalSetIndex < normalSets.length) {
+                      const historySet = normalSets[normalSetIndex];
+                      if (!set.weight || set.weight === '0' || set.weight === '' || set.weight.trim() === '') {
+                        updatedSet.weight = String(historySet.weight || '');
+                      }
+                      updatedSet.reps = String(historySet.reps || '10');
+                      normalSetIndex++;
+                    }
+                  }
+                  
+                  return updatedSet;
+                });
+                
+                setSets(prefilledSets);
+                workout.updateExerciseSets(exerciseId, prefilledSets);
               }
             }
           }
@@ -486,13 +560,7 @@ export default function ExerciseTrackScreen() {
     };
     
     performWeightPrefill();
-  }, [exerciseId, hasPrefilled]); // Removed workout from dependencies
-  
-  // Reset flags when exercise changes
-  useEffect(() => {
-    setHasPrefilled(false);
-    setHasInitialized(false);
-  }, [exerciseId]);
+  }, [exerciseId, currentExerciseId, hasPrefilled]); // Include all dependencies properly
 
   // Fetch detailed exercise data for explanations
   useEffect(() => {
@@ -661,11 +729,15 @@ export default function ExerciseTrackScreen() {
         }
       }
       
-      // Start rest timer when completing a set
-      setRestTimer(120); // 2 minutes
-      setIsResting(true);
-      setShowRestComplete(false);
-      setShowRestTimer(true); // Activate the RestTimer component
+      // Set up rest timer but don't auto-show it
+      if (settings.restTimerEnabled) {
+        setIsResting(true);
+        setShowRestComplete(false);
+        // Remove automatic popup - user must manually tap timer button
+        // if (settings.autoStartRestTimer) {
+        //   setShowRestTimer(true); 
+        // }
+      }
     }
     
     setSets(prevSets => 
@@ -678,24 +750,8 @@ export default function ExerciseTrackScreen() {
     );
   };
 
-  // Rest timer effect
-  useEffect(() => {
-    if (restTimer === null || !isResting) return;
-    
-    const interval = setInterval(() => {
-      setRestTimer(prev => {
-        if (prev === null || prev <= 1) {
-          setIsResting(false);
-          setShowRestComplete(true);
-          setTimeout(() => setShowRestComplete(false), 3000);
-          return null;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    
-    return () => clearInterval(interval);
-  }, [restTimer, isResting]);
+  // Remove the background timer effect - we'll use EnhancedRestTimer only
+  // The background timer was causing conflicts with the modal timer
 
   const addSet = () => {
     const newSetId = (sets.length + 1).toString();
@@ -970,6 +1026,18 @@ export default function ExerciseTrackScreen() {
           </View>
         )}
         
+        {/* Enhanced Workout Timer */}
+        {settings.workoutTimerEnabled && (
+          <View style={styles.timerSection}>
+            <EnhancedWorkoutTimer 
+              onTimeUpdate={(seconds) => {
+                // Could update duration state here if needed
+              }}
+              showFloating={false}
+            />
+          </View>
+        )}
+        
         {/* Enhanced Workout Statistics */}
         <View style={styles.statsSection}>
           <View style={styles.statsRow}>
@@ -1028,12 +1096,25 @@ export default function ExerciseTrackScreen() {
         <View style={styles.setsSection}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>세트</Text>
-            {isResting && restTimer && (
-              <View style={styles.restTimer}>
-                <Icon name="timer" size={16} color={Colors.warning} />
-                <Text style={styles.restTimerText}>{formatTime(restTimer)}</Text>
-              </View>
-            )}
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+              {/* Manual Timer Button */}
+              {settings.restTimerEnabled && isResting && (
+                <TouchableOpacity
+                  style={styles.timerButton}
+                  onPress={() => setShowRestTimer(true)}
+                >
+                  <Icon name="timer" size={20} color={Colors.primary} />
+                  <Text style={styles.timerButtonText}>휴식 타이머</Text>
+                </TouchableOpacity>
+              )}
+              {/* Show completed indicator when rest is done */}
+              {showRestComplete && (
+                <View style={styles.restCompleteIndicator}>
+                  <Icon name="check-circle" size={16} color={Colors.success} />
+                  <Text style={styles.restCompleteText}>휴식 완료</Text>
+                </View>
+              )}
+            </View>
           </View>
 
           {/* Table Header */}
@@ -1530,21 +1611,25 @@ export default function ExerciseTrackScreen() {
         </View>
       </Modal>
       
-      {/* Enhanced Rest Timer Component */}
-      <EnhancedRestTimer 
-        isActive={showRestTimer}
-        onComplete={() => {
-          setShowRestTimer(false);
-          setIsResting(false);
-          setShowRestComplete(true);
-        }}
-        onDismiss={() => {
-          setShowRestTimer(false);
-          setIsResting(false);
-        }}
-        exerciseName={exerciseName}
-        setNumber={sets.filter(s => s.completed).length + 1}
-      />
+      {/* Enhanced Rest Timer Component - Fixed loop issue */}
+      {settings.restTimerEnabled && (
+        <EnhancedRestTimer 
+          isActive={showRestTimer}
+          onComplete={() => {
+            setShowRestTimer(false);
+            setIsResting(false);
+            setShowRestComplete(true);
+            setTimeout(() => setShowRestComplete(false), 3000);
+          }}
+          onDismiss={() => {
+            setShowRestTimer(false);
+            // Keep isResting true so the timer button stays visible
+            // User can open timer again if needed
+          }}
+          exerciseName={exerciseName}
+          setNumber={sets.filter(s => s.completed).length + 1}
+        />
+      )}
       
       {/* Plate Calculator Modal */}
       <PlateCalculator 
@@ -1624,6 +1709,11 @@ const styles = StyleSheet.create({
     padding: 8,
     marginLeft: 8,
   },
+  timerSection: {
+    marginHorizontal: 16,
+    marginTop: 8,
+    marginBottom: 0,
+  },
   statsSection: {
     backgroundColor: Colors.surface,
     margin: 16,
@@ -1684,6 +1774,36 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     color: Colors.warning,
+  },
+  timerButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.primary + '20',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    gap: 6,
+    borderWidth: 1,
+    borderColor: Colors.primary + '40',
+  },
+  timerButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
+  restCompleteIndicator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.success + '20',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    gap: 4,
+  },
+  restCompleteText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: Colors.success,
   },
   tableHeader: {
     flexDirection: 'row',

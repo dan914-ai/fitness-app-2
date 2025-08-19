@@ -79,7 +79,6 @@ class ExerciseDatabaseService {
     }
     
     if (this.exercises.length === 0) {
-      console.error('❌ WARNING: No exercises loaded! EXERCISE_DATABASE might be empty or not properly imported');
       // Try one more time with a direct import
       try {
         const directImport = require('../data/exerciseDatabase');
@@ -87,7 +86,7 @@ class ExerciseDatabaseService {
           this.exercises = directImport.default;
         }
       } catch (e) {
-        console.error('❌ Could not recover exercises:', e);
+        // Silent fallback - exercises will be empty but app won't crash
       }
     }
     

@@ -16,7 +16,7 @@ import { Colors } from '../../constants/colors';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RecordStackParamList } from '../../navigation/types';
-import { getWorkoutById, WorkoutHistoryItem } from '../../utils/workoutHistory';
+import { getWorkoutById, WorkoutHistoryItem, deleteWorkout } from '../../utils/workoutHistory';
 import { exerciseService } from '../../services/exercise.service';
 import progressionService from '../../services/progression.service';
 import { supabase } from '../../config/supabase';
@@ -40,7 +40,7 @@ interface MuscleGroupData {
 export default function WorkoutDetailScreen() {
   const navigation = useNavigation<StackNavigationProp<RecordStackParamList>>();
   const route = useRoute<RouteProp<RecordStackParamList, 'WorkoutDetail'>>();
-  const { workoutId } = route.params;
+  const { workoutId } = route.params || {};
   
   const [workout, setWorkout] = useState<WorkoutHistoryItem | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -52,11 +52,19 @@ export default function WorkoutDetailScreen() {
   const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!workoutId) {
+      console.error('[WorkoutDetail] No workoutId provided, going back');
+      // Navigate back to RecordMain screen instead of WorkoutHistory
+      navigation.navigate('RecordMain');
+      return;
+    }
     loadWorkoutData();
-  }, [workoutId]);
+  }, [workoutId, navigation]);
 
   const loadWorkoutData = async () => {
     try {
+      console.log('[WorkoutDetail] Loading workout with ID:', workoutId);
+      
       // Get user ID
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
@@ -64,6 +72,25 @@ export default function WorkoutDetailScreen() {
       }
 
       const workoutData = await getWorkoutById(workoutId);
+      console.log('[WorkoutDetail] Workout data loaded:', workoutData ? 'Found' : 'Not found');
+      
+      if (!workoutData) {
+        console.error('[WorkoutDetail] Workout not found for ID:', workoutId);
+        setIsLoading(false);
+        // Navigate back to RecordMain if workout not found
+        Alert.alert(
+          '운동 정보 없음',
+          '요청한 운동 기록을 찾을 수 없습니다.',
+          [
+            {
+              text: '확인',
+              onPress: () => navigation.navigate('RecordMain')
+            }
+          ]
+        );
+        return;
+      }
+      
       setWorkout(workoutData);
       
       if (workoutData) {
@@ -263,9 +290,14 @@ export default function WorkoutDetailScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.errorContainer}>
+          <Icon name="error-outline" size={64} color={Colors.textLight} />
           <Text style={styles.errorText}>운동 정보를 찾을 수 없습니다</Text>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Text style={styles.backButtonText}>뒤로 가기</Text>
+          <Text style={styles.errorSubtext}>요청한 운동 기록이 존재하지 않습니다</Text>
+          <TouchableOpacity 
+            style={styles.backButton} 
+            onPress={() => navigation.navigate('RecordMain')}
+          >
+            <Text style={styles.backButtonText}>기록 화면으로 돌아가기</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -323,9 +355,26 @@ export default function WorkoutDetailScreen() {
                             text: '삭제', 
                             style: 'destructive',
                             onPress: async () => {
-                              // TODO: Implement delete functionality
-                              Alert.alert('알림', '운동 기록이 삭제되었습니다.');
-                              navigation.goBack();
+                              try {
+                                const success = await deleteWorkout(workoutId);
+                                if (success) {
+                                  Alert.alert(
+                                    '완료',
+                                    '운동 기록이 삭제되었습니다.',
+                                    [
+                                      {
+                                        text: '확인',
+                                        onPress: () => navigation.goBack()
+                                      }
+                                    ]
+                                  );
+                                } else {
+                                  Alert.alert('오류', '운동 기록 삭제에 실패했습니다.');
+                                }
+                              } catch (error) {
+                                console.error('Error deleting workout:', error);
+                                Alert.alert('오류', '운동 기록 삭제 중 오류가 발생했습니다.');
+                              }
                             }
                           }
                         ]
@@ -722,5 +771,36 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.text,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  errorText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.text,
+    marginTop: 16,
+    textAlign: 'center',
+  },
+  errorSubtext: {
+    fontSize: 14,
+    color: Colors.textSecondary,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  backButton: {
+    marginTop: 24,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    backgroundColor: Colors.primary,
+    borderRadius: 8,
+  },
+  backButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
   },
 });

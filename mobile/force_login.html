@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Force Login Screen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .keys-list {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Force Login Screen</h1>
+    
+    <div>
+        <h2>Current Storage Keys:</h2>
+        <div id="currentKeys" class="keys-list"></div>
+    </div>
+    
+    <button onclick="clearAuthOnly()">Clear Auth Only</button>
+    <button onclick="clearAllAuth()">Clear ALL Auth & Mock Data</button>
+    <button onclick="showKeys()">Refresh Keys</button>
+    
+    <div id="status" class="status"></div>
+    
+    <script>
+        function showKeys() {
+            const keys = Object.keys(localStorage);
+            const keysDiv = document.getElementById('currentKeys');
+            if (keys.length === 0) {
+                keysDiv.innerHTML = '<em>No keys in localStorage</em>';
+            } else {
+                keysDiv.innerHTML = keys.map(key => {
+                    const value = localStorage.getItem(key);
+                    const preview = value ? value.substring(0, 50) + (value.length > 50 ? '...' : '') : '';
+                    return `<div><strong>${key}:</strong> ${preview}</div>`;
+                }).join('');
+            }
+        }
+        
+        function clearAuthOnly() {
+            // Clear all auth-related keys
+            const authKeys = [
+                'mock_auth_session',
+                'mock_auth_user',
+                'using_mock_auth',
+                'authToken',
+                'user',
+                'needs_reload',
+                'sb-zfttxnquvsjmqycdnrkr-auth-token' // Supabase auth token
+            ];
+            
+            authKeys.forEach(key => {
+                localStorage.removeItem(key);
+            });
+            
+            // Also clear any keys that start with 'sb-' (Supabase keys)
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('sb-')) {
+                    localStorage.removeItem(key);
+                }
+            });
+            
+            document.getElementById('status').innerHTML = '✅ Auth cleared! Now refresh the app page to see login screen.';
+            showKeys();
+        }
+        
+        function clearAllAuth() {
+            // Get all keys
+            const allKeys = Object.keys(localStorage);
+            
+            // Keep only workout data
+            const keepKeys = ['@workout_history', '@routines', '@active_workout'];
+            const keysToDelete = allKeys.filter(key => !keepKeys.includes(key));
+            
+            keysToDelete.forEach(key => {
+                localStorage.removeItem(key);
+            });
+            
+            document.getElementById('status').innerHTML = `✅ Cleared ${keysToDelete.length} auth/mock keys! Kept workout data. Now refresh the app page.`;
+            showKeys();
+        }
+        
+        // Show keys on load
+        showKeys();
+    </script>
+</body>
+</html>

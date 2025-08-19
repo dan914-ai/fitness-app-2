@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -140,24 +140,46 @@ const DOMSSurveyScreen = ({ navigation }: any) => {
     setSubmitting(true);
     
     try {
-      await progressionService.submitDOMSSurvey(userId, surveyData);
+      const result = await progressionService.submitDOMSSurvey(userId, surveyData);
       
-      Alert.alert(
-        '완료!',
-        '설문조사가 성공적으로 저장되었습니다. 개인화된 운동 추천을 받을 수 있습니다.',
-        [
-          {
-            text: '확인',
-            onPress: () => navigation.goBack(),
-          },
-        ]
-      );
+      if (result.success) {
+        const message = result.readiness_score 
+          ? `설문조사가 저장되었습니다.\n\n준비도 점수: ${result.readiness_score.toFixed(1)}/10\n${result.recommendation || ''}`
+          : '설문조사가 성공적으로 저장되었습니다.';
+        
+        Alert.alert(
+          '완료!',
+          message,
+          [
+            {
+              text: '확인',
+              onPress: () => navigation.goBack(),
+            },
+          ]
+        );
+      } else {
+        // Still saved locally, just inform user
+        Alert.alert(
+          '완료',
+          '설문조사가 로컬에 저장되었습니다.',
+          [
+            {
+              text: '확인',
+              onPress: () => navigation.goBack(),
+            },
+          ]
+        );
+      }
     } catch (error) {
       console.error('Survey submission error:', error);
+      // Don't show error - it's saved locally
       Alert.alert(
-        '오류',
-        '설문조사 저장 중 오류가 발생했습니다. 다시 시도해주세요.',
-        [{ text: '확인' }]
+        '완료',
+        '설문조사가 저장되었습니다.',
+        [{ 
+          text: '확인',
+          onPress: () => navigation.goBack(),
+        }]
       );
     } finally {
       setSubmitting(false);

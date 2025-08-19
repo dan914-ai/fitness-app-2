@@ -106,23 +106,34 @@ const initialContextState: WorkoutContextState = {
   lastError: null,
 };
 
+// Debounce timer for saving
+let saveTimer: NodeJS.Timeout | null = null;
+
 // Enhanced storage functions with backup and error recovery
 async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
-  try {
-    console.log('💾 WorkoutContext: Saving state to storage', { 
-      isActive: state.isWorkoutActive, 
-      exerciseCount: Object.keys(state.exercises).length 
-    });
-    
-    // Create backup first
-    try {
-      const currentState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
-      if (currentState) {
-        await AsyncStorage.setItem(WORKOUT_BACKUP_KEY, currentState);
-      }
-    } catch (backupError) {
-      console.warn('💾 WorkoutContext: Backup creation failed, continuing...', backupError);
-    }
+  // Clear any existing timer
+  if (saveTimer) {
+    clearTimeout(saveTimer);
+  }
+  
+  // Debounce the save operation to prevent infinite loops
+  return new Promise((resolve) => {
+    saveTimer = setTimeout(async () => {
+      try {
+        console.log('💾 WorkoutContext: Saving state to storage', { 
+          isActive: state.isWorkoutActive, 
+          exerciseCount: Object.keys(state.exercises).length 
+        });
+        
+        // Create backup first
+        try {
+          const currentState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
+          if (currentState) {
+            await AsyncStorage.setItem(WORKOUT_BACKUP_KEY, currentState);
+          }
+        } catch (backupError) {
+          console.warn('💾 WorkoutContext: Backup creation failed, continuing...', backupError);
+        }
     
     // Update state with save metadata
     const stateToSave = {
@@ -131,15 +142,16 @@ async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
       version: CURRENT_VERSION,
     };
     
-    // Save primary state
-    await AsyncStorage.setItem(WORKOUT_STATE_KEY, safeJsonStringifyWithDates(stateToSave));
-    console.log('✅ WorkoutContext: State saved successfully');
-    return true;
-    
-  } catch (error) {
-    console.error('💥 WorkoutContext: Error saving workout state:', error);
-    return false;
-  }
+        // Save primary state
+        await AsyncStorage.setItem(WORKOUT_STATE_KEY, safeJsonStringifyWithDates(stateToSave));
+        console.log('✅ WorkoutContext: State saved successfully');
+        resolve(true);
+      } catch (error) {
+        console.error('💥 WorkoutContext: Error saving workout state:', error);
+        resolve(false);
+      }
+    }, 500); // Debounce for 500ms
+  });
 }
 
 async function loadStateFromStorage(): Promise<WorkoutState | null> {
@@ -319,6 +331,11 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
   
   switch (action.type) {
     case 'START_WORKOUT':
+      // Clear any stale storage when starting fresh workout
+      AsyncStorage.removeItem(WORKOUT_STATE_KEY).catch(error => {
+        console.error('[WorkoutContext] Error clearing old workout state:', error);
+      });
+      
       newState = {
         ...state,
         routineId: action.payload.routineId,
@@ -328,7 +345,9 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
         endTime: null,
         exercises: {}, // Reset exercises for new workout
         exerciseOrder: [],
+        savedWorkoutId: null, // Clear any previous saved ID
       };
+      console.log('[WorkoutContext] Started new workout with startTime:', newState.startTime);
       break;
 
     case 'END_WORKOUT':
@@ -509,8 +528,20 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
       return state;
   }
   
-  // Save state to AsyncStorage after each change (except END_WORKOUT and RESET_WORKOUT)
-  if (action.type !== 'END_WORKOUT' && action.type !== 'RESET_WORKOUT' && action.type !== 'LOAD_WORKOUT_STATE') {
+  // Save state to AsyncStorage after each change (except certain actions)
+  // Skip saving for actions that don't need persistence or are triggered frequently
+  const skipSaveActions = [
+    'END_WORKOUT',
+    'RESET_WORKOUT', 
+    'LOAD_WORKOUT_STATE',
+    'SET_LOADING',
+    'SET_HYDRATED',
+    'SET_SAVING',
+    'SET_ERROR',
+    'HYDRATE_FROM_STORAGE'
+  ];
+  
+  if (!skipSaveActions.includes(action.type)) {
     saveStateToStorage(newState);
   }
   
@@ -613,7 +644,7 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
     };
 
     loadWorkoutState();
-  }, []); // Only run on mount
+  }, []); // Empty dependency array - ONLY run once on mount
 
   const contextValue: WorkoutContextType = {
     state,

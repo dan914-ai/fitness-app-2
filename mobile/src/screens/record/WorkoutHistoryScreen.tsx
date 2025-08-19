@@ -22,6 +22,9 @@ import { Calendar } from 'react-native-calendars';
 // MIGRATION: Removed unused getStaticThumbnail import
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
+import { debugStorage } from '../../debug/checkStorage';
+import { addMultipleTestWorkouts } from '../../debug/testWorkoutStorage';
+import { testStoragePersistence, diagnoseStorageIssue } from '../../debug/testStoragePersistence';
 
 type WorkoutHistoryScreenProps = {
   navigation: StackNavigationProp<RecordStackParamList, 'WorkoutHistory'>;
@@ -52,6 +55,9 @@ export default function WorkoutHistoryScreen() {
 
   const loadWorkouts = async () => {
     try {
+      // Debug storage first
+      await debugStorage();
+      
       const history = await getWorkoutHistory();
       if (history.length > 0 && history[0].exercises.length > 0) {
       }
@@ -347,16 +353,49 @@ export default function WorkoutHistoryScreen() {
           <Icon name="arrow-back" size={24} color={Colors.text} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>운동 기록</Text>
-        <TouchableOpacity 
-          style={styles.calendarToggle}
-          onPress={() => setShowCalendar(!showCalendar)}
-        >
-          <Icon 
-            name={showCalendar ? "calendar-today" : "calendar-view-month"} 
-            size={24} 
-            color={Colors.text} 
-          />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          {__DEV__ && (
+            <>
+              <TouchableOpacity 
+                style={styles.calendarToggle}
+                onPress={async () => {
+                  await testStoragePersistence();
+                  loadWorkouts();
+                }}
+              >
+                <Icon name="bug-report" size={24} color={Colors.text} />
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.calendarToggle}
+                onPress={async () => {
+                  await diagnoseStorageIssue();
+                  loadWorkouts();
+                }}
+              >
+                <Icon name="healing" size={24} color={Colors.text} />
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.calendarToggle}
+                onPress={async () => {
+                  await addMultipleTestWorkouts(3);
+                  loadWorkouts();
+                }}
+              >
+                <Icon name="add" size={24} color={Colors.text} />
+              </TouchableOpacity>
+            </>
+          )}
+          <TouchableOpacity 
+            style={styles.calendarToggle}
+            onPress={() => setShowCalendar(!showCalendar)}
+          >
+            <Icon 
+              name={showCalendar ? "calendar-today" : "calendar-view-month"} 
+              size={24} 
+              color={Colors.text} 
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Calendar */}

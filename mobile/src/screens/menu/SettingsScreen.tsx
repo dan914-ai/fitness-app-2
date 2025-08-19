@@ -10,6 +10,7 @@ import {
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
 import { MenuStackScreenProps } from '../../navigation/types';
+import { useSettings } from '../../hooks/useSettings';
 
 type Props = MenuStackScreenProps<'Settings'>;
 
@@ -24,7 +25,39 @@ interface SettingItem {
 }
 
 export default function SettingsScreen({ navigation }: Props) {
+  const { settings, updateSetting } = useSettings();
+  
   const settingsGroups = [
+    {
+      title: '운동',
+      items: [
+        {
+          icon: 'timer',
+          title: '운동 타이머',
+          subtitle: '운동 시간을 측정합니다',
+          type: 'switch' as const,
+          value: settings.workoutTimerEnabled,
+          onValueChange: (value: boolean) => updateSetting('workoutTimerEnabled', value),
+        },
+        {
+          icon: 'hourglass-empty',
+          title: '휴식 타이머',
+          subtitle: '세트 간 휴식 시간을 표시합니다',
+          type: 'switch' as const,
+          value: settings.restTimerEnabled,
+          onValueChange: (value: boolean) => updateSetting('restTimerEnabled', value),
+        },
+        // Removed auto-start option as timer is now manual only
+        // {
+        //   icon: 'play-arrow',
+        //   title: '휴식 타이머 자동 시작',
+        //   subtitle: '세트 완료 시 자동으로 시작',
+        //   type: 'switch' as const,
+        //   value: settings.autoStartRestTimer,
+        //   onValueChange: (value: boolean) => updateSetting('autoStartRestTimer', value),
+        // },
+      ],
+    },
     {
       title: '알림',
       items: [

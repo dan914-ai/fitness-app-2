@@ -36,20 +36,10 @@ export function isUnilateralExercise(exerciseName: string, englishName?: string)
 export function isDumbbellExercise(equipment: string): boolean {
   // Handle null/undefined equipment
   if (!equipment) {
-    console.log('[VolumeCalc] Equipment is null/undefined');
     return false;
   }
   
   const dumbbellKeywords = ['덤벨', 'dumbbell', 'db'];
-  
-  // Debug log
-  console.log('[VolumeCalc] Checking if dumbbell:', {
-    equipment,
-    equipmentLower: equipment.toLowerCase(),
-    checkingKeywords: dumbbellKeywords,
-    includes덤벨: equipment.includes('덤벨'),
-    includesDumbbell: equipment.toLowerCase().includes('dumbbell')
-  });
   
   return dumbbellKeywords.some(keyword => 
     equipment.toLowerCase().includes(keyword)
@@ -74,18 +64,6 @@ export function getVolumeMultiplier(
   
   // Check if it's a unilateral exercise
   const isUnilateral = isUnilateralExercise(exerciseName, englishName);
-  
-  // DEBUG: Log what we're checking
-  console.log('[VolumeCalc] Checking multiplier:', {
-    exerciseName,
-    equipment,
-    englishName,
-    isDumbbell,
-    isUnilateral,
-    equipmentIncludes덤벨: equipment?.includes('덤벨'),
-    equipmentIncludesDumbbell: equipment?.toLowerCase()?.includes('dumbbell'),
-    multiplier: (isDumbbell || isUnilateral) ? 2 : 1
-  });
   
   // If either condition is true, double the volume
   // We don't double twice if it's both dumbbell AND unilateral

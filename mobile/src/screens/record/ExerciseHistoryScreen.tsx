@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,8 @@ import { Colors } from '../../constants/colors';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RecordStackParamList } from '../../navigation/types';
+import { getWorkoutHistory, getExerciseHistory, ExerciseHistoryRecord } from '../../utils/workoutHistory';
+import storageService from '../../services/storage.service';
 
 type ExerciseHistoryScreenProps = {
   navigation: StackNavigationProp<RecordStackParamList, 'ExerciseHistory'>;
@@ -47,15 +49,121 @@ export default function ExerciseHistoryScreen() {
 
   const [activeTab, setActiveTab] = useState<TabType>('최근 기록');
   const [newNote, setNewNote] = useState('');
+  const [personalRecords, setPersonalRecords] = useState<PersonalRecord[]>([]);
+  const [recentSessions, setRecentSessions] = useState<SessionData[]>([]);
+  const [exerciseNotes, setExerciseNotes] = useState<Array<{id: string; date: string; note: string}>>([]);
+  const [loading, setLoading] = useState(true);
 
-  // TODO: Fetch actual personal records from storage
-  const personalRecords: PersonalRecord[] = [];
+  useEffect(() => {
+    loadExerciseData();
+  }, [exerciseId]);
 
-  // TODO: Fetch actual session history from storage
-  const recentSessions: SessionData[] = [];
+  const loadExerciseData = async () => {
+    try {
+      setLoading(true);
+      
+      // Fetch exercise history
+      const exerciseHistory = await getExerciseHistory(exerciseId, 10);
+      
+      // Convert exercise history to session data format
+      const sessions: SessionData[] = exerciseHistory.map((record, index) => ({
+        id: `session_${index}`,
+        date: new Date(record.date).toLocaleDateString('ko-KR'),
+        sets: record.sets.map(set => ({
+          weight: set.weight,
+          reps: set.reps
+        })),
+        maxWeight: `${record.maxWeight}kg`,
+        totalVolume: `${Math.round(record.totalVolume)}kg`,
+        duration: '운동 기록',
+        notes: undefined
+      }));
+      
+      setRecentSessions(sessions);
+      
+      // Calculate personal records
+      const records = await calculatePersonalRecords(exerciseId);
+      setPersonalRecords(records);
+      
+      // Load exercise notes (for now, initialize empty)
+      setExerciseNotes([]);
+      
+    } catch (error) {
+      console.error('Error loading exercise data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  // TODO: Fetch actual exercise notes from storage
-  const exerciseNotes: Array<{id: string; date: string; note: string}> = [];
+  const calculatePersonalRecords = async (exerciseId: string): Promise<PersonalRecord[]> => {
+    try {
+      const history = await getWorkoutHistory();
+      let maxWeight = 0;
+      let maxVolume = 0;
+      let maxReps = 0;
+      let maxWeightDate = '';
+      let maxVolumeDate = '';
+      let maxRepsDate = '';
+      
+      history.forEach(workout => {
+        const exercise = workout.exercises.find(ex => ex.exerciseId === exerciseId);
+        if (exercise) {
+          // Check for max weight
+          exercise.sets.forEach(set => {
+            const weight = parseFloat(set.weight) || 0;
+            const reps = parseInt(set.reps) || 0;
+            const volume = weight * reps;
+            
+            if (weight > maxWeight) {
+              maxWeight = weight;
+              maxWeightDate = workout.date;
+            }
+            
+            if (volume > maxVolume) {
+              maxVolume = volume;
+              maxVolumeDate = workout.date;
+            }
+            
+            if (reps > maxReps) {
+              maxReps = reps;
+              maxRepsDate = workout.date;
+            }
+          });
+        }
+      });
+      
+      const records: PersonalRecord[] = [];
+      
+      if (maxWeight > 0) {
+        records.push({
+          type: '1RM',
+          value: `${maxWeight}kg`,
+          date: new Date(maxWeightDate).toLocaleDateString('ko-KR')
+        });
+      }
+      
+      if (maxVolume > 0) {
+        records.push({
+          type: 'volume',
+          value: `${Math.round(maxVolume)}kg`,
+          date: new Date(maxVolumeDate).toLocaleDateString('ko-KR')
+        });
+      }
+      
+      if (maxReps > 0) {
+        records.push({
+          type: 'reps',
+          value: `${maxReps}회`,
+          date: new Date(maxRepsDate).toLocaleDateString('ko-KR')
+        });
+      }
+      
+      return records;
+    } catch (error) {
+      console.error('Error calculating personal records:', error);
+      return [];
+    }
+  };
 
   const tabs: TabType[] = ['최고 기록', '최근 기록', '메모', '차트'];
 
@@ -191,7 +299,20 @@ export default function ExerciseHistoryScreen() {
                 multiline
                 maxLength={200}
               />
-              <TouchableOpacity style={styles.addNoteButton}>
+              <TouchableOpacity 
+                style={styles.addNoteButton}
+                onPress={() => {
+                  if (newNote.trim()) {
+                    const newNoteItem = {
+                      id: `note_${Date.now()}`,
+                      date: new Date().toLocaleDateString('ko-KR'),
+                      note: newNote.trim()
+                    };
+                    setExerciseNotes([newNoteItem, ...exerciseNotes]);
+                    setNewNote('');
+                  }
+                }}
+              >
                 <Text style={styles.addNoteButtonText}>메모 추가</Text>
               </TouchableOpacity>
             </View>

@@ -9,6 +9,7 @@ import {
   Animated,
   Dimensions,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -37,12 +38,9 @@ interface EnhancedRestTimerProps {
 }
 
 const PRESET_TIMES = [
-  { seconds: 30, label: '30초', description: '가벼운 운동' },
-  { seconds: 60, label: '1분', description: '일반 세트' },
-  { seconds: 90, label: '1분 30초', description: '중간 강도' },
-  { seconds: 120, label: '2분', description: '고강도' },
-  { seconds: 180, label: '3분', description: '최대 강도' },
-  { seconds: 240, label: '4분', description: '파워리프팅' },
+  { seconds: 60, label: '1분', description: '가벼운 세트' },
+  { seconds: 120, label: '2분', description: '일반 세트' },
+  { seconds: 180, label: '3분', description: '고강도 세트' },
 ];
 
 const MOTIVATIONAL_MESSAGES = [
@@ -61,32 +59,37 @@ export default function EnhancedRestTimer({
   setNumber = 1
 }: EnhancedRestTimerProps) {
   const theme = useDesignSystem();
-  const [visible, setVisible] = useState(false);
+  // Fixed: Modal now fully controlled by parent's isActive prop
   const [selectedTime, setSelectedTime] = useState(90);
   const [remainingTime, setRemainingTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [customTime, setCustomTime] = useState('');
+  const [showCustomInput, setShowCustomInput] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const progressAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
+  // Reset states when modal is opened/closed
   useEffect(() => {
-    if (isActive && !visible) {
-      setVisible(true);
-      startTimer();
+    if (isActive) {
+      // Reset to selection screen when opening
+      setIsRunning(false);
+      setIsPaused(false);
+      setRemainingTime(0);
     }
   }, [isActive]);
 
   useEffect(() => {
-    if (visible) {
+    if (isActive) {
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 300,
         useNativeDriver: true,
       }).start();
     }
-  }, [visible, fadeAnim]);
+  }, [isActive, fadeAnim]);
 
   useEffect(() => {
     if (isRunning && !isPaused) {
@@ -190,8 +193,16 @@ export default function EnhancedRestTimer({
       trigger: null,
     });
     
+    // Reset states
+    setIsRunning(false);
+    setIsPaused(false);
+    setRemainingTime(0);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    // Call onComplete to notify parent
     onComplete?.();
-    closeModal();
   };
 
   const scheduleRestNotification = async (seconds: number) => {
@@ -207,15 +218,15 @@ export default function EnhancedRestTimer({
   };
 
   const closeModal = () => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 300,
-      useNativeDriver: true,
-    }).start(() => {
-      setVisible(false);
-      stopTimer();
-      onDismiss?.();
-    });
+    // Reset everything when closing
+    setIsRunning(false);
+    setIsPaused(false);
+    setRemainingTime(0);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    // Tell parent to close the modal
+    onDismiss?.();
   };
 
   const formatTime = (seconds: number): string => {
@@ -235,7 +246,7 @@ export default function EnhancedRestTimer({
 
   return (
     <Modal
-      visible={visible}
+      visible={isActive}
       transparent
       animationType="none"
       onRequestClose={closeModal}
@@ -270,7 +281,7 @@ export default function EnhancedRestTimer({
           ]}
         >
           <LinearGradient
-            colors={[theme.colors.semantic.surface.main, theme.colors.semantic.surface.raised]}
+            colors={[theme.colors.semantic.surface.paper, theme.colors.semantic.surface.elevated]}
             style={styles.content}
           >
             <TouchableOpacity
@@ -284,57 +295,183 @@ export default function EnhancedRestTimer({
               {getMotivationalMessage()}
             </Text>
 
-            {!isRunning ? (
-              <>
-                <Text style={[styles.subtitle, { color: theme.colors.semantic.text.secondary }]}>
-                  휴식 시간을 선택하세요
-                </Text>
-                
-                <ScrollView 
-                  horizontal 
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={styles.presetContainer}
+            {/* Unified interface - both timer selection and countdown visible */}
+            <Text style={[styles.subtitle, { color: theme.colors.semantic.text.secondary }]}>
+              휴식 시간을 선택하세요
+            </Text>
+            
+            {/* Timer preset selection - vertical layout */}
+            <View style={styles.presetContainer}>
+              {PRESET_TIMES.map((preset) => (
+                <TouchableOpacity
+                  key={preset.seconds}
+                  style={[
+                    styles.presetButton,
+                    {
+                      backgroundColor: selectedTime === preset.seconds
+                        ? theme.colors.semantic.primary.main
+                        : theme.colors.semantic.surface.elevated,
+                      borderColor: selectedTime === preset.seconds
+                        ? theme.colors.semantic.primary.main
+                        : theme.colors.semantic.divider,
+                    }
+                  ]}
+                  onPress={() => {
+                    setSelectedTime(preset.seconds);
+                    // If timer is running, update the remaining time
+                    if (isRunning) {
+                      setRemainingTime(preset.seconds);
+                      setIsPaused(false);
+                    }
+                  }}
                 >
-                  {PRESET_TIMES.map((preset) => (
-                    <TouchableOpacity
-                      key={preset.seconds}
-                      style={[
-                        styles.presetButton,
-                        {
-                          backgroundColor: selectedTime === preset.seconds
-                            ? theme.colors.semantic.primary.main
-                            : theme.colors.semantic.surface.raised,
-                          borderColor: selectedTime === preset.seconds
-                            ? theme.colors.semantic.primary.main
-                            : theme.colors.semantic.border.light,
-                        }
-                      ]}
-                      onPress={() => setSelectedTime(preset.seconds)}
-                    >
-                      <Text style={[
-                        styles.presetTime,
-                        { 
-                          color: selectedTime === preset.seconds
-                            ? '#FFFFFF'
-                            : theme.colors.semantic.text.primary
-                        }
-                      ]}>
-                        {preset.label}
-                      </Text>
-                      <Text style={[
-                        styles.presetDescription,
-                        { 
-                          color: selectedTime === preset.seconds
-                            ? '#FFFFFF'
-                            : theme.colors.semantic.text.secondary
-                        }
-                      ]}>
-                        {preset.description}
-                      </Text>
-                    </TouchableOpacity>
-                  ))}
-                </ScrollView>
+                  <Text style={[
+                    styles.presetTime,
+                    { 
+                      color: selectedTime === preset.seconds
+                        ? '#FFFFFF'
+                        : theme.colors.semantic.text.primary
+                    }
+                  ]}>
+                    {preset.label}
+                  </Text>
+                  <Text style={[
+                    styles.presetDescription,
+                    { 
+                      color: selectedTime === preset.seconds
+                        ? '#FFFFFF'
+                        : theme.colors.semantic.text.secondary
+                    }
+                  ]}>
+                    {preset.description}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
 
+            {/* Custom time button */}
+            <TouchableOpacity
+              style={[
+                styles.presetButton,
+                {
+                  backgroundColor: showCustomInput
+                    ? theme.colors.semantic.primary.main
+                    : theme.colors.semantic.surface.elevated,
+                  borderColor: showCustomInput
+                    ? theme.colors.semantic.primary.main
+                    : theme.colors.semantic.divider,
+                }
+              ]}
+              onPress={() => setShowCustomInput(!showCustomInput)}
+            >
+              <Icon name="edit" size={20} color={showCustomInput ? '#FFFFFF' : theme.colors.semantic.text.primary} />
+              <Text style={[
+                styles.presetTime,
+                { color: showCustomInput ? '#FFFFFF' : theme.colors.semantic.text.primary }
+              ]}>
+                사용자 설정
+              </Text>
+              <Text style={[
+                styles.presetDescription,
+                { color: showCustomInput ? '#FFFFFF' : theme.colors.semantic.text.secondary }
+              ]}>
+                원하는 시간 입력
+              </Text>
+            </TouchableOpacity>
+            
+            {showCustomInput && (
+              <View style={styles.customInputContainer}>
+                <TextInput
+                  style={[
+                    styles.customInput,
+                    { 
+                      backgroundColor: theme.colors.semantic.surface.elevated,
+                      color: theme.colors.semantic.text.primary,
+                      borderColor: theme.colors.semantic.divider,
+                    }
+                  ]}
+                  placeholder="초 단위 입력 (예: 90)"
+                  placeholderTextColor={theme.colors.semantic.text.secondary}
+                  value={customTime}
+                  onChangeText={setCustomTime}
+                  keyboardType="numeric"
+                  maxLength={4}
+                />
+                <TouchableOpacity
+                  style={[
+                    styles.customSetButton,
+                    { backgroundColor: theme.colors.semantic.primary.main }
+                  ]}
+                  onPress={() => {
+                    const seconds = parseInt(customTime);
+                    if (seconds > 0 && seconds <= 9999) {
+                      setSelectedTime(seconds);
+                      setShowCustomInput(false);
+                      setCustomTime('');
+                      if (isRunning) {
+                        setRemainingTime(seconds);
+                        setIsPaused(false);
+                      }
+                    }
+                  }}
+                >
+                  <Text style={styles.customSetButtonText}>설정</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+
+            {/* Timer display - always visible */}
+            <View style={styles.timerContainer}>
+              <View style={styles.progressRing}>
+                <View style={styles.progressBackground}>
+                  <Animated.View
+                    style={[
+                      styles.progressFill,
+                      {
+                        backgroundColor: remainingTime <= 10 && isRunning
+                          ? theme.colors.semantic.error.main
+                          : theme.colors.semantic.primary.main,
+                        width: `${progress * 100}%`,
+                      }
+                    ]}
+                  />
+                </View>
+              </View>
+
+              <Animated.Text 
+                style={[
+                  styles.timerText,
+                  { 
+                    color: remainingTime <= 10 && isRunning
+                      ? theme.colors.semantic.error.main
+                      : theme.colors.semantic.text.primary,
+                    transform: [{ scale: scaleAnim }]
+                  }
+                ]}
+              >
+                {isRunning ? formatTime(remainingTime) : formatTime(selectedTime)}
+              </Animated.Text>
+
+              {remainingTime <= 10 && remainingTime > 0 && isRunning && (
+                <Animated.Text style={[
+                  styles.countdownText,
+                  { 
+                    color: theme.colors.semantic.error.main,
+                    opacity: scaleAnim.interpolate({
+                      inputRange: [1, 1.1],
+                      outputRange: [0.7, 1]
+                    })
+                  }
+                ]}>
+                  준비하세요!
+                </Animated.Text>
+              )}
+            </View>
+
+            {/* Control buttons - change based on timer state */}
+            <View style={styles.controls}>
+              {!isRunning ? (
+                // Start button when timer is not running
                 <TouchableOpacity
                   style={[
                     styles.startButton,
@@ -345,57 +482,9 @@ export default function EnhancedRestTimer({
                   <Icon name="play-arrow" size={28} color="#FFFFFF" />
                   <Text style={styles.startButtonText}>휴식 시작</Text>
                 </TouchableOpacity>
-              </>
-            ) : (
-              <>
-                <View style={styles.timerContainer}>
-                  <View style={styles.progressRing}>
-                    <View style={styles.progressBackground}>
-                      <Animated.View
-                        style={[
-                          styles.progressFill,
-                          {
-                            backgroundColor: remainingTime <= 10 
-                              ? theme.colors.semantic.error.main
-                              : theme.colors.semantic.primary.main,
-                            width: `${progress * 100}%`,
-                          }
-                        ]}
-                      />
-                    </View>
-                  </View>
-
-                  <Animated.Text 
-                    style={[
-                      styles.timerText,
-                      { 
-                        color: remainingTime <= 10 
-                          ? theme.colors.semantic.error.main
-                          : theme.colors.semantic.text.primary,
-                        transform: [{ scale: scaleAnim }]
-                      }
-                    ]}
-                  >
-                    {formatTime(remainingTime)}
-                  </Animated.Text>
-
-                  {remainingTime <= 10 && remainingTime > 0 && (
-                    <Animated.Text style={[
-                      styles.countdownText,
-                      { 
-                        color: theme.colors.semantic.error.main,
-                        opacity: scaleAnim.interpolate({
-                          inputRange: [1, 1.1],
-                          outputRange: [0.7, 1]
-                        })
-                      }
-                    ]}>
-                      준비하세요!
-                    </Animated.Text>
-                  )}
-                </View>
-
-                <View style={styles.controls}>
+              ) : (
+                // Control buttons when timer is running
+                <>
                   <TouchableOpacity
                     style={[
                       styles.controlButton,
@@ -420,8 +509,9 @@ export default function EnhancedRestTimer({
                       { backgroundColor: theme.colors.semantic.text.disabled }
                     ]}
                     onPress={() => {
-                      stopTimer();
-                      setIsRunning(false);
+                      // Reset the timer to the selected time
+                      setRemainingTime(selectedTime);
+                      setIsPaused(false);
                     }}
                   >
                     <Icon name="refresh" size={24} color="#FFFFFF" />
@@ -436,23 +526,29 @@ export default function EnhancedRestTimer({
                   >
                     <Icon name="check" size={24} color="#FFFFFF" />
                   </TouchableOpacity>
-                </View>
+                </>
+              )}
+            </View>
 
-                <TouchableOpacity
-                  style={[
-                    styles.skipButton,
-                    { borderColor: theme.colors.semantic.border.light }
-                  ]}
-                  onPress={completeTimer}
-                >
-                  <Text style={[
-                    styles.skipButtonText,
-                    { color: theme.colors.semantic.text.secondary }
-                  ]}>
-                    휴식 건너뛰기
-                  </Text>
-                </TouchableOpacity>
-              </>
+            {isRunning && (
+              <TouchableOpacity
+                style={[
+                  styles.skipButton,
+                  { borderColor: theme.colors.semantic.divider }
+                ]}
+                onPress={() => {
+                  // Stop timer and close modal immediately
+                  stopTimer();
+                  onDismiss?.();
+                }}
+              >
+                <Text style={[
+                  styles.skipButtonText,
+                  { color: theme.colors.semantic.text.secondary }
+                ]}>
+                  휴식 건너뛰기
+                </Text>
+              </TouchableOpacity>
             )}
           </LinearGradient>
         </Animated.View>
@@ -471,12 +567,13 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   container: {
-    width: screenWidth * 0.9,
-    maxWidth: 400,
+    width: screenWidth * 0.95,
+    maxWidth: 500,
+    maxHeight: screenHeight * 0.85,
   },
   content: {
     borderRadius: 24,
-    padding: 24,
+    padding: 20,
     alignItems: 'center',
   },
   closeButton: {
@@ -497,24 +594,28 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   presetContainer: {
-    paddingVertical: 8,
+    width: '100%',
+    marginBottom: 16,
     gap: 12,
   },
   presetButton: {
-    paddingVertical: 16,
+    width: '100%',
+    paddingVertical: 18,
     paddingHorizontal: 20,
-    borderRadius: 12,
-    borderWidth: 1.5,
-    marginHorizontal: 6,
+    borderRadius: 16,
+    borderWidth: 2,
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
   },
   presetTime: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   presetDescription: {
-    fontSize: 11,
-    marginTop: 4,
+    fontSize: 12,
+    opacity: 0.8,
   },
   startButton: {
     flexDirection: 'row',
@@ -532,7 +633,7 @@ const styles = StyleSheet.create({
   },
   timerContainer: {
     alignItems: 'center',
-    marginVertical: 32,
+    marginVertical: 20,
   },
   progressRing: {
     width: screenWidth * 0.6,
@@ -550,9 +651,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   timerText: {
-    fontSize: 64,
+    fontSize: 72,
     fontWeight: 'bold',
-    letterSpacing: 2,
+    letterSpacing: 3,
   },
   countdownText: {
     fontSize: 16,
@@ -581,5 +682,30 @@ const styles = StyleSheet.create({
   skipButtonText: {
     fontSize: 14,
     fontWeight: '500',
+  },
+  customInputContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 12,
+    gap: 10,
+  },
+  customInput: {
+    flex: 1,
+    height: 48,
+    borderRadius: 12,
+    borderWidth: 2,
+    paddingHorizontal: 16,
+    fontSize: 18,
+  },
+  customSetButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+  },
+  customSetButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });

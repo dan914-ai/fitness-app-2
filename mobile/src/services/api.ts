@@ -1,6 +1,8 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { API_BASE_URL } from '../constants/api';
+import { CommonActions } from '@react-navigation/native';
+import { navigationRef } from './navigation.service';
 
 class ApiService {
   private api: AxiosInstance;
@@ -32,10 +34,51 @@ class ApiService {
     this.api.interceptors.response.use(
       (response) => response,
       async (error: AxiosError) => {
-        if (error.response?.status === 401) {
-          // Token expired or invalid
-          await AsyncStorage.removeItem('authToken');
-          // TODO: Navigate to login screen
+        if (error.response?.status === 401 || error.response?.status === 403) {
+          // Token expired or invalid - handle gracefully
+          try {
+            await AsyncStorage.removeItem('authToken');
+            await AsyncStorage.removeItem('refreshToken');
+            console.log('Authentication tokens cleared due to auth error');
+            
+            // Navigate to login screen
+            if (navigationRef.current?.isReady()) {
+              navigationRef.current.dispatch(
+                CommonActions.reset({
+                  index: 0,
+                  routes: [
+                    {
+                      name: 'Auth',
+                      state: {
+                        routes: [{ name: 'Login' }],
+                      },
+                    },
+                  ],
+                })
+              );
+            } else {
+              // If navigation is not ready, try again after a delay
+              setTimeout(() => {
+                if (navigationRef.current?.isReady()) {
+                  navigationRef.current.dispatch(
+                    CommonActions.reset({
+                      index: 0,
+                      routes: [
+                        {
+                          name: 'Auth',
+                          state: {
+                            routes: [{ name: 'Login' }],
+                          },
+                        },
+                      ],
+                    })
+                  );
+                }
+              }, 500);
+            }
+          } catch (navigationError) {
+            console.error('Error during logout navigation:', navigationError);
+          }
         }
         return Promise.reject(error);
       }

@@ -21,6 +21,7 @@ import { loginWithMockAuth, tryAlternativeEmails } from '../../utils/testAuthWor
 import { debugAuthError, debugLoginAttempt } from '../../utils/debugAuth';
 import { CommonActions } from '@react-navigation/native';
 import { forceReloadApp } from '../../utils/forceReloadApp';
+import { quickTestLogin } from '../../utils/quickTestLogin';
 
 type FormData = {
   email: string;
@@ -364,6 +365,22 @@ export default function LoginScreen({ navigation }: AuthStackScreenProps<'Login'
           style={styles.testButton}
         >
           <Text style={styles.testButtonText}>Danny 계정 사용</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={async () => {
+            try {
+              await quickTestLogin();
+              Alert.alert('성공', '테스트 로그인 완료! 페이지를 새로고침하세요.', [
+                { text: '확인', onPress: () => window.location.reload() }
+              ]);
+            } catch (error) {
+              Alert.alert('오류', '테스트 로그인 실패');
+            }
+          }}
+          style={[styles.testButton, { backgroundColor: Colors.success }]}
+        >
+          <Text style={styles.testButtonText}>🚀 빠른 테스트 로그인 (Skip Supabase)</Text>
         </TouchableOpacity>
 
         <TouchableOpacity

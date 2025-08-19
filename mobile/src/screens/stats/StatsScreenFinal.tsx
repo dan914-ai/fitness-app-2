@@ -13,6 +13,18 @@ import {
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
 import { getWorkoutHistory } from '../../utils/workoutHistory';
+import { 
+  calculateDailyVolumes, 
+  calculateWeeklyData,
+  calculateMuscleGroupDistribution,
+  calculatePeriodStats,
+  getWeeklyTrend
+} from '../../utils/statsCalculations';
+import VolumeComparisonChart from '../../components/stats/VolumeComparisonChart';
+import WeeklyTrendChart from '../../components/stats/WeeklyTrendChart';
+import MuscleGroupRadarChart from '../../components/stats/MuscleGroupRadarChart';
+import HistoricalVolumeChart from '../../components/stats/HistoricalVolumeChart';
+import { ProgressCircle } from '../../components/analytics';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -151,82 +163,28 @@ const CustomLineChart = ({
             
             {/* Chart */}
             <View style={styles.lineChartArea}>
-              {Platform.OS === 'web' ? (
-                <svg width="100%" height="100%" viewBox={`0 0 ${dimensions.width} ${height}`}>
-                  {/* Grid lines */}
-                  {[0, 0.25, 0.5, 0.75, 1].map((ratio, index) => (
-                    <line
-                      key={index}
-                      x1="20"
-                      y1={20 + ratio * (height - 60)}
-                      x2={dimensions.width - 20}
-                      y2={20 + ratio * (height - 60)}
-                      stroke={Colors.border}
-                      strokeWidth="1"
-                      strokeDasharray="2,2"
-                    />
-                  ))}
-                  
-                  {/* Line */}
-                  <Animated.polyline
-                    points={getPoints()}
-                    fill="none"
-                    stroke={Colors.primary}
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeDasharray={`${dimensions.width * 2}`}
-                    strokeDashoffset={animatedValue.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [dimensions.width * 2, 0],
-                    })}
-                  />
-                  
-                  {/* Dots */}
-                  {data.map((point, index) => {
-                    const padding = 20;
-                    const chartWidth = dimensions.width - padding * 2;
-                    const chartHeight = height - 60;
-                    const stepX = chartWidth / (data.length - 1);
-                    const x = padding + index * stepX;
-                    const y = chartHeight - ((point.y - minValue) / range) * chartHeight + 20;
-                    
-                    return (
-                      <Animated.circle
-                        key={index}
-                        cx={x}
-                        cy={y}
-                        r="4"
-                        fill={Colors.primary}
-                        opacity={animatedValue}
+              {/* Use simple bar representation for all platforms */}
+              <View style={styles.simpleLine}>
+                {data.map((point, index) => {
+                  const barHeight = ((point.y - minValue) / range) * (height - 60);
+                  return (
+                    <View key={index} style={styles.lineBarWrapper}>
+                      <Animated.View
+                        style={[
+                          styles.lineBar,
+                          {
+                            height: animatedValue.interpolate({
+                              inputRange: [0, 1],
+                              outputRange: [0, barHeight],
+                            }),
+                            backgroundColor: Colors.primary,
+                          },
+                        ]}
                       />
-                    );
-                  })}
-                </svg>
-              ) : (
-                // For mobile, use a simpler representation
-                <View style={styles.simpleLine}>
-                  {data.map((point, index) => {
-                    const barHeight = ((point.y - minValue) / range) * (height - 60);
-                    return (
-                      <View key={index} style={styles.lineBarWrapper}>
-                        <Animated.View
-                          style={[
-                            styles.lineBar,
-                            {
-                              height: animatedValue.interpolate({
-                                inputRange: [0, 1],
-                                outputRange: [0, barHeight],
-                              }),
-                              backgroundColor: Colors.primary,
-                            },
-                          ]}
-                        />
-                      </View>
-                    );
-                  })}
-                </View>
-              )}
+                    </View>
+                  );
+                })}
+              </View>
               
               {/* X-axis labels */}
               <View style={styles.xAxisLabels}>
@@ -270,189 +228,42 @@ const CustomPieChart = ({
 
   const total = data.reduce((sum, item) => sum + item.value, 0);
   
-  if (Platform.OS === 'web') {
-    let currentAngle = -90; // Start from top
-    
-    return (
-      <View style={styles.chartContainer}>
-        <Text style={styles.chartTitle}>{title}</Text>
-        <View style={styles.pieChartContent}>
-          <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-            {data.map((item, index) => {
-              const percentage = (item.value / total) * 100;
-              const angle = (percentage / 100) * 360;
-              const largeArcFlag = angle > 180 ? 1 : 0;
-              
-              const startAngle = currentAngle;
-              const endAngle = currentAngle + angle;
-              
-              const startX = size / 2 + (size / 2 - 20) * Math.cos((startAngle * Math.PI) / 180);
-              const startY = size / 2 + (size / 2 - 20) * Math.sin((startAngle * Math.PI) / 180);
-              const endX = size / 2 + (size / 2 - 20) * Math.cos((endAngle * Math.PI) / 180);
-              const endY = size / 2 + (size / 2 - 20) * Math.sin((endAngle * Math.PI) / 180);
-              
-              const pathData = `
-                M ${size / 2} ${size / 2}
-                L ${startX} ${startY}
-                A ${size / 2 - 20} ${size / 2 - 20} 0 ${largeArcFlag} 1 ${endX} ${endY}
-                Z
-              `;
-              
-              currentAngle = endAngle;
-              
-              return (
-                <Animated.path
-                  key={index}
-                  d={pathData}
-                  fill={item.color}
-                  opacity={animatedValue}
-                />
-              );
-            })}
-          </svg>
-          
-          <View style={styles.pieChartLegend}>
-            {data.map((item, index) => (
-              <View key={index} style={styles.legendItem}>
+  // Use simpler bar representation for all platforms
+  return (
+    <View style={styles.chartContainer}>
+      <Text style={styles.chartTitle}>{title}</Text>
+      <View style={styles.pieChartContent}>
+        {data.map((item, index) => {
+          const percentage = (item.value / total) * 100;
+          return (
+            <View key={index} style={styles.pieBarItem}>
+              <View style={styles.pieBarInfo}>
                 <View style={[styles.legendColor, { backgroundColor: item.color }]} />
-                <Text style={styles.legendText}>
-                  {item.name} ({Math.round((item.value / total) * 100)}%)
-                </Text>
+                <Text style={styles.pieBarName}>{item.name}</Text>
+                <Text style={styles.pieBarValue}>{Math.round(percentage)}%</Text>
               </View>
-            ))}
-          </View>
-        </View>
-      </View>
-    );
-  } else {
-    // For mobile, use a simpler representation with bars
-    return (
-      <View style={styles.chartContainer}>
-        <Text style={styles.chartTitle}>{title}</Text>
-        <View style={styles.pieChartContent}>
-          {data.map((item, index) => {
-            const percentage = (item.value / total) * 100;
-            return (
-              <View key={index} style={styles.pieBarItem}>
-                <View style={styles.pieBarInfo}>
-                  <View style={[styles.legendColor, { backgroundColor: item.color }]} />
-                  <Text style={styles.pieBarName}>{item.name}</Text>
-                  <Text style={styles.pieBarValue}>{Math.round(percentage)}%</Text>
-                </View>
-                <View style={styles.pieBarContainer}>
-                  <Animated.View
-                    style={[
-                      styles.pieBar,
-                      {
-                        width: animatedValue.interpolate({
-                          inputRange: [0, 1],
-                          outputRange: ['0%', `${percentage}%`],
-                        }),
-                        backgroundColor: item.color,
-                      },
-                    ]}
-                  />
-                </View>
+              <View style={styles.pieBarContainer}>
+                <Animated.View
+                  style={[
+                    styles.pieBar,
+                    {
+                      width: animatedValue.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: ['0%', `${percentage}%`],
+                      }),
+                      backgroundColor: item.color,
+                    },
+                  ]}
+                />
               </View>
-            );
-          })}
-        </View>
+            </View>
+          );
+        })}
       </View>
-    );
-  }
+    </View>
+  );
 };
 
-// Progress Circle Component
-const ProgressCircle = ({ 
-  progress, 
-  title, 
-  subtitle, 
-  color = Colors.primary,
-  size = 80 
-}: {
-  progress: number;
-  title: string;
-  subtitle: string;
-  color?: string;
-  size?: number;
-}) => {
-  const animatedValue = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    Animated.timing(animatedValue, {
-      toValue: progress / 100,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  }, [progress]);
-
-  const radius = (size - 10) / 2;
-  const circumference = 2 * Math.PI * radius;
-
-  if (Platform.OS === 'web') {
-    return (
-      <View style={styles.progressCircleContainer}>
-        <svg width={size} height={size}>
-          <circle
-            cx={size / 2}
-            cy={size / 2}
-            r={radius}
-            stroke={Colors.border}
-            strokeWidth="8"
-            fill="none"
-          />
-          <Animated.circle
-            cx={size / 2}
-            cy={size / 2}
-            r={radius}
-            stroke={color}
-            strokeWidth="8"
-            fill="none"
-            strokeDasharray={circumference}
-            strokeDashoffset={animatedValue.interpolate({
-              inputRange: [0, 1],
-              outputRange: [circumference, 0],
-            })}
-            strokeLinecap="round"
-            transform={`rotate(-90 ${size / 2} ${size / 2})`}
-          />
-        </svg>
-        <View style={[styles.progressCircleContent, { width: size, height: size }]}>
-          <Text style={styles.progressTitle}>{title}</Text>
-          <Text style={styles.progressSubtitle}>{subtitle}</Text>
-        </View>
-      </View>
-    );
-  } else {
-    // For mobile, use a simpler circular progress
-    return (
-      <View style={styles.progressCircleContainer}>
-        <View style={[styles.simpleCircle, { width: size, height: size }]}>
-          <View style={[styles.simpleCircleInner, { borderColor: Colors.border }]}>
-            <Animated.View
-              style={[
-                styles.simpleCircleProgress,
-                {
-                  borderColor: color,
-                  transform: [{
-                    rotate: animatedValue.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: ['0deg', '360deg'],
-                    }),
-                  }],
-                },
-              ]}
-            />
-          </View>
-          <View style={styles.progressCircleContent}>
-            <Text style={styles.progressTitle}>{title}</Text>
-            <Text style={styles.progressSubtitle}>{subtitle}</Text>
-          </View>
-        </View>
-      </View>
-    );
-  }
-};
 
 // Stat Card Component
 const StatCard = ({ 
@@ -515,7 +326,7 @@ const StatCard = ({
 export default function StatsScreenFinal({ navigation }: any) {
   const [loading, setLoading] = useState(true);
   const [workoutHistory, setWorkoutHistory] = useState<any[]>([]);
-  const [selectedPeriod, setSelectedPeriod] = useState(30);
+  const [selectedPeriod, setSelectedPeriod] = useState('weekly');
   const [stats, setStats] = useState({
     totalWorkouts: 0,
     totalDuration: 0,
@@ -525,18 +336,70 @@ export default function StatsScreenFinal({ navigation }: any) {
     volumeTrend: [],
     muscleGroupData: [],
     personalRecords: [],
+    dailyVolumes: [],
+    weeklyDataNew: [],
+    muscleDistribution: [],
+    weeklyTrend: { currentWeek: [], previousWeek: [], labels: [] },
+    periodStats: null as any,
   });
 
   const periods = [
-    { label: '7일', value: 7 },
-    { label: '30일', value: 30 },
-    { label: '90일', value: 90 },
-    { label: '1년', value: 365 },
+    { label: '주별', value: 'weekly' },
+    { label: '월별', value: 'monthly' },
   ];
 
   useEffect(() => {
     loadData();
   }, [selectedPeriod]);
+
+  const calculatePersonalRecords = (history: any[]) => {
+    const exerciseRecords: { [key: string]: { maxWeight: number; maxVolume: number; maxReps: number; exercise: string } } = {};
+    
+    history.forEach((workout: any) => {
+      workout.exercises.forEach((exercise: any) => {
+        const exerciseKey = exercise.exerciseId || exercise.exerciseName;
+        
+        if (!exerciseRecords[exerciseKey]) {
+          exerciseRecords[exerciseKey] = {
+            maxWeight: 0,
+            maxVolume: 0,
+            maxReps: 0,
+            exercise: exercise.exerciseName
+          };
+        }
+        
+        exercise.sets.forEach((set: any) => {
+          const weight = parseFloat(set.weight) || 0;
+          const reps = parseInt(set.reps) || 0;
+          const volume = weight * reps;
+          
+          if (weight > exerciseRecords[exerciseKey].maxWeight) {
+            exerciseRecords[exerciseKey].maxWeight = weight;
+          }
+          
+          if (volume > exerciseRecords[exerciseKey].maxVolume) {
+            exerciseRecords[exerciseKey].maxVolume = volume;
+          }
+          
+          if (reps > exerciseRecords[exerciseKey].maxReps) {
+            exerciseRecords[exerciseKey].maxReps = reps;
+          }
+        });
+      });
+    });
+    
+    // Convert to array format for display (top 5 records)
+    return Object.entries(exerciseRecords)
+      .filter(([_, record]) => record.maxWeight > 0)
+      .sort((a, b) => b[1].maxWeight - a[1].maxWeight)
+      .slice(0, 5)
+      .map(([exerciseKey, record]) => ({
+        exerciseName: record.exercise,
+        maxWeight: record.maxWeight,
+        maxVolume: record.maxVolume,
+        maxReps: record.maxReps
+      }));
+  };
 
   const loadData = async () => {
     try {
@@ -544,10 +407,19 @@ export default function StatsScreenFinal({ navigation }: any) {
       const history = await getWorkoutHistory();
       setWorkoutHistory(history);
 
-      // Filter history by selected period
+      // Calculate new chart data using utility functions
+      const dailyVolumes = calculateDailyVolumes(history, 7);
+      const weeklyDataNew = calculateWeeklyData(history, selectedPeriod === 'monthly' ? 12 : 6);
+      const muscleDistribution = calculateMuscleGroupDistribution(history);
+      const weeklyTrend = getWeeklyTrend(history);
+      const periodDays = selectedPeriod === 'monthly' ? 30 : 7;
+      const periodStats = calculatePeriodStats(history, periodDays);
+
+      // Filter history by selected period for old stats
       const endDate = new Date();
       const startDate = new Date();
-      startDate.setDate(startDate.getDate() - selectedPeriod);
+      const daysToFilter = selectedPeriod === 'monthly' ? 30 : 7;
+      startDate.setDate(startDate.getDate() - daysToFilter);
 
       const filteredHistory = history.filter((workout: any) => {
         const workoutDate = new Date(workout.date);
@@ -683,6 +555,9 @@ export default function StatsScreenFinal({ navigation }: any) {
         sum + Math.floor((workout.duration || 0) / 60), 0
       );
 
+      // Calculate personal records
+      const personalRecords = calculatePersonalRecords(filteredHistory);
+
       setStats({
         totalWorkouts: filteredHistory.length,
         totalDuration,
@@ -691,7 +566,12 @@ export default function StatsScreenFinal({ navigation }: any) {
         weeklyData,
         volumeTrend,
         muscleGroupData,
-        personalRecords: [], // TODO: Calculate PRs
+        personalRecords,
+        dailyVolumes,
+        weeklyDataNew,
+        muscleDistribution,
+        weeklyTrend,
+        periodStats,
       });
     } catch (error) {
       console.error('Error loading stats:', error);
@@ -718,11 +598,27 @@ export default function StatsScreenFinal({ navigation }: any) {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <Text style={styles.title}>운동 통계</Text>
-        <TouchableOpacity onPress={() => {}}>
-          <Icon name="download" size={24} color={Colors.primary} />
-        </TouchableOpacity>
+        <Text style={styles.title}>통계</Text>
       </View>
+
+      {/* Volume Summary with Slider */}
+      {stats.periodStats && (
+        <View style={styles.volumeSummary}>
+          <View style={styles.volumeSlider}>
+            <View style={[styles.volumeProgress, { 
+              width: `${Math.min(100, (stats.periodStats.totalVolume / 50000) * 100)}%` 
+            }]} />
+            <View style={styles.volumeThumb} />
+          </View>
+          <Text style={styles.volumeText}>
+            {selectedPeriod === 'monthly' ? '이번 달' : '이번 주'}에{' '}
+            <Text style={styles.volumeHighlight}>
+              {(stats.periodStats.totalVolume / 1000).toFixed(1)}t
+            </Text>
+            {' '}들었어요
+          </Text>
+        </View>
+      )}
 
       {/* Period Selector */}
       <View style={styles.periodSelector}>
@@ -789,46 +685,65 @@ export default function StatsScreenFinal({ navigation }: any) {
         <View style={styles.circlesContainer}>
           <ProgressCircle
             progress={Math.min(100, (stats.currentStreak / 7) * 100)}
-            title={`${stats.currentStreak}일`}
-            subtitle="연속 운동"
+            text={`${stats.currentStreak}일`}
+            subText="연속 운동"
             color={Colors.success}
+            size={80}
+            showPercentage={false}
           />
           <ProgressCircle
-            progress={Math.min(100, (stats.totalWorkouts / selectedPeriod) * 100)}
-            title={`${Math.round((stats.totalWorkouts / selectedPeriod) * 100)}%`}
-            subtitle="운동 빈도"
+            progress={Math.min(100, (stats.totalWorkouts / (selectedPeriod === 'monthly' ? 30 : 7)) * 100)}
+            text={`${Math.round((stats.totalWorkouts / (selectedPeriod === 'monthly' ? 30 : 7)) * 100)}%`}
+            subText="운동 빈도"
             color={Colors.primary}
+            size={80}
+            showPercentage={false}
           />
           <ProgressCircle
-            progress={Math.min(100, (stats.totalDuration / (selectedPeriod * 60)) * 100)}
-            title={`${Math.round(stats.totalDuration / selectedPeriod)}분`}
-            subtitle="일 평균"
+            progress={Math.min(100, (stats.totalDuration / ((selectedPeriod === 'monthly' ? 30 : 7) * 60)) * 100)}
+            text={`${Math.round(stats.totalDuration / (selectedPeriod === 'monthly' ? 30 : 7))}분`}
+            subText="일 평균"
             color={Colors.warning}
+            size={80}
+            showPercentage={false}
           />
         </View>
       </View>
 
-      {/* Weekly Frequency Chart */}
-      <CustomBarChart
-        data={stats.weeklyData}
-        title="요일별 운동 빈도"
-        height={180}
-      />
+      {/* New Professional Charts */}
+      
+      {/* Daily Volume Comparison */}
+      {stats.dailyVolumes.length > 0 && (
+        <VolumeComparisonChart
+          data={stats.dailyVolumes}
+          title="일일 볼륨 비교"
+        />
+      )}
 
-      {/* Volume Trend Chart */}
-      <CustomLineChart
-        data={stats.volumeTrend}
-        title="볼륨 추이 (톤)"
-        height={180}
-        yAxisSuffix="t"
-      />
+      {/* Weekly Trend Chart */}
+      {stats.weeklyTrend.currentWeek.length > 0 && (
+        <WeeklyTrendChart
+          currentWeek={stats.weeklyTrend.currentWeek}
+          previousWeek={stats.weeklyTrend.previousWeek}
+          labels={stats.weeklyTrend.labels}
+          title="주간 트렌드"
+        />
+      )}
 
-      {/* Muscle Group Distribution */}
-      {stats.muscleGroupData.length > 0 && (
-        <CustomPieChart
-          data={stats.muscleGroupData}
-          title="운동 부위 분포"
-          size={200}
+      {/* Muscle Group Radar Chart */}
+      {stats.muscleDistribution.length > 0 && (
+        <MuscleGroupRadarChart
+          data={stats.muscleDistribution}
+          title="근육 그룹 밸런스"
+        />
+      )}
+
+      {/* Historical Volume Chart */}
+      {stats.weeklyDataNew.length > 0 && (
+        <HistoricalVolumeChart
+          data={stats.weeklyDataNew}
+          title={selectedPeriod === 'monthly' ? '월간 볼륨 추이' : '주간 볼륨 추이'}
+          period={selectedPeriod}
         />
       )}
 
@@ -910,6 +825,46 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: Colors.text,
+  },
+  volumeSummary: {
+    paddingHorizontal: 20,
+    marginBottom: 20,
+  },
+  volumeSlider: {
+    height: 6,
+    backgroundColor: Colors.border,
+    borderRadius: 3,
+    marginBottom: 12,
+    position: 'relative',
+  },
+  volumeProgress: {
+    height: '100%',
+    backgroundColor: Colors.primary,
+    borderRadius: 3,
+  },
+  volumeThumb: {
+    position: 'absolute',
+    right: -8,
+    top: -7,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: Colors.primary,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  volumeText: {
+    fontSize: 16,
+    color: Colors.textSecondary,
+    textAlign: 'center',
+  },
+  volumeHighlight: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Colors.primary,
   },
   periodSelector: {
     flexDirection: 'row',
@@ -1026,45 +981,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
   },
-  progressCircleContainer: {
-    alignItems: 'center',
-  },
-  progressCircleContent: {
-    position: 'absolute',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  progressTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: Colors.text,
-  },
-  progressSubtitle: {
-    fontSize: 12,
-    color: Colors.textSecondary,
-    marginTop: 2,
-  },
-  simpleCircle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  simpleCircleInner: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    borderRadius: 50,
-    borderWidth: 8,
-  },
-  simpleCircleProgress: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    borderRadius: 50,
-    borderWidth: 8,
-    borderTopColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: 'transparent',
-  },
   chartContainer: {
     marginHorizontal: 20,
     marginBottom: 24,
@@ -1169,23 +1085,11 @@ const styles = StyleSheet.create({
   pieChartContent: {
     alignItems: 'center',
   },
-  pieChartLegend: {
-    marginTop: 16,
-  },
-  legendItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
   legendColor: {
     width: 12,
     height: 12,
     borderRadius: 2,
     marginRight: 8,
-  },
-  legendText: {
-    fontSize: 12,
-    color: Colors.textSecondary,
   },
   pieBarItem: {
     marginBottom: 12,

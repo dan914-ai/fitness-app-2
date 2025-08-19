@@ -34,6 +34,7 @@ import { achievementService } from '../../services/achievement.service';
 import LoadingState from '../../components/common/LoadingState';
 import useAuth from '../../hooks/useAuth';
 import AuthRequiredIndicator from '../../components/auth/AuthRequiredIndicator';
+import { useSettings } from '../../hooks/useSettings';
 
 type WorkoutSessionScreenProps = {
   navigation: StackNavigationProp<HomeStackParamList, 'WorkoutSession'>;
@@ -58,10 +59,23 @@ export default function WorkoutSessionScreen() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { isAuthenticated, isLoading: authLoading, user } = useAuth();
+  const { settings } = useSettings();
   
-  // Debug: Check if workout context is working
-  if (__DEV__) {
-  }
+  // Debug: Check workout state on mount
+  React.useEffect(() => {
+    console.log('[WorkoutSession] === SCREEN MOUNTED ===');
+    console.log('[WorkoutSession] routineId from params:', routineId);
+    console.log('[WorkoutSession] workout.state.isWorkoutActive:', workout.state.isWorkoutActive);
+    console.log('[WorkoutSession] workout.state.startTime:', workout.state.startTime);
+    console.log('[WorkoutSession] workout.state.routineId:', workout.state.routineId);
+    console.log('[WorkoutSession] workout.state.routineName:', workout.state.routineName);
+    
+    // CRITICAL: Check if workout was started
+    if (!workout.state.isWorkoutActive || !workout.state.startTime) {
+      console.error('[WorkoutSession] ⚠️ WARNING: Workout not active or no start time!');
+      console.error('[WorkoutSession] This will cause save to fail!');
+    }
+  }, []);
 
   const [showExerciseList, setShowExerciseList] = useState(false);
   const [isDragEnabled, setIsDragEnabled] = useState(true); // Debug flag
@@ -124,7 +138,7 @@ export default function WorkoutSessionScreen() {
     return () => {
       clearInterval(interval);
     };
-  }, [startTime?.getTime()]); // Use getTime() to avoid reference changes
+  }, [startTime]); // Fixed: Don't use getTime() - it creates infinite loop!
 
   const formatDuration = (seconds: number): string => {
     const hours = Math.floor(seconds / 3600);
@@ -200,31 +214,62 @@ export default function WorkoutSessionScreen() {
           onPress: async () => {
             try {
               setIsSaving(true);
+              
+              // DEBUG: Log the complete workout state
+              console.log('[WorkoutSession] === ATTEMPTING TO END WORKOUT ===');
+              console.log('[WorkoutSession] workout.state.isWorkoutActive:', workout.state.isWorkoutActive);
+              console.log('[WorkoutSession] workout.state.startTime:', workout.state.startTime);
+              console.log('[WorkoutSession] workout.state.routineId:', workout.state.routineId);
+              console.log('[WorkoutSession] workout.state.routineName:', workout.state.routineName);
+              console.log('[WorkoutSession] workout.state.exercises count:', Object.keys(workout.state.exercises).length);
+              
               // Check if there are any completed exercises
               const hasCompletedExercises = Object.values(workout.state.exercises).some(
                 exercise => exercise.sets.some(set => set.completed)
               );
+              console.log('[WorkoutSession] hasCompletedExercises:', hasCompletedExercises);
               
               if (hasCompletedExercises) {
-                // Check if workout was already saved
+                // Skip the savedWorkoutId check - it's causing issues
+                // Always try to save the workout fresh
+                /*
                 if (workout.state.savedWorkoutId) {
                   console.log('Workout already saved with ID:', workout.state.savedWorkoutId);
                   setIsSaving(false);
                   // Navigate to complete screen with existing ID
                   navigation.navigate('WorkoutComplete', { workoutId: workout.state.savedWorkoutId });
+                  // End workout AFTER navigation
+                  setTimeout(() => workout.endWorkout(), 100);
                   return;
                 }
+                */
+                
+                // CRITICAL: Create a deep copy of the state BEFORE any modifications
+                // This prevents issues if the state gets modified during async operations
+                const stateToSave = {
+                  ...workout.state,
+                  startTime: workout.state.startTime ? new Date(workout.state.startTime) : null,
+                  endTime: workout.state.endTime ? new Date(workout.state.endTime) : null,
+                  exercises: { ...workout.state.exercises }
+                };
                 
                 // Save workout to history and get the workout ID
-                const workoutData = await saveWorkoutToHistory(workout.state);
+                console.log('[WorkoutSession] Saving workout with copied state...');
+                const workoutData = await saveWorkoutToHistory(stateToSave);
+                console.log('[WorkoutSession] Workout saved:', workoutData?.id);
                 
                 // Process achievements for workout completion
                 if (workoutData) {
-                  await achievementService.processEvent({
-                    type: 'workout_completed',
-                    data: workoutData,
-                    userId: 'current_user' // Will be replaced with actual user ID
-                  });
+                  try {
+                    await achievementService.processEvent({
+                      type: 'workout_completed',
+                      data: workoutData,
+                      userId: 'current_user' // Will be replaced with actual user ID
+                    });
+                  } catch (achError) {
+                    console.error('[WorkoutSession] Achievement processing error:', achError);
+                    // Continue even if achievements fail
+                  }
                   
                   // Mark workout as saved
                   workout.setSavedWorkoutId(workoutData.id);
@@ -234,7 +279,17 @@ export default function WorkoutSessionScreen() {
                 
                 // Navigate to workout complete screen with the saved workout ID
                 if (workoutData && workoutData.id) {
-                  navigation.navigate('WorkoutComplete', { workoutId: workoutData.id });
+                  console.log('[WorkoutSession] Navigating to WorkoutComplete with ID:', workoutData.id);
+                  
+                  // Small delay to ensure storage operations complete
+                  setTimeout(() => {
+                    navigation.navigate('WorkoutComplete', { workoutId: workoutData.id });
+                    // End workout AFTER navigation with a longer delay
+                    setTimeout(() => {
+                      console.log('[WorkoutSession] Clearing workout context');
+                      workout.endWorkout();
+                    }, 1000);
+                  }, 100);
                 } else {
                   Alert.alert(
                     '알림',
@@ -387,7 +442,7 @@ export default function WorkoutSessionScreen() {
           
           <View style={styles.headerCenter}>
             <Text style={styles.headerTitle}>{workout.state.routineName || '운동 세션'}</Text>
-            <EnhancedWorkoutTimer compact={true} />
+            {settings.workoutTimerEnabled && <EnhancedWorkoutTimer compact={true} autoStart={true} />}
           </View>
         </View>
       </View>
@@ -407,15 +462,7 @@ export default function WorkoutSessionScreen() {
           <Text style={styles.progressText}>{`${completedExercises}/${totalExercises} 운동 완료`}</Text>
         </View>
 
-        {/* Enhanced Workout Timer - Prominent Display */}
-        <View style={styles.timerSection}>
-          <EnhancedWorkoutTimer 
-            onTimeUpdate={(seconds) => {
-              // Could update duration state here if needed
-            }}
-            showFloating={true}
-          />
-        </View>
+        {/* Enhanced Workout Timer - Removed duplicate, using compact timer in header instead */}
 
         {/* Stats */}
         <View style={styles.statsContainer}>
@@ -475,46 +522,7 @@ export default function WorkoutSessionScreen() {
       <View style={styles.bottomBar}>
         <TouchableOpacity 
           style={styles.bottomEndButton}
-          onPress={async () => {
-            try {
-              // Save workout first
-              const workoutData = await saveWorkoutToHistory(workout.state);
-              
-              // Process achievements
-              if (workoutData) {
-                await achievementService.processEvent({
-                  type: 'workout_completed',
-                  data: workoutData,
-                  userId: 'current_user'
-                });
-              }
-              
-              // Then end workout and navigate to completion screen
-              workout.endWorkout();
-              if (workoutData && workoutData.id) {
-                navigation.reset({
-                  index: 1,
-                  routes: [
-                    { name: 'HomeScreen' },
-                    { name: 'WorkoutComplete', params: { workoutId: workoutData.id } }
-                  ],
-                });
-              } else {
-                navigation.reset({
-                  index: 0,
-                  routes: [{ name: 'HomeScreen' }],
-                });
-              }
-            } catch (error) {
-              console.error('Error ending workout:', error);
-              // Even if save fails, still end and navigate
-              workout.endWorkout();
-              navigation.reset({
-                index: 0,
-                routes: [{ name: 'HomeScreen' }],
-              });
-            }
-          }}
+          onPress={handleEndWorkout}
           activeOpacity={0.8}
         >
           <Icon name="stop" size={24} color="#FFFFFF" />
@@ -552,13 +560,15 @@ export default function WorkoutSessionScreen() {
       />
       
       {/* Enhanced Rest Timer - Modal with better UI */}
-      <EnhancedRestTimer 
-        isActive={showRestTimer}
-        onComplete={() => setShowRestTimer(false)}
-        onDismiss={() => setShowRestTimer(false)}
-        exerciseName={exercises[0]?.exerciseName || "운동"}
-        setNumber={exercises[0]?.sets.filter(s => s.completed).length + 1 || 1}
-      />
+      {settings.restTimerEnabled && (
+        <EnhancedRestTimer 
+          isActive={showRestTimer}
+          onComplete={() => setShowRestTimer(false)}
+          onDismiss={() => setShowRestTimer(false)}
+          exerciseName={exercises[0]?.exerciseName || "운동"}
+          setNumber={exercises[0]?.sets.filter(s => s.completed).length + 1 || 1}
+        />
+      )}
       
       {/* Loading overlay when saving */}
       {isSaving && (

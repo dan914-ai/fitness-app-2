@@ -31,13 +31,44 @@ export interface WorkoutHistoryItem {
 
 export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<WorkoutHistoryItem | null> {
   try {
+    console.log('[SaveWorkout] === FULL STATE DUMP ===');
+    console.log('[SaveWorkout] isWorkoutActive:', workoutState.isWorkoutActive);
+    console.log('[SaveWorkout] startTime:', workoutState.startTime);
+    console.log('[SaveWorkout] startTime type:', typeof workoutState.startTime);
+    console.log('[SaveWorkout] startTime value:', workoutState.startTime ? workoutState.startTime.toString() : 'NULL');
+    console.log('[SaveWorkout] routineName:', workoutState.routineName);
+    console.log('[SaveWorkout] routineId:', workoutState.routineId);
+    console.log('[SaveWorkout] exercises count:', Object.keys(workoutState.exercises).length);
+    console.log('[SaveWorkout] === END STATE DUMP ===');
 
-    if (!workoutState.isWorkoutActive || !workoutState.startTime) {
+    // TEMPORARY: Allow saving even without isWorkoutActive flag if we have exercises and start time
+    const hasExercises = Object.keys(workoutState.exercises).length > 0;
+    const hasCompletedSets = Object.values(workoutState.exercises).some(ex => 
+      ex.sets.some(set => set.completed)
+    );
+    
+    if (!workoutState.startTime) {
+      console.log('[SaveWorkout] WARNING: No start time, using current time as fallback');
+      workoutState.startTime = new Date();
+    }
+    
+    if (!hasCompletedSets) {
+      console.log('[SaveWorkout] CRITICAL: No completed sets to save');
       return null;
     }
 
     const endTime = new Date();
-    const duration = Math.floor((endTime.getTime() - new Date(workoutState.startTime).getTime()) / 1000);
+    const startTimeDate = workoutState.startTime instanceof Date 
+      ? workoutState.startTime 
+      : new Date(workoutState.startTime);
+    
+    const duration = Math.floor((endTime.getTime() - startTimeDate.getTime()) / 1000);
+    console.log('[SaveWorkout] Duration calculated:', {
+      endTime: endTime.toISOString(),
+      startTime: startTimeDate.toISOString(),
+      duration: duration,
+      durationMinutes: Math.floor(duration / 60),
+    });
 
     // Calculate workout statistics
     let totalVolume = 0;
@@ -88,7 +119,7 @@ export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<
       routineId: workoutState.routineId || '',
       routineName: workoutState.routineName || '',
       date: endTime.toISOString().split('T')[0],
-      startTime: workoutState.startTime.toISOString(),
+      startTime: startTimeDate.toISOString(),
       endTime: endTime.toISOString(),
       duration,
       exercises,
@@ -96,10 +127,26 @@ export async function saveWorkoutToHistory(workoutState: WorkoutState): Promise<
       totalSets,
       completedExercises,
     };
+    
+    console.log('[SaveWorkout] Created workout history item:', {
+      id: workoutHistoryItem.id,
+      routineName: workoutHistoryItem.routineName,
+      date: workoutHistoryItem.date,
+      duration: workoutHistoryItem.duration,
+      totalSets: workoutHistoryItem.totalSets,
+    });
 
     // Save to history using storage service
-    
+    console.log('[SaveWorkout] Saving to storage...');
     await storageService.addWorkoutToHistory(workoutHistoryItem);
+    
+    // Verify the save was successful
+    const savedWorkout = await getWorkoutById(workoutHistoryItem.id);
+    if (!savedWorkout) {
+      console.error('[SaveWorkout] Verification failed - workout not found after save!');
+      throw new Error('Failed to verify workout save');
+    }
+    console.log('[SaveWorkout] Verification successful - workout saved with ID:', workoutHistoryItem.id);
 
     return workoutHistoryItem;
   } catch (error) {
@@ -119,10 +166,17 @@ export async function getWorkoutHistory(): Promise<WorkoutHistoryItem[]> {
 
 export async function getWorkoutById(workoutId: string): Promise<WorkoutHistoryItem | null> {
   try {
+    console.log('[getWorkoutById] Looking for workout with ID:', workoutId);
     const history = await getWorkoutHistory();
-    return history.find(workout => workout.id === workoutId) || null;
+    console.log('[getWorkoutById] Total workouts in history:', history.length);
+    console.log('[getWorkoutById] Available workout IDs:', history.map(w => w.id));
+    
+    const found = history.find(workout => workout.id === workoutId);
+    console.log('[getWorkoutById] Found workout:', found ? 'YES' : 'NO');
+    
+    return found || null;
   } catch (error) {
-    console.error('Error loading workout:', error);
+    console.error('[getWorkoutById] Error loading workout:', error);
     return null;
   }
 }

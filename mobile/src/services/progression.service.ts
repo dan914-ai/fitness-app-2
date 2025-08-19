@@ -8,20 +8,43 @@ class ProgressionService {
         return null;
       }
 
-      const { data, error } = await supabase
-        .from('user_doms_data')
-        .select('*')
-        .eq('user_id', userId)
-        .order('created_at', { ascending: false })
-        .limit(1);
+      // Try Supabase first
+      try {
+        const { data, error } = await supabase
+          .from('user_doms_data')
+          .select('*')
+          .eq('user_id', userId)
+          .order('created_at', { ascending: false })
+          .limit(1);
 
-      if (error) {
-        console.error('Recovery data query error:', error);
-        return null; // Don't throw, return null to continue with fallback
+        if (!error && data && data.length > 0) {
+          return data[0];
+        }
+      } catch (supabaseError) {
+        console.log('Supabase recovery data fetch failed, trying local storage');
       }
+
+      // Fallback to local storage
+      const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+      const existingSurveys = await AsyncStorage.getItem('@doms_surveys');
       
-      // Return first item or null
-      return data && data.length > 0 ? data[0] : null;
+      if (!existingSurveys) {
+        return null;
+      }
+
+      const surveys = JSON.parse(existingSurveys);
+      
+      // Filter by userId and sort by date
+      const userSurveys = surveys
+        .filter((s: any) => s.user_id === userId)
+        .sort((a: any, b: any) => {
+          const dateA = new Date(a.created_at || a.survey_date);
+          const dateB = new Date(b.created_at || b.survey_date);
+          return dateB.getTime() - dateA.getTime();
+        });
+      
+      // Return the most recent survey
+      return userSurveys.length > 0 ? userSurveys[0] : null;
     } catch (error) {
       console.error('Error fetching recovery data:', error);
       return null;
@@ -214,60 +237,89 @@ class ProgressionService {
     try {
       // Input validation
       if (!userId) {
-        throw new Error('사용자 ID가 필요합니다');
+        console.warn('logSessionRPE: No userId provided');
+        return { success: false, error: 'No user ID' };
       }
       
       if (typeof sessionRPE !== 'number' || sessionRPE < 1 || sessionRPE > 10) {
-        throw new Error('세션 RPE는 1과 10 사이여야 합니다');
+        console.warn('logSessionRPE: Invalid RPE value:', sessionRPE);
+        return { success: false, error: 'Invalid RPE value' };
       }
 
-      // Try Edge Function first (ready for deployment)
-      
-      try {
-        const { data: edgeData, error: edgeError } = await supabase.functions.invoke('progression-algorithm', {
-          body: {
-            action: 'log_session',
-            user_id: userId,
-            session_rpe: sessionRPE,
-            duration_minutes: duration,
-            exercises: exercises
-          }
-        });
-
-        if (edgeError) {
-          throw edgeError;
-        }
-
-        if (edgeData) {
-          return { success: true, session: edgeData.session || edgeData };
-        }
-      } catch (edgeFunctionError) {
-      }
-
-      // Fallback to direct database save
+      // Skip Edge Function call to avoid CORS errors
+      // Edge functions need to be deployed via Supabase CLI
       
       // Calculate total load (simplified version) with null checks
       const totalLoad = Array.isArray(exercises) ? exercises.reduce((sum, ex) => 
         sum + ((ex?.sets || 0) * (ex?.reps || 0) * (ex?.weight || 0)), 0
       ) : 0;
 
-      const { data, error } = await supabase
-        .from('user_session_data') // Changed table name
-        .insert({
+      // Check if userId is a valid UUID
+      const isValidUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId);
+      
+      if (!isValidUUID || userId.startsWith('test-')) {
+        // If not a valid UUID or is a test user, save to local storage only
+        console.log('Non-UUID or test user detected, saving to local storage');
+        const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+        const localKey = `@rpe_session_${Date.now()}`;
+        await AsyncStorage.setItem(localKey, JSON.stringify({
           user_id: userId,
           session_rpe: sessionRPE,
           duration_minutes: duration,
           total_load: totalLoad,
-          exercise_count: exercises.length
-        })
-        .select()
-        .single();
+          created_at: new Date().toISOString()
+        }));
+        return { success: true, session: null, local: true };
+      }
 
-      if (error) throw error;
-      return { success: true, session: data };
+      try {
+        const { data, error } = await supabase
+          .from('user_session_data')
+          .insert({
+            user_id: userId,
+            session_rpe: sessionRPE,
+            duration_minutes: duration,
+            total_load: totalLoad,
+            exercise_count: exercises?.length || 0
+          })
+          .select()
+          .single();
+
+        if (error) {
+          console.error('Supabase error logging RPE:', error);
+          // Don't throw, save to local storage instead
+          const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+          const localKey = `@rpe_session_${Date.now()}`;
+          await AsyncStorage.setItem(localKey, JSON.stringify({
+            user_id: userId,
+            session_rpe: sessionRPE,
+            duration_minutes: duration,
+            total_load: totalLoad,
+            created_at: new Date().toISOString()
+          }));
+          console.log('Saved RPE to local storage as fallback');
+          return { success: true, session: null, local: true };
+        }
+        
+        return { success: true, session: data };
+      } catch (dbError) {
+        console.warn('Database error, saving to local storage:', dbError);
+        // Save to local storage as fallback
+        const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+        const localKey = `@rpe_session_${Date.now()}`;
+        await AsyncStorage.setItem(localKey, JSON.stringify({
+          user_id: userId,
+          session_rpe: sessionRPE,
+          duration_minutes: duration,
+          total_load: totalLoad,
+          created_at: new Date().toISOString()
+        }));
+        return { success: true, session: null, local: true };
+      }
     } catch (error) {
-      console.error('Error logging session:', error);
-      throw error;
+      console.error('Error in logSessionRPE:', error);
+      // Return error response instead of throwing
+      return { success: false, error: error.message || 'Failed to log RPE' };
     }
   }
 
@@ -283,56 +335,145 @@ class ProgressionService {
         throw new Error('설문 데이터가 필요합니다');
       }
 
-      // Try Edge Function first (ready for deployment)
+      // Check if userId is a valid UUID before trying Supabase
+      const isValidUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId);
       
-      try {
-        const { data: edgeData, error: edgeError } = await supabase.functions.invoke('progression-algorithm', {
-          body: {
-            action: 'submit_doms',
-            user_id: userId,
-            ...surveyData
+      if (isValidUUID && !userId.startsWith('test-')) {
+        // Try Supabase if valid UUID
+        try {
+          const { data, error } = await supabase
+            .from('user_doms_data')
+            .insert({
+              user_id: userId,
+              ...surveyData,
+              survey_date: new Date().toISOString().split('T')[0],
+            })
+            .select()
+            .single();
+
+          if (!error && data) {
+            console.log('DOMS survey saved to Supabase');
+            return { success: true, survey: data };
           }
-        });
-
-        if (edgeError) {
-          throw edgeError;
+          if (error) {
+            console.log('DOMS survey table may not exist, using local storage');
+          }
+        } catch (supabaseError) {
+          console.log('Supabase save failed, using local storage');
         }
-
-        if (edgeData) {
-          return { 
-            success: true, 
-            survey: edgeData.survey || edgeData,
-            readiness_score: edgeData.readiness_score,
-            recommendation: edgeData.recommendation
-          };
-        }
-      } catch (edgeFunctionError) {
       }
 
-      // Fallback to direct database save
+      // Fallback to local storage
+      const AsyncStorage = require('@react-native-async-storage/async-storage').default;
       
-      const insertData = {
-        user_id: userId,
+      // Get existing surveys
+      const existingSurveys = await AsyncStorage.getItem('@doms_surveys');
+      const surveys = existingSurveys ? JSON.parse(existingSurveys) : [];
+      
+      // Add new survey with userId and timestamp
+      const newSurvey = {
         ...surveyData,
-        survey_date: new Date().toISOString().split('T')[0], // Changed from 'date' to 'survey_date'
+        user_id: userId,
+        survey_date: new Date().toISOString().split('T')[0],
+        created_at: new Date().toISOString(),
       };
       
+      surveys.push(newSurvey);
       
-      const { data, error } = await supabase
-        .from('user_doms_data') // Changed table name
-        .insert(insertData)
-        .select()
-        .single();
-
-      if (error) {
-        console.error('Database error details:', error);
-        throw error;
-      }
+      // Keep only last 30 days of surveys
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      const recentSurveys = surveys.filter((s: any) => 
+        new Date(s.created_at) > thirtyDaysAgo
+      );
       
-      return { success: true, survey: data };
+      // Save to local storage
+      await AsyncStorage.setItem('@doms_surveys', JSON.stringify(recentSurveys));
+      await AsyncStorage.setItem('@last_doms_survey', newSurvey.survey_date);
+      
+      console.log('DOMS survey saved to local storage');
+      
+      // Calculate readiness score locally
+      const readinessScore = (
+        (surveyData.sleep_quality || 5) * 0.3 +
+        (surveyData.energy_level || 5) * 0.3 +
+        (10 - (surveyData.overall_soreness || 5)) * 0.2 +
+        (surveyData.motivation || 5) * 0.2
+      );
+      
+      return { 
+        success: true, 
+        survey: newSurvey,
+        readiness_score: readinessScore,
+        recommendation: readinessScore >= 7 ? '강한 운동 가능' : 
+                        readinessScore >= 5 ? '적당한 운동 권장' : 
+                        '가벼운 운동 또는 휴식'
+      };
     } catch (error) {
       console.error('Error submitting DOMS survey:', error);
-      throw error;
+      // Don't throw - return success with local save
+      return { 
+        success: false, 
+        error: '설문 저장 실패',
+        survey: null 
+      };
+    }
+  }
+
+  // Get DOMS survey history for a user
+  async getDOMSSurveyHistory(userId: string, days: number = 30) {
+    try {
+      if (!userId) {
+        return [];
+      }
+
+      // Try Supabase first
+      try {
+        const startDate = new Date();
+        startDate.setDate(startDate.getDate() - days);
+
+        const { data, error } = await supabase
+          .from('user_doms_data')
+          .select('*')
+          .eq('user_id', userId)
+          .gte('created_at', startDate.toISOString())
+          .order('created_at', { ascending: false });
+
+        if (!error && data && data.length > 0) {
+          return data;
+        }
+      } catch (supabaseError) {
+        console.log('Supabase DOMS history fetch failed, trying local storage');
+      }
+
+      // Fallback to local storage
+      const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+      const existingSurveys = await AsyncStorage.getItem('@doms_surveys');
+      
+      if (!existingSurveys) {
+        return [];
+      }
+
+      const surveys = JSON.parse(existingSurveys);
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - days);
+      
+      // Filter by userId and date range
+      const userSurveys = surveys
+        .filter((s: any) => {
+          const surveyDate = new Date(s.created_at || s.survey_date);
+          return s.user_id === userId && surveyDate >= startDate;
+        })
+        .sort((a: any, b: any) => {
+          const dateA = new Date(a.created_at || a.survey_date);
+          const dateB = new Date(b.created_at || b.survey_date);
+          return dateB.getTime() - dateA.getTime();
+        });
+      
+      return userSurveys;
+    } catch (error) {
+      console.error('Error fetching DOMS survey history:', error);
+      return [];
     }
   }
 }

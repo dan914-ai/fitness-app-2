@@ -288,5 +288,10 @@ class AuthServiceSupabase {
   }
 }
 
-export const authService = new AuthServiceSupabase();
+// Use production auth service instead
+import { productionAuthService } from './auth.service.production';
+export const authService = productionAuthService;
 export default authService;
+
+// Keep old service as backup
+export const authServiceOld = new AuthServiceSupabase();

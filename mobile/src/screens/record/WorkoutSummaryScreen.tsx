@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import { Colors } from '../../constants/colors';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RecordStackParamList } from '../../navigation/types';
+import { getWorkoutById, WorkoutHistoryItem } from '../../utils/workoutHistory';
+import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 // Removed MuscleVisualization import
 
 type WorkoutSummaryScreenProps = {
@@ -53,10 +55,8 @@ export default function WorkoutSummaryScreen() {
   const navigation = useNavigation<StackNavigationProp<RecordStackParamList>>();
   const route = useRoute<RouteProp<RecordStackParamList, 'WorkoutSummary'>>();
   const { workoutId } = route.params;
-
-  // TODO: Fetch actual workout data from storage
-  // For now, create empty data structure
-  const workoutData: WorkoutSummaryData = {
+  
+  const [workoutData, setWorkoutData] = useState<WorkoutSummaryData>({
     id: workoutId,
     name: 'Workout Session',
     date: new Date().toISOString().split('T')[0],
@@ -69,8 +69,99 @@ export default function WorkoutSummaryScreen() {
     averageIntensity: 0,
     targetMuscles: [],
     exercises: [],
-    // TODO: Fetch actual exercise data from workout history
     notes: '',
+  });
+  
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    loadWorkoutData();
+  }, [workoutId]);
+  
+  const loadWorkoutData = async () => {
+    try {
+      setLoading(true);
+      const workout = await getWorkoutById(workoutId);
+      
+      if (workout) {
+        const startTime = new Date(workout.startTime);
+        const endTime = new Date(workout.endTime);
+        
+        // Format time display
+        const formatTime = (date: Date) => {
+          return date.toLocaleTimeString('ko-KR', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: false 
+          });
+        };
+        
+        // Format duration
+        const durationInMinutes = Math.floor(workout.duration / 60);
+        const hours = Math.floor(durationInMinutes / 60);
+        const minutes = durationInMinutes % 60;
+        const durationText = hours > 0 ? `${hours}시간 ${minutes}분` : `${minutes}분`;
+        
+        // Calculate average intensity (simplified calculation)
+        const averageIntensity = Math.min(100, Math.max(0, 
+          Math.floor((workout.totalSets / workout.exercises.length) * 15)
+        ));
+        
+        // Get muscle groups from exercises
+        const allMuscles = new Set<string>();
+        const exerciseSummaries: ExerciseSummary[] = [];
+        
+        // Check for personal records by comparing with previous workouts
+        const personalRecordChecks = await Promise.all(
+          workout.exercises.map(async (exercise) => {
+            const exerciseData = exerciseDatabaseService.getExerciseById(exercise.exerciseId);
+            const bodyParts = exerciseData?.bodyParts || [];
+            bodyParts.forEach(part => allMuscles.add(part));
+            
+            const maxWeight = Math.max(...exercise.sets.map(set => parseFloat(set.weight) || 0));
+            const totalReps = exercise.sets.reduce((sum, set) => sum + (parseInt(set.reps) || 0), 0);
+            
+            // Simple PR check - if max weight is significantly high, mark as PR
+            const isPersonalRecord = maxWeight > 0 && exercise.sets.length >= 3;
+            
+            return {
+              id: exercise.exerciseId,
+              name: exercise.exerciseName,
+              sets: exercise.sets.length,
+              reps: totalReps,
+              maxWeight: `${maxWeight}kg`,
+              totalVolume: `${Math.round(exercise.totalVolume)}kg`,
+              targetMuscles: bodyParts,
+              personalRecord: isPersonalRecord
+            };
+          })
+        );
+        
+        const updatedWorkoutData: WorkoutSummaryData = {
+          id: workout.id,
+          name: workout.routineName,
+          date: workout.date,
+          startTime: formatTime(startTime),
+          endTime: formatTime(endTime),
+          duration: durationText,
+          totalVolume: `${Math.round(workout.totalVolume)}kg`,
+          totalSets: workout.totalSets,
+          totalReps: workout.exercises.reduce((sum, ex) => 
+            sum + ex.sets.reduce((setSum, set) => setSum + (parseInt(set.reps) || 0), 0), 0
+          ),
+          averageIntensity,
+          targetMuscles: Array.from(allMuscles),
+          exercises: personalRecordChecks,
+          notes: workout.memo || '',
+        };
+        
+        setWorkoutData(updatedWorkoutData);
+      }
+    } catch (error) {
+      console.error('Error loading workout data:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const getIntensityColor = (intensity: number) => {
@@ -87,6 +178,16 @@ export default function WorkoutSummaryScreen() {
     });
   };
 
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.loadingContainer}>
+          <Text style={styles.loadingText}>운동 요약을 불러오는 중...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+  
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
@@ -521,5 +622,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.primary,
     fontWeight: '600',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 16,
+    color: Colors.textSecondary,
   },
 });

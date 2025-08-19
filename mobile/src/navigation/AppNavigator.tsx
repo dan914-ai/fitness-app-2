@@ -14,7 +14,7 @@ import { getMockSession } from '../utils/testAuthWorkaround';
 import { useMockAuth } from '../contexts/MockAuthContext';
 
 // Import screens
-import LoginScreen from '../screens/auth/LoginScreen';
+import LoginScreenProduction from '../screens/auth/LoginScreenProduction';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import HomeScreen from '../screens/home/HomeScreen';
 import RoutineDetailScreen from '../screens/home/RoutineDetailScreen';
@@ -38,7 +38,7 @@ import BodyMeasurementsScreen from '../screens/record/BodyMeasurementsScreen';
 import InBodyScreen from '../screens/record/InBodyScreen';
 import AddInBodyRecordScreen from '../screens/record/AddInBodyRecordScreen';
 import InBodySuccessScreen from '../screens/record/InBodySuccessScreen';
-import StatsScreen from '../screens/stats/StatsScreen';
+import StatsScreen from '../screens/stats/StatsScreenFinal';
 import WorkoutAnalyticsScreen from '../screens/stats/WorkoutAnalyticsScreen';
 import StrengthProgressScreen from '../screens/stats/StrengthProgressScreen';
 import AchievementsScreen from '../screens/stats/AchievementsScreen';
@@ -59,15 +59,17 @@ import MacroCalculatorScreen from '../screens/calculators/MacroCalculatorScreen'
 import DiagnosticScreen from '../screens/DiagnosticScreen';
 import QuickTimerScreen from '../screens/home/QuickTimerScreen';
 import WaterIntakeScreen from '../screens/home/WaterIntakeScreen';
+import NotificationsScreen from '../screens/home/NotificationsScreen';
 import { ComponentShowcase } from '../screens/test/ComponentShowcase';
+import { ExerciseTestScreen } from '../screens/ExerciseTestScreen';
 
 // Wellness Screens
 import WellnessScreen from '../screens/wellness/WellnessScreen';
 import NutritionTrackingScreen from '../screens/wellness/NutritionTrackingScreen';
 
-// Temporarily commented out for testing
+// Recovery screens
 // import RecoveryDashboardScreen from '../screens/home/RecoveryDashboardScreen';
-// import DOMSSurveyScreen from '../screens/home/DOMSSurveyScreen';
+import DOMSSurveyScreen from '../screens/home/DOMSSurveyScreenUnified';
 // import RecoveryHistoryScreen from '../screens/home/RecoveryHistoryScreen';
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -86,7 +88,7 @@ function AuthNavigator() {
         headerShown: false,
       }}
     >
-      <AuthStack.Screen name="Login" component={LoginScreen} />
+      <AuthStack.Screen name="Login" component={LoginScreenProduction} />
       <AuthStack.Screen name="Register" component={RegisterScreen} />
       <AuthStack.Screen name="Diagnostic" component={DiagnosticScreen} />
     </AuthStack.Navigator>
@@ -162,17 +164,22 @@ function HomeStackNavigator() {
         component={QuickTimerScreen}
         options={{ title: '빠른 타이머' }}
       />
+      <HomeStack.Screen 
+        name="Notifications" 
+        component={NotificationsScreen}
+        options={{ headerShown: false }}
+      />
       {/*<HomeStack.Screen 
         name="RecoveryDashboard" 
         component={RecoveryDashboardScreen}
         options={{ headerShown: false }}
-      />
+      />*/}
       <HomeStack.Screen 
         name="DOMSSurvey" 
         component={DOMSSurveyScreen}
         options={{ headerShown: false }}
       />
-      <HomeStack.Screen 
+      {/*<HomeStack.Screen 
         name="RecoveryHistory" 
         component={RecoveryHistoryScreen}
         options={{ headerShown: false }}
@@ -240,7 +247,7 @@ function RecordStackNavigator() {
       <RecordStack.Screen 
         name="WorkoutDetail" 
         component={WorkoutDetailScreen}
-        options={{ title: '운동 상세' }}
+        options={{ headerShown: false }}
       />
       <RecordStack.Screen 
         name="WorkoutSummary" 
@@ -452,6 +459,11 @@ function MenuStackNavigator() {
         component={MacroCalculatorScreen}
         options={{ title: '매크로 계산기' }}
       />
+      <MenuStack.Screen 
+        name="ExerciseTest" 
+        component={ExerciseTestScreen}
+        options={{ title: '운동 GIF 테스트' }}
+      />
     </MenuStack.Navigator>
   );
 }
@@ -529,6 +541,7 @@ function MainTabNavigator() {
 }
 
 export default function AppNavigator() {
+  console.log('🚨🚨🚨 AppNavigator LOADED - ' + new Date().toISOString());
   
   // Authentication control
   const SKIP_LOGIN = false; // Production mode - authentication required
@@ -574,9 +587,11 @@ export default function AppNavigator() {
   }, [isMockAuthenticated]);
 
   const checkAuthStatus = async () => {
+    console.log('🔍 checkAuthStatus: Starting auth check...');
     try {
       // First check for mock auth
       const mockSession = await getMockSession();
+      console.log('🔍 checkAuthStatus: Mock session:', mockSession);
       if (mockSession) {
         setIsAuthenticated(true);
         setIsLoading(false);
@@ -585,41 +600,41 @@ export default function AppNavigator() {
       
       // Then check regular Supabase auth
       const { data: { session } } = await supabase.auth.getSession();
+      console.log('🔍 checkAuthStatus: Supabase session:', session);
       setIsAuthenticated(!!session);
     } catch (error) {
       console.error('Auth check error:', error);
       setIsAuthenticated(false);
     } finally {
+      console.log('🔍 checkAuthStatus: Setting isLoading to false');
       setIsLoading(false);
     }
   };
 
-  // SKIP LOADING FOR TESTING
-  /*
+  // Show loading indicator while checking auth
+  console.log('🔍 AppNavigator: isLoading state:', isLoading);
   if (isLoading) {
+    console.log('🔍 AppNavigator: Showing loading screen');
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" color={Colors.primary} />
       </View>
     );
   }
-  */
 
   if (SKIP_LOGIN) {
   } else {
   }
   
-  // FORCE SKIP LOGIN FOR TESTING
-  return (
-    <NavigationContainer>
-      <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        <RootStack.Screen name="Main" component={MainTabNavigator} />
-      </RootStack.Navigator>
-    </NavigationContainer>
-  );
-  
-  // Original code (commented out for testing)
-  /*
+  // Debug authentication states
+  console.log('🔐 AUTH DEBUG:', {
+    SKIP_LOGIN,
+    isAuthenticated,
+    isMockAuthenticated,
+    shouldShowMain: SKIP_LOGIN || isAuthenticated || isMockAuthenticated
+  });
+
+  // Proper authentication check (restored)
   return (
     <NavigationContainer>
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
@@ -631,5 +646,4 @@ export default function AppNavigator() {
       </RootStack.Navigator>
     </NavigationContainer>
   );
-  */
 }

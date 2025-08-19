@@ -152,9 +152,6 @@ export default function ExerciseSelectionScreen({ navigation, route }: ExerciseS
   };
 
   const handleCategoryChange = (category: string) => {
-    if (category === '복근') {
-      alert('DEBUG: Loading abdominal exercises - check console for logs!');
-    }
     setSelectedCategory(category);
     setCurrentPage(1);
     setHasMore(true);

@@ -19,13 +19,15 @@ interface EnhancedWorkoutTimerProps {
   style?: any;
   compact?: boolean;
   showFloating?: boolean;
+  autoStart?: boolean;
 }
 
 export default function EnhancedWorkoutTimer({ 
   onTimeUpdate, 
   style,
   compact = false,
-  showFloating = true
+  showFloating = true,
+  autoStart = false
 }: EnhancedWorkoutTimerProps) {
   const theme = useDesignSystem();
   const [seconds, setSeconds] = useState(0);
@@ -34,94 +36,6 @@ export default function EnhancedWorkoutTimer({
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pulseAnim = useRef(new Animated.Value(1)).current;
   const slideAnim = useRef(new Animated.Value(-100)).current;
-
-  useEffect(() => {
-    if (isRunning && !isPaused) {
-      intervalRef.current = setInterval(() => {
-        setSeconds(s => {
-          const newTime = s + 1;
-          onTimeUpdate?.(newTime);
-          
-          // Vibrate every 10 minutes as a milestone
-          if (newTime % 600 === 0) {
-            Vibration.vibrate(200);
-          }
-          
-          return newTime;
-        });
-      }, 1000);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isRunning, isPaused, onTimeUpdate]);
-
-  useEffect(() => {
-    // Pulse animation when running
-    if (isRunning && !isPaused) {
-      Animated.loop(
-        Animated.sequence([
-          Animated.timing(pulseAnim, {
-            toValue: 1.05,
-            duration: 1000,
-            useNativeDriver: true,
-          }),
-          Animated.timing(pulseAnim, {
-            toValue: 1,
-            duration: 1000,
-            useNativeDriver: true,
-          }),
-        ])
-      ).start();
-    } else {
-      pulseAnim.setValue(1);
-    }
-  }, [isRunning, isPaused, pulseAnim]);
-
-  useEffect(() => {
-    // Slide in/out animation for floating timer
-    if (showFloating && isRunning) {
-      Animated.spring(slideAnim, {
-        toValue: 0,
-        useNativeDriver: true,
-        tension: 40,
-        friction: 8,
-      }).start();
-    } else {
-      Animated.spring(slideAnim, {
-        toValue: -100,
-        useNativeDriver: true,
-        tension: 40,
-        friction: 8,
-      }).start();
-    }
-  }, [showFloating, isRunning, slideAnim]);
-
-  const formatTime = (totalSeconds: number): { hours: string; minutes: string; seconds: string; display: string } => {
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
-
-    const hoursStr = hours.toString().padStart(2, '0');
-    const minutesStr = minutes.toString().padStart(2, '0');
-    const secondsStr = secs.toString().padStart(2, '0');
-
-    let display = '';
-    if (hours > 0) {
-      display = `${hoursStr}:${minutesStr}:${secondsStr}`;
-    } else {
-      display = `${minutesStr}:${secondsStr}`;
-    }
-
-    return { hours: hoursStr, minutes: minutesStr, seconds: secondsStr, display };
-  };
 
   const handleStart = () => {
     setIsRunning(true);
@@ -144,6 +58,114 @@ export default function EnhancedWorkoutTimer({
     setIsPaused(false);
     setSeconds(0);
     Vibration.vibrate([0, 100, 100, 100, 100, 100]);
+  };
+
+  // Auto-start the timer when component mounts if autoStart is true
+  useEffect(() => {
+    if (autoStart && !isRunning) {
+      handleStart();
+    }
+  }, []); // Empty dependency array to run only once on mount
+
+  // Store onTimeUpdate in a ref to avoid dependency issues
+  const onTimeUpdateRef = useRef(onTimeUpdate);
+  onTimeUpdateRef.current = onTimeUpdate;
+
+  useEffect(() => {
+    if (isRunning && !isPaused) {
+      intervalRef.current = setInterval(() => {
+        setSeconds(s => {
+          const newTime = s + 1;
+          onTimeUpdateRef.current?.(newTime);
+          
+          // Vibrate every 10 minutes as a milestone
+          if (newTime % 600 === 0) {
+            Vibration.vibrate(200);
+          }
+          
+          return newTime;
+        });
+      }, 1000);
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isRunning, isPaused]); // Remove onTimeUpdate from dependencies
+
+  useEffect(() => {
+    // Pulse animation when running
+    if (isRunning && !isPaused) {
+      const animation = Animated.loop(
+        Animated.sequence([
+          Animated.timing(pulseAnim, {
+            toValue: 1.05,
+            duration: 1000,
+            useNativeDriver: true,
+          }),
+          Animated.timing(pulseAnim, {
+            toValue: 1,
+            duration: 1000,
+            useNativeDriver: true,
+          }),
+        ])
+      );
+      animation.start();
+      
+      // Clean up animation on unmount or state change
+      return () => {
+        animation.stop();
+        pulseAnim.setValue(1);
+      };
+    } else {
+      pulseAnim.setValue(1);
+    }
+  }, [isRunning, isPaused]); // Remove pulseAnim from dependencies to avoid loops
+
+  useEffect(() => {
+    // Slide in/out animation for floating timer
+    if (showFloating && isRunning) {
+      Animated.spring(slideAnim, {
+        toValue: 0,
+        useNativeDriver: true,
+        tension: 40,
+        friction: 8,
+      }).start();
+    } else {
+      Animated.spring(slideAnim, {
+        toValue: -100,
+        useNativeDriver: true,
+        tension: 40,
+        friction: 8,
+      }).start();
+    }
+  }, [showFloating, isRunning]); // Remove slideAnim from dependencies to avoid loops
+
+  const formatTime = (totalSeconds: number): { hours: string; minutes: string; seconds: string; display: string } => {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const secs = totalSeconds % 60;
+
+    const hoursStr = hours.toString().padStart(2, '0');
+    const minutesStr = minutes.toString().padStart(2, '0');
+    const secondsStr = secs.toString().padStart(2, '0');
+
+    let display = '';
+    if (hours > 0) {
+      display = `${hoursStr}:${minutesStr}:${secondsStr}`;
+    } else if (minutes > 0) {
+      display = `${minutesStr}:${secondsStr}`;
+    } else {
+      display = `00:${secondsStr}`;
+    }
+
+    return { hours: hoursStr, minutes: minutesStr, seconds: secondsStr, display };
   };
 
   const time = formatTime(seconds);
@@ -193,8 +215,8 @@ export default function EnhancedWorkoutTimer({
         style={[
           styles.compactContainer,
           { 
-            backgroundColor: theme.colors.semantic.surface.raised,
-            borderColor: isRunning ? theme.colors.semantic.primary.main : theme.colors.semantic.border.light,
+            backgroundColor: theme.colors.semantic.surface.elevated,
+            borderColor: isRunning ? theme.colors.semantic.primary.main : theme.colors.semantic.divider,
           },
           style
         ]}
@@ -229,7 +251,7 @@ export default function EnhancedWorkoutTimer({
         <LinearGradient
           colors={
             isRunning 
-              ? [theme.colors.semantic.primary.light + '20', theme.colors.semantic.primary.main + '10']
+              ? [(theme.colors.semantic.primary.light || theme.colors.semantic.primary.main) + '20', theme.colors.semantic.primary.main + '10']
               : ['transparent', 'transparent']
           }
           style={styles.gradient}
@@ -259,65 +281,31 @@ export default function EnhancedWorkoutTimer({
               { transform: [{ scale: pulseAnim }] }
             ]}
           >
-            <View style={styles.timeDisplay}>
-              <View style={styles.timeUnit}>
-                <Text style={[
-                  styles.timeValue,
-                  { color: theme.colors.semantic.text.primary }
-                ]}>
-                  {time.hours}
-                </Text>
-                <Text style={[
-                  styles.timeLabel,
-                  { color: theme.colors.semantic.text.secondary }
-                ]}>
-                  시간
-                </Text>
-              </View>
-              
+            <Text style={[
+              styles.mainTimeDisplay,
+              { color: theme.colors.semantic.text.primary }
+            ]}>
+              {time.display}
+            </Text>
+            <View style={styles.timeLabels}>
               <Text style={[
-                styles.timeSeparator,
+                styles.timeLabelText,
                 { color: theme.colors.semantic.text.secondary }
               ]}>
-                :
+                {parseInt(time.hours) > 0 ? '시간' : ''}
               </Text>
-              
-              <View style={styles.timeUnit}>
-                <Text style={[
-                  styles.timeValue,
-                  { color: theme.colors.semantic.text.primary }
-                ]}>
-                  {time.minutes}
-                </Text>
-                <Text style={[
-                  styles.timeLabel,
-                  { color: theme.colors.semantic.text.secondary }
-                ]}>
-                  분
-                </Text>
-              </View>
-              
               <Text style={[
-                styles.timeSeparator,
+                styles.timeLabelText,
                 { color: theme.colors.semantic.text.secondary }
               ]}>
-                :
+                분
               </Text>
-              
-              <View style={styles.timeUnit}>
-                <Text style={[
-                  styles.timeValue,
-                  { color: theme.colors.semantic.primary.main }
-                ]}>
-                  {time.seconds}
-                </Text>
-                <Text style={[
-                  styles.timeLabel,
-                  { color: theme.colors.semantic.text.secondary }
-                ]}>
-                  초
-                </Text>
-              </View>
+              <Text style={[
+                styles.timeLabelText,
+                { color: theme.colors.semantic.text.secondary }
+              ]}>
+                초
+              </Text>
             </View>
           </Animated.View>
 
@@ -366,7 +354,7 @@ export default function EnhancedWorkoutTimer({
           {isRunning && seconds > 0 && (
             <View style={[
               styles.stats,
-              { borderTopColor: theme.colors.semantic.border.light }
+              { borderTopColor: theme.colors.semantic.divider }
             ]}>
               <View style={styles.statItem}>
                 <Icon name="local-fire-department" size={16} color={theme.colors.semantic.error.main} />
@@ -413,7 +401,7 @@ const styles = StyleSheet.create({
   },
   gradient: {
     borderRadius: 16,
-    padding: 20,
+    padding: 16,
   },
   header: {
     flexDirection: 'row',
@@ -440,33 +428,26 @@ const styles = StyleSheet.create({
   },
   mainTimer: {
     alignItems: 'center',
-    marginVertical: 24,
+    marginVertical: 20,
   },
-  timeDisplay: {
+  mainTimeDisplay: {
+    fontSize: 56,
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    lineHeight: 60,
+  },
+  timeLabels: {
     flexDirection: 'row',
-    alignItems: 'center',
+    gap: 24,
+    marginTop: 8,
   },
-  timeUnit: {
-    alignItems: 'center',
-    minWidth: 60,
-  },
-  timeValue: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    lineHeight: 48,
-  },
-  timeLabel: {
+  timeLabelText: {
     fontSize: 12,
-    marginTop: 4,
-  },
-  timeSeparator: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    marginHorizontal: 8,
+    fontWeight: '500',
   },
   controls: {
     alignItems: 'center',
-    marginTop: 24,
+    marginTop: 20,
   },
   mainButton: {
     flexDirection: 'row',
@@ -503,20 +484,20 @@ const styles = StyleSheet.create({
   stats: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 24,
-    paddingTop: 20,
+    marginTop: 16,
+    paddingTop: 16,
     borderTopWidth: 1,
   },
   statItem: {
     alignItems: 'center',
-    gap: 4,
+    gap: 2,
   },
   statValue: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   statLabel: {
-    fontSize: 11,
+    fontSize: 10,
   },
   compactContainer: {
     flexDirection: 'row',

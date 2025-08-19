@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView, Image, Dimensions, Platform, Alert } from 'react-native';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
@@ -25,6 +25,18 @@ import { Button, Card, CardContent } from '../../components/common';
 import { useDesignSystem } from '../../contexts/ThemeContext';
 
 const { width } = Dimensions.get('window');
+
+// Utility function to inject word-break hints for better text wrapping
+const injectBreaks = (text: string): string => {
+  return text
+    // Add zero-width space after slashes and hyphens for line breaking
+    .replace(/([\/\-])/g, '$1\u200B')
+    // Add break hint for very long continuous strings (>16 chars)
+    .replace(/([^\s]{16,})/g, (match) => {
+      // Insert zero-width space every 16 characters for long words
+      return match.replace(/(.{16})/g, '$1\u200B');
+    });
+};
 
 type NavigationProp = CompositeNavigationProp<
   StackNavigationProp<HomeStackParamList>,
@@ -218,16 +230,32 @@ export default function HomeScreen() {
           >
             <CardContent>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingRight: theme.spacing[2] }}>
                   <Icon name="fitness-center" size={24} color={theme.colors.semantic.primary.main} />
-                  <View style={{ marginLeft: theme.spacing[3] }}>
-                    <Text style={{ ...theme.typography.textStyles.caption, color: theme.colors.semantic.text.secondary }}>
+                  <View style={{ marginLeft: theme.spacing[3], flex: 1 }}>
+                    <Text style={{ 
+                      ...theme.typography.textStyles.caption, 
+                      color: theme.colors.semantic.text.secondary,
+                      marginBottom: 2
+                    }}>
                       활성 프로그램
                     </Text>
-                    <Text style={{ ...theme.typography.textStyles.h5, color: theme.colors.semantic.text.primary }}>
+                    <Text 
+                      numberOfLines={1}
+                      ellipsizeMode="tail"
+                      style={{ 
+                        fontSize: 18,
+                        fontWeight: '600',
+                        color: theme.colors.semantic.text.primary,
+                        lineHeight: 24,
+                        marginBottom: 4
+                      }}>
                       {activeProgram.name}
                     </Text>
-                    <Text style={{ ...theme.typography.textStyles.bodySmall, color: theme.colors.semantic.text.secondary }}>
+                    <Text style={{ 
+                      ...theme.typography.textStyles.bodySmall, 
+                      color: theme.colors.semantic.text.secondary 
+                    }}>
                       {activeProgram.currentWeek || 1}주차 • {activeProgram.currentDay || 1}일차
                     </Text>
                   </View>
@@ -270,50 +298,84 @@ export default function HomeScreen() {
               <Card
                 key={routine.id}
                 variant="elevated"
-                style={{ width: 160, marginRight: theme.spacing[3] }}
+                style={{ width: 200, minHeight: 240, marginRight: theme.spacing[3] }}
                 onPress={() => navigation.navigate('RoutineDetail', { routineId: routine.id, routineName: routine.name })}
               >
-                <CardContent>
-                  <View style={{ alignItems: 'center', marginBottom: theme.spacing[2] }}>
-                    <View style={{ 
-                      width: 48, 
-                      height: 48, 
-                      borderRadius: theme.borderRadius.full, 
-                      backgroundColor: theme.colors.semantic.primary.light,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: theme.spacing[2]
-                    }}>
-                      <Icon name="fitness-center" size={24} color={theme.colors.semantic.primary.main} />
+                <CardContent style={{ flex: 1, padding: theme.spacing[2] }}>
+                  <View style={{ flex: 1, justifyContent: 'space-between' }}>
+                    <View style={{ flex: 1 }}>
+                      {/* Icon at the top */}
+                      <View style={{ alignItems: 'center', marginBottom: theme.spacing[2] }}>
+                        <View style={{ 
+                          width: 40, 
+                          height: 40, 
+                          borderRadius: theme.borderRadius.full, 
+                          backgroundColor: theme.colors.semantic.primary.main + '20',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                          <Icon name="fitness-center" size={20} color={theme.colors.semantic.primary.main} />
+                        </View>
+                      </View>
+                      
+                      {/* Text content below icon */}
+                      <View style={{ flex: 1, paddingHorizontal: theme.spacing[1] }}>
+                        <Text 
+                          numberOfLines={2}
+                          ellipsizeMode="tail"
+                          allowFontScaling={false}
+                          style={{ 
+                            fontSize: 14,
+                            fontWeight: '600',
+                            color: theme.colors.semantic.text.primary, 
+                            textAlign: 'center',
+                            lineHeight: 18,
+                            marginBottom: theme.spacing[1],
+                          }}>
+                          {routine.name || '제목 없음'}
+                        </Text>
+                        <Text 
+                          numberOfLines={2}
+                          ellipsizeMode="tail"
+                          allowFontScaling={false}
+                          style={{ 
+                            fontSize: 12,
+                            color: theme.colors.semantic.text.secondary, 
+                            textAlign: 'center', 
+                            lineHeight: 16,
+                            marginBottom: theme.spacing[1],
+                          }}>
+                          {routine.exercises.length > 0 
+                            ? `${routine.exercises[0].name} 외 ${routine.exercises.length - 1}개`
+                            : '운동 없음'}
+                        </Text>
+                        <Text style={{ 
+                          fontSize: 11,
+                          color: theme.colors.semantic.text.secondary, 
+                          textAlign: 'center',
+                          lineHeight: 14,
+                        }}>
+                          {routine.duration}
+                        </Text>
+                      </View>
                     </View>
-                    <Text style={{ ...theme.typography.textStyles.h6, color: theme.colors.semantic.text.primary, textAlign: 'center' }}>
-                      {routine.name}
-                    </Text>
-                    <Text style={{ ...theme.typography.textStyles.caption, color: theme.colors.semantic.text.secondary, textAlign: 'center', marginTop: theme.spacing[1] }}>
-                      {routine.exercises.length > 0 
-                        ? `${routine.exercises[0].name} 외 ${routine.exercises.length - 1}개`
-                        : '운동 없음'
-                      }
-                    </Text>
-                    <Text style={{ ...theme.typography.textStyles.caption, color: theme.colors.semantic.text.secondary, marginTop: theme.spacing[1] }}>
-                      {routine.duration}
-                    </Text>
+                    <Button
+                      variant="primary"
+                      size="small"
+                      fullWidth
+                      onPress={() => navigation.navigate('RoutineDetail', { routineId: routine.id, routineName: routine.name })}
+                      style={{ marginTop: theme.spacing[2] }}
+                    >
+                      시작
+                    </Button>
                   </View>
-                  <Button
-                    variant="primary"
-                    size="small"
-                    fullWidth
-                    onPress={() => navigation.navigate('RoutineDetail', { routineId: routine.id, routineName: routine.name })}
-                  >
-                    시작
-                  </Button>
                 </CardContent>
               </Card>
             ))}
             
             <Card
               variant="outlined"
-              style={{ width: 160, marginRight: theme.spacing[3], borderStyle: 'dashed' }}
+              style={{ width: 200, minHeight: 240, marginRight: theme.spacing[3], borderStyle: 'dashed' }}
               onPress={() => navigation.navigate('CreateRoutine')}
             >
               <CardContent>
@@ -367,11 +429,40 @@ export default function HomeScreen() {
           <TouchableOpacity 
             style={styles.quickActionButton}
             onPress={() => {
-              setShowDOMSSurvey(true);
+              navigation.navigate('DOMSSurvey');
             }}
           >
             <Icon name="assessment" size={24} color="#FFFFFF" />
-            <Text style={styles.quickActionText}>DOMS</Text>
+            <Text style={styles.quickActionText}>회복 설문</Text>
+          </TouchableOpacity>
+
+          {/* Debug button to view DOMS data */}
+          <TouchableOpacity
+            style={[styles.quickActionButton, { backgroundColor: '#9C27B0' }]}
+            onPress={async () => {
+              try {
+                const progressionService = require('../../services/progression.service').default;
+                const { data: { user } } = await supabase.auth.getUser();
+                const userId = user?.id || 'test-user-id';
+                const latestSurvey = await progressionService.getLatestRecovery(userId);
+                const history = await progressionService.getDOMSSurveyHistory(userId, 30);
+                
+                Alert.alert(
+                  'DOMS 데이터 디버그',
+                  `User ID: ${userId}\n\n` +
+                  `최근 설문: ${latestSurvey ? JSON.stringify(latestSurvey, null, 2).substring(0, 200) : '없음'}\n\n` +
+                  `총 기록: ${history.length}개`,
+                  [
+                    { text: '확인', style: 'default' }
+                  ]
+                );
+              } catch (error) {
+                Alert.alert('오류', String(error));
+              }
+            }}
+          >
+            <Icon name="bug-report" size={24} color="#FFFFFF" />
+            <Text style={styles.quickActionText}>DOMS 확인</Text>
           </TouchableOpacity>
           
         </View>
@@ -847,7 +938,7 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   routineCard: {
-    width: 160,
+    width: 180,
     backgroundColor: Colors.surface,
     padding: 16,
     borderRadius: 12,
@@ -895,7 +986,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   addRoutineCard: {
-    width: 160,
+    width: 180,
     backgroundColor: Colors.surface,
     padding: 16,
     borderRadius: 12,

@@ -72,7 +72,16 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
   // Arms - Triceps
   "Triceps Pushdown": { koreanName: "트라이셉 푸시다운", alternateNames: ["Cable Triceps Pushdown"] },
   "Overhead Triceps Extension": { koreanName: "케이블 오버헤드 트라이셉 익스텐션", alternateNames: ["Cable Overhead Tricep Extension", "덤벨 트라이셉 익스텐션", "바벨 트라이셉 익스텐션"] },
+  "Triceps Extension (variation)": { koreanName: "케이블 오버헤드 트라이셉 익스텐션" },
   "Skull Crusher": { koreanName: "바벨 라잉 트라이셉 익스텐션", alternateNames: ["Lying Triceps Extension"] },
+  
+  // Korean names (from Korean programs - map to themselves)
+  "스쿼트": { koreanName: "바벨 스쿼트" },
+  "백 스쿼트": { koreanName: "바벨 스쿼트" },
+  "벤치프레스": { koreanName: "바벨 벤치 프레스" },
+  "인클라인 벤치프레스": { koreanName: "인클라인 바벨 벤치 프레스" },
+  "클로즈그립 벤치프레스": { koreanName: "클로즈 그립 벤치 프레스" },
+  "덤벨 벤치프레스": { koreanName: "덤벨 벤치 프레스" },
   
   // Calves
   "Calf Raise": { koreanName: "카프 레이즈", alternateNames: ["Standing Calf Raise"] },
@@ -283,11 +292,12 @@ export function convertProgramToAppFormat(programData: WorkoutProgramData): Omit
       if (exerciseId) {
         // Get the Korean name from the database
         const dbExercise = exerciseDatabaseService.getExerciseById(exerciseId);
+        // Always use the properly spaced Korean name from the database
         const koreanName = dbExercise?.exerciseName || exercise.exercise_name; // Fixed: use exerciseName property
         
         exercises.push({
           exerciseId,
-          exerciseName: koreanName, // Use Korean name
+          exerciseName: koreanName, // Use Korean name with proper spacing
           sets: exercise.sets,
           reps: exercise.reps,
           restTime: parseRestPeriod(exercise.rest_period_minutes),

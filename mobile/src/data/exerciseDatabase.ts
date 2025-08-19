@@ -36,7 +36,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/body-saw-plank.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/body-saw-plank.gif",
     "videoUrl": ""
   },
   {
@@ -48,7 +48,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/captains-chair-leg-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/captains-chair-leg-raise.gif",
     "videoUrl": ""
   },
   {
@@ -60,7 +60,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/knee-touch-crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/knee-touch-crunch.gif",
     "videoUrl": ""
   },
   {
@@ -72,7 +72,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/tuck-crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/tuck-crunch.gif",
     "videoUrl": ""
   },
   {
@@ -120,7 +120,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-pendlay-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-pendlay-row.gif",
     "videoUrl": ""
   },
   {
@@ -132,7 +132,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-pullover.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-pullover.gif",
     "videoUrl": ""
   },
   {
@@ -144,7 +144,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/barbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -156,7 +156,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/behind-neck-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/behind-neck-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -168,7 +168,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/bent-over-dumbbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/bent-over-dumbbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -180,7 +180,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-face-pull.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-face-pull.gif",
     "videoUrl": ""
   },
   {
@@ -192,7 +192,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-pullover.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-pullover.gif",
     "videoUrl": ""
   },
   {
@@ -204,7 +204,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-rope-arm-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-rope-arm-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -216,7 +216,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-row.gif",
     "videoUrl": ""
   },
   {
@@ -228,7 +228,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-seated-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/cable-seated-row.gif",
     "videoUrl": ""
   },
   {
@@ -240,7 +240,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/chest-supported-barbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-barbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -252,7 +252,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/chest-supported-dumbbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-dumbbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -264,7 +264,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/chest-supported-t-bar-row-machine.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/chest-supported-t-bar-row-machine.gif",
     "videoUrl": ""
   },
   {
@@ -276,7 +276,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/chin-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/chin-up.gif",
     "videoUrl": ""
   },
   {
@@ -288,7 +288,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/close-grip-lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/close-grip-lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -300,7 +300,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dead-hang.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/dead-hang.gif",
     "videoUrl": ""
   },
   {
@@ -312,7 +312,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-face-pull.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-face-pull.gif",
     "videoUrl": ""
   },
   {
@@ -324,7 +324,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/dumbbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -336,7 +336,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/face-pull.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/face-pull.gif",
     "videoUrl": ""
   },
   {
@@ -348,7 +348,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/inverted-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/inverted-row.gif",
     "videoUrl": ""
   },
   {
@@ -360,7 +360,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/jumping_pull_ups.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/jumping_pull_ups.gif",
     "videoUrl": ""
   },
   {
@@ -372,7 +372,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케틀벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/kettlebell-upright-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/kettlebell-upright-row.gif",
     "videoUrl": ""
   },
   {
@@ -384,7 +384,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-high-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-high-row.gif",
     "videoUrl": ""
   },
   {
@@ -396,7 +396,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-pullover.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-pullover.gif",
     "videoUrl": ""
   },
   {
@@ -408,7 +408,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-seated-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-seated-row.gif",
     "videoUrl": ""
   },
   {
@@ -420,7 +420,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-t-bar-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-t-bar-row.gif",
     "videoUrl": ""
   },
   {
@@ -432,7 +432,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-wide-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/machine-wide-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -444,7 +444,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/negative-pull-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/negative-pull-up.gif",
     "videoUrl": ""
   },
   {
@@ -456,7 +456,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/neutral-grip-lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/neutral-grip-lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -468,7 +468,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/neutral-grip-pull-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/neutral-grip-pull-up.gif",
     "videoUrl": ""
   },
   {
@@ -480,7 +480,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/plate-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/plate-row.gif",
     "videoUrl": ""
   },
   {
@@ -492,7 +492,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pull-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/pull-up.gif",
     "videoUrl": ""
   },
   {
@@ -504,7 +504,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/rowing-machine.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/rowing-machine.gif",
     "videoUrl": ""
   },
   {
@@ -516,7 +516,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-landmine-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/single-arm-landmine-row.gif",
     "videoUrl": ""
   },
   {
@@ -528,7 +528,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/single-arm-lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -540,7 +540,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-barbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/smith-barbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -552,7 +552,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/standing-straight-arm-lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/standing-straight-arm-lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -564,7 +564,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/t-bar-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/t-bar-row.gif",
     "videoUrl": ""
   },
   {
@@ -576,7 +576,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/underhand-barbell-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/underhand-barbell-row.gif",
     "videoUrl": ""
   },
   {
@@ -600,7 +600,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-cheat-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-cheat-curl.gif",
     "videoUrl": ""
   },
   {
@@ -612,7 +612,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-preacher-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/barbell-preacher-curl.gif",
     "videoUrl": ""
   },
   {
@@ -624,7 +624,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -636,7 +636,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-double-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-double-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -648,7 +648,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-drag-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-drag-curl.gif",
     "videoUrl": ""
   },
   {
@@ -660,7 +660,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-rope-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/cable-rope-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -672,7 +672,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/crossbody-hammer-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/crossbody-hammer-curl.gif",
     "videoUrl": ""
   },
   {
@@ -684,7 +684,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-concentration-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-concentration-curl.gif",
     "videoUrl": ""
   },
   {
@@ -696,7 +696,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-hammer-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-hammer-curl.gif",
     "videoUrl": ""
   },
   {
@@ -708,7 +708,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/ez-bar-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/ez-bar-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -720,7 +720,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/ez-bar-reverse-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/ez-bar-reverse-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -732,7 +732,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-dumbbell-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/incline-dumbbell-curl.gif",
     "videoUrl": ""
   },
   {
@@ -744,7 +744,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-hammer-curls.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/incline-hammer-curls.gif",
     "videoUrl": ""
   },
   {
@@ -756,7 +756,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/inner-biceps-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/inner-biceps-curl.gif",
     "videoUrl": ""
   },
   {
@@ -768,7 +768,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-cable-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/single-arm-cable-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -780,7 +780,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-dumbbell-preacher-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/single-arm-dumbbell-preacher-curl.gif",
     "videoUrl": ""
   },
   {
@@ -792,7 +792,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/spider-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/spider-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -804,7 +804,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/wide-grip-barbell-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/wide-grip-barbell-curl.gif",
     "videoUrl": ""
   },
   {
@@ -816,7 +816,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/zottman-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/zottman-curl.gif",
     "videoUrl": ""
   },
   {
@@ -828,7 +828,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/leg-press-calf-raise-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/calves/leg-press-calf-raise-2.gif",
     "videoUrl": ""
   },
   {
@@ -840,7 +840,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-calf-raise-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/calves/seated-calf-raise-2.gif",
     "videoUrl": ""
   },
   {
@@ -852,7 +852,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-leg-calf-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/calves/single-leg-calf-raise.gif",
     "videoUrl": ""
   },
   {
@@ -864,7 +864,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-machine-calf-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/calves/smith-machine-calf-raise.gif",
     "videoUrl": ""
   },
   {
@@ -876,7 +876,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/standing-calf-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/calves/standing-calf-raise.gif",
     "videoUrl": ""
   },
   {
@@ -900,7 +900,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-front-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-front-raise.gif",
     "videoUrl": ""
   },
   {
@@ -912,7 +912,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-push-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-push-press.gif",
     "videoUrl": ""
   },
   {
@@ -924,7 +924,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/barbell-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -936,7 +936,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-front-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-front-raise.gif",
     "videoUrl": ""
   },
   {
@@ -948,7 +948,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-kneeling-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-kneeling-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -960,7 +960,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-rear-delt-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/cable-rear-delt-row.gif",
     "videoUrl": ""
   },
   {
@@ -972,7 +972,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-bent-over-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-bent-over-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -984,7 +984,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -996,7 +996,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-push-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-push-press.gif",
     "videoUrl": ""
   },
   {
@@ -1008,7 +1008,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-rear-delt-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/dumbbell-rear-delt-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1020,7 +1020,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/handstand-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/handstand-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -1032,7 +1032,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-leaning-dumbbell-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/incline-leaning-dumbbell-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1044,7 +1044,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/landmine-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/landmine-press.gif",
     "videoUrl": ""
   },
   {
@@ -1056,7 +1056,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/leaning-single-arm-dumbbell-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/leaning-single-arm-dumbbell-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1068,7 +1068,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-lateral-raise-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise-2.gif",
     "videoUrl": ""
   },
   {
@@ -1080,7 +1080,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1092,7 +1092,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-rear-delt-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-rear-delt-fly.gif",
     "videoUrl": ""
   },
   {
@@ -1104,7 +1104,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-shoulder-press-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press-2.gif",
     "videoUrl": ""
   },
   {
@@ -1116,7 +1116,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/machine-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1128,7 +1128,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/military_press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/military_press.gif",
     "videoUrl": ""
   },
   {
@@ -1140,7 +1140,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/military-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/military-press.gif",
     "videoUrl": ""
   },
   {
@@ -1152,7 +1152,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pike-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/pike-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -1164,7 +1164,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/plate-front-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/plate-front-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1176,7 +1176,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/prone-y-raises.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/prone-y-raises.gif",
     "videoUrl": ""
   },
   {
@@ -1188,7 +1188,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-barbell-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-barbell-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1200,7 +1200,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-dumbbell-front-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-front-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1212,7 +1212,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-dumbbell-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1224,7 +1224,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-dumbbell-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-dumbbell-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1236,7 +1236,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-ez-bar-front-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-ez-bar-front-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1248,7 +1248,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-smith-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/seated-smith-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1260,7 +1260,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/shoulder-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/shoulder-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -1272,7 +1272,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-cable-lateral-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-cable-lateral-raise.gif",
     "videoUrl": ""
   },
   {
@@ -1284,7 +1284,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-cable-lateral-raises.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-cable-lateral-raises.gif",
     "videoUrl": ""
   },
   {
@@ -1296,7 +1296,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-dumbbell-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/single-arm-dumbbell-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1308,7 +1308,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-behind-neck-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/smith-behind-neck-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1320,7 +1320,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/standing-smith-shoulder-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/standing-smith-shoulder-press.gif",
     "videoUrl": ""
   },
   {
@@ -1332,7 +1332,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/upright_row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deltoids/upright_row.gif",
     "videoUrl": ""
   },
   {
@@ -1344,7 +1344,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-reverse-wrist-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/forearms/barbell-reverse-wrist-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1356,7 +1356,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-wrist-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/forearms/barbell-wrist-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1368,7 +1368,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-reverse-wrist-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/forearms/dumbbell-reverse-wrist-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1380,7 +1380,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-wrist-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/forearms/dumbbell-wrist-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1392,7 +1392,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/wrist-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/forearms/wrist-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -1404,7 +1404,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "밴드",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/banded-hip-thrust.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/banded-hip-thrust.gif",
     "videoUrl": ""
   },
   {
@@ -1416,7 +1416,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-hip-thrust.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/barbell-hip-thrust.gif",
     "videoUrl": ""
   },
   {
@@ -1428,7 +1428,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-hip-adduction.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/cable-hip-adduction.gif",
     "videoUrl": ""
   },
   {
@@ -1440,7 +1440,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-pull-through.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/cable-pull-through.gif",
     "videoUrl": ""
   },
   {
@@ -1452,7 +1452,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-glute-bridge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/dumbbell-glute-bridge.gif",
     "videoUrl": ""
   },
   {
@@ -1464,7 +1464,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/elevated-glute-bridge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/elevated-glute-bridge.gif",
     "videoUrl": ""
   },
   {
@@ -1476,7 +1476,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/frog-hip-thrust.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/frog-hip-thrust.gif",
     "videoUrl": ""
   },
   {
@@ -1488,7 +1488,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glute-kickback-machine.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/glute-kickback-machine.gif",
     "videoUrl": ""
   },
   {
@@ -1500,7 +1500,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hip-abduction.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/hip-abduction.gif",
     "videoUrl": ""
   },
   {
@@ -1512,7 +1512,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-standing-hip-abduction.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/machine-standing-hip-abduction.gif",
     "videoUrl": ""
   },
   {
@@ -1524,7 +1524,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "밴드",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/resistance-band-glute-bridge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/resistance-band-glute-bridge.gif",
     "videoUrl": ""
   },
   {
@@ -1536,7 +1536,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-leg-cable-kickback.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/single-leg-cable-kickback.gif",
     "videoUrl": ""
   },
   {
@@ -1548,7 +1548,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-leg-hip-thrust.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/single-leg-hip-thrust.gif",
     "videoUrl": ""
   },
   {
@@ -1560,7 +1560,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-machine-hip-thrust.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/smith-machine-hip-thrust.gif",
     "videoUrl": ""
   },
   {
@@ -1572,7 +1572,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell_deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/barbell_deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1596,7 +1596,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deficit-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/deficit-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1608,7 +1608,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-stiff-leg-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/dumbbell-stiff-leg-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1620,7 +1620,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케틀벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/kettlebell-sumo-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kettlebell-sumo-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1632,7 +1632,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/kneeling-leg-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/kneeling-leg-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1644,7 +1644,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/landmine-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/landmine-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1656,7 +1656,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/lying-leg-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/lying-leg-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1668,7 +1668,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/nordic-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/nordic-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1680,7 +1680,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-leg-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/seated-leg-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1692,7 +1692,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-leg-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/single-leg-curl.gif",
     "videoUrl": ""
   },
   {
@@ -1704,7 +1704,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/stiff-leg-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/stiff-leg-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1716,7 +1716,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/suitcase-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/suitcase-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -1728,7 +1728,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/assisted-dips.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/assisted-dips.gif",
     "videoUrl": ""
   },
   {
@@ -1752,7 +1752,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-decline-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/barbell-decline-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -1764,7 +1764,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/bench-dips.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/bench-dips.gif",
     "videoUrl": ""
   },
   {
@@ -1776,7 +1776,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/board-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/board-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -1788,7 +1788,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-chest-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-chest-fly.gif",
     "videoUrl": ""
   },
   {
@@ -1800,7 +1800,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/chest-press-machine.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/chest-press-machine.gif",
     "videoUrl": ""
   },
   {
@@ -1812,7 +1812,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/decline-barbell-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-barbell-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -1824,7 +1824,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/decline-cable-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-cable-fly.gif",
     "videoUrl": ""
   },
   {
@@ -1836,7 +1836,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/decline-dumbbell-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/decline-dumbbell-fly.gif",
     "videoUrl": ""
   },
   {
@@ -1848,7 +1848,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deficit-push-ups.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/deficit-push-ups.gif",
     "videoUrl": ""
   },
   {
@@ -1860,7 +1860,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dips.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dips.gif",
     "videoUrl": ""
   },
   {
@@ -1872,7 +1872,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -1884,7 +1884,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-chest-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-chest-fly.gif",
     "videoUrl": ""
   },
   {
@@ -1896,7 +1896,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-close-grip-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/dumbbell-close-grip-press.gif",
     "videoUrl": ""
   },
   {
@@ -1908,7 +1908,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/finger_pushups.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/finger_pushups.gif",
     "videoUrl": ""
   },
   {
@@ -1920,7 +1920,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/floor-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/floor-press.gif",
     "videoUrl": ""
   },
   {
@@ -1932,7 +1932,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hex_press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/hex_press.gif",
     "videoUrl": ""
   },
   {
@@ -1944,7 +1944,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-barbell-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-barbell-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -1956,7 +1956,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-dumbbell-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-dumbbell-fly.gif",
     "videoUrl": ""
   },
   {
@@ -1968,7 +1968,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -1980,7 +1980,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/knee-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knee-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -1992,7 +1992,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/knuckle_pushups.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/knuckle_pushups.gif",
     "videoUrl": ""
   },
   {
@@ -2004,7 +2004,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-chest-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-chest-fly.gif",
     "videoUrl": ""
   },
   {
@@ -2016,7 +2016,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-chest-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-chest-press.gif",
     "videoUrl": ""
   },
   {
@@ -2028,7 +2028,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-dips.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-dips.gif",
     "videoUrl": ""
   },
   {
@@ -2040,7 +2040,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/parallel-dips.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/parallel-dips.gif",
     "videoUrl": ""
   },
   {
@@ -2052,7 +2052,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pec-dec-fly.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pec-dec-fly.gif",
     "videoUrl": ""
   },
   {
@@ -2064,7 +2064,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pin-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/pin-press.gif",
     "videoUrl": ""
   },
   {
@@ -2076,7 +2076,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/plate-chest-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/plate-chest-press.gif",
     "videoUrl": ""
   },
   {
@@ -2088,7 +2088,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/plyometric-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/plyometric-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -2100,7 +2100,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/push-ups-with-rotation.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/push-ups-with-rotation.gif",
     "videoUrl": ""
   },
   {
@@ -2112,7 +2112,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "밴드",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/resistance-band-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/resistance-band-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -2124,7 +2124,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-dumbbell-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/single-arm-dumbbell-press.gif",
     "videoUrl": ""
   },
   {
@@ -2136,7 +2136,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/smith-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -2148,7 +2148,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/sphinx-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/sphinx-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -2160,7 +2160,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/svend-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/svend-press.gif",
     "videoUrl": ""
   },
   {
@@ -2172,7 +2172,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/weighted-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/weighted-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -2208,7 +2208,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-lunge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-lunge.gif",
     "videoUrl": ""
   },
   {
@@ -2220,7 +2220,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-sumo-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-sumo-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2232,7 +2232,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/belt-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/belt-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2244,7 +2244,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/bodyweight-lunge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bodyweight-lunge.gif",
     "videoUrl": ""
   },
   {
@@ -2256,7 +2256,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/bodyweight-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bodyweight-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2268,7 +2268,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/bulgarian-split-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/bulgarian-split-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2280,7 +2280,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/deficit-reverse-lunge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/deficit-reverse-lunge.gif",
     "videoUrl": ""
   },
   {
@@ -2292,7 +2292,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-front-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-front-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2304,7 +2304,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-hack-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-hack-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2316,7 +2316,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2328,7 +2328,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-sumo-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/dumbbell-sumo-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2340,7 +2340,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/frog-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/frog-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2352,7 +2352,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/gym-ball-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/gym-ball-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2364,7 +2364,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hack-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/hack-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2376,7 +2376,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/half-knee-bends.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/half-knee-bends.gif",
     "videoUrl": ""
   },
   {
@@ -2388,7 +2388,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케틀벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/kettlebell-squat-clean.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kettlebell-squat-clean.gif",
     "videoUrl": ""
   },
   {
@@ -2400,7 +2400,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케틀벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/kettlebell-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/kettlebell-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2412,7 +2412,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/landmine-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/landmine-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2424,7 +2424,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/leg-extension-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-extension-2.gif",
     "videoUrl": ""
   },
   {
@@ -2436,7 +2436,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/low-bar-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/low-bar-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2448,7 +2448,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/lunges.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/lunges.gif",
     "videoUrl": ""
   },
   {
@@ -2460,7 +2460,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-leg-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/machine-leg-press.gif",
     "videoUrl": ""
   },
   {
@@ -2472,7 +2472,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/negative_squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/negative_squat.gif",
     "videoUrl": ""
   },
   {
@@ -2484,7 +2484,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/overhead-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/overhead-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2496,7 +2496,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "고급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pistol-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/pistol-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2508,7 +2508,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "밴드",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/resistance-band-lunge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/resistance-band-lunge.gif",
     "videoUrl": ""
   },
   {
@@ -2520,7 +2520,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/reverse-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/reverse-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2532,7 +2532,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/reverse-v-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/reverse-v-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2544,7 +2544,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/seated-knee-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/seated-knee-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2556,7 +2556,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/shrimp-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/shrimp-squat.gif",
     "videoUrl": ""
   },
   {
@@ -2568,7 +2568,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-leg-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/single-leg-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2580,7 +2580,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-leg-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/single-leg-press.gif",
     "videoUrl": ""
   },
   {
@@ -2592,7 +2592,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-machine-lunge.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-lunge.gif",
     "videoUrl": ""
   },
   {
@@ -2604,7 +2604,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/step-ups.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/step-ups.gif",
     "videoUrl": ""
   },
   {
@@ -2616,7 +2616,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/tempo_squats.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/tempo_squats.gif",
     "videoUrl": ""
   },
   {
@@ -2628,7 +2628,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-incline-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-incline-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2640,7 +2640,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-lying-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-lying-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2652,7 +2652,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "바벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/barbell-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2664,7 +2664,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-incline-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-incline-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2676,7 +2676,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-overhead-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-overhead-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2688,7 +2688,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-pushdown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-pushdown.gif",
     "videoUrl": ""
   },
   {
@@ -2700,7 +2700,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-reverse-grip-tricep-pushdown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-reverse-grip-tricep-pushdown.gif",
     "videoUrl": ""
   },
   {
@@ -2712,7 +2712,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-rope-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-rope-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2724,7 +2724,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-single-arm-reverse-grip-tricep-pushdown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-single-arm-reverse-grip-tricep-pushdown.gif",
     "videoUrl": ""
   },
   {
@@ -2736,7 +2736,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-tricep-kickback.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-tricep-kickback.gif",
     "videoUrl": ""
   },
   {
@@ -2748,7 +2748,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-v-bar-tricep-pushdown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cable-v-bar-tricep-pushdown.gif",
     "videoUrl": ""
   },
   {
@@ -2760,7 +2760,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cobra-push-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/cobra-push-up.gif",
     "videoUrl": ""
   },
   {
@@ -2772,7 +2772,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dive-bomber-push-ups.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dive-bomber-push-ups.gif",
     "videoUrl": ""
   },
   {
@@ -2784,7 +2784,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-tricep-extension-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension-2.gif",
     "videoUrl": ""
   },
   {
@@ -2796,7 +2796,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2808,7 +2808,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-tricep-kickback-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback-2.gif",
     "videoUrl": ""
   },
   {
@@ -2820,7 +2820,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-tricep-kickback.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/dumbbell-tricep-kickback.gif",
     "videoUrl": ""
   },
   {
@@ -2832,7 +2832,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/kneeling-cable-overhead-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/kneeling-cable-overhead-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2844,7 +2844,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-tricep-extension-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension-2.gif",
     "videoUrl": ""
   },
   {
@@ -2856,7 +2856,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/machine-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2868,7 +2868,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/overhead-tricep-stretch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/overhead-tricep-stretch.gif",
     "videoUrl": ""
   },
   {
@@ -2880,7 +2880,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-cable-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/single-arm-cable-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2892,7 +2892,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-dumbbell-tricep-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/single-arm-dumbbell-tricep-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2904,7 +2904,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps-pushdown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/triceps-pushdown.gif",
     "videoUrl": ""
   },
   {
@@ -2916,7 +2916,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/underhand-tricep-pushdown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/underhand-tricep-pushdown.gif",
     "videoUrl": ""
   },
   {
@@ -2928,7 +2928,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/45-degree-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/45-degree-extension.gif",
     "videoUrl": ""
   },
   {
@@ -2940,7 +2940,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "고급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/ab-roller.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/ab-roller.gif",
     "videoUrl": ""
   },
   {
@@ -2952,7 +2952,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/decline-sit-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/decline-sit-up.gif",
     "videoUrl": ""
   },
   {
@@ -2964,7 +2964,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/leg-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/leg-raise.gif",
     "videoUrl": ""
   },
   {
@@ -2976,7 +2976,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/mountain-climber.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/mountain-climber.gif",
     "videoUrl": ""
   },
   {
@@ -2988,7 +2988,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/machine-crunch.gif",
     "videoUrl": ""
   },
   {
@@ -3000,7 +3000,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/bicycle-crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/bicycle-crunch.gif",
     "videoUrl": ""
   },
   {
@@ -3012,7 +3012,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/side-plank.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/side-plank.gif",
     "videoUrl": ""
   },
   {
@@ -3024,7 +3024,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/weighted-russian-twist.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/weighted-russian-twist.gif",
     "videoUrl": ""
   },
   {
@@ -3036,7 +3036,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "케이블",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/weighted-cable-crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/weighted-cable-crunch.gif",
     "videoUrl": ""
   },
   {
@@ -3048,7 +3048,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "고급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/weighted-plank.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/weighted-plank.gif",
     "videoUrl": ""
   },
   {
@@ -3060,7 +3060,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/captains-chair-knee-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/captains-chair-knee-raise.gif",
     "videoUrl": ""
   },
   {
@@ -3072,7 +3072,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/crunch.gif",
     "videoUrl": ""
   },
   {
@@ -3084,7 +3084,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cross-body-crunch.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/cross-body-crunch.gif",
     "videoUrl": ""
   },
   {
@@ -3096,7 +3096,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "고급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/toes-to-bar.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/toes-to-bar.gif",
     "videoUrl": ""
   },
   {
@@ -3108,7 +3108,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/plank.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/plank.gif",
     "videoUrl": ""
   },
   {
@@ -3120,7 +3120,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "맨몸",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/flutter-kick.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/flutter-kick.gif",
     "videoUrl": ""
   },
   {
@@ -3132,7 +3132,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "고급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hanging-leg-raise.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/hanging-leg-raise.gif",
     "videoUrl": ""
   },
   {
@@ -3144,7 +3144,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/sit-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/abdominals/sit-up.gif",
     "videoUrl": ""
   },
   {
@@ -3156,7 +3156,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/58_wide-grip-lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/58_wide-grip-lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -3168,7 +3168,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/back-extension.gif",
     "videoUrl": ""
   },
   {
@@ -3180,7 +3180,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -3192,7 +3192,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/weighted-pull-up.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/weighted-pull-up.gif",
     "videoUrl": ""
   },
   {
@@ -3204,7 +3204,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/wide-grip-lat-pulldown.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/wide-grip-lat-pulldown.gif",
     "videoUrl": ""
   },
   {
@@ -3216,7 +3216,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/yates-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/back/yates-row.gif",
     "videoUrl": ""
   },
   {
@@ -3228,7 +3228,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-bicep-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/dumbbell-bicep-curl.gif",
     "videoUrl": ""
   },
   {
@@ -3240,7 +3240,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hammer-curls.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/hammer-curls.gif",
     "videoUrl": ""
   },
   {
@@ -3252,7 +3252,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/high-pulley-cable-curl.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/high-pulley-cable-curl.gif",
     "videoUrl": ""
   },
   {
@@ -3264,7 +3264,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/preacher-curls.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/biceps/preacher-curls.gif",
     "videoUrl": ""
   },
   {
@@ -3444,7 +3444,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glute-kickback-hip-extension.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/glute-kickback-hip-extension.gif",
     "videoUrl": ""
   },
   {
@@ -3456,7 +3456,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hip-adduction-inner-thigh-machine.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/glutes/hip-adduction-inner-thigh-machine.gif",
     "videoUrl": ""
   },
   {
@@ -3468,7 +3468,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/romanian-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/romanian-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -3480,7 +3480,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/sumo-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/hamstrings/sumo-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -3492,7 +3492,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-crossover.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/cable-crossover.gif",
     "videoUrl": ""
   },
   {
@@ -3504,7 +3504,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/wide_grip_bench_press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/wide_grip_bench_press.gif",
     "videoUrl": ""
   },
   {
@@ -3516,7 +3516,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/300_smith-machine-squat-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/300_smith-machine-squat-2.gif",
     "videoUrl": ""
   },
   {
@@ -3528,7 +3528,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/barbell-squat.gif",
     "videoUrl": ""
   },
   {
@@ -3540,7 +3540,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/front-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/front-squat.gif",
     "videoUrl": ""
   },
   {
@@ -3552,7 +3552,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/leg-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/leg-press.gif",
     "videoUrl": ""
   },
   {
@@ -3564,7 +3564,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-machine-squat-2.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/smith-machine-squat-2.gif",
     "videoUrl": ""
   },
   {
@@ -3576,7 +3576,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/trap-bar-deadlift.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/trap-bar-deadlift.gif",
     "videoUrl": ""
   },
   {
@@ -3588,7 +3588,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/zercher-squat.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/quadriceps/zercher-squat.gif",
     "videoUrl": ""
   },
   {
@@ -3600,7 +3600,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-shrug.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-shrug.gif",
     "videoUrl": ""
   },
   {
@@ -3612,7 +3612,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/barbell-upright-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/barbell-upright-row.gif",
     "videoUrl": ""
   },
   {
@@ -3624,7 +3624,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-shrug.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/cable-shrug.gif",
     "videoUrl": ""
   },
   {
@@ -3636,7 +3636,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/cable-upright-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/cable-upright-row.gif",
     "videoUrl": ""
   },
   {
@@ -3648,7 +3648,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/chest-supported-dumbbell-shrug.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/chest-supported-dumbbell-shrug.gif",
     "videoUrl": ""
   },
   {
@@ -3660,7 +3660,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-shrug.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/dumbbell-shrug.gif",
     "videoUrl": ""
   },
   {
@@ -3672,7 +3672,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/dumbbell-upright-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/dumbbell-upright-row.gif",
     "videoUrl": ""
   },
   {
@@ -3684,7 +3684,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/ez-bar-upright-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/ez-bar-upright-row.gif",
     "videoUrl": ""
   },
   {
@@ -3696,7 +3696,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/single-arm-dumbbell-upright-row.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/single-arm-dumbbell-upright-row.gif",
     "videoUrl": ""
   },
   {
@@ -3708,7 +3708,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/smith-machine-shrug.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/traps/smith-machine-shrug.gif",
     "videoUrl": ""
   },
   {
@@ -3720,7 +3720,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "기타",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/close-grip-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/triceps/close-grip-bench-press.gif",
     "videoUrl": ""
   },
   {
@@ -3732,7 +3732,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "덤벨",
     "difficulty": "중급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/incline-dumbbell-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/incline-dumbbell-press.gif",
     "videoUrl": ""
   },
   {
@@ -3744,7 +3744,7 @@ const EXERCISE_DATABASE: ExerciseData[] = [
     "equipment": "머신",
     "difficulty": "초급",
     "instructions": [],
-    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/machine-bench-press.gif",
+    "imageUrl": "https://ayttqsgttuvdhvbvbnsk.supabase.co/storage/v1/object/public/exercise-gifs/pectorals/machine-bench-press.gif",
     "videoUrl": ""
   }
 ];

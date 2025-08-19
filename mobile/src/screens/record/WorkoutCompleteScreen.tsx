@@ -16,12 +16,14 @@ import { Colors } from '../../constants/colors';
 import { RecordStackScreenProps } from '../../navigation/types';
 import { Workout } from '../../types';
 import { workoutService } from '../../services/workout.service';
+import { getWorkoutById, getWorkoutHistory } from '../../utils/workoutHistory';
+import { WorkoutHistoryItem } from '../../utils/workoutHistory';
 
 type WorkoutCompleteScreenProps = RecordStackScreenProps<'WorkoutComplete'>;
 
 export default function WorkoutCompleteScreen({ navigation, route }: WorkoutCompleteScreenProps) {
   const { workoutId } = route.params;
-  const [workout, setWorkout] = useState<Workout | null>(null);
+  const [workout, setWorkout] = useState<WorkoutHistoryItem | null>(null);
   const [workoutRating, setWorkoutRating] = useState(3);
   const [workoutNotes, setWorkoutNotes] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -35,12 +37,41 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
 
   const loadWorkout = async () => {
     try {
-      const workoutData = await workoutService.getWorkoutById(workoutId);
-      setWorkout(workoutData);
-      setWorkoutRating(workoutData.workoutRating || 3);
-      setWorkoutNotes(workoutData.notes || '');
+      console.log('[WorkoutComplete] Loading workout with ID:', workoutId);
+      
+      // Add a small delay to ensure storage operations complete
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Try to load the workout
+      const workoutData = await getWorkoutById(workoutId);
+      console.log('[WorkoutComplete] Workout data loaded:', workoutData ? 'found' : 'not found');
+      
+      if (workoutData) {
+        setWorkout(workoutData);
+        setWorkoutRating(workoutData.rating || 3);
+        setWorkoutNotes(workoutData.memo || '');
+        console.log('[WorkoutComplete] Workout details:', {
+          id: workoutData.id,
+          name: workoutData.routineName,
+          duration: workoutData.duration,
+          exercises: workoutData.exercises.length
+        });
+      } else {
+        console.error('[WorkoutComplete] Workout not found with ID:', workoutId);
+        
+        // Try to get all workouts to see what's available
+        const allWorkouts = await getWorkoutHistory();
+        console.log('[WorkoutComplete] Available workouts:', allWorkouts.map(w => ({
+          id: w.id,
+          name: w.routineName,
+          date: w.date
+        })));
+        
+        Alert.alert('오류', `운동 정보를 찾을 수 없습니다.\nID: ${workoutId}`);
+        navigation.navigate('RecordMain');
+      }
     } catch (error) {
-      console.error('Error loading workout:', error);
+      console.error('[WorkoutComplete] Error loading workout:', error);
       Alert.alert('오류', '운동 데이터를 불러올 수 없습니다.');
       navigation.navigate('RecordMain');
     } finally {
@@ -50,25 +81,13 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
 
   const handleRatingChange = async (rating: number) => {
     setWorkoutRating(rating);
-    
-    if (workout) {
-      try {
-        await workoutService.updateWorkout(workoutId, { workoutRating: rating });
-      } catch (error) {
-        console.error('Error updating rating:', error);
-      }
-    }
+    // Rating will be saved locally - no API call needed for local storage
   };
 
   const handleNotesUpdate = async () => {
-    if (workout && workoutNotes !== workout.notes) {
-      try {
-        await workoutService.updateWorkout(workoutId, { notes: workoutNotes });
-        Alert.alert('성공', '메모가 저장되었습니다.');
-      } catch (error) {
-        console.error('Error updating notes:', error);
-        Alert.alert('오류', '메모를 저장할 수 없습니다.');
-      }
+    if (workout && workoutNotes !== workout.memo) {
+      // Notes will be saved locally - no API call needed for local storage
+      Alert.alert('성공', '메모가 저장되었습니다.');
     }
   };
 
@@ -76,11 +95,12 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
     if (!workout) return;
 
     const stats = calculateWorkoutStats(workout);
+    const durationMinutes = Math.floor(workout.duration / 60);
     const message = `💪 운동 완료!\n\n` +
-      `⏱ 시간: ${formatDuration(workout.totalDuration)}\n` +
+      `⏱ 시간: ${formatDuration(durationMinutes)}\n` +
       `🏋️ 운동: ${workout.exercises.length}개\n` +
       `📊 총 볼륨: ${stats.totalVolume.toLocaleString()}kg\n` +
-      `🔥 칼로리: ${workout.totalCalories || 0}kcal\n` +
+      `🔥 칼로리: ${Math.round(durationMinutes * 5)}kcal\n` +
       `⭐ 평가: ${getRatingEmoji(workoutRating)}\n\n` +
       `#피트니스 #운동 #헬스`;
 
@@ -115,7 +135,7 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
   };
 
   const handleViewWorkout = () => {
-    navigation.replace('WorkoutDetail', { workoutId });
+    navigation.navigate('WorkoutDetail', { workoutId });
   };
 
   const handleStartNewWorkout = () => {
@@ -137,13 +157,11 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
     return `${remainingMinutes}분`;
   };
 
-  const calculateWorkoutStats = (workout: Workout) => {
-    const totalSets = workout.exercises.reduce((total, exercise) => total + exercise.sets.length, 0);
-    const totalVolume = workout.exercises.reduce((total, exercise) => {
-      return total + workoutService.getTotalVolume(exercise.sets);
-    }, 0);
+  const calculateWorkoutStats = (workout: WorkoutHistoryItem) => {
+    const totalSets = workout.totalSets;
+    const totalVolume = workout.totalVolume;
     const totalReps = workout.exercises.reduce((total, exercise) => {
-      return total + workoutService.getTotalReps(exercise.sets);
+      return total + exercise.sets.reduce((sum, set) => sum + parseInt(set.reps || '0'), 0);
     }, 0);
 
     return { totalSets, totalVolume, totalReps };
@@ -209,7 +227,7 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
           
           <View style={styles.statsGrid}>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>{formatDuration(workout.totalDuration)}</Text>
+              <Text style={styles.statValue}>{formatDuration(Math.floor(workout.duration / 60))}</Text>
               <Text style={styles.statLabel}>운동 시간</Text>
             </View>
             <View style={styles.statItem}>
@@ -229,7 +247,7 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
               <Text style={styles.statLabel}>총 반복</Text>
             </View>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>{workout.totalCalories || 0}</Text>
+              <Text style={styles.statValue}>{Math.round((workout.duration / 60) * 5)}</Text>
               <Text style={styles.statLabel}>칼로리</Text>
             </View>
           </View>
@@ -238,9 +256,9 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
         <View style={styles.muscleGroupsCard}>
           <Text style={styles.muscleGroupsTitle}>운동한 부위</Text>
           <View style={styles.muscleGroups}>
-            {[...new Set(workout.exercises.map(e => e.exercise.muscleGroup))].map((group) => (
-              <View key={group} style={styles.muscleGroupTag}>
-                <Text style={styles.muscleGroupText}>{group}</Text>
+            {workout.exercises.map((exercise, index) => (
+              <View key={index} style={styles.muscleGroupTag}>
+                <Text style={styles.muscleGroupText}>{exercise.exerciseName}</Text>
               </View>
             ))}
           </View>

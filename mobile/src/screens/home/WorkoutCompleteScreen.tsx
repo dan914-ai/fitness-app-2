@@ -50,8 +50,23 @@ export default function WorkoutCompleteScreen() {
   }, [workout, userId, showRating]);
 
   const getUserId = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (user) setUserId(user.id);
+    try {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error) {
+        console.warn('[WorkoutComplete] Error getting user:', error);
+        // Use a fallback test user ID for local testing
+        setUserId('test-user-' + Date.now());
+      } else if (user) {
+        console.log('[WorkoutComplete] User found:', user.id);
+        setUserId(user.id);
+      } else {
+        console.log('[WorkoutComplete] No user found, using test ID');
+        setUserId('test-user-' + Date.now());
+      }
+    } catch (err) {
+      console.error('[WorkoutComplete] Failed to get user:', err);
+      setUserId('test-user-' + Date.now());
+    }
   };
 
   const loadWorkoutData = async () => {

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Supabase Auth</title>
+</head>
+<body>
+    <h1>Supabase Auth Test</h1>
+    <div id="status">Testing...</div>
+    <button onclick="testSignUp()">Test Sign Up</button>
+    <button onclick="testSignIn()">Test Sign In</button>
+    <div id="result"></div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+        
+        const supabaseUrl = 'https://ayttqsgttuvdhvbvbnsk.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5dHRxc2d0dHV2ZGh2YnZibnNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMxNzI0NzgsImV4cCI6MjA2ODc0ODQ3OH0.qUu0TNp2Q3cGBZjWJQHAype9gBN303G5yGo13CayMDA'
+        
+        const supabase = createClient(supabaseUrl, supabaseKey)
+        
+        window.testSignUp = async function() {
+            const timestamp = Date.now();
+            const email = `test${timestamp}@gmail.com`;
+            const password = 'TestPassword123!';
+            
+            console.log('Testing signup with:', email);
+            
+            const { data, error } = await supabase.auth.signUp({
+                email,
+                password
+            });
+            
+            if (error) {
+                document.getElementById('result').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                console.error('Signup error:', error);
+            } else {
+                document.getElementById('result').innerHTML = `<p style="color: green;">Success! User created: ${JSON.stringify(data.user, null, 2)}</p>`;
+                console.log('Signup success:', data);
+            }
+        }
+        
+        window.testSignIn = async function() {
+            const email = 'testuser@gmail.com';
+            const password = 'TestPassword123!';
+            
+            console.log('Testing signin with:', email);
+            
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
+            
+            if (error) {
+                document.getElementById('result').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                console.error('Signin error:', error);
+            } else {
+                document.getElementById('result').innerHTML = `<p style="color: green;">Success! Signed in: ${JSON.stringify(data.user, null, 2)}</p>`;
+                console.log('Signin success:', data);
+            }
+        }
+        
+        // Test connection
+        supabase.auth.getSession().then(({ data, error }) => {
+            if (error) {
+                document.getElementById('status').innerHTML = `<p style="color: red;">Connection Error: ${error.message}</p>`;
+            } else {
+                document.getElementById('status').innerHTML = `<p style="color: green;">Connected to Supabase!</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

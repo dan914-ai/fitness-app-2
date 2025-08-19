@@ -6,7 +6,7 @@ const PROGRAMS_VERSION_KEY = '@programs_version';
 const ACTIVE_PROGRAM_KEY = '@active_program';
 
 export async function forceProgramRefresh() {
-  console.log('🔄 Forcing program refresh to fix PPL exercises...');
+  console.log('🔄 Forcing complete program and routine refresh...');
   
   try {
     // Clear all program-related cache
@@ -14,20 +14,25 @@ export async function forceProgramRefresh() {
     await AsyncStorage.removeItem(PROGRAMS_VERSION_KEY);
     await AsyncStorage.removeItem(ACTIVE_PROGRAM_KEY);
     
-    console.log('✅ Program cache cleared successfully');
-    console.log('✨ Programs will be re-converted on next load with proper barbell exercises');
+    // IMPORTANT: Clear ALL routines to force recreation with proper exercise names
+    await AsyncStorage.removeItem('@user_routines');
+    console.log('🧹 Cleared all routines to recreate with proper exercise names');
     
-    // Also clear any routine-related cache that might have the old exercises
+    console.log('✅ Program cache cleared successfully');
+    console.log('✨ Programs will be re-converted with stable IDs on next load');
+    
+    // Also clear any other related cache
     const allKeys = await AsyncStorage.getAllKeys();
-    const routineKeys = allKeys.filter(key => 
+    const relatedKeys = allKeys.filter(key => 
       key.includes('routine') || 
       key.includes('workout') || 
-      key.includes('program')
+      key.includes('program') ||
+      key.includes('exercise')
     );
     
-    if (routineKeys.length > 0) {
-      await AsyncStorage.multiRemove(routineKeys);
-      console.log(`🧹 Cleared ${routineKeys.length} related cache entries`);
+    if (relatedKeys.length > 0) {
+      await AsyncStorage.multiRemove(relatedKeys);
+      console.log(`🧹 Cleared ${relatedKeys.length} related cache entries`);
     }
     
     return true;
@@ -37,11 +42,5 @@ export async function forceProgramRefresh() {
   }
 }
 
-// Auto-run on import for immediate effect
-if (typeof window !== 'undefined') {
-  forceProgramRefresh().then(() => {
-    console.log('🎯 PPL program will now use:');
-    console.log('  - Barbell Squat (바벨 스쿼트) instead of Bodyweight Squat');
-    console.log('  - Barbell Lunge (바벨 런지) instead of Bodyweight Lunge');
-  });
-}
+// Removed auto-run to prevent clearing on every import
+// Now only runs when explicitly called by version change
