@@ -225,7 +225,6 @@ const MemoizedGifDisplay = memo(({ exerciseId, exerciseName }: { exerciseId: str
       showDebugInfo={__DEV__}
       height={200}
       onFallbackUsed={(fallbackType) => {
-        console.log(`Exercise GIF fallback used: ${fallbackType}`);
       }}
       onNetworkError={(error) => {
         console.error('Exercise GIF network error:', error);
@@ -333,7 +332,6 @@ export default function ExerciseTrackScreen() {
       let progressionSuggestion = null;
       try {
         const { data: { user } } = await supabase.auth.getUser();
-        console.log(`🎯 [Progression] Getting suggestion for user: ${user?.id}, lastWeight: ${lastWeight}, type: ${exerciseType}`);
         if (user) {
           // Use Supabase progression service with real user data
           const suggestion = await progressionService.getProgressionSuggestion(
@@ -341,7 +339,6 @@ export default function ExerciseTrackScreen() {
             lastWeight || 0,
             exerciseType
           );
-          console.log(`🎯 [Progression] Suggestion received:`, suggestion);
           
           if (suggestion) {
             progressionSuggestion = {
@@ -353,7 +350,6 @@ export default function ExerciseTrackScreen() {
           }
         }
       } catch (error) {
-        console.log('[ExerciseTrack] Supabase progression failed, using local:', error);
       }
       
       // Fallback to local progression if Supabase fails
@@ -365,7 +361,6 @@ export default function ExerciseTrackScreen() {
         );
       }
       
-      console.log('[ExerciseTrack] Progression calculated:', progressionSuggestion);
       
       const savedExerciseData = workout.getExerciseData(exerciseId);
       if (savedExerciseData) {
@@ -442,13 +437,10 @@ export default function ExerciseTrackScreen() {
         
         try {
           // Get complete exercise history including weights AND reps
-          console.log(`🏋️ [Weight Prefill] Getting history for exercise: ${exerciseId}`);
           const history = await getExerciseHistory(exerciseId);
-          console.log(`🏋️ [Weight Prefill] History found: ${history?.length || 0} previous workouts`);
           
           // If we have history from previous workouts
           if (history && history.length > 0 && history[0].sets && history[0].sets.length > 0) {
-            console.log(`🏋️ [Weight Prefill] Using weights from last workout:`, history[0].sets.map(s => s.weight));
             const lastWorkoutSets = history[0].sets;
             
             // Separate warmup and normal sets from history
@@ -492,7 +484,6 @@ export default function ExerciseTrackScreen() {
               return updatedSet;
             });
             
-            console.log('Prefilled weights and reps from history:', {
               historySets: lastWorkoutSets.length,
               sets: prefilledSets.map(s => ({ type: s.type, weight: s.weight, reps: s.reps }))
             });
@@ -501,7 +492,6 @@ export default function ExerciseTrackScreen() {
             setSets(prefilledSets);
             workout.updateExerciseSets(exerciseId, prefilledSets);
           } else {
-            console.log(`🏋️ [Weight Prefill] No local history found, trying Supabase fallback`);
             // No local history, try Supabase as fallback
             const { data: { user } } = await supabase.auth.getUser();
             if (user) {
@@ -640,7 +630,6 @@ export default function ExerciseTrackScreen() {
     try {
       // Check if workout was already saved
       if (workout.state.savedWorkoutId) {
-        console.log('Workout already saved with ID:', workout.state.savedWorkoutId);
         // Navigate to complete screen with existing ID
         navigation.navigate('WorkoutComplete', { workoutId: workout.state.savedWorkoutId });
         return;
@@ -903,7 +892,6 @@ export default function ExerciseTrackScreen() {
         position="top"
         compact={false}
         onRetry={() => {
-          console.log('Retrying network requests from Exercise Track Screen');
         }}
       />
 
@@ -1303,7 +1291,6 @@ export default function ExerciseTrackScreen() {
         <NetworkErrorBoundary
           showNetworkStatus={true}
           onRetry={() => {
-            console.log('Retrying exercise GIF load from error boundary');
           }}
         >
           <View style={styles.mediaSection}>

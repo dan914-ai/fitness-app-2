@@ -21,7 +21,6 @@ interface SurveyData {
 }
 
 const DOMSSurveyScreenUnified = ({ navigation }: any) => {
-  console.log('🎯 DOMSSurveyScreenUnified loaded - ' + new Date().toISOString());
   const [userId, setUserId] = useState<string | null>(null);
   const [surveyData, setSurveyData] = useState<SurveyData>({
     sleep_quality: 5,

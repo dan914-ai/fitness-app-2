@@ -39,7 +39,6 @@ class ApiService {
           try {
             await AsyncStorage.removeItem('authToken');
             await AsyncStorage.removeItem('refreshToken');
-            console.log('Authentication tokens cleared due to auth error');
             
             // Navigate to login screen
             if (navigationRef.current?.isReady()) {

@@ -211,7 +211,6 @@ class GifService {
    */
   clearFailedUrlsCache(): void {
     this.failedUrls.clear();
-    console.log('Cleared failed URLs cache');
   }
 
   /**
@@ -337,7 +336,6 @@ class GifService {
       if (networkState.isConnected && networkState.isInternetReachable) {
         // Network restored - clear failed URLs cache
         this.clearFailedUrlsCache();
-        console.log('Network restored - cleared failed URLs cache');
       }
     });
   }
@@ -360,7 +358,6 @@ class GifService {
     exerciseName?: string,
     options?: RetryOptions
   ): Promise<GifLoadResult & { fallbackType?: 'gif' | 'thumbnail' | 'placeholder' }> {
-    console.log(`🎯 Loading GIF for exercise ${exerciseId} with ${primaryUrls.length} URLs`);
     
     // Try primary GIF URLs first
     if (primaryUrls.length > 0) {
@@ -373,7 +370,6 @@ class GifService {
     // If all GIF URLs failed, try thumbnail fallback
     const thumbnailUrl = this.getFallbackThumbnailUrl(exerciseId);
     if (thumbnailUrl) {
-      console.log(`🖼️ Falling back to thumbnail for ${exerciseId}`);
       return {
         success: true,
         url: thumbnailUrl,
@@ -384,7 +380,6 @@ class GifService {
     }
 
     // Final fallback to placeholder
-    console.log(`📱 Using placeholder for ${exerciseId}`);
     return {
       success: false,
       fallbackUsed: true,

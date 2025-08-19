@@ -407,11 +407,9 @@ export default function StatsScreenFinal({ navigation }: any) {
       setLoading(true);
       
       // Debug: Check storage
-      console.log('📊 [Stats] Loading workout data...');
       await debugCheckWorkoutStorage();
       
       const history = await getWorkoutHistory();
-      console.log(`📊 [Stats] Loaded ${history.length} workouts`);
       setWorkoutHistory(history);
 
       // Calculate new chart data using utility functions

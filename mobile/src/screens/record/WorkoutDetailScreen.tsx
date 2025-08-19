@@ -63,7 +63,6 @@ export default function WorkoutDetailScreen() {
 
   const loadWorkoutData = async () => {
     try {
-      console.log('[WorkoutDetail] Loading workout with ID:', workoutId);
       
       // Get user ID
       const { data: { user } } = await supabase.auth.getUser();
@@ -72,7 +71,6 @@ export default function WorkoutDetailScreen() {
       }
 
       const workoutData = await getWorkoutById(workoutId);
-      console.log('[WorkoutDetail] Workout data loaded:', workoutData ? 'Found' : 'Not found');
       
       if (!workoutData) {
         console.error('[WorkoutDetail] Workout not found for ID:', workoutId);

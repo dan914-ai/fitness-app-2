@@ -63,12 +63,6 @@ export default function WorkoutSessionScreen() {
   
   // Debug: Check workout state on mount
   React.useEffect(() => {
-    console.log('[WorkoutSession] === SCREEN MOUNTED ===');
-    console.log('[WorkoutSession] routineId from params:', routineId);
-    console.log('[WorkoutSession] workout.state.isWorkoutActive:', workout.state.isWorkoutActive);
-    console.log('[WorkoutSession] workout.state.startTime:', workout.state.startTime);
-    console.log('[WorkoutSession] workout.state.routineId:', workout.state.routineId);
-    console.log('[WorkoutSession] workout.state.routineName:', workout.state.routineName);
     
     // CRITICAL: Check if workout was started
     if (!workout.state.isWorkoutActive || !workout.state.startTime) {
@@ -216,25 +210,17 @@ export default function WorkoutSessionScreen() {
               setIsSaving(true);
               
               // DEBUG: Log the complete workout state
-              console.log('[WorkoutSession] === ATTEMPTING TO END WORKOUT ===');
-              console.log('[WorkoutSession] workout.state.isWorkoutActive:', workout.state.isWorkoutActive);
-              console.log('[WorkoutSession] workout.state.startTime:', workout.state.startTime);
-              console.log('[WorkoutSession] workout.state.routineId:', workout.state.routineId);
-              console.log('[WorkoutSession] workout.state.routineName:', workout.state.routineName);
-              console.log('[WorkoutSession] workout.state.exercises count:', Object.keys(workout.state.exercises).length);
               
               // Check if there are any completed exercises
               const hasCompletedExercises = Object.values(workout.state.exercises).some(
                 exercise => exercise.sets.some(set => set.completed)
               );
-              console.log('[WorkoutSession] hasCompletedExercises:', hasCompletedExercises);
               
               if (hasCompletedExercises) {
                 // Skip the savedWorkoutId check - it's causing issues
                 // Always try to save the workout fresh
                 /*
                 if (workout.state.savedWorkoutId) {
-                  console.log('Workout already saved with ID:', workout.state.savedWorkoutId);
                   setIsSaving(false);
                   // Navigate to complete screen with existing ID
                   navigation.navigate('WorkoutComplete', { workoutId: workout.state.savedWorkoutId });
@@ -254,9 +240,7 @@ export default function WorkoutSessionScreen() {
                 };
                 
                 // Save workout to history and get the workout ID
-                console.log('[WorkoutSession] Saving workout with copied state...');
                 const workoutData = await saveWorkoutToHistory(stateToSave);
-                console.log('[WorkoutSession] Workout saved:', workoutData?.id);
                 
                 // Process achievements for workout completion
                 if (workoutData) {
@@ -279,14 +263,12 @@ export default function WorkoutSessionScreen() {
                 
                 // Navigate to workout complete screen with the saved workout ID
                 if (workoutData && workoutData.id) {
-                  console.log('[WorkoutSession] Navigating to WorkoutComplete with ID:', workoutData.id);
                   
                   // Small delay to ensure storage operations complete
                   setTimeout(() => {
                     navigation.navigate('WorkoutComplete', { workoutId: workoutData.id });
                     // End workout AFTER navigation with a longer delay
                     setTimeout(() => {
-                      console.log('[WorkoutSession] Clearing workout context');
                       workout.endWorkout();
                     }, 1000);
                   }, 100);

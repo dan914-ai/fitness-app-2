@@ -106,7 +106,6 @@ const EXERCISE_NAME_MAPPINGS: Record<string, { koreanName: string; alternateName
 
 // Find exercise ID by name (searches both English and Korean names)
 function findExerciseId(exerciseName: string, programDiscipline?: string): string | null {
-  console.log(`[ProgramConverter] Finding exercise ID for: "${exerciseName}" (Program: ${programDiscipline})`);
   
   // IMPORTANT: Determine if this is a weightlifting program that should NOT use bodyweight exercises
   const isWeightliftingProgram = programDiscipline && 
@@ -121,7 +120,6 @@ function findExerciseId(exerciseName: string, programDiscipline?: string): strin
   // First try exact match with our mapping
   const mapping = EXERCISE_NAME_MAPPINGS[exerciseName];
   if (mapping) {
-    console.log(`[ProgramConverter] Found mapping: "${exerciseName}" → "${mapping.koreanName}"`);
     
     // For weightlifting programs, NEVER use bodyweight exercises unless explicitly specified
     const isExplicitlyBodyweight = exerciseName.toLowerCase().includes('bodyweight') || 
@@ -141,11 +139,8 @@ function findExerciseId(exerciseName: string, programDiscipline?: string): strin
                                    exerciseDetails?.equipment === '맨몸';
       
       if (shouldAvoidBodyweight && isBodyweightExercise) {
-        console.log(`[ProgramConverter] Skipping bodyweight version for weightlifting program, looking for weighted alternative`);
       } else if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
-        console.log(`[ProgramConverter] Skipping bodyweight version, looking for weighted alternative`);
       } else {
-        console.log(`[ProgramConverter] Found exercise by Korean name: ID ${exercise.exerciseId}, Name: ${exercise.exerciseName}`);
         return exercise.exerciseId;
       }
     }
@@ -162,15 +157,12 @@ function findExerciseId(exerciseName: string, programDiscipline?: string): strin
                                        exerciseDetails?.equipment === '맨몸';
           
           if (shouldAvoidBodyweight && isBodyweightExercise) {
-            console.log(`[ProgramConverter] Skipping bodyweight alternate for weightlifting program`);
             continue;
           }
           if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
-            console.log(`[ProgramConverter] Skipping bodyweight alternate, continuing search`);
             continue;
           }
           
-          console.log(`[ProgramConverter] Found by alternate name "${altName}": ID ${altExercise.exerciseId}`);
           return altExercise.exerciseId;
         }
       }
@@ -190,11 +182,8 @@ function findExerciseId(exerciseName: string, programDiscipline?: string): strin
                                  exerciseDetails?.equipment === '맨몸';
     
     if (shouldAvoidBodyweight && isBodyweightExercise) {
-      console.log(`[ProgramConverter] Direct search found bodyweight version, skipping for weightlifting program`);
     } else if (!isExplicitlyBodyweight && isBodyweightExercise && !isCalisthenicsProgram) {
-      console.log(`[ProgramConverter] Direct search found bodyweight version, skipping`);
     } else {
-      console.log(`[ProgramConverter] Found by direct search: ID ${directSearch.exerciseId}`);
       return directSearch.exerciseId;
     }
   }
@@ -223,7 +212,6 @@ function findExerciseId(exerciseName: string, programDiscipline?: string): strin
   });
   
   if (found) {
-    console.log(`[ProgramConverter] Found by exact detailed search: ID ${found.exerciseId}, Name: ${found.koreanName}`);
     return found.exerciseId;
   }
   
@@ -261,7 +249,6 @@ function findExerciseId(exerciseName: string, programDiscipline?: string): strin
   });
   
   if (partialMatch) {
-    console.log(`[ProgramConverter] Found by partial match: ID ${partialMatch.exerciseId}, Name: ${partialMatch.koreanName}`);
     return partialMatch.exerciseId;
   }
   

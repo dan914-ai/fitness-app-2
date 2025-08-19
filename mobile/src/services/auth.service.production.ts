@@ -12,7 +12,6 @@ class ProductionAuthService {
 
   async signUp(email: string, password: string, fullName?: string): Promise<AuthResponse> {
     try {
-      console.log('Attempting signup for:', email);
       
       // Create new user
       const { data, error } = await supabase.auth.signUp({
@@ -32,7 +31,6 @@ class ProductionAuthService {
         // Handle specific errors
         if (error.message?.includes('User already registered')) {
           // Try to sign in instead
-          console.log('User already registered, attempting sign in');
           return this.signIn(email, password);
         }
         
@@ -50,11 +48,9 @@ class ProductionAuthService {
       }
 
       if (data?.user) {
-        console.log('User created successfully:', data.user.email);
         
         // Check if session was created (email confirmation not required)
         if (data.session) {
-          console.log('Session created - email confirmation disabled');
           await this.storeSession(data.user);
           this.notifyAuthStateChange(true);
           return {
@@ -62,7 +58,6 @@ class ProductionAuthService {
             user: data.user
           };
         } else {
-          console.log('No session - email confirmation required');
           // Store user data for later use but don't authenticate
           await this.storeUnconfirmedUser(data.user);
           
@@ -98,7 +93,6 @@ class ProductionAuthService {
 
   async signIn(email: string, password: string): Promise<AuthResponse> {
     try {
-      console.log('Attempting sign in for:', email);
       
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -111,7 +105,6 @@ class ProductionAuthService {
         // Handle specific error cases
         if (error.message?.includes('Email not confirmed')) {
           // For unconfirmed emails, we'll still allow access but with a warning
-          console.log('Email not confirmed, creating temporary session');
           const tempUser = {
             id: `temp-${email}`,
             email,

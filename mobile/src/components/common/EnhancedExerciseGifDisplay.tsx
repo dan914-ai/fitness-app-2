@@ -74,7 +74,6 @@ const EnhancedExerciseGifDisplay = memo(({
   }, [exerciseId, exerciseData, showDebugInfo]);
 
   const handleFallbackUsed = useCallback((fallbackType: 'fallback' | 'thumbnail' | 'placeholder') => {
-    console.log(`🎯 Fallback used for exercise ${exerciseId}: ${fallbackType}`);
     
     if (showDebugInfo) {
       setDebugInfo(prev => ({ ...prev, fallbackType }));
@@ -91,7 +90,6 @@ const EnhancedExerciseGifDisplay = memo(({
   }, [exerciseId, onNetworkError]);
 
   const handleRetry = useCallback(() => {
-    console.log(`🔄 Retrying GIF load for exercise ${exerciseId}`);
     // NetworkAwareImage handles the actual retry logic
   }, [exerciseId]);
 

@@ -48,20 +48,15 @@ class StorageService {
   private async setItem<T>(key: string, value: T): Promise<void> {
     try {
       const jsonValue = JSON.stringify(value);
-      console.log(`[Storage.setItem] Saving ${key}, size: ${jsonValue.length} chars`);
       
       // Special logging for workout history
       if (key === STORAGE_KEYS.WORKOUT_HISTORY) {
         const workouts = value as any[];
-        console.log(`[Storage.setItem] Saving ${workouts.length} workouts`);
         if (workouts.length > 0) {
-          console.log('[Storage.setItem] First workout ID:', workouts[0].id);
-          console.log('[Storage.setItem] Last workout ID:', workouts[workouts.length - 1].id);
         }
       }
       
       await AsyncStorage.setItem(key, jsonValue);
-      console.log(`[Storage.setItem] Successfully saved ${key}`);
     } catch (error) {
       console.error(`Error saving ${key}:`, error);
       throw error;
@@ -71,7 +66,6 @@ class StorageService {
   private async getItem<T>(key: string, defaultValue: T): Promise<T> {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
-      console.log(`[Storage.getItem] Loading ${key}, found: ${jsonValue ? 'yes' : 'no'}`);
       
       if (jsonValue) {
         try {
@@ -80,10 +74,7 @@ class StorageService {
           // Special logging for workout history
           if (key === STORAGE_KEYS.WORKOUT_HISTORY) {
             if (Array.isArray(parsedValue)) {
-              console.log(`[Storage.getItem] Loaded ${parsedValue.length} workouts from storage`);
               if (parsedValue.length > 0) {
-                console.log(`[Storage.getItem] First workout: ${parsedValue[0].routineName || 'unnamed'}`);
-                console.log(`[Storage.getItem] Last workout: ${parsedValue[parsedValue.length - 1].routineName || 'unnamed'}`);
               }
             } else {
               console.error(`[Storage.getItem] WARNING: Workout history is not an array!`, typeof parsedValue);
@@ -97,7 +88,6 @@ class StorageService {
           return defaultValue;
         }
       } else {
-        console.log(`[Storage.getItem] No value found for ${key}, returning default`);
         return defaultValue;
       }
     } catch (error) {
@@ -148,14 +138,11 @@ class StorageService {
     try {
       // DEBUG: Log all localStorage keys
       if (typeof window !== 'undefined' && window.localStorage) {
-        console.log('[Storage DEBUG] === ALL LOCALSTORAGE KEYS ===');
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
           if (key && key.includes('WORKOUT')) {
-            console.log(`[Storage DEBUG] Key: ${key}, Value preview: ${localStorage.getItem(key)?.substring(0, 100)}...`);
           }
         }
-        console.log('[Storage DEBUG] === END LOCALSTORAGE KEYS ===');
       }
       
       const history = await this.getItem(STORAGE_KEYS.WORKOUT_HISTORY, []);
@@ -166,7 +153,6 @@ class StorageService {
         return [];
       }
       
-      console.log('[Storage] Retrieved workout history:', {
         count: history.length,
         firstWorkout: history[0]?.routineName || 'none',
         firstWorkoutDate: history[0]?.date || 'none',
@@ -194,11 +180,7 @@ class StorageService {
   }
 
   async saveWorkoutHistory(history: WorkoutHistoryItem[]): Promise<void> {
-    console.log('[Storage] Saving workout history with', history.length, 'items');
     if (history.length > 0) {
-      console.log('[Storage] First workout:', history[0].routineName, history[0].date);
-      console.log('[Storage] Last workout:', history[history.length - 1].routineName, history[history.length - 1].date);
-      console.log('[Storage] First workout ID:', history[0].id);
     }
     
     await this.setItem(STORAGE_KEYS.WORKOUT_HISTORY, history);
@@ -206,11 +188,9 @@ class StorageService {
     // DEBUG: Immediately verify what was saved
     if (typeof window !== 'undefined' && window.localStorage) {
       const savedData = localStorage.getItem(STORAGE_KEYS.WORKOUT_HISTORY);
-      console.log('[Storage DEBUG] Just saved to localStorage:', savedData ? 'Data exists' : 'NO DATA');
       if (savedData) {
         try {
           const parsed = JSON.parse(savedData);
-          console.log('[Storage DEBUG] Parsed saved data length:', Array.isArray(parsed) ? parsed.length : 'Not an array');
         } catch (e) {
           console.error('[Storage DEBUG] Failed to parse saved data:', e);
         }
@@ -229,7 +209,6 @@ class StorageService {
         existingHistory = [];
       }
       
-      console.log('[Storage] Adding workout to history:', {
         newWorkoutId: workout.id,
         existingCount: existingHistory.length,
         newWorkoutName: workout.routineName,
@@ -245,7 +224,6 @@ class StorageService {
         existingHistory.unshift(workout);
       }
       
-      console.log('[Storage] After adding, total workouts:', existingHistory.length);
       
       // Save with validation
       await this.saveWorkoutHistory(existingHistory);
@@ -255,7 +233,6 @@ class StorageService {
       
       // Verify the save was successful
       const verifyHistory = await this.getWorkoutHistory();
-      console.log('[Storage] Verification after save:', {
         expectedCount: existingHistory.length,
         actualCount: verifyHistory.length,
         workoutFound: verifyHistory.some(w => w.id === workout.id)
@@ -424,25 +401,19 @@ class StorageService {
   // Workout Memo
   async saveWorkoutMemo(workoutId: string, memo: string): Promise<void> {
     try {
-      console.log('[Storage] Attempting to save memo for workout:', workoutId);
       const history = await this.getWorkoutHistory();
-      console.log('[Storage] Total workouts in history:', history.length);
       
       const workoutIndex = history.findIndex(w => w.id === workoutId);
-      console.log('[Storage] Workout index found:', workoutIndex);
       
       if (workoutIndex !== -1) {
         history[workoutIndex].memo = memo;
         await this.setItem(STORAGE_KEYS.WORKOUT_HISTORY, history);
-        console.log('[Storage] Memo saved successfully for workout:', workoutId);
         
         // Verify save
         const verifyHistory = await this.getWorkoutHistory();
         const verifyWorkout = verifyHistory[workoutIndex];
-        console.log('[Storage] Verification - Memo saved:', verifyWorkout.memo);
       } else {
         console.error('[Storage] ERROR: Workout not found with ID:', workoutId);
-        console.log('[Storage] Available workout IDs:', history.map(w => w.id));
       }
     } catch (error) {
       console.error('[Storage] Error saving workout memo:', error);

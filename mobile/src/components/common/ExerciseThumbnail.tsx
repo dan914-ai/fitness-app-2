@@ -170,7 +170,6 @@ const ExerciseThumbnail = memo(({
                   showNetworkStatus={true}
                   onLoad={handleGifLoad}
                   onFallbackUsed={(fallbackType) => {
-                    console.log(`GIF fallback used for ${exerciseId}: ${fallbackType}`);
                   }}
                 />
               </View>

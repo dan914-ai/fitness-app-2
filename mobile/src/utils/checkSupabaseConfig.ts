@@ -1,7 +1,6 @@
 import { supabase } from '../config/supabase';
 
 export async function checkSupabaseConfig() {
-  console.log('🔍 Checking Supabase Configuration...');
   
   try {
     // Check if Supabase client is initialized
@@ -16,8 +15,6 @@ export async function checkSupabaseConfig() {
     if (sessionError) {
       console.error('❌ Session check error:', sessionError);
     } else {
-      console.log('✅ Supabase client connected');
-      console.log('📊 Current session:', session ? 'Active' : 'None');
     }
     
     // Test a simple database query (won't work without tables, but tests connection)
@@ -30,18 +27,13 @@ export async function checkSupabaseConfig() {
       if (dbError.message?.includes('does not exist')) {
         console.warn('⚠️ Database tables not created yet. Run the migration script.');
       } else if (dbError.message?.includes('JWT')) {
-        console.log('ℹ️ Anonymous access working (no auth required for this query)');
       } else {
         console.error('❌ Database connection error:', dbError.message);
       }
     } else {
-      console.log('✅ Database connection successful');
     }
     
     // Check auth settings
-    console.log('\n📋 Auth Configuration:');
-    console.log('- Project URL:', process.env.EXPO_PUBLIC_SUPABASE_URL?.substring(0, 40) + '...');
-    console.log('- Anon Key:', process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY?.substring(0, 40) + '...');
     
     return true;
   } catch (error) {
@@ -52,7 +44,6 @@ export async function checkSupabaseConfig() {
 
 // Function to test creating a user with different email formats
 export async function testEmailFormats() {
-  console.log('\n🧪 Testing email format acceptance...');
   
   const testEmails = [
     'test@gmail.com',
@@ -77,17 +68,12 @@ export async function testEmailFormats() {
       
       if (error) {
         if (error.message?.includes('invalid') || error.message?.includes('Invalid')) {
-          console.log(`❌ ${email} - Rejected as invalid`);
         } else if (error.message?.includes('already registered')) {
-          console.log(`✅ ${email} - Format accepted (user exists)`);
         } else {
-          console.log(`ℹ️ ${email} - ${error.message}`);
         }
       } else {
-        console.log(`✅ ${email} - Format accepted`);
       }
     } catch (err) {
-      console.log(`❌ ${email} - Error: ${err}`);
     }
   }
 }

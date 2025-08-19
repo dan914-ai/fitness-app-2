@@ -41,8 +41,6 @@ const DOMSDataViewer = ({ navigation }: any) => {
       const history = await progressionService.getDOMSSurveyHistory(currentUserId, 30);
       setSurveyHistory(history);
       
-      console.log('Latest survey:', latest);
-      console.log('Survey history:', history);
     } catch (error) {
       console.error('Error loading DOMS data:', error);
     } finally {

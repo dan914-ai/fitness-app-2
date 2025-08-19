@@ -28,7 +28,6 @@ export default function AuthRequiredIndicator({
     } else {
       // Navigation to Auth is disabled in test mode
       // navigation.navigate('Auth' as any, { screen: 'Login' });
-      console.log('Login navigation is disabled in test mode');
     }
   };
 

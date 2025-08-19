@@ -6,7 +6,6 @@ const PROGRAMS_VERSION_KEY = '@programs_version';
 const ACTIVE_PROGRAM_KEY = '@active_program';
 
 export async function forceProgramRefresh() {
-  console.log('🔄 Forcing complete program and routine refresh...');
   
   try {
     // Clear all program-related cache
@@ -16,10 +15,7 @@ export async function forceProgramRefresh() {
     
     // IMPORTANT: Clear ALL routines to force recreation with proper exercise names
     await AsyncStorage.removeItem('@user_routines');
-    console.log('🧹 Cleared all routines to recreate with proper exercise names');
     
-    console.log('✅ Program cache cleared successfully');
-    console.log('✨ Programs will be re-converted with stable IDs on next load');
     
     // Also clear any other related cache
     const allKeys = await AsyncStorage.getAllKeys();
@@ -32,7 +28,6 @@ export async function forceProgramRefresh() {
     
     if (relatedKeys.length > 0) {
       await AsyncStorage.multiRemove(relatedKeys);
-      console.log(`🧹 Cleared ${relatedKeys.length} related cache entries`);
     }
     
     return true;

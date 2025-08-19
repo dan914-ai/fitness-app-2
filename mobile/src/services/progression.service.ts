@@ -21,7 +21,6 @@ class ProgressionService {
           return data[0];
         }
       } catch (supabaseError) {
-        console.log('Supabase recovery data fetch failed, trying local storage');
       }
 
       // Fallback to local storage
@@ -259,7 +258,6 @@ class ProgressionService {
       
       if (!isValidUUID || userId.startsWith('test-')) {
         // If not a valid UUID or is a test user, save to local storage only
-        console.log('Non-UUID or test user detected, saving to local storage');
         const AsyncStorage = require('@react-native-async-storage/async-storage').default;
         const localKey = `@rpe_session_${Date.now()}`;
         await AsyncStorage.setItem(localKey, JSON.stringify({
@@ -297,7 +295,6 @@ class ProgressionService {
             total_load: totalLoad,
             created_at: new Date().toISOString()
           }));
-          console.log('Saved RPE to local storage as fallback');
           return { success: true, session: null, local: true };
         }
         
@@ -352,14 +349,11 @@ class ProgressionService {
             .single();
 
           if (!error && data) {
-            console.log('DOMS survey saved to Supabase');
             return { success: true, survey: data };
           }
           if (error) {
-            console.log('DOMS survey table may not exist, using local storage');
           }
         } catch (supabaseError) {
-          console.log('Supabase save failed, using local storage');
         }
       }
 
@@ -391,7 +385,6 @@ class ProgressionService {
       await AsyncStorage.setItem('@doms_surveys', JSON.stringify(recentSurveys));
       await AsyncStorage.setItem('@last_doms_survey', newSurvey.survey_date);
       
-      console.log('DOMS survey saved to local storage');
       
       // Calculate readiness score locally
       const readinessScore = (
@@ -443,7 +436,6 @@ class ProgressionService {
           return data;
         }
       } catch (supabaseError) {
-        console.log('Supabase DOMS history fetch failed, trying local storage');
       }
 
       // Fallback to local storage

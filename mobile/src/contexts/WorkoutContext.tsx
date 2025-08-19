@@ -120,7 +120,6 @@ async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
   return new Promise((resolve) => {
     saveTimer = setTimeout(async () => {
       try {
-        console.log('💾 WorkoutContext: Saving state to storage', { 
           isActive: state.isWorkoutActive, 
           exerciseCount: Object.keys(state.exercises).length 
         });
@@ -144,7 +143,6 @@ async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
     
         // Save primary state
         await AsyncStorage.setItem(WORKOUT_STATE_KEY, safeJsonStringifyWithDates(stateToSave));
-        console.log('✅ WorkoutContext: State saved successfully');
         resolve(true);
       } catch (error) {
         console.error('💥 WorkoutContext: Error saving workout state:', error);
@@ -156,11 +154,9 @@ async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
 
 async function loadStateFromStorage(): Promise<WorkoutState | null> {
   try {
-    console.log('📖 WorkoutContext: Loading state from storage');
     
     const savedState = await AsyncStorage.getItem(WORKOUT_STATE_KEY);
     if (!savedState) {
-      console.log('📖 WorkoutContext: No saved state found');
       return null;
     }
     
@@ -179,7 +175,6 @@ async function loadStateFromStorage(): Promise<WorkoutState | null> {
     // Migrate if needed
     const migratedState = migrateWorkoutState(parsedState);
     
-    console.log('✅ WorkoutContext: State loaded successfully', { 
       isActive: migratedState.isWorkoutActive,
       exerciseCount: Object.keys(migratedState.exercises).length,
       lastSaved: migratedState.lastSaved 
@@ -195,11 +190,9 @@ async function loadStateFromStorage(): Promise<WorkoutState | null> {
 
 async function loadBackupState(): Promise<WorkoutState | null> {
   try {
-    console.log('🔄 WorkoutContext: Loading backup state');
     
     const backupState = await AsyncStorage.getItem(WORKOUT_BACKUP_KEY);
     if (!backupState) {
-      console.log('🔄 WorkoutContext: No backup state found');
       return null;
     }
     
@@ -210,7 +203,6 @@ async function loadBackupState(): Promise<WorkoutState | null> {
     }
     
     const migratedBackup = migrateWorkoutState(parsedBackup);
-    console.log('✅ WorkoutContext: Backup state loaded successfully');
     
     return migratedBackup;
     
@@ -273,7 +265,6 @@ async function clearStorageState(): Promise<void> {
       AsyncStorage.removeItem(WORKOUT_STATE_KEY),
       AsyncStorage.removeItem(WORKOUT_BACKUP_KEY)
     ]);
-    console.log('🗑️ WorkoutContext: Storage cleared');
   } catch (error) {
     console.error('💥 WorkoutContext: Error clearing storage:', error);
   }
@@ -347,7 +338,6 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
         exerciseOrder: [],
         savedWorkoutId: null, // Clear any previous saved ID
       };
-      console.log('[WorkoutContext] Started new workout with startTime:', newState.startTime);
       break;
 
     case 'END_WORKOUT':

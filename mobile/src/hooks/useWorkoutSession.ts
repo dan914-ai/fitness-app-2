@@ -35,9 +35,7 @@ export function useWorkoutSession() {
       }
       
       // Always start session in context (works offline)
-      console.log('[useWorkoutSession] Starting workout with routineId:', routineId, 'routineName:', routineName);
       workout.startWorkout(routineId, routineName);
-      console.log('[useWorkoutSession] Workout started, startTime:', workout.state.startTime);
       
       return { workoutId: currentWorkoutId, routineId, routineName };
     } catch (err) {
@@ -217,7 +215,6 @@ export function useWorkoutSession() {
               }
             }
             
-            console.log('Session data loaded into context successfully');
           }
         }
       } catch (err) {

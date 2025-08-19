@@ -57,10 +57,8 @@ export default function WorkoutCompleteScreen() {
         // Use a fallback test user ID for local testing
         setUserId('test-user-' + Date.now());
       } else if (user) {
-        console.log('[WorkoutComplete] User found:', user.id);
         setUserId(user.id);
       } else {
-        console.log('[WorkoutComplete] No user found, using test ID');
         setUserId('test-user-' + Date.now());
       }
     } catch (err) {
@@ -70,12 +68,9 @@ export default function WorkoutCompleteScreen() {
   };
 
   const loadWorkoutData = async () => {
-    console.log('[Complete] Loading workout with ID:', workoutId);
     try {
       const workoutData = await getWorkoutById(workoutId);
-      console.log('[Complete] Loaded workout:', workoutData ? 'Found' : 'Not found');
       if (workoutData) {
-        console.log('[Complete] Workout details:', {
           id: workoutData.id,
           routineName: workoutData.routineName,
           existingMemo: workoutData.memo,
@@ -118,25 +113,20 @@ export default function WorkoutCompleteScreen() {
   const handleShare = async () => {
     if (!workout) return;
     
-    console.log('[Complete] handleShare - workoutId:', workoutId);
-    console.log('[Complete] handleShare - memo:', memo);
     
     // Save rating and memo
     try {
       if (rating > 0) {
-        console.log('[Complete] Saving rating:', rating, 'for workout:', workoutId);
         await storageService.saveWorkoutRating(workoutId, rating);
       }
       // Save memo to workout
       if (memo.trim()) {
-        console.log('[Complete] Saving memo:', memo, 'for workout:', workoutId);
         await storageService.saveWorkoutMemo(workoutId, memo);
       }
       
       // Verify the memo was saved
       const updatedHistory = await storageService.getWorkoutHistory();
       const savedWorkout = updatedHistory.find(w => w.id === workoutId);
-      console.log('[Complete] Workout after saving memo:', {
         id: savedWorkout?.id,
         memo: savedWorkout?.memo,
         rating: savedWorkout?.rating,
@@ -153,24 +143,19 @@ export default function WorkoutCompleteScreen() {
   };
 
   const handleSkip = async () => {
-    console.log('[Complete] handleSkip - workoutId:', workoutId);
-    console.log('[Complete] handleSkip - memo:', memo);
     
     // Save memo and rating before navigating
     try {
       if (rating > 0) {
-        console.log('[Complete] Saving rating:', rating, 'for workout:', workoutId);
         await storageService.saveWorkoutRating(workoutId, rating);
       }
       if (memo.trim()) {
-        console.log('[Complete] Saving memo:', memo, 'for workout:', workoutId);
         await storageService.saveWorkoutMemo(workoutId, memo);
       }
       
       // Verify the memo was saved
       const updatedHistory = await storageService.getWorkoutHistory();
       const savedWorkout = updatedHistory.find(w => w.id === workoutId);
-      console.log('[Complete] Workout after saving memo:', {
         id: savedWorkout?.id,
         memo: savedWorkout?.memo,
         rating: savedWorkout?.rating,

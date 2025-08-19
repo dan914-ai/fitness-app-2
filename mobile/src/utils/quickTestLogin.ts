@@ -23,6 +23,5 @@ export async function quickTestLogin() {
   await AsyncStorage.setItem('user', JSON.stringify(mockUser));
   await AsyncStorage.setItem('authToken', 'mock-token-123');
 
-  console.log('✅ Quick test login successful!');
   return mockSession;
 }

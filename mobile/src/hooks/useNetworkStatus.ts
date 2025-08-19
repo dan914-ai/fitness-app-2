@@ -71,7 +71,6 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
       
       // Log significant network changes
       if (statusChanged) {
-        console.log('🌐 Network status changed:', {
           from: {
             online: currentStatus.isOnline,
             quality: currentStatus.connectionQuality,
@@ -84,12 +83,10 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
         
         // Auto-retry failed requests when network is restored
         if (!currentStatus.isOnline && newStatus.isOnline) {
-          console.log('🔄 Network restored - clearing failed request cache');
           // Note: We'll call retryFailedRequests outside the state update
           setTimeout(() => {
             gifService.clearFailedUrlsCache();
             gifService.initializeNetworkListeners();
-            console.log('✅ Failed request caches cleared - retries enabled');
           }, 0);
         }
       }
@@ -106,7 +103,6 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
       // Initialize network listeners if not already done
       gifService.initializeNetworkListeners();
       
-      console.log('✅ Failed request caches cleared - retries enabled');
     } catch (error) {
       console.error('❌ Error clearing failed request caches:', error);
     }
@@ -117,14 +113,12 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
       // Clear all network-related caches
       gifService.clearFailedUrlsCache();
       
-      console.log('🗑️ Network caches cleared');
     } catch (error) {
       console.error('❌ Error clearing network caches:', error);
     }
   }, []);
 
   const refreshNetworkStatus = useCallback(async () => {
-    console.log('🔄 Refreshing network status...');
     await updateNetworkStatus();
   }, []);
 
@@ -139,7 +133,6 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
 
       // Listen for network state changes
       networkListener = networkService.addNetworkListener(async (networkState) => {
-        console.log('📡 Network state changed:', networkState);
         await updateNetworkStatus();
       });
 

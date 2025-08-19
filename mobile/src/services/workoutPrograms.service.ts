@@ -56,7 +56,6 @@ class WorkoutProgramsService {
       const needsRefresh = storedVersion !== CURRENT_PROGRAMS_VERSION;
       
       if (needsRefresh) {
-        console.log(`[WorkoutPrograms] Version mismatch (stored: ${storedVersion}, current: ${CURRENT_PROGRAMS_VERSION}). Refreshing programs...`);
         // Force complete refresh to fix PPL bodyweight issue
         await forceProgramRefresh();
         await AsyncStorage.setItem(PROGRAMS_VERSION_KEY, CURRENT_PROGRAMS_VERSION);
@@ -67,7 +66,6 @@ class WorkoutProgramsService {
         this.programs = safeJsonParse(storedPrograms, []);
       } else {
         // Initialize with default programs (Korean beginner program)
-        console.log('[WorkoutPrograms] Converting programs from source data...');
         this.programs = this.getDefaultPrograms();
         await this.savePrograms();
       }
@@ -155,7 +153,6 @@ class WorkoutProgramsService {
       const programIndex = this.programs.findIndex(p => p.id === programId);
       if (programIndex === -1) {
         console.error('❌ Program not found with ID:', programId);
-        console.log('Available programs:', this.programs.map(p => ({ 
           id: p.id, 
           name: p.name 
         })));
@@ -217,7 +214,6 @@ class WorkoutProgramsService {
           console.warn(`Routine name too long (${routineName.length} chars): "${routineName}". Truncating.`);
         }
         
-        console.log(`Creating routine: "${routineName}" from day.name: "${day.name}"`);
         
         
         // Check if routine already exists

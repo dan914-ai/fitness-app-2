@@ -191,7 +191,6 @@ export const ComponentShowcase: React.FC = () => {
 
           <Card 
             variant="elevated" 
-            onPress={() => console.log('Card pressed')}
             style={{ marginBottom: theme.spacing[3] }}
           >
             <CardContent>

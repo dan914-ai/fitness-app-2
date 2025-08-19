@@ -541,7 +541,6 @@ function MainTabNavigator() {
 }
 
 export default function AppNavigator() {
-  console.log('🚨🚨🚨 AppNavigator LOADED - ' + new Date().toISOString());
   
   // Authentication control
   const SKIP_LOGIN = false; // Production mode - authentication required
@@ -587,11 +586,9 @@ export default function AppNavigator() {
   }, [isMockAuthenticated]);
 
   const checkAuthStatus = async () => {
-    console.log('🔍 checkAuthStatus: Starting auth check...');
     try {
       // First check for mock auth
       const mockSession = await getMockSession();
-      console.log('🔍 checkAuthStatus: Mock session:', mockSession);
       if (mockSession) {
         setIsAuthenticated(true);
         setIsLoading(false);
@@ -600,21 +597,17 @@ export default function AppNavigator() {
       
       // Then check regular Supabase auth
       const { data: { session } } = await supabase.auth.getSession();
-      console.log('🔍 checkAuthStatus: Supabase session:', session);
       setIsAuthenticated(!!session);
     } catch (error) {
       console.error('Auth check error:', error);
       setIsAuthenticated(false);
     } finally {
-      console.log('🔍 checkAuthStatus: Setting isLoading to false');
       setIsLoading(false);
     }
   };
 
   // Show loading indicator while checking auth
-  console.log('🔍 AppNavigator: isLoading state:', isLoading);
   if (isLoading) {
-    console.log('🔍 AppNavigator: Showing loading screen');
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" color={Colors.primary} />
@@ -627,7 +620,6 @@ export default function AppNavigator() {
   }
   
   // Debug authentication states
-  console.log('🔐 AUTH DEBUG:', {
     SKIP_LOGIN,
     isAuthenticated,
     isMockAuthenticated,

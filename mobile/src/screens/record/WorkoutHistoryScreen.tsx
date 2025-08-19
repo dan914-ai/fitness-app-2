@@ -62,9 +62,7 @@ export default function WorkoutHistoryScreen() {
       if (history.length > 0 && history[0].exercises.length > 0) {
       }
       // Debug: Log all workouts to check if memo exists
-      console.log('[History] Loading workouts, total count:', history.length);
       history.forEach((workout, index) => {
-        console.log(`[History] Workout ${index}:`, {
           id: workout.id,
           routineName: workout.routineName,
           date: workout.date,
