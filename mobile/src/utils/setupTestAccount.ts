@@ -1,12 +1,21 @@
 import { supabase } from '../config/supabase';
+import { getTestCredentials, isTestMode } from '../config/test.config';
 
-export const TEST_CREDENTIALS = {
-  email: 'test@example.com',
-  password: 'test123456',
-  username: 'testuser',
-};
+export const TEST_CREDENTIALS = (() => {
+  const creds = getTestCredentials();
+  return {
+    email: creds.email || '',
+    password: creds.password || '',
+    username: 'testuser',
+  };
+})();
 
 export async function ensureTestAccountExists() {
+  // Only allow in test mode
+  if (!isTestMode()) {
+    return { success: false, message: 'Test mode is disabled' };
+  }
+  
   try {
     
     // Try to sign in first

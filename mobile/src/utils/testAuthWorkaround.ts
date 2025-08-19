@@ -2,6 +2,7 @@ import { supabase } from '../config/supabase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState } from 'react-native';
 import { safeJsonParse, safeJsonStringify } from '../utils/safeJsonParse';
+import { getTestCredentials, isTestMode } from '../config/test.config';
 
 // Mock authentication for testing when Supabase auth isn't working
 export const MOCK_TEST_USER = {
@@ -13,11 +14,18 @@ export const MOCK_TEST_USER = {
 
 export async function loginWithMockAuth(email: string, password: string) {
   
-  // Accept test credentials and the working email format
-  const validTestAccounts = [
-    { email: 'test@example.com', password: 'test123456' },
-    { email: 'testuser@testmail.com', password: 'test123456' },
-  ];
+  // Only allow test mode in non-production
+  if (!isTestMode()) {
+    return {
+      success: false,
+      error: 'Test mode is disabled in production',
+    };
+  }
+  
+  // Get test credentials from environment variables
+  const testCreds = getTestCredentials();
+  const validTestAccounts = testCreds.email && testCreds.password ? 
+    [{ email: testCreds.email, password: testCreds.password }] : [];
   
   const isValid = validTestAccounts.some(
     acc => acc.email === email && acc.password === password
@@ -98,9 +106,10 @@ export async function tryAlternativeEmails() {
   for (const email of emailVariations) {
     try {
       
+      const testCreds = getTestCredentials();
       const { data, error } = await supabase.auth.signUp({
         email: email,
-        password: 'test123456',
+        password: testCreds.password || 'secure-password',
         options: {
           data: {
             username: 'testuser',
@@ -116,7 +125,8 @@ export async function tryAlternativeEmails() {
         
         // Sign out so user can sign in manually
         await supabase.auth.signOut();
-        return { success: true, email, password: 'test123456' };
+        const testCreds = getTestCredentials();
+        return { success: true, email, password: testCreds.password };
       }
       
       if (error) {
@@ -129,7 +139,8 @@ export async function tryAlternativeEmails() {
   try {
     const savedEmail = await AsyncStorage.getItem('working_email_format');
     if (savedEmail) {
-      return { success: true, email: savedEmail, password: 'test123456' };
+      const testCreds = getTestCredentials();
+      return { success: true, email: savedEmail, password: testCreds.password };
     }
   } catch (err) {
   }
