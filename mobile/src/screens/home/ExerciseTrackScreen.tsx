@@ -333,6 +333,7 @@ export default function ExerciseTrackScreen() {
       let progressionSuggestion = null;
       try {
         const { data: { user } } = await supabase.auth.getUser();
+        console.log(`🎯 [Progression] Getting suggestion for user: ${user?.id}, lastWeight: ${lastWeight}, type: ${exerciseType}`);
         if (user) {
           // Use Supabase progression service with real user data
           const suggestion = await progressionService.getProgressionSuggestion(
@@ -340,6 +341,7 @@ export default function ExerciseTrackScreen() {
             lastWeight || 0,
             exerciseType
           );
+          console.log(`🎯 [Progression] Suggestion received:`, suggestion);
           
           if (suggestion) {
             progressionSuggestion = {
@@ -440,10 +442,13 @@ export default function ExerciseTrackScreen() {
         
         try {
           // Get complete exercise history including weights AND reps
+          console.log(`🏋️ [Weight Prefill] Getting history for exercise: ${exerciseId}`);
           const history = await getExerciseHistory(exerciseId);
+          console.log(`🏋️ [Weight Prefill] History found: ${history?.length || 0} previous workouts`);
           
           // If we have history from previous workouts
           if (history && history.length > 0 && history[0].sets && history[0].sets.length > 0) {
+            console.log(`🏋️ [Weight Prefill] Using weights from last workout:`, history[0].sets.map(s => s.weight));
             const lastWorkoutSets = history[0].sets;
             
             // Separate warmup and normal sets from history
@@ -496,6 +501,7 @@ export default function ExerciseTrackScreen() {
             setSets(prefilledSets);
             workout.updateExerciseSets(exerciseId, prefilledSets);
           } else {
+            console.log(`🏋️ [Weight Prefill] No local history found, trying Supabase fallback`);
             // No local history, try Supabase as fallback
             const { data: { user } } = await supabase.auth.getUser();
             if (user) {

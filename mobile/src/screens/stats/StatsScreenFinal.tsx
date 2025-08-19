@@ -20,6 +20,7 @@ import {
   calculatePeriodStats,
   getWeeklyTrend
 } from '../../utils/statsCalculations';
+import { debugCheckWorkoutStorage } from '../../debug/checkWorkoutStorage';
 import VolumeComparisonChart from '../../components/stats/VolumeComparisonChart';
 import WeeklyTrendChart from '../../components/stats/WeeklyTrendChart';
 import MuscleGroupRadarChart from '../../components/stats/MuscleGroupRadarChart';
@@ -404,7 +405,13 @@ export default function StatsScreenFinal({ navigation }: any) {
   const loadData = async () => {
     try {
       setLoading(true);
+      
+      // Debug: Check storage
+      console.log('📊 [Stats] Loading workout data...');
+      await debugCheckWorkoutStorage();
+      
       const history = await getWorkoutHistory();
+      console.log(`📊 [Stats] Loaded ${history.length} workouts`);
       setWorkoutHistory(history);
 
       // Calculate new chart data using utility functions
