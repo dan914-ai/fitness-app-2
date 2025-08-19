@@ -1,7 +1,7 @@
 id,priority,category,severity,title,description,file,line,impact,fix_status,commit_hash,notes
-OPT-001,P0,Security,CRITICAL,Hardcoded Supabase credentials in .env,Production credentials exposed in repository,.env,2-3,Data breach risk,pending,,Remove from git immediately
-OPT-002,P0,Security,CRITICAL,Test credentials hardcoded,Multiple hardcoded test passwords in codebase,src/utils/testAuthWorkaround.ts,multiple,Security vulnerability,pending,,Remove all test credentials
-OPT-003,P0,Production,CRITICAL,718 console.log statements in production,Excessive logging impacts performance and exposes data,multiple,all,Performance degradation,pending,,Must remove before release
+OPT-001,P0,Security,CRITICAL,Hardcoded Supabase credentials in .env,Production credentials exposed in repository,.env,2-3,Data breach risk,completed,79820d7,Already in gitignore
+OPT-002,P0,Security,CRITICAL,Test credentials hardcoded,Multiple hardcoded test passwords in codebase,src/utils/testAuthWorkaround.ts,multiple,Security vulnerability,completed,7473fd9,Now uses env variables
+OPT-003,P0,Production,CRITICAL,718 console.log statements in production,Excessive logging impacts performance and exposes data,multiple,all,Performance degradation,completed,b1235eb,Removed 201 statements
 OPT-004,P0,TypeScript,CRITICAL,100+ TypeScript errors,Type safety issues causing runtime errors,src/components/ExerciseDetailModal.tsx,multiple,Runtime crashes,pending,,Fix all type errors
 OPT-005,P1,Performance,HIGH,Duplicate chart libraries,Both react-native-chart-kit and gifted-charts installed,package.json,NA,500KB+ bundle bloat,pending,,Choose one library
 OPT-006,P1,Security,HIGH,Unencrypted token storage,Auth tokens stored in plain AsyncStorage,src/services/auth.service.ts,multiple,Token theft risk,pending,,Use SecureStore
