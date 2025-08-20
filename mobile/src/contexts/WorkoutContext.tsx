@@ -617,6 +617,7 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
                 }
               });
             }
+          }
           dispatch({ type: 'LOAD_WORKOUT_STATE', payload: parsedState });
         }
       } catch (error) {

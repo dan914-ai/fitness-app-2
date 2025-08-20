@@ -61,15 +61,7 @@ export default function WorkoutHistoryScreen() {
       const history = await getWorkoutHistory();
       if (history.length > 0 && history[0].exercises.length > 0) {
       }
-      // Debug: Log all workouts to check if memo exists
-      history.forEach((workout, index) => {
-          id: workout.id,
-          routineName: workout.routineName,
-          date: workout.date,
-          memo: workout.memo,
-          rating: workout.rating,
-        });
-      });
+      // Debug removed in production
       setWorkouts(history);
     } catch (error) {
       console.error('Error loading workouts:', error);
