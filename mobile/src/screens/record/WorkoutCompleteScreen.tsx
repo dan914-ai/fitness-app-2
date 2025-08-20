@@ -48,18 +48,11 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
         setWorkout(workoutData);
         setWorkoutRating(workoutData.rating || 3);
         setWorkoutNotes(workoutData.memo || '');
-          id: workoutData.id,
-          name: workoutData.routineName,
-          duration: workoutData.duration,
-          exercises: workoutData.exercises.length
-        });
       } else {
         console.error('[WorkoutComplete] Workout not found with ID:', workoutId);
         
         // Try to get all workouts to see what's available
         const allWorkouts = await getWorkoutHistory();
-          id: w.id,
-          name: w.routineName,
           date: w.date
         })));
         

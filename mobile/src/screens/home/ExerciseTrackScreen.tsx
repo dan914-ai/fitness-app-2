@@ -82,7 +82,6 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
         tips: { korean: [], english: [] },
         commonMistakes: { korean: [], english: [] },
         sets: { recommended: '3', beginner: '2', intermediate: '3', advanced: '4' },
-        reps: { recommended: '12', beginner: '10', intermediate: '12', advanced: '15' }
       };
     }
   }
@@ -103,7 +102,6 @@ const ExerciseGifDisplay = React.memo(({ exerciseId, exerciseName }: { exerciseI
         tips: { korean: [], english: [] },
         commonMistakes: { korean: [], english: [] },
         sets: { recommended: '3', beginner: '2', intermediate: '3', advanced: '4' },
-        reps: { recommended: '12', beginner: '10', intermediate: '12', advanced: '15' }
       };
     }
   }
@@ -367,8 +365,6 @@ export default function ExerciseTrackScreen() {
         // Ensure all set fields are valid strings to prevent controlled/uncontrolled input warnings
         const sanitizedSets = savedExerciseData.sets.map(set => ({
           ...set,
-          weight: set.weight || '',
-          reps: set.reps || '',
           notes: set.notes || ''
         }));
         setSets(sanitizedSets);
@@ -614,7 +610,6 @@ export default function ExerciseTrackScreen() {
     if (nextIndex < routineExercises.length) {
       const nextExercise = routineExercises[nextIndex];
       navigation.navigate('ExerciseTrack', {
-        exerciseId: nextExercise.id,
         exerciseName: nextExercise.name,
         routineId: routineId,
       });
@@ -664,7 +659,6 @@ export default function ExerciseTrackScreen() {
       // Navigate to previous exercise
       const prevExercise = routineExercises[prevIndex];
       navigation.navigate('ExerciseTrack', {
-        exerciseId: prevExercise.id,
         exerciseName: prevExercise.name,
         routineId: routineId,
       });
@@ -753,8 +747,6 @@ export default function ExerciseTrackScreen() {
     const lastSet = sets[sets.length - 1];
     setSets(prev => [...prev, {
       id: newSetId,
-      weight: lastSet?.weight || '0',
-      reps: lastSet?.reps || '0',
       completed: false,
       type: 'Normal',
     }]);
@@ -927,7 +919,6 @@ export default function ExerciseTrackScreen() {
               if (lastWeight > 0) {
                 const prefilledSets = sets.map(set => ({
                   ...set,
-                  weight: set.type === 'Warmup' 
                     ? Math.round(lastWeight * 0.5).toString()
                     : lastWeight.toString()
                 }));
@@ -993,8 +984,6 @@ export default function ExerciseTrackScreen() {
                     const newSet: WorkoutSet = {
                       id: `warmup-${Date.now()}-${index}`,
                       type: 'Warmup',
-                      weight: warmupSet.weight.toString(),
-                      reps: warmupSet.reps.toString(),
                       completed: false,
                       rpe: undefined,
                       notes: '',

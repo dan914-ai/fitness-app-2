@@ -4,7 +4,6 @@ import { gifService } from '../services/gif.service';
 
 export interface NetworkStatus {
   isOnline: boolean;
-  isConnected: boolean;
   isInternetReachable: boolean;
   connectionQuality: 'excellent' | 'good' | 'poor' | 'offline';
   hasChanged: boolean;
@@ -30,7 +29,6 @@ export interface NetworkStatusHookReturn {
 export const useNetworkStatus = (): NetworkStatusHookReturn => {
   const [networkStatus, setNetworkStatus] = useState<NetworkStatus>({
     isOnline: true,
-    isConnected: true,
     isInternetReachable: true,
     connectionQuality: 'excellent',
     hasChanged: false,
@@ -44,13 +42,11 @@ export const useNetworkStatus = (): NetworkStatusHookReturn => {
     
     // Get network state from service
     const networkState = {
-      isConnected: isOnline,
       isInternetReachable: isOnline,
     };
     
     const newStatus: NetworkStatus = {
       isOnline,
-      isConnected: networkState.isConnected,
       isInternetReachable: networkState.isInternetReachable,
       connectionQuality: !isOnline ? 'offline' : connectionQuality,
       hasChanged: false, // Will be set below

@@ -120,9 +120,7 @@ async function saveStateToStorage(state: WorkoutState): Promise<boolean> {
   return new Promise((resolve) => {
     saveTimer = setTimeout(async () => {
       try {
-          isActive: state.isWorkoutActive, 
-          exerciseCount: Object.keys(state.exercises).length 
-        });
+        // Debug removed in production
         
         // Create backup first
         try {
@@ -175,10 +173,7 @@ async function loadStateFromStorage(): Promise<WorkoutState | null> {
     // Migrate if needed
     const migratedState = migrateWorkoutState(parsedState);
     
-      isActive: migratedState.isWorkoutActive,
-      exerciseCount: Object.keys(migratedState.exercises).length,
       lastSaved: migratedState.lastSaved 
-    });
     
     return migratedState;
     
@@ -326,7 +321,6 @@ function workoutReducer(state: WorkoutState, action: WorkoutAction): WorkoutStat
       AsyncStorage.removeItem(WORKOUT_STATE_KEY).catch(error => {
         console.error('[WorkoutContext] Error clearing old workout state:', error);
       });
-      
       newState = {
         ...state,
         routineId: action.payload.routineId,
@@ -623,7 +617,6 @@ export function WorkoutProvider({ children }: { children: ReactNode }) {
                 }
               });
             }
-          });
           dispatch({ type: 'LOAD_WORKOUT_STATE', payload: parsedState });
         }
       } catch (error) {

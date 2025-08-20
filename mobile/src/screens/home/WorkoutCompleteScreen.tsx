@@ -71,11 +71,7 @@ export default function WorkoutCompleteScreen() {
     try {
       const workoutData = await getWorkoutById(workoutId);
       if (workoutData) {
-          id: workoutData.id,
-          routineName: workoutData.routineName,
-          existingMemo: workoutData.memo,
-          existingRating: workoutData.rating,
-        });
+        // Debug removed in production
       }
       setWorkout(workoutData);
     } catch (error) {
@@ -127,10 +123,7 @@ export default function WorkoutCompleteScreen() {
       // Verify the memo was saved
       const updatedHistory = await storageService.getWorkoutHistory();
       const savedWorkout = updatedHistory.find(w => w.id === workoutId);
-        id: savedWorkout?.id,
-        memo: savedWorkout?.memo,
-        rating: savedWorkout?.rating,
-      });
+      // Debug removed in production
     } catch (error) {
       console.error('[Complete] Error saving rating/memo:', error);
     }
@@ -156,10 +149,7 @@ export default function WorkoutCompleteScreen() {
       // Verify the memo was saved
       const updatedHistory = await storageService.getWorkoutHistory();
       const savedWorkout = updatedHistory.find(w => w.id === workoutId);
-        id: savedWorkout?.id,
-        memo: savedWorkout?.memo,
-        rating: savedWorkout?.rating,
-      });
+      // Debug removed in production
     } catch (error) {
       console.error('[Complete] Error saving rating/memo:', error);
     }
@@ -294,8 +284,7 @@ export default function WorkoutCompleteScreen() {
             });
           }}
           workoutData={{
-            ...workout,
-            exercises: workout.exercises || []
+            ...workout
           }}
           userId={userId}
         />

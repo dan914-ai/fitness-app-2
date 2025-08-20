@@ -619,12 +619,7 @@ export default function AppNavigator() {
   } else {
   }
   
-  // Debug authentication states
-    SKIP_LOGIN,
-    isAuthenticated,
-    isMockAuthenticated,
-    shouldShowMain: SKIP_LOGIN || isAuthenticated || isMockAuthenticated
-  });
+  // Debug authentication states removed in production
 
   // Proper authentication check (restored)
   return (
