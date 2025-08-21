@@ -1,0 +1,42 @@
+endpoint,method,auth_required,description,request_body,response,service_file
+/auth/signup,POST,false,Register new user,"{email, password, name}","{user, session}",auth.service.supabase.ts
+/auth/signin,POST,false,User login,"{email, password}","{user, session}",auth.service.supabase.ts
+/auth/signout,POST,true,User logout,{},"{success}",auth.service.supabase.ts
+/auth/session,GET,true,Get current session,{},"{user, session}",auth.service.supabase.ts
+/auth/refresh,POST,true,Refresh auth token,"{refresh_token}","{session}",auth.service.supabase.ts
+/workouts,GET,true,Get user workouts,{},"{workouts[]}",workoutApi.ts
+/workouts,POST,true,Create workout,"{routineId, exercises, startTime, endTime}","{workout}",workoutApi.ts
+/workouts/:id,GET,true,Get workout by ID,{},"{workout}",workoutApi.ts
+/workouts/:id,PUT,true,Update workout,"{exercises, memo}","{workout}",workoutApi.ts
+/workouts/:id,DELETE,true,Delete workout,{},"{success}",workoutApi.ts
+/exercises,GET,false,Get all exercises,{},"{exercises[]}",exercise.service.ts
+/exercises/search,GET,false,Search exercises,"{query, category, equipment}","{exercises[]}",exercise.service.ts
+/exercises/:id,GET,false,Get exercise by ID,{},"{exercise}",exerciseDatabase.service.ts
+/routines,GET,true,Get user routines,{},"{routines[]}",routines.service.ts
+/routines,POST,true,Create routine,"{name, exercises[]}","{routine}",routines.service.ts
+/routines/:id,GET,true,Get routine by ID,{},"{routine}",routines.service.ts
+/routines/:id,PUT,true,Update routine,"{name, exercises[]}","{routine}",routines.service.ts
+/routines/:id,DELETE,true,Delete routine,{},"{success}",routines.service.ts
+/personal-records,GET,true,Get user PRs,{},"{records[]}",personalRecords.service.ts
+/personal-records,POST,true,Create PR,"{exerciseId, weight, reps, date}","{record}",pr.service.ts
+/personal-records/:exerciseId,GET,true,Get PR for exercise,{},"{record}",pr.service.ts
+/achievements,GET,true,Get user achievements,{},"{achievements[]}",achievement-api.service.ts
+/achievements/check,POST,true,Check achievement progress,"{eventType, data}","{newAchievements[]}",achievement.service.ts
+/analytics/workout,POST,true,Track workout analytics,"{workoutId, metrics}","{success}",analytics.service.ts
+/analytics/progress,GET,true,Get progress analytics,"{period, exerciseId?}","{analytics}",analytics.service.ts
+/storage/gifs/:fileName,GET,false,Get exercise GIF,{},"{url}",supabase.ts
+/storage/gifs,POST,true,Upload exercise GIF,"{file, fileName}","{url}",supabase.ts
+/storage/thumbnails/:fileName,GET,false,Get exercise thumbnail,{},"{url}",thumbnailGenerator.service.ts
+/programs,GET,false,Get workout programs,{},"{programs[]}",workoutPrograms.service.ts
+/programs/:id,GET,false,Get program by ID,{},"{program}",workoutPrograms.service.ts
+/settings,GET,true,Get user settings,{},"{settings}",settings.service.ts
+/settings,PUT,true,Update user settings,"{settings}","{settings}",settings.service.ts
+/notifications/register,POST,true,Register push token,"{token, platform}","{success}",notification.service.ts
+/notifications/preferences,GET,true,Get notification prefs,{},"{preferences}",notification.service.ts
+/notifications/preferences,PUT,true,Update notification prefs,"{preferences}","{preferences}",notification.service.ts
+/social/feed,GET,true,Get social feed,{},"{posts[]}",social.service.ts
+/social/posts,POST,true,Create social post,"{content, workoutId?}","{post}",social.service.ts
+/social/posts/:id/like,POST,true,Like a post,{},"{success}",social.service.ts
+/social/posts/:id/comment,POST,true,Comment on post,"{comment}","{comment}",social.service.ts
+/sync,POST,true,Sync offline data,"{workouts[], exercises[], settings}","{synced}",api.service.ts
+/export/data,GET,true,Export user data,"{format: json|csv}","{data}",api.service.ts

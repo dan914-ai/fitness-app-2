@@ -22,9 +22,6 @@ import { Calendar } from 'react-native-calendars';
 // MIGRATION: Removed unused getStaticThumbnail import
 import { exerciseDatabaseService } from '../../services/exerciseDatabase.service';
 import { calculateAdjustedVolume } from '../../utils/workoutCalculations';
-import { debugStorage } from '../../debug/checkStorage';
-import { addMultipleTestWorkouts } from '../../debug/testWorkoutStorage';
-import { testStoragePersistence, diagnoseStorageIssue } from '../../debug/testStoragePersistence';
 
 type WorkoutHistoryScreenProps = {
   navigation: StackNavigationProp<RecordStackParamList, 'WorkoutHistory'>;
@@ -62,16 +59,6 @@ export default function WorkoutHistoryScreen() {
       if (history.length > 0 && history[0].exercises.length > 0) {
       }
       // Debug: Log all workouts to check if memo exists
-      console.log('[History] Loading workouts, total count:', history.length);
-      history.forEach((workout, index) => {
-        console.log(`[History] Workout ${index}:`, {
-          id: workout.id,
-          routineName: workout.routineName,
-          date: workout.date,
-          memo: workout.memo,
-          rating: workout.rating,
-        });
-      });
       setWorkouts(history);
     } catch (error) {
       console.error('Error loading workouts:', error);
@@ -264,7 +251,6 @@ export default function WorkoutHistoryScreen() {
                 exerciseData = exerciseDatabaseService.getExerciseByName(exercise.exerciseName);
               }
             } catch (error) {
-              console.warn('Error getting exercise data:', error);
             }
             
             const thumbnail = exerciseData?.thumbnail || null;

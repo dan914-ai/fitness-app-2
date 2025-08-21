@@ -359,13 +359,11 @@ export default function RoutineDetailScreen() {
               const tenPercentIncrease = lastWeight * 1.1;
               const fiveKgIncrease = lastWeight + 5;
               finalSuggestedLoad = Math.min(tenPercentIncrease, fiveKgIncrease);
-              console.warn(`⚠️ Capped excessive progression: ${suggestion.suggested_load}kg → ${finalSuggestedLoad}kg`);
             } else if (percentIncrease < -20 || absoluteIncrease < -10) {
               // Cap decreases at 20% or 10kg
               const twentyPercentDecrease = lastWeight * 0.8;
               const tenKgDecrease = lastWeight - 10;
               finalSuggestedLoad = Math.max(twentyPercentDecrease, tenKgDecrease);
-              console.warn(`⚠️ Capped excessive deload: ${suggestion.suggested_load}kg → ${finalSuggestedLoad}kg`);
             }
           }
           

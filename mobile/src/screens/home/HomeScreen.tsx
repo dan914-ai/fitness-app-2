@@ -436,34 +436,6 @@ export default function HomeScreen() {
             <Text style={styles.quickActionText}>회복 설문</Text>
           </TouchableOpacity>
 
-          {/* Debug button to view DOMS data */}
-          <TouchableOpacity
-            style={[styles.quickActionButton, { backgroundColor: '#9C27B0' }]}
-            onPress={async () => {
-              try {
-                const progressionService = require('../../services/progression.service').default;
-                const { data: { user } } = await supabase.auth.getUser();
-                const userId = user?.id || 'test-user-id';
-                const latestSurvey = await progressionService.getLatestRecovery(userId);
-                const history = await progressionService.getDOMSSurveyHistory(userId, 30);
-                
-                Alert.alert(
-                  'DOMS 데이터 디버그',
-                  `User ID: ${userId}\n\n` +
-                  `최근 설문: ${latestSurvey ? JSON.stringify(latestSurvey, null, 2).substring(0, 200) : '없음'}\n\n` +
-                  `총 기록: ${history.length}개`,
-                  [
-                    { text: '확인', style: 'default' }
-                  ]
-                );
-              } catch (error) {
-                Alert.alert('오류', String(error));
-              }
-            }}
-          >
-            <Icon name="bug-report" size={24} color="#FFFFFF" />
-            <Text style={styles.quickActionText}>DOMS 확인</Text>
-          </TouchableOpacity>
           
         </View>
 

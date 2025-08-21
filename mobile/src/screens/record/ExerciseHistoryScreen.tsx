@@ -16,6 +16,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RecordStackParamList } from '../../navigation/types';
 import { getWorkoutHistory, getExerciseHistory, ExerciseHistoryRecord } from '../../utils/workoutHistory';
 import storageService from '../../services/storage.service';
+import WeightProgressionChart from '../../components/charts/WeightProgressionChart';
+import prTrackingService from '../../services/prTracking.service';
 
 type ExerciseHistoryScreenProps = {
   navigation: StackNavigationProp<RecordStackParamList, 'ExerciseHistory'>;
@@ -334,37 +336,11 @@ export default function ExerciseHistoryScreen() {
       case '차트':
         return (
           <View style={styles.tabContent}>
-            <Text style={styles.tabTitle}>진행 차트</Text>
-            
-            <View style={styles.chartSection}>
-              <Text style={styles.chartSubtitle}>중량 진행 상황</Text>
-              <View style={styles.chartPlaceholder}>
-                <Icon name="insert-chart" size={48} color={Colors.textSecondary} />
-                <Text style={styles.chartPlaceholderText}>
-                  차트가 여기에 표시됩니다
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.chartSection}>
-              <Text style={styles.chartSubtitle}>볼륨 진행 상황</Text>
-              <View style={styles.chartPlaceholder}>
-                <Icon name="bar-chart" size={48} color={Colors.textSecondary} />
-                <Text style={styles.chartPlaceholderText}>
-                  볼륨 차트가 여기에 표시됩니다
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.chartSection}>
-              <Text style={styles.chartSubtitle}>반복 횟수 분포</Text>
-              <View style={styles.chartPlaceholder}>
-                <Icon name="pie-chart" size={48} color={Colors.textSecondary} />
-                <Text style={styles.chartPlaceholderText}>
-                  반복 횟수 분포가 여기에 표시됩니다
-                </Text>
-              </View>
-            </View>
+            <WeightProgressionChart
+              exerciseId={exerciseId}
+              exerciseName={exerciseName}
+              height={280}
+            />
           </View>
         );
 

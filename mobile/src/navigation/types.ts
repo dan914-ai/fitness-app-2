@@ -13,7 +13,6 @@ export type AuthStackParamList = {
   Login: undefined;
   Register: undefined;
   ForgotPassword: undefined;
-  Diagnostic: undefined;
 };
 
 // Main Tab Navigator
@@ -43,7 +42,6 @@ export type WellnessStackParamList = {
 // Home Stack
 export type HomeStackParamList = {
   HomeScreen: undefined;
-  ThumbnailTest: undefined;
   ComponentShowcase: undefined;
   RoutineDetail: { routineId: string; routineName: string };
   CreateRoutine: undefined;
@@ -52,7 +50,6 @@ export type HomeStackParamList = {
   WorkoutStart: undefined;
   WorkoutActive: { workoutId: string };
   WorkoutSession: { routineId: string; fallbackExercises?: any[] };
-  TestWorkout: { routineId: string };
   WorkoutComplete: { workoutId: string };
   ExerciseSelect: undefined;
   ExerciseDetail: { exerciseId: string };
@@ -127,7 +124,6 @@ export type MenuStackParamList = {
   About: undefined;
   Help: undefined;
   WorkoutPrograms: undefined;
-  ExerciseTest: undefined;
   OneRMCalculator: undefined;
   CalorieCalculator: undefined;
   MacroCalculator: undefined;

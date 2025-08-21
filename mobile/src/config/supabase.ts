@@ -1,9 +1,5 @@
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
-import { debugEnvironment } from '../utils/debugEnv';
-
-// Debug environment on load
-debugEnvironment();
 
 // Supabase configuration
 // NOTE: Replace these with your actual Supabase project URL and anon key

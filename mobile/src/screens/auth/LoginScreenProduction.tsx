@@ -15,10 +15,7 @@ import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { AuthStackScreenProps } from '../../navigation/types';
 import { Colors } from '../../constants/colors';
 import { productionAuthService } from '../../services/auth.service.production';
-import { checkSupabaseConfig } from '../../utils/checkSupabaseConfig';
-
-// Check if we're in development mode
-const __DEV__ = process.env.NODE_ENV !== 'production';
+import CustomAlert from '../../components/CustomAlert';
 
 export default function LoginScreenProduction({ navigation }: AuthStackScreenProps<'Login'>) {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -30,6 +27,11 @@ export default function LoginScreenProduction({ navigation }: AuthStackScreenPro
     fullName: '',
   });
   const [errors, setErrors] = useState<any>({});
+  const [alert, setAlert] = useState<{visible: boolean; title: string; message: string}>({
+    visible: false,
+    title: '',
+    message: ''
+  });
 
   const validateForm = () => {
     const newErrors: any = {};
@@ -109,49 +111,54 @@ export default function LoginScreenProduction({ navigation }: AuthStackScreenPro
             );
           }
         } else {
-          Alert.alert('회원가입 실패', result.error || '알 수 없는 오류가 발생했습니다');
+          console.log('Sign up failed:', result.error);
+          showAlert('회원가입 실패', result.error || '알 수 없는 오류가 발생했습니다');
         }
       } else {
         // Sign in
+        console.log('Attempting sign in...');
         const result = await productionAuthService.signIn(
           formData.email,
           formData.password
         );
         
+        console.log('Sign in result:', result);
+        
         if (result.success) {
           // Navigation will be handled by auth state change in AppNavigator
           if (result.error) {
             // Show warning if email not confirmed
-            Alert.alert('알림', result.error);
+            showAlert('알림', result.error);
           }
         } else {
-          Alert.alert('로그인 실패', result.error || '이메일 또는 비밀번호를 확인해주세요');
+          const errorMessage = result.error || '이메일 또는 비밀번호를 확인해주세요';
+          console.log('Login failed, showing alert:', errorMessage);
+          showAlert('로그인 실패', errorMessage);
         }
       }
     } catch (error: any) {
-      Alert.alert('오류', error.message || '서버 연결에 실패했습니다');
+      console.error('Unexpected error during auth:', error);
+      showAlert('오류', error.message || '서버 연결에 실패했습니다');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleTestLogin = async () => {
-    setLoading(true);
+  const showAlert = (title: string, message: string) => {
+    console.log('showAlert called:', title, message);
     
-    try {
-      const result = await productionAuthService.createTestAccount();
-      
-      if (result.success) {
-        Alert.alert('테스트 계정', '테스트 계정으로 로그인되었습니다');
-      } else {
-        Alert.alert('오류', result.error || '테스트 계정 생성에 실패했습니다');
-      }
-    } catch (error: any) {
-      Alert.alert('오류', error.message || '테스트 계정 생성에 실패했습니다');
-    } finally {
-      setLoading(false);
+    // Use custom alert for web, native Alert for mobile
+    if (Platform.OS === 'web') {
+      setAlert({ visible: true, title, message });
+    } else {
+      Alert.alert(title, message);
     }
   };
+
+  const hideAlert = () => {
+    setAlert({ visible: false, title: '', message: '' });
+  };
+
 
   return (
     <KeyboardAvoidingView
@@ -256,38 +263,15 @@ export default function LoginScreenProduction({ navigation }: AuthStackScreenPro
               {isSignUp ? '이미 계정이 있으신가요? 로그인' : '계정이 없으신가요? 회원가입'}
             </Text>
           </TouchableOpacity>
-
-          <View style={styles.divider}>
-            <View style={styles.dividerLine} />
-            <Text style={styles.dividerText}>또는</Text>
-            <View style={styles.dividerLine} />
-          </View>
-
-          <TouchableOpacity
-            style={[styles.testButton, loading && styles.disabledButton]}
-            onPress={handleTestLogin}
-            disabled={loading}
-          >
-            <Icon name="bug-report" size={20} color={Colors.primary} style={{ marginRight: 8 }} />
-            <Text style={styles.testButtonText}>테스트 계정으로 시작</Text>
-          </TouchableOpacity>
-
-          {/* Debug button - only in development */}
-          {__DEV__ && (
-            <TouchableOpacity
-              style={[styles.debugButton, loading && styles.disabledButton]}
-              onPress={async () => {
-                await checkSupabaseConfig();
-                Alert.alert('Debug', 'Supabase 설정을 확인했습니다. 콘솔을 확인하세요.');
-              }}
-              disabled={loading}
-            >
-              <Icon name="settings" size={20} color={Colors.textSecondary} style={{ marginRight: 8 }} />
-              <Text style={styles.debugButtonText}>Supabase 설정 확인</Text>
-            </TouchableOpacity>
-          )}
         </View>
       </ScrollView>
+
+      <CustomAlert
+        visible={alert.visible}
+        title={alert.title}
+        message={alert.message}
+        onConfirm={hideAlert}
+      />
     </KeyboardAvoidingView>
   );
 }
@@ -382,46 +366,6 @@ const styles = StyleSheet.create({
   },
   switchButtonText: {
     color: Colors.primary,
-    fontSize: 14,
-  },
-  divider: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: Colors.border,
-  },
-  dividerText: {
-    marginHorizontal: 16,
-    color: Colors.textSecondary,
-    fontSize: 14,
-  },
-  testButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: Colors.primary,
-    borderRadius: 12,
-    height: 56,
-  },
-  testButtonText: {
-    color: Colors.primary,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  debugButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 12,
-    marginTop: 8,
-  },
-  debugButtonText: {
-    color: Colors.textSecondary,
     fontSize: 14,
   },
 });

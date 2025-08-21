@@ -160,7 +160,6 @@ export async function updateInBodyRecord(recordId: string, updates: Partial<Omit
     const recordIndex = history.findIndex(record => record.id === recordId);
     
     if (recordIndex === -1) {
-      console.warn('❌ InBody record not found:', recordId);
       return null;
     }
 

@@ -37,20 +37,17 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
 
   const loadWorkout = async () => {
     try {
-      console.log('[WorkoutComplete] Loading workout with ID:', workoutId);
       
       // Add a small delay to ensure storage operations complete
       await new Promise(resolve => setTimeout(resolve, 500));
       
       // Try to load the workout
       const workoutData = await getWorkoutById(workoutId);
-      console.log('[WorkoutComplete] Workout data loaded:', workoutData ? 'found' : 'not found');
       
       if (workoutData) {
         setWorkout(workoutData);
         setWorkoutRating(workoutData.rating || 3);
         setWorkoutNotes(workoutData.memo || '');
-        console.log('[WorkoutComplete] Workout details:', {
           id: workoutData.id,
           name: workoutData.routineName,
           duration: workoutData.duration,
@@ -61,7 +58,6 @@ export default function WorkoutCompleteScreen({ navigation, route }: WorkoutComp
         
         // Try to get all workouts to see what's available
         const allWorkouts = await getWorkoutHistory();
-        console.log('[WorkoutComplete] Available workouts:', allWorkouts.map(w => ({
           id: w.id,
           name: w.routineName,
           date: w.date

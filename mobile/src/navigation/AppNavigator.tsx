@@ -10,8 +10,6 @@ import { RootStackParamList, MainTabParamList, AuthStackParamList, HomeStackPara
 import { Colors } from '../constants/colors';
 import authService from '../services/auth.service';
 import { supabase } from '../config/supabase';
-import { getMockSession } from '../utils/testAuthWorkaround';
-import { useMockAuth } from '../contexts/MockAuthContext';
 
 // Import screens
 import LoginScreenProduction from '../screens/auth/LoginScreenProduction';
@@ -23,7 +21,6 @@ import RoutineManagementScreen from '../screens/home/RoutineManagementScreen';
 import ExerciseTrackScreen from '../screens/home/ExerciseTrackScreen';
 import WorkoutSessionScreen from '../screens/home/WorkoutSessionScreen';
 import WorkoutSessionScreenSimple from '../screens/home/WorkoutSessionScreenSimple';
-import TestWorkoutScreen from '../screens/TestWorkoutScreen';
 import WorkoutCompleteScreen from '../screens/home/WorkoutCompleteScreen';
 import RecordScreen from '../screens/record/RecordScreen';
 import CreateWorkoutScreen from '../screens/record/CreateWorkoutScreen';
@@ -56,12 +53,9 @@ import WorkoutProgramsScreen from '../screens/menu/WorkoutProgramsScreen';
 import OneRMCalculatorScreen from '../screens/calculators/OneRMCalculatorScreen';
 import CalorieCalculatorScreen from '../screens/calculators/CalorieCalculatorScreen';
 import MacroCalculatorScreen from '../screens/calculators/MacroCalculatorScreen';
-import DiagnosticScreen from '../screens/DiagnosticScreen';
 import QuickTimerScreen from '../screens/home/QuickTimerScreen';
 import WaterIntakeScreen from '../screens/home/WaterIntakeScreen';
 import NotificationsScreen from '../screens/home/NotificationsScreen';
-import { ComponentShowcase } from '../screens/test/ComponentShowcase';
-import { ExerciseTestScreen } from '../screens/ExerciseTestScreen';
 
 // Wellness Screens
 import WellnessScreen from '../screens/wellness/WellnessScreen';
@@ -90,7 +84,6 @@ function AuthNavigator() {
     >
       <AuthStack.Screen name="Login" component={LoginScreenProduction} />
       <AuthStack.Screen name="Register" component={RegisterScreen} />
-      <AuthStack.Screen name="Diagnostic" component={DiagnosticScreen} />
     </AuthStack.Navigator>
   );
 }
@@ -142,16 +135,6 @@ function HomeStackNavigator() {
         name="WorkoutSession" 
         component={WorkoutSessionScreen}
         options={{ headerShown: false }}
-      />
-      <HomeStack.Screen 
-        name="TestWorkout" 
-        component={TestWorkoutScreen}
-        options={{ headerShown: false }}
-      />
-      <HomeStack.Screen 
-        name="ComponentShowcase" 
-        component={ComponentShowcase}
-        options={{ title: 'Design System Components' }}
       />
       <HomeStack.Screen 
         name="WorkoutComplete" 
@@ -459,11 +442,6 @@ function MenuStackNavigator() {
         component={MacroCalculatorScreen}
         options={{ title: '매크로 계산기' }}
       />
-      <MenuStack.Screen 
-        name="ExerciseTest" 
-        component={ExerciseTestScreen}
-        options={{ title: '운동 GIF 테스트' }}
-      />
     </MenuStack.Navigator>
   );
 }
@@ -522,11 +500,6 @@ function MainTabNavigator() {
         options={{ headerShown: false }}
       />
       <Tab.Screen 
-        name="웰니스" 
-        component={WellnessStackNavigator} 
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen 
         name="통계" 
         component={StatsStackNavigator} 
         options={{ headerShown: false }}
@@ -548,7 +521,6 @@ export default function AppNavigator() {
   
   const [isLoading, setIsLoading] = useState(!SKIP_LOGIN); // Don't show loading if skipping login
   const [isAuthenticated, setIsAuthenticated] = useState(SKIP_LOGIN); // Auto-authenticate if skipping
-  const { isMockAuthenticated } = useMockAuth();
 
   useEffect(() => {
     if (SKIP_LOGIN) {
@@ -576,27 +548,10 @@ export default function AppNavigator() {
     };
   }, []);
   
-  // React to mock auth changes
-  useEffect(() => {
-    if (!SKIP_LOGIN) {
-      if (isMockAuthenticated) {
-        setIsAuthenticated(true);
-        setIsLoading(false);
-      }
-    }
-  }, [isMockAuthenticated]);
 
   const checkAuthStatus = async () => {
     console.log('🔍 checkAuthStatus: Starting auth check...');
     try {
-      // First check for mock auth
-      const mockSession = await getMockSession();
-      console.log('🔍 checkAuthStatus: Mock session:', mockSession);
-      if (mockSession) {
-        setIsAuthenticated(true);
-        setIsLoading(false);
-        return;
-      }
       
       // Then check regular Supabase auth
       const { data: { session } } = await supabase.auth.getSession();
@@ -630,15 +585,14 @@ export default function AppNavigator() {
   console.log('🔐 AUTH DEBUG:', {
     SKIP_LOGIN,
     isAuthenticated,
-    isMockAuthenticated,
-    shouldShowMain: SKIP_LOGIN || isAuthenticated || isMockAuthenticated
+    shouldShowMain: SKIP_LOGIN || isAuthenticated
   });
 
   // Proper authentication check (restored)
   return (
     <NavigationContainer>
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        {(SKIP_LOGIN || isAuthenticated || isMockAuthenticated) ? (
+        {(SKIP_LOGIN || isAuthenticated) ? (
           <RootStack.Screen name="Main" component={MainTabNavigator} />
         ) : (
           <RootStack.Screen name="Auth" component={AuthNavigator} />

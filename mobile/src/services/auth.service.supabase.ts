@@ -3,6 +3,7 @@ import { supabase } from '../config/supabase';
 import notificationService from './notification.service';
 import sessionService from './session.service';
 import { safeJsonParse, safeJsonStringify } from '../utils/safeJsonParse';
+import secureStorage from '../utils/secureStorage';
 
 interface User {
   id: string;
@@ -82,7 +83,13 @@ class AuthServiceSupabase {
       username: data.user.user_metadata?.username || data.user.email!.split('@')[0],
     };
 
-    await AsyncStorage.setItem('authToken', data.session.access_token);
+    // Store token securely
+    await secureStorage.setItem('authToken', data.session.access_token);
+    // Store refresh token securely
+    if (data.session.refresh_token) {
+      await secureStorage.setItem('refreshToken', data.session.refresh_token);
+    }
+    // User data can stay in AsyncStorage as it's not sensitive
     await AsyncStorage.setItem('user', safeJsonStringify(user));
     
     // Initialize session management
@@ -134,7 +141,13 @@ class AuthServiceSupabase {
         username: data.user.user_metadata?.username || data.user.email!.split('@')[0],
       };
 
-      await AsyncStorage.setItem('authToken', data.session.access_token);
+      // Store token securely
+      await secureStorage.setItem('authToken', data.session.access_token);
+      // Store refresh token securely
+      if (data.session.refresh_token) {
+        await secureStorage.setItem('refreshToken', data.session.refresh_token);
+      }
+      // User data can stay in AsyncStorage as it's not sensitive
       await AsyncStorage.setItem('user', safeJsonStringify(user));
       
       // Initialize session management
@@ -167,7 +180,10 @@ class AuthServiceSupabase {
     await sessionService.clearSession();
     sessionService.destroy();
     
-    await AsyncStorage.removeItem('authToken');
+    // Clear secure tokens
+    await secureStorage.removeItem('authToken');
+    await secureStorage.removeItem('refreshToken');
+    // Clear user data
     await AsyncStorage.removeItem('user');
     
     // Notify listeners
@@ -201,7 +217,8 @@ class AuthServiceSupabase {
       return session.access_token;
     }
 
-    return AsyncStorage.getItem('authToken');
+    // Try to get from secure storage
+    return secureStorage.getItem('authToken');
   }
 
   async isAuthenticated(): Promise<boolean> {
@@ -216,7 +233,11 @@ class AuthServiceSupabase {
       return null;
     }
 
-    await AsyncStorage.setItem('authToken', data.session.access_token);
+    // Store refreshed token securely
+    await secureStorage.setItem('authToken', data.session.access_token);
+    if (data.session.refresh_token) {
+      await secureStorage.setItem('refreshToken', data.session.refresh_token);
+    }
     return data.session.access_token;
   }
 

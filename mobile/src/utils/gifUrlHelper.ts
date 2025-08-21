@@ -37,7 +37,6 @@ const getSupabaseStorageUrl = () => {
 function getSupabaseFolder(primaryMuscle: string): string {
   // Check if primaryMuscle is valid
   if (!primaryMuscle || typeof primaryMuscle !== 'string') {
-    console.warn('getSupabaseFolder received invalid input:', primaryMuscle);
     return 'unknown';
   }
   
@@ -63,7 +62,6 @@ function getSupabaseFolder(primaryMuscle: string): string {
 function cleanExerciseId(exerciseId: string): string {
   // Check if exerciseId is valid
   if (!exerciseId || typeof exerciseId !== 'string') {
-    console.warn('cleanExerciseId received invalid input:', exerciseId);
     return 'unknown-exercise';
   }
   
@@ -90,7 +88,6 @@ export function getExerciseGifUrls(exerciseId: string): string[] {
   
   // Validate exerciseId
   if (!exerciseId || typeof exerciseId !== 'string') {
-    console.warn('getExerciseGifUrls received invalid exerciseId:', exerciseId);
     return urls;
   }
   

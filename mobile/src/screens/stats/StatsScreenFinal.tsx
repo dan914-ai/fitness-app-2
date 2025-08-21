@@ -599,6 +599,20 @@ export default function StatsScreenFinal({ navigation }: any) {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
         <Text style={styles.title}>통계</Text>
+        <View style={styles.headerButtons}>
+          <TouchableOpacity 
+            style={styles.headerButton}
+            onPress={() => navigation.navigate('WorkoutAnalytics')}
+          >
+            <Icon name="chart-line" size={24} color={Colors.text} />
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.headerButton}
+            onPress={() => navigation.navigate('DataExport')}
+          >
+            <Icon name="download" size={24} color={Colors.text} />
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Volume Summary with Slider */}
@@ -767,7 +781,10 @@ export default function StatsScreenFinal({ navigation }: any) {
 
           <TouchableOpacity
             style={styles.actionCard}
-            onPress={() => {}}
+            onPress={() => {
+              // Navigate to Strength Progress screen
+              navigation.navigate('StrengthProgress');
+            }}
           >
             <Icon name="medal" size={32} color={Colors.secondary} />
             <Text style={styles.actionTitle}>개인 기록</Text>
@@ -776,7 +793,12 @@ export default function StatsScreenFinal({ navigation }: any) {
 
           <TouchableOpacity
             style={styles.actionCard}
-            onPress={() => {}}
+            onPress={() => {
+              // Navigate to Record tab -> BodyMeasurements
+              navigation.navigate('기록', {
+                screen: 'BodyMeasurements'
+              });
+            }}
           >
             <Icon name="ruler" size={32} color={Colors.accent} />
             <Text style={styles.actionTitle}>신체 측정</Text>
@@ -785,7 +807,10 @@ export default function StatsScreenFinal({ navigation }: any) {
 
           <TouchableOpacity
             style={styles.actionCard}
-            onPress={() => {}}
+            onPress={() => {
+              // Navigate to Achievements screen
+              navigation.navigate('Achievements');
+            }}
           >
             <Icon name="target" size={32} color={Colors.warning} />
             <Text style={styles.actionTitle}>목표</Text>
@@ -825,6 +850,15 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: Colors.text,
+  },
+  headerButtons: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  headerButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: Colors.surface,
   },
   volumeSummary: {
     paddingHorizontal: 20,

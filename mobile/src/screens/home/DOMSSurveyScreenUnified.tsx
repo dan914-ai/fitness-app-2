@@ -21,7 +21,6 @@ interface SurveyData {
 }
 
 const DOMSSurveyScreenUnified = ({ navigation }: any) => {
-  console.log('🎯 DOMSSurveyScreenUnified loaded - ' + new Date().toISOString());
   const [userId, setUserId] = useState<string | null>(null);
   const [surveyData, setSurveyData] = useState<SurveyData>({
     sleep_quality: 5,
@@ -30,10 +29,17 @@ const DOMSSurveyScreenUnified = ({ navigation }: any) => {
     motivation: 5,
   });
   const [submitting, setSubmitting] = useState(false);
+  const [todaysSurvey, setTodaysSurvey] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getUserId();
+    initializeScreen();
   }, []);
+
+  const initializeScreen = async () => {
+    await getUserId();
+    await checkTodaysSurvey();
+  };
 
   const getUserId = async () => {
     try {
@@ -46,6 +52,41 @@ const DOMSSurveyScreenUnified = ({ navigation }: any) => {
     } catch (error) {
       console.error('Error getting user:', error);
       setUserId('test-user-id');
+    }
+  };
+
+  const checkTodaysSurvey = async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        // Check if survey was already done today
+        const today = new Date().toISOString().split('T')[0];
+        const { data, error } = await supabase
+          .from('user_doms_data')
+          .select('*')
+          .eq('user_id', user.id)
+          .eq('survey_date', today)
+          .order('created_at', { ascending: false })
+          .limit(1);
+
+        if (data && data.length > 0) {
+          console.log('Found today\'s DOMS survey:', data[0]);
+          setTodaysSurvey(data[0]);
+          // Update form with existing data
+          setSurveyData({
+            sleep_quality: data[0].sleep_quality || 5,
+            energy_level: data[0].energy_level || 5,
+            overall_soreness: data[0].overall_soreness || 5,
+            motivation: data[0].motivation || 5,
+          });
+        } else {
+          console.log('No DOMS survey found for today:', today, 'Error:', error);
+        }
+      }
+    } catch (error) {
+      console.error('Error checking today\'s survey:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -219,6 +260,86 @@ const DOMSSurveyScreenUnified = ({ navigation }: any) => {
     return '#FF5722';
   };
 
+  if (loading) {
+    return (
+      <View style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
+        <ActivityIndicator size="large" color={Colors.primary} />
+      </View>
+    );
+  }
+
+  // If survey was already completed today, show results
+  if (todaysSurvey) {
+    const readinessScore = todaysSurvey.readiness_score || 
+      ((todaysSurvey.sleep_quality * 0.3 +
+        todaysSurvey.energy_level * 0.3 +
+        (10 - todaysSurvey.overall_soreness) * 0.2 +
+        todaysSurvey.motivation * 0.2));
+    
+    const recommendation = readinessScore >= 7 ? '💪 오늘은 강한 운동을 해도 좋습니다!' :
+                          readinessScore >= 5 ? '⚡ 적당한 강도로 운동하세요.' :
+                          '😴 가벼운 운동이나 휴식을 추천합니다.';
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Icon name="arrow-back" size={24} color={Colors.text} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>오늘의 회복 상태</Text>
+          <View style={{ width: 24 }} />
+        </View>
+
+        <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+          <View style={styles.card}>
+            <Icon name="check-circle" size={60} color={Colors.success} />
+            <Text style={styles.cardTitle}>오늘 이미 평가를 완료했습니다!</Text>
+            
+            <View style={styles.card}>
+              <Text style={styles.sectionTitle}>준비도 점수</Text>
+              <Text style={styles.scoreText}>{readinessScore.toFixed(1)}/10</Text>
+              <Text style={styles.recommendationText}>{recommendation}</Text>
+            </View>
+
+            <View style={styles.card}>
+              <Text style={styles.sectionTitle}>세부 평가</Text>
+              <View style={styles.resultRow}>
+                <Icon name="bedtime" size={20} color={Colors.primary} />
+                <Text style={styles.resultLabel}>수면의 질:</Text>
+                <Text style={styles.resultValue}>{todaysSurvey.sleep_quality}/10</Text>
+              </View>
+              <View style={styles.resultRow}>
+                <Icon name="battery-full" size={20} color={Colors.primary} />
+                <Text style={styles.resultLabel}>에너지 수준:</Text>
+                <Text style={styles.resultValue}>{todaysSurvey.energy_level}/10</Text>
+              </View>
+              <View style={styles.resultRow}>
+                <Icon name="healing" size={20} color={Colors.primary} />
+                <Text style={styles.resultLabel}>전반적 통증:</Text>
+                <Text style={styles.resultValue}>{todaysSurvey.overall_soreness}/10</Text>
+              </View>
+              <View style={styles.resultRow}>
+                <Icon name="psychology" size={20} color={Colors.primary} />
+                <Text style={styles.resultLabel}>동기부여:</Text>
+                <Text style={styles.resultValue}>{todaysSurvey.motivation}/10</Text>
+              </View>
+            </View>
+
+            {todaysSurvey.created_at && (
+              <Text style={styles.timeText}>
+                평가 시간: {new Date(todaysSurvey.created_at).toLocaleTimeString('ko-KR', {
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })}
+              </Text>
+            )}
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
+
+  // Show survey form if not completed today
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -473,6 +594,43 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  resultRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  resultLabel: {
+    flex: 1,
+    fontSize: 14,
+    color: Colors.textSecondary,
+    marginLeft: 10,
+  },
+  resultValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.text,
+  },
+  timeText: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  scoreText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: Colors.primary,
+    marginVertical: 10,
+    textAlign: 'center',
+  },
+  recommendationText: {
+    fontSize: 16,
+    color: Colors.text,
+    textAlign: 'center',
+    marginTop: 10,
   },
 });
 

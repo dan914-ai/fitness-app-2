@@ -31,7 +31,7 @@ export default function AchievementsScreen({ navigation }: any) {
       const data = await analyticsService.getUserAchievements();
       setAchievementsData(data);
     } catch (error) {
-      console.error('Error loading achievements:', error);
+      // Error loading achievements
     } finally {
       setLoading(false);
     }
@@ -82,7 +82,11 @@ export default function AchievementsScreen({ navigation }: any) {
   const renderSummaryCards = () => {
     if (!achievementsData) return null;
 
-    const { summary } = achievementsData;
+    const { summary } = achievementsData || {};
+
+    if (!summary) {
+      return null;
+    }
 
     return (
       <View style={styles.section}>
@@ -91,13 +95,13 @@ export default function AchievementsScreen({ navigation }: any) {
           <View style={styles.cardRow}>
             <StatCard
               title="획득 업적"
-              value={summary.totalEarned}
-              subtitle={`/ ${summary.totalAvailable}개`}
+              value={summary.totalEarned || 0}
+              subtitle={`/ ${summary.totalAvailable || 0}개`}
               icon="emoji-events"
             />
             <StatCard
               title="획득 포인트"
-              value={summary.totalPoints.toLocaleString()}
+              value={(summary.totalPoints || 0).toLocaleString()}
               subtitle="포인트"
               icon="stars"
             />
@@ -105,13 +109,13 @@ export default function AchievementsScreen({ navigation }: any) {
           <View style={styles.cardRow}>
             <StatCard
               title="달성률"
-              value={`${summary.completionPercentage.toFixed(1)}%`}
+              value={`${(summary.completionPercentage || 0).toFixed(1)}%`}
               subtitle="전체 업적"
               icon="trending-up"
             />
             <StatCard
               title="최근 업적"
-              value={summary.recentAchievements.length}
+              value={summary.recentAchievements?.length || 0}
               subtitle="이번 달"
               icon="new-releases"
             />
@@ -264,7 +268,7 @@ export default function AchievementsScreen({ navigation }: any) {
         <FlatList
           data={sortedAchievements}
           renderItem={renderAchievementItem}
-          keyExtractor={(item) => item.achievementId}
+          keyExtractor={(item) => item.id || item.achievementId}
           scrollEnabled={false}
           showsVerticalScrollIndicator={false}
         />
@@ -273,13 +277,13 @@ export default function AchievementsScreen({ navigation }: any) {
   };
 
   const renderRecentAchievements = () => {
-    if (!achievementsData || achievementsData.summary.recentAchievements.length === 0) return null;
+    if (!achievementsData || !achievementsData.summary || !achievementsData.summary.recentAchievements || achievementsData.summary.recentAchievements.length === 0) return null;
 
     return (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>최근 달성한 업적</Text>
         {achievementsData.summary.recentAchievements.map((achievement) => (
-          <View key={achievement.achievementId} style={styles.recentAchievementItem}>
+          <View key={achievement.id || achievement.achievementId} style={styles.recentAchievementItem}>
             <Icon name="emoji-events" size={24} color={Colors.warning} />
             <View style={styles.recentAchievementContent}>
               <Text style={styles.recentAchievementName}>
@@ -308,7 +312,7 @@ export default function AchievementsScreen({ navigation }: any) {
         </View>
       </View>
       
-      {achievementsData && achievementsData.summary.completionPercentage < 50 && (
+      {achievementsData && achievementsData.summary && achievementsData.summary.completionPercentage < 50 && (
         <View style={styles.motivationCard}>
           <Icon name="flag" size={24} color={Colors.primary} />
           <View style={styles.motivationContent}>

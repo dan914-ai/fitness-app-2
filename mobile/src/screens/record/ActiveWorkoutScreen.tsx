@@ -92,7 +92,7 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
     return () => {
       if (restIntervalRef.current) clearInterval(restIntervalRef.current);
     };
-  }, [restTimer.isActive, restTimer.seconds]);
+  }, [restTimer.isActive]); // FIX: Remove restTimer.seconds to prevent infinite loop
 
   const loadWorkout = async () => {
     try {
@@ -143,41 +143,62 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
         isWarmup: setData.isWarmup || false,
       });
       
-      // Update local workout state
+      // Log setId to verify uniqueness
+      
+      // Update local workout state and check if we should prompt for next exercise
+      let shouldPromptNext = false;
+      let exerciseIndexForNext = -1;
+      
       setWorkout(prev => {
         if (!prev) return prev;
         
+        const updatedExercises = prev.exercises.map((exercise, index) => {
+          if (exercise.workoutExerciseId === workoutExerciseId) {
+            const updatedSets = [...exercise.sets, newSet];
+            
+            // Check if this exercise now has enough sets (using fresh data)
+            if (updatedSets.length >= 3) {
+              shouldPromptNext = true;
+              exerciseIndexForNext = index;
+            }
+            
+            return {
+              ...exercise,
+              sets: updatedSets,
+            };
+          }
+          return exercise;
+        });
+        
         return {
           ...prev,
-          exercises: prev.exercises.map(exercise =>
-            exercise.workoutExerciseId === workoutExerciseId
-              ? {
-                  ...exercise,
-                  sets: [...exercise.sets, newSet],
-                }
-              : exercise
-          ),
+          exercises: updatedExercises,
         };
       });
 
-      // Auto-progress to next set
-      if (currentExercise && currentExercise.sets.length >= 3) {
-        // If completed typical number of sets, suggest moving to next exercise
-        Alert.alert(
-          '운동 완료',
-          '다음 운동으로 이동하시겠습니까?',
-          [
-            { text: '계속하기', style: 'cancel' },
-            { 
-              text: '다음 운동', 
-              onPress: () => {
-                if (currentExerciseIndex < workout!.exercises.length - 1) {
-                  setCurrentExerciseIndex(prev => prev + 1);
+      // Show prompt outside of setState to avoid side effects in updater
+      if (shouldPromptNext && exerciseIndexForNext >= 0) {
+        // Use setTimeout to ensure state has updated
+        setTimeout(() => {
+          Alert.alert(
+            '운동 완료',
+            '다음 운동으로 이동하시겠습니까?',
+            [
+              { text: '계속하기', style: 'cancel' },
+              { 
+                text: '다음 운동', 
+                onPress: () => {
+                  setCurrentExerciseIndex(prev => {
+                    // Ensure we don't go past the last exercise
+                    const nextIndex = exerciseIndexForNext + 1;
+                    const maxIndex = workout?.exercises.length ? workout.exercises.length - 1 : prev;
+                    return Math.min(nextIndex, maxIndex);
+                  });
                 }
-              }
-            },
-          ]
-        );
+              },
+            ]
+          );
+        }, 0);
       }
     } catch (error) {
       console.error('Error adding set:', error);
@@ -195,12 +216,16 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
         
         return {
           ...prev,
-          exercises: prev.exercises.map(exercise => ({
-            ...exercise,
-            sets: exercise.sets.map(set =>
-              set.setId === setId ? updatedSet : set
-            ),
-          })),
+          exercises: prev.exercises.map(exercise => {
+            // Only update the exercise that actually contains this setId
+            if (!exercise.sets.some(s => s.setId === setId)) {
+              return exercise;
+            }
+            return {
+              ...exercise,
+              sets: exercise.sets.map(s => s.setId === setId ? updatedSet : s),
+            };
+          }),
         };
       });
     } catch (error) {
@@ -300,7 +325,18 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
     );
   }
 
-  const currentExercise = workout.exercises[currentExerciseIndex];
+  // FIX: Add bounds checking to prevent index out of range errors
+  const safeIndex = Math.min(Math.max(0, currentExerciseIndex), workout.exercises.length - 1);
+  const currentExercise = workout.exercises[safeIndex];
+  
+  if (!currentExercise) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.errorText}>운동을 찾을 수 없습니다</Text>
+      </View>
+    );
+  }
+  
   const currentVolume = workoutService.getTotalVolume(currentExercise.sets);
   const previousData = previousWorkoutData.get(currentExercise.exercise.exerciseId);
 
@@ -326,7 +362,7 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
         <View 
           style={[
             styles.progressFill, 
-            { width: `${((currentExerciseIndex + 1) / workout.exercises.length) * 100}%` }
+            { width: `${((safeIndex + 1) / workout.exercises.length) * 100}%` }
           ]} 
         />
       </View>
@@ -334,7 +370,7 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
       <ScrollView style={styles.content}>
         <View style={styles.exerciseInfo}>
           <Text style={styles.exerciseNumber}>
-            {currentExerciseIndex + 1} / {workout.exercises.length}
+            {safeIndex + 1} / {workout.exercises.length}
           </Text>
           <Text style={styles.exerciseName}>{currentExercise.exercise.exerciseName}</Text>
           <Text style={styles.exerciseDetails}>
@@ -357,6 +393,7 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
         </View>
 
         <ExerciseTracker
+          key={currentExercise.workoutExerciseId}
           workoutExercise={currentExercise}
           onAddSet={addSet}
           onUpdateSet={updateSet}
@@ -366,17 +403,17 @@ export default function ActiveWorkoutScreen({ navigation, route }: ActiveWorkout
 
         <View style={styles.navigation}>
           <TouchableOpacity
-            style={[styles.navButton, currentExerciseIndex === 0 && styles.navButtonDisabled]}
+            style={[styles.navButton, safeIndex === 0 && styles.navButtonDisabled]}
             onPress={() => setCurrentExerciseIndex(prev => Math.max(0, prev - 1))}
-            disabled={currentExerciseIndex === 0}
+            disabled={safeIndex === 0}
           >
             <Text style={styles.navButtonText}>이전 운동</Text>
           </TouchableOpacity>
           
           <TouchableOpacity
-            style={[styles.navButton, currentExerciseIndex === workout.exercises.length - 1 && styles.navButtonDisabled]}
+            style={[styles.navButton, safeIndex === workout.exercises.length - 1 && styles.navButtonDisabled]}
             onPress={() => setCurrentExerciseIndex(prev => Math.min(workout.exercises.length - 1, prev + 1))}
-            disabled={currentExerciseIndex === workout.exercises.length - 1}
+            disabled={safeIndex === workout.exercises.length - 1}
           >
             <Text style={styles.navButtonText}>다음 운동</Text>
           </TouchableOpacity>
@@ -428,6 +465,16 @@ function ExerciseTracker({ workoutExercise, onAddSet, onUpdateSet, onStartRest, 
     weight: undefined,
   });
   const [selectedRestTime, setSelectedRestTime] = useState(60);
+
+  // Reset input state when exercise changes
+  useEffect(() => {
+    setNewSet({
+      reps: undefined,
+      weight: undefined,
+    });
+    // Reset to default rest time if needed
+    setSelectedRestTime(60);
+  }, [workoutExercise.workoutExerciseId]);
 
   const handleAddSet = () => {
     if (!newSet.reps && !newSet.weight) {

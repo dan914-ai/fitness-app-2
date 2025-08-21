@@ -625,19 +625,8 @@ class AnalyticsService {
   }
 
   async getUserAchievements(): Promise<any> {
-    return apiCall(
-      async () => {
-        const response = await api.get('/analytics/achievements');
-        return response.data;
-      },
-      { achievements: [], achievementsByCategory: {}, summary: {} },
-      {
-        cacheKey: 'analytics_achievements',
-        showError: false,
-        operation: 'Get User Achievements',
-        screen: 'Analytics',
-      }
-    );
+    // Return empty achievements until backend is ready
+    return [];
   }
 
   // Export data in various formats

@@ -40,6 +40,7 @@ export default function WaterIntakeScreen() {
     history: [],
   });
   const [customAmount, setCustomAmount] = useState(250);
+  const [weeklyData, setWeeklyData] = useState<{[key: string]: number}>({});
   const fillAnimation = new Animated.Value(0);
 
   useEffect(() => {
@@ -69,6 +70,22 @@ export default function WaterIntakeScreen() {
           setWaterData(prev => ({ ...prev, goal: parseInt(savedGoal) }));
         }
       }
+      
+      // Load weekly data
+      const weekData: {[key: string]: number} = {};
+      for (let i = 0; i < 7; i++) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+        const dayData = await AsyncStorage.getItem(`water_intake_${dateStr}`);
+        if (dayData) {
+          const parsed = safeJsonParse(dayData, { currentIntake: 0, goal: DEFAULT_DAILY_GOAL });
+          weekData[dateStr] = (parsed.currentIntake / parsed.goal) * 100;
+        } else {
+          weekData[dateStr] = 0;
+        }
+      }
+      setWeeklyData(weekData);
     } catch (error) {
       console.error('Error loading water data:', error);
     }
@@ -277,8 +294,17 @@ export default function WaterIntakeScreen() {
           <Text style={[styles.sectionTitle, { color: theme.text }]}>주간 통계</Text>
           <View style={styles.weekDays}>
             {['월', '화', '수', '목', '금', '토', '일'].map((day, index) => {
-              const isToday = index === new Date().getDay() - 1;
-              const dayPercentage = isToday ? percentage : Math.random() * 100; // Mock data for other days
+              const todayIndex = new Date().getDay();
+              const adjustedTodayIndex = todayIndex === 0 ? 6 : todayIndex - 1; // Sunday is 0, adjust to match our array
+              const isToday = index === adjustedTodayIndex;
+              
+              // Calculate date for this day
+              const daysFromToday = index - adjustedTodayIndex;
+              const date = new Date();
+              date.setDate(date.getDate() + daysFromToday);
+              const dateStr = date.toISOString().split('T')[0];
+              
+              const dayPercentage = isToday ? percentage : (weeklyData[dateStr] || 0);
               
               return (
                 <View key={day} style={styles.dayColumn}>

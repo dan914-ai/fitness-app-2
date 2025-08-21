@@ -1,0 +1,26 @@
+model,table,fields,relationships,storage_location,notes
+User,users,"id, email, name, created_at, updated_at, avatar_url, preferences",has_many: workouts/routines/achievements,Supabase,Core user model
+Workout,workouts,"id, user_id, routine_id, routine_name, start_time, end_time, total_volume, total_sets, memo, created_at",belongs_to: user; has_many: workout_exercises,Supabase + AsyncStorage,Synced when online
+WorkoutExercise,workout_exercises,"id, workout_id, exercise_id, exercise_name, sets[], order_index",belongs_to: workout/exercise,Supabase + AsyncStorage,Sets stored as JSON array
+Exercise,exercises,"id, name, english_name, category, equipment, primary_muscle, secondary_muscles, instructions, thumbnail, gif_url",has_many: workout_exercises/personal_records,Local JSON + Supabase,700+ exercises cached locally
+ExerciseSet,sets (embedded),"weight, reps, completed, rest_seconds, rpe, notes, timestamp",embedded in workout_exercises.sets,AsyncStorage,Denormalized for performance
+Routine,routines,"id, user_id, name, description, exercises[], created_at, updated_at, is_active",belongs_to: user; has_many: workouts,Supabase + AsyncStorage,Exercises array contains IDs
+PersonalRecord,personal_records,"id, user_id, exercise_id, weight, reps, date, previous_weight, previous_reps",belongs_to: user/exercise,AsyncStorage + Supabase,Updated on workout completion
+Achievement,achievements,"id, user_id, type, name, description, unlocked_at, progress, target",belongs_to: user,AsyncStorage,Local tracking only
+UserSettings,user_settings,"id, user_id, units, language, theme, notifications, rest_timer_seconds, auto_rest",belongs_to: user,AsyncStorage,Synced to Supabase
+WorkoutProgram,workout_programs,"id, name, discipline, level, description, weeks, workouts[], source",has_many: program_workouts,Local JSON,Static data - 20+ programs
+ProgramWorkout,program_workouts (embedded),"day, focus, exercises[], notes",embedded in workout_programs.workouts,Local JSON,Template for routines
+ExerciseHistory,exercise_history,"id, user_id, exercise_id, workout_id, date, sets[], total_volume",belongs_to: user/exercise/workout,AsyncStorage,Denormalized for queries
+InBodyRecord,inbody_records,"id, user_id, date, weight, muscle_mass, body_fat, bmi, body_water, protein, minerals",belongs_to: user,AsyncStorage,Body composition tracking
+ProgressPhoto,progress_photos,"id, user_id, date, photo_url, weight, notes, body_part",belongs_to: user,Supabase Storage + AsyncStorage,Photos in Supabase Storage
+NotificationPreference,notification_preferences,"id, user_id, workout_reminders, achievement_alerts, social_updates, rest_timer",belongs_to: user,AsyncStorage,Local only
+SyncQueue,sync_queue,"id, action, entity_type, entity_id, data, created_at, retry_count",none,AsyncStorage,Offline sync management
+DOMSRecord,doms_records,"id, user_id, date, muscle_groups[], severity_scores[], notes",belongs_to: user,AsyncStorage,Recovery tracking
+WaterIntake,water_intake,"id, user_id, date, amount_ml, target_ml, timestamps[]",belongs_to: user,AsyncStorage,Hydration tracking
+RestTimer,rest_timers,"id, workout_id, exercise_name, set_number, duration_seconds, completed_at",belongs_to: workout,Memory only,Not persisted
+WorkoutTimer,workout_timers,"start_time, pause_time, total_paused_duration, is_paused",none,Memory + AsyncStorage,Session state
+ExerciseCategory,categories,"id, name, korean_name, muscle_group, icon",has_many: exercises,Local JSON,15 categories
+Equipment,equipment,"id, name, korean_name, type, icon",has_many: exercises,Local JSON,20+ equipment types
+Analytics,analytics_events,"id, user_id, event_type, properties, timestamp",belongs_to: user,AsyncStorage,Local analytics
+SocialPost,social_posts,"id, user_id, content, workout_id, likes_count, comments_count, created_at",belongs_to: user/workout,Future - Supabase,Not implemented yet
+Comment,comments,"id, post_id, user_id, content, created_at",belongs_to: post/user,Future - Supabase,Not implemented yet

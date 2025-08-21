@@ -59,13 +59,22 @@ export default function DOMSSurveyModal({ visible, onClose, userId }: DOMSSurvey
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const result = await progressionService.submitDOMSSurvey(userId, surveyData);
+      // Only send the 4 fields that the database table expects
+      const simplifiedData = {
+        sleep_quality: surveyData.sleep_quality,
+        energy_level: surveyData.energy_level,
+        overall_soreness: surveyData.overall_soreness,
+        motivation: surveyData.motivation,
+      };
+      
+      console.log('Submitting simplified DOMS data:', simplifiedData);
+      const result = await progressionService.submitDOMSSurvey(userId, simplifiedData);
       
       // Save today's date to prevent showing again
       const today = new Date().toISOString().split('T')[0];
       await storageService.setGenericItem('lastDOMSSurvey', today);
       
-      alert('Recovery assessment saved successfully!');
+      alert('회복 평가가 성공적으로 저장되었습니다!');
       
       // Reset form data after successful save
       setSurveyData({
@@ -83,10 +92,10 @@ export default function DOMSSurveyModal({ visible, onClose, userId }: DOMSSurvey
       
       onClose();
     } catch (error) {
-      console.error('Failed to submit DOMS survey - Full error:', error);
+      console.error('DOMS 설문 제출 실패 - 전체 오류:', error);
       // Only show error if it's a real error, not an empty object
       if (error && Object.keys(error).length > 0) {
-        alert('Failed to save recovery assessment. Error: ' + ((error as any)?.message || JSON.stringify(error)));
+        alert('회복 평가 저장 실패. 오류: ' + ((error as any)?.message || JSON.stringify(error)));
       }
     } finally {
       setIsSubmitting(false);

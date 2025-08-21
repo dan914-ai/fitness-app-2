@@ -139,7 +139,6 @@ const NetworkAwareImage: React.FC<NetworkAwareImageProps> = ({
       
       // Auto-retry when network is restored and we have an error
       if (networkState.isConnected && imageState.hasError) {
-        console.log('Network restored - auto-retrying image load');
         scheduleRetry(1000); // Retry after 1 second
       }
     });
@@ -201,7 +200,6 @@ const NetworkAwareImage: React.FC<NetworkAwareImageProps> = ({
   }, [onLoad]);
 
   const handleImageError = useCallback((error: any) => {
-    console.warn(`Image load failed for source ${currentSourceIndex}:`, error);
     
     // Try next source if available
     if (currentSourceIndex < allSources.length - 1) {
@@ -235,7 +233,6 @@ const NetworkAwareImage: React.FC<NetworkAwareImageProps> = ({
       // Auto-retry for network errors
       if (imageState.retryCount < 3 && networkService.isOnline()) {
         const delay = calculateRetryDelay(imageState.retryCount);
-        console.log(`Auto-retrying in ${delay}ms (attempt ${imageState.retryCount + 1})`);
         scheduleRetry(delay);
       }
     }

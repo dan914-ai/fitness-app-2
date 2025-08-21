@@ -65,7 +65,6 @@ export async function safeTry<T>(
     if (errorHandler) {
       errorHandler(error);
     } else {
-      console.warn('Safe try caught error:', error);
     }
     return defaultValue;
   }

@@ -73,7 +73,6 @@ export default function ExercisePickerSheet({
     if (category === null || (category && typeof category === 'string')) {
       setSelectedCategory(category);
     } else {
-      console.warn('Invalid category attempted to be set:', category);
       setSelectedCategory(null);
     }
   };
@@ -199,7 +198,6 @@ export default function ExercisePickerSheet({
   // Filter and validate categories
   const categories = rawCategories.filter(cat => {
     if (!cat || typeof cat !== 'string') {
-      console.warn('⚠️ Invalid category filtered out:', cat);
       return false;
     }
     return true;
@@ -207,7 +205,6 @@ export default function ExercisePickerSheet({
 
   const toggleExercise = (exerciseId: string) => {
     if (!exerciseId || typeof exerciseId !== 'string') {
-      console.warn('toggleExercise called with invalid exerciseId:', exerciseId);
       return;
     }
     
@@ -263,12 +260,10 @@ export default function ExercisePickerSheet({
     
     // Comprehensive validation
     if (!exercise || typeof exercise !== 'object') {
-      console.warn('Invalid exercise item:', exercise);
       return null;
     }
     
     if (!exercise.exerciseId) {
-      console.warn('Exercise missing exerciseId:', exercise);
       return null;
     }
     

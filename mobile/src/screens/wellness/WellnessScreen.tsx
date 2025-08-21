@@ -212,7 +212,18 @@ export default function WellnessScreen() {
               <TouchableOpacity
                 key={feature.id}
                 style={styles.featureCard}
-                onPress={() => navigation.navigate(feature.screen as any)}
+                onPress={() => {
+                  // Handle cross-tab navigation for BodyMeasurements
+                  if (feature.screen === 'BodyMeasurements') {
+                    // Navigate to Record tab first, then to BodyMeasurements
+                    navigation.navigate('기록', {
+                      screen: 'BodyMeasurements'
+                    });
+                  } else {
+                    // Navigate within Wellness stack
+                    navigation.navigate(feature.screen as any);
+                  }
+                }}
               >
                 <View style={styles.featureHeader}>
                   <View style={[styles.featureIcon, { backgroundColor: feature.color + '20' }]}>

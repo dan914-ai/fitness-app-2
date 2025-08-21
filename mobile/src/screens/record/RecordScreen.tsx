@@ -687,4 +687,30 @@ const styles = StyleSheet.create({
     marginTop: 8,
     textAlign: 'center',
   },
+  exerciseCards: {
+    flexDirection: 'row',
+    paddingVertical: 8,
+  },
+  exerciseCard: {
+    backgroundColor: Colors.surface,
+    borderRadius: 12,
+    padding: 16,
+    marginRight: 12,
+    alignItems: 'center',
+    width: 120,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  exerciseCardName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.text,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  exerciseCardLabel: {
+    fontSize: 12,
+    color: Colors.primary,
+    marginTop: 4,
+  },
 });

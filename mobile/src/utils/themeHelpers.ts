@@ -25,7 +25,6 @@ export function getSemanticColor(
       if (current && typeof current === 'object' && part in current) {
         current = current[part];
       } else {
-        console.warn(`Theme path not found: semantic.${colorPath}, using fallback: ${fallback}`);
         return fallback;
       }
     }

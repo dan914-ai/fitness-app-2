@@ -14,7 +14,6 @@ export function safeJsonParse<T>(jsonString: string | null | undefined, fallback
   try {
     return JSON.parse(jsonString);
   } catch (error) {
-    console.warn('JSON parse error:', error);
     return fallback;
   }
 }
@@ -29,7 +28,6 @@ export function safeJsonStringify(obj: any, fallback: string = '{}'): string {
   try {
     return JSON.stringify(obj);
   } catch (error) {
-    console.warn('JSON stringify error:', error);
     return fallback;
   }
 }
@@ -53,7 +51,6 @@ export function safeJsonParseWithDates<T>(jsonString: string | null | undefined,
     });
     return parsed;
   } catch (error) {
-    console.warn('JSON parse with dates error:', error);
     return fallback;
   }
 }
@@ -74,7 +71,6 @@ export function safeJsonStringifyWithDates(obj: any, fallback: string = '{}'): s
       return value;
     });
   } catch (error) {
-    console.warn('JSON stringify with dates error:', error);
     return fallback;
   }
 }

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { API_URL } from '../constants/api';
-import { mockApi } from './mock.service';
 
 // Check if we should use mock data (when backend is not available)
 const USE_MOCK_DATA = false; // Set to false when backend is ready
@@ -63,4 +62,4 @@ export const makeRequest = async (
 
 // Export both real API and mock API
 export default api;
-export { USE_MOCK_DATA, mockApi };
+export { USE_MOCK_DATA };

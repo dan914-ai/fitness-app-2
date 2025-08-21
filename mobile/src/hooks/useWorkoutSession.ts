@@ -25,7 +25,6 @@ export function useWorkoutSession() {
           const response = await workoutApi.startWorkoutSession({ routineId, routineName });
           setCurrentWorkoutId(response.workout.workoutId);
         } catch (backendError) {
-          console.warn('Backend connection failed, continuing with local session:', backendError);
           // Generate a local workout ID
           setCurrentWorkoutId(`local-${Date.now()}`);
         }
@@ -35,9 +34,7 @@ export function useWorkoutSession() {
       }
       
       // Always start session in context (works offline)
-      console.log('[useWorkoutSession] Starting workout with routineId:', routineId, 'routineName:', routineName);
       workout.startWorkout(routineId, routineName);
-      console.log('[useWorkoutSession] Workout started, startTime:', workout.state.startTime);
       
       return { workoutId: currentWorkoutId, routineId, routineName };
     } catch (err) {
@@ -67,7 +64,6 @@ export function useWorkoutSession() {
           // Try to end session on backend
           const response = await workoutApi.endWorkoutSession(currentWorkoutId);
         } catch (backendError) {
-          console.warn('Backend connection failed, ending local session:', backendError);
         }
       }
       
@@ -217,7 +213,6 @@ export function useWorkoutSession() {
               }
             }
             
-            console.log('Session data loaded into context successfully');
           }
         }
       } catch (err) {

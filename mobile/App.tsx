@@ -5,16 +5,13 @@ import 'react-native-gesture-handler';
 import AppNavigator from './src/navigation/AppNavigator';
 import notificationService from './src/services/notification.service';
 import { WorkoutProvider } from './src/contexts/WorkoutContext';
-import { MockAuthProvider } from './src/contexts/MockAuthContext';
 import { ThemeProvider } from './src/contexts/ThemeContext';
 import { checkBackendConnection } from './src/utils/backendConnection';
 import networkService from './src/services/network.service';
 import OfflineIndicator from './src/components/common/OfflineIndicator';
 import LoadingIndicator from './src/components/common/LoadingIndicator';
 import ErrorBoundary from './src/components/ErrorBoundary';
-import TestModeBanner from './src/components/TestModeBanner';
-import { testSupabaseConnection } from './src/utils/testSupabase';
-import { testSupabaseAuth } from './src/utils/testAuth';
+import secureStorage from './src/utils/secureStorage';
 
 export default function App() {
   const [appError, setAppError] = React.useState<Error | null>(null);
@@ -24,11 +21,11 @@ export default function App() {
     console.warn('🔥🔥🔥 If you see VERSION 4.0, the new code is loaded!');
     console.log('App: Starting initialization');
     try {
-      // Test Supabase connection
-      testSupabaseConnection();
+      // Migrate tokens to secure storage on first launch
+      secureStorage.migrateTokens().catch(err => 
+        console.warn('Token migration warning:', err)
+      );
       
-      // Skip auth test for now to prevent crashes
-      // testSupabaseAuth();
       
       // Initialize network monitoring first
       networkService.initialize();
@@ -76,25 +73,17 @@ export default function App() {
     );
   }
 
-  console.log('🏋️ TEST LOG - APP IS RENDERING - If you see this, console logging works!');
-  console.error('🏋️ TEST ERROR - APP IS RENDERING - This should be visible in red!');
-
-  // Check if test mode is enabled
-  const TEST_MODE = false; // This should match SKIP_LOGIN in AppNavigator
   
   return (
     <ErrorBoundary>
       <ThemeProvider>
         <View style={styles.container}>
-          <MockAuthProvider>
-            <WorkoutProvider>
-              {TEST_MODE && <TestModeBanner />}
-              <OfflineIndicator position="top" />
-              <AppNavigator />
-              <LoadingIndicator />
-              <StatusBar style="auto" />
-            </WorkoutProvider>
-          </MockAuthProvider>
+          <WorkoutProvider>
+            <OfflineIndicator position="top" />
+            <AppNavigator />
+            <LoadingIndicator />
+            <StatusBar style="auto" />
+          </WorkoutProvider>
         </View>
       </ThemeProvider>
     </ErrorBoundary>

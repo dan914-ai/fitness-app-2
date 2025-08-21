@@ -37,7 +37,6 @@ export async function apiCall<T>(
             return JSON.parse(cached);
           }
         } catch (cacheError) {
-          console.warn('Failed to get cached data in offline mode:', cacheError);
         }
       }
       
@@ -60,7 +59,6 @@ export async function apiCall<T>(
       try {
         await AsyncStorage.setItem(cacheKey, JSON.stringify(result));
       } catch (cacheError) {
-        console.warn('Failed to cache result:', cacheError);
       }
     }
     
@@ -101,7 +99,6 @@ export async function apiCall<T>(
           return JSON.parse(cached);
         }
       } catch (cacheError) {
-        console.warn('Failed to get cached data after API failure:', cacheError);
       }
     }
     
