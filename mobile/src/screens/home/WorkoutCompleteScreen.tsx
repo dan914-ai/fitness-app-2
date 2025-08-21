@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.error,
     paddingVertical: 18,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 8,
   },
   shareButtonText: {
@@ -469,7 +469,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
     paddingVertical: 18,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 8,
   },
   homeButtonText: {
@@ -480,7 +480,7 @@ const styles = StyleSheet.create({
   skipButton: {
     paddingHorizontal: 30,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   skipButtonText: {
     color: '#FFFFFF',
@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingHorizontal: 32,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   modalButtonText: {
     color: '#FFFFFF',
@@ -525,7 +525,7 @@ const styles = StyleSheet.create({
   },
   memoInput: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginTop: 16,
     fontSize: 16,

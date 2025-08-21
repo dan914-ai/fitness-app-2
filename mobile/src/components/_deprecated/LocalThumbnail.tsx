@@ -122,7 +122,7 @@ export default function LocalThumbnail({
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.border,
   },
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 8,
+    borderRadius: 16,
   },
   placeholderText: {
     color: '#FFFFFF',

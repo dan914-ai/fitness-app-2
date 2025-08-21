@@ -124,7 +124,7 @@ StaticGifThumbnail.displayName = 'StaticGifThumbnail';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.border,
     position: 'relative',
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     width: screenWidth * 0.9,
     maxWidth: 400,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     overflow: 'hidden',
   },
   modalHeader: {

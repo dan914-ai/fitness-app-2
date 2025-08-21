@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   questionCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 20,
     marginBottom: 20,
     borderWidth: 1,
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     backgroundColor: Colors.primary,
-    borderRadius: 12,
+    borderRadius: 16,
     paddingVertical: 16,
     alignItems: 'center',
     marginVertical: 30,

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingVertical: 12,
     paddingHorizontal: 24,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   loginButtonText: {
     color: '#FFFFFF',

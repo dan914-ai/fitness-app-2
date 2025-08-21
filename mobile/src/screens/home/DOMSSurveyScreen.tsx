@@ -444,7 +444,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.background,
     borderWidth: 1,
     borderColor: Colors.border,
@@ -465,7 +465,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 24,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.primary,
   },
   nextButtonDisabled: {

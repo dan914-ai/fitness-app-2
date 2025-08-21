@@ -55,12 +55,12 @@ const styles = StyleSheet.create({
   image: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   placeholder: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.surface,
     alignItems: 'center',
     justifyContent: 'center',

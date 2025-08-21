@@ -280,8 +280,8 @@ const styles = StyleSheet.create({
     padding: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   header: {
@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 16,
     backgroundColor: Colors.background,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 4,
   },
   viewModeButton: {
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   },
   todayCell: {
     backgroundColor: Colors.primary + '20',
-    borderRadius: 8,
+    borderRadius: 16,
   },
   todayText: {
     fontWeight: 'bold',
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
   },
   selectedDay: {
     backgroundColor: Colors.primary,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   selectedDayText: {
     color: '#FFFFFF',

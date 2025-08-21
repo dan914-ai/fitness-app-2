@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
     borderWidth: 2,
     borderColor: 'transparent',
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   infoContent: {
@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingVertical: 16,
     paddingHorizontal: 24,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 16,
   },
   exportButtonDisabled: {

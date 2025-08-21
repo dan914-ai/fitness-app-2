@@ -86,7 +86,7 @@ export default function ProgressionIndicator({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f5f5f5',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginVertical: 8,
   },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 8,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 8,
   },
   changeText: {

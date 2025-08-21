@@ -334,12 +334,12 @@ const styles = StyleSheet.create({
   summaryCard: {
     margin: 20,
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   summaryRow: {
     flexDirection: 'row',
@@ -397,19 +397,19 @@ const styles = StyleSheet.create({
   prCard: {
     flexDirection: 'row',
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 12,
     marginBottom: 12,
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
-    shadowRadius: 2,
+    shadowRadius: 8,
   },
   thumbnail: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
     marginRight: 12,
   },
   prInfo: {
@@ -445,7 +445,7 @@ const styles = StyleSheet.create({
   achievementCard: {
     flexDirection: 'row',
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 12,
     alignItems: 'center',

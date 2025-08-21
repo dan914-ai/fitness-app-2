@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingHorizontal: 24,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     marginTop: 8,
   },
   dismissButtonText: {
@@ -579,7 +579,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     padding: 20,
     backgroundColor: Colors.background,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   currentTimeLabel: {
     fontSize: 14,
@@ -609,7 +609,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 10,
     backgroundColor: Colors.background,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },
@@ -644,7 +644,7 @@ const styles = StyleSheet.create({
   modalButton: {
     backgroundColor: Colors.error,
     paddingVertical: 14,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
   },
   modalButtonText: {
@@ -662,7 +662,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 44,
     backgroundColor: Colors.background,
-    borderRadius: 8,
+    borderRadius: 16,
     paddingHorizontal: 16,
     fontSize: 16,
     color: Colors.text,
@@ -673,7 +673,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingHorizontal: 24,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   customTimeButtonText: {
     color: '#FFFFFF',

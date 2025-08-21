@@ -39,21 +39,8 @@ interface ExercisePickerSheetProps {
 
 // Get color for muscle group
 const getMuscleGroupColor = (muscleGroup: string): string => {
-  const colorMap: Record<string, string> = {
-    '가슴': '#FF6B6B',      // Red
-    '등': '#4ECDC4',        // Teal
-    '어깨': '#FFE66D',      // Yellow
-    '이두근': '#95E1D3',    // Mint
-    '삼두근': '#F38181',    // Pink
-    '대퇴사두근': '#AA96DA', // Purple
-    '햄스트링': '#FCBAD3',  // Light Pink
-    '둔근': '#A8E6CF',      // Light Green
-    '복근': '#FFD93D',      // Gold
-    '종아리': '#6BCB77',    // Green
-    '팔뚝': '#FF8B94',      // Coral
-  };
-  
-  return colorMap[muscleGroup] || '#E0E0E0';
+  // Use monochrome theme - all muscle groups use the primary color
+  return Colors.primary;
 };
 
 export default function ExercisePickerSheet({
@@ -453,7 +440,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     backgroundColor: Colors.primary,
-    borderRadius: 20,
+    borderRadius: 16,
   },
   confirmButtonDisabled: {
     backgroundColor: Colors.border,
@@ -473,7 +460,7 @@ const styles = StyleSheet.create({
     margin: 16,
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 12,
   },
   searchInput: {
@@ -495,7 +482,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 10,  // Increased padding for better touch targets
     backgroundColor: Colors.surface,
-    borderRadius: 20,
+    borderRadius: 16,
     marginRight: 8,
     minHeight: 40,  // Ensure minimum height
     justifyContent: 'center',  // Center text vertically
@@ -571,7 +558,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryLight,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
     marginRight: 6,
     marginBottom: 4,
   },
@@ -583,7 +570,7 @@ const styles = StyleSheet.create({
   checkbox: {
     width: 24,
     height: 24,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 2,
     borderColor: Colors.border,
     alignItems: 'center',

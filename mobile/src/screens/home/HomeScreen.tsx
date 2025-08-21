@@ -271,24 +271,16 @@ export default function HomeScreen() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>내 루틴</Text>
             <View style={styles.routineHeaderActions}>
-              <Button
-                variant="secondary"
-                size="small"
-                onPress={() => navigation.navigate('ComponentShowcase')}
-              >
-                🎨 Design
-              </Button>
               <TouchableOpacity onPress={() => navigation.navigate('RoutineManagement')}>
                 <Text style={styles.seeAllText}>관리</Text>
               </TouchableOpacity>
-              <Button
-                variant="primary"
-                size="small"
-                icon="plus" as any
+              <TouchableOpacity 
+                style={styles.addRoutineButton}
                 onPress={() => navigation.navigate('CreateRoutine')}
               >
-                루틴 추가
-              </Button>
+                <Icon name="add" size={20} color="#FFFFFF" />
+                <Text style={styles.addRoutineText}>루틴 추가</Text>
+              </TouchableOpacity>
             </View>
           </View>
           
@@ -373,20 +365,13 @@ export default function HomeScreen() {
               </Card>
             ))}
             
-            <Card
-              variant="outlined"
-              style={{ width: 200, minHeight: 240, marginRight: theme.spacing[3], borderStyle: 'dashed' }}
+            <TouchableOpacity
+              style={styles.newRoutineCard}
               onPress={() => navigation.navigate('CreateRoutine')}
             >
-              <CardContent>
-                <View style={{ alignItems: 'center', paddingVertical: theme.spacing[4] }}>
-                  <Icon name="add-circle-outline" size={48} color={theme.colors.semantic.primary.main} />
-                  <Text style={{ ...theme.typography.textStyles.body, color: theme.colors.semantic.primary.main, marginTop: theme.spacing[2] }}>
-                    새 루틴 만들기
-                  </Text>
-                </View>
-              </CardContent>
-            </Card>
+              <Icon name="add" size={32} color={Colors.primary} />
+              <Text style={styles.newRoutineText}>새 루틴 만들기</Text>
+            </TouchableOpacity>
           </ScrollView>
         </View>
 
@@ -622,7 +607,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAFAFA', // Using our new theme background color
+    backgroundColor: Colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -637,7 +622,7 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
   },
   date: {
@@ -675,19 +660,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 20,
     marginTop: 20,
-    paddingVertical: 18,
-    borderRadius: 12,
+    paddingVertical: 16,
+    borderRadius: 16,
     gap: 12,
-    elevation: 3,
-    shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    elevation: 0,
   },
   startButtonText: {
     color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: '600',
   },
   activeProgramBanner: {
     flexDirection: 'row',
@@ -697,9 +678,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 15,
     padding: 16,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: Colors.primary + '30',
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   activeProgramContent: {
     flexDirection: 'row',
@@ -717,7 +701,7 @@ const styles = StyleSheet.create({
   },
   activeProgramName: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: Colors.text,
     marginTop: 2,
   },
@@ -738,7 +722,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
   },
   seeAllText: {
@@ -781,12 +765,17 @@ const styles = StyleSheet.create({
     width: (width - 52) / 2,
     backgroundColor: Colors.surface,
     padding: width > 360 ? 16 : 14,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   statValue: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
     marginTop: 8,
   },
@@ -803,7 +792,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   workoutIcon: {
     width: 40,
@@ -831,21 +825,26 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginRight: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   programImage: {
     width: '100%',
     height: 80,
     backgroundColor: Colors.primaryLight,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
   },
   programTitle: {
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: Colors.text,
     marginBottom: 4,
   },
@@ -863,13 +862,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   challengeIcon: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#FFF9E6',
+    backgroundColor: Colors.primaryLight,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 12,
@@ -897,12 +901,28 @@ const styles = StyleSheet.create({
   addRoutineButton: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: Colors.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
     gap: 4,
   },
   addRoutineText: {
     fontSize: 14,
-    color: Colors.primary,
+    color: '#FFFFFF',
     fontWeight: '600',
+  },
+  newRoutineCard: {
+    width: 200,
+    minHeight: 240,
+    backgroundColor: Colors.surface,
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: Colors.border,
+    borderStyle: 'dashed',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
   },
   routineHeaderActions: {
     flexDirection: 'row',
@@ -913,13 +933,13 @@ const styles = StyleSheet.create({
     width: 180,
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginRight: 12,
-    elevation: 2,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   routineIcon: {
     width: 40,
@@ -932,7 +952,7 @@ const styles = StyleSheet.create({
   },
   routineTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: Colors.text,
     marginBottom: 4,
   },
@@ -949,7 +969,7 @@ const styles = StyleSheet.create({
   routineStartButton: {
     backgroundColor: Colors.primary,
     paddingVertical: 8,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
   },
   routineStartText: {
@@ -961,11 +981,11 @@ const styles = StyleSheet.create({
     width: 180,
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginRight: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: Colors.border,
     borderStyle: 'dashed',
   },
@@ -988,13 +1008,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: width > 360 ? 14 : 12,
     paddingHorizontal: width > 360 ? 12 : 8,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: width > 360 ? 8 : 4,
-    elevation: 2,
-    shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    elevation: 0,
   },
   quickActionText: {
     color: '#FFFFFF',
@@ -1039,15 +1055,15 @@ const styles = StyleSheet.create({
     flex: 1, // Use flex instead of fixed width
     maxWidth: 120, // Slightly larger max width
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: width > 360 ? 12 : 10, // Adjusted padding
     marginHorizontal: 4, // Space between cards
     alignItems: 'center',
-    elevation: 2,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   calculatorIcon: {
     width: width > 360 ? 45 : 40,
@@ -1060,7 +1076,7 @@ const styles = StyleSheet.create({
   },
   calculatorTitle: {
     fontSize: width > 360 ? 12 : 11,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: Colors.text,
     textAlign: 'center',
     marginBottom: 3,

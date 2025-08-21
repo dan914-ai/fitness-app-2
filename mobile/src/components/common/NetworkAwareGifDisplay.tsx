@@ -166,7 +166,7 @@ export default function NetworkAwareGifDisplay({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     marginVertical: 8,
   },

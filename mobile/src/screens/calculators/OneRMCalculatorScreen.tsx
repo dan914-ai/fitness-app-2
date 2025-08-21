@@ -246,8 +246,8 @@ const styles = StyleSheet.create({
     padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   inputGroup: {
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: Colors.background,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     fontSize: 24,
     fontWeight: 'bold',
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
   resetButton: {
     flex: 1,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
     alignItems: 'center',
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
   calculateButton: {
     flex: 2,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     backgroundColor: Colors.primary,
     alignItems: 'center',
   },
@@ -334,8 +334,8 @@ const styles = StyleSheet.create({
     padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   oneRMResult: {

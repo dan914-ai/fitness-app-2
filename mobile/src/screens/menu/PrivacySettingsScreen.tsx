@@ -467,7 +467,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.surface,
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     borderLeftWidth: 4,
     borderLeftColor: Colors.primary,
   },

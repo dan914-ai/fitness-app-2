@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
   },
   summaryContainer: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 20,
     marginTop: 24,
     width: '100%',
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 8,
   },
   primaryButton: {

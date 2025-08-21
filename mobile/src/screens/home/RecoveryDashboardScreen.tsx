@@ -271,15 +271,15 @@ const styles = StyleSheet.create({
   },
   readinessCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 24,
     marginTop: 20,
     alignItems: 'center',
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   readinessTitle: {
     fontSize: 16,
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
   },
   metricCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 12,
     width: '48%',
@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
-    shadowRadius: 2,
+    shadowRadius: 8,
   },
   metricHeader: {
     flexDirection: 'row',
@@ -397,7 +397,7 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     backgroundColor: Colors.primary,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
   },
   secondaryButton: {
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -432,7 +432,7 @@ const styles = StyleSheet.create({
   },
   tipCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 12,
     flexDirection: 'row',

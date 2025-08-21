@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
     margin: 16,
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 12,
   },
   searchInput: {
@@ -317,7 +317,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 8,
   },
   exerciseInfo: {
@@ -338,7 +338,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryLight,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   muscleTagText: {
     fontSize: 12,

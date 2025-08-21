@@ -46,11 +46,11 @@ export default function VolumeComparisonChart({ data, title }: VolumeComparisonC
       stacks: [
         {
           value: baseVolume / 1000, // Convert to thousands for better display
-          color: '#4CAF50', // Green for base volume
+          color: Colors.primary, // Blue for base volume
         },
         {
           value: Math.abs(difference) / 1000,
-          color: difference >= 0 ? '#4CAF50' : '#F44336', // Green for gain, red for loss
+          color: difference >= 0 ? Colors.primary : Colors.textSecondary, // Blue for gain, gray for loss
         },
       ],
       label: day.dayName,
@@ -84,7 +84,7 @@ export default function VolumeComparisonChart({ data, title }: VolumeComparisonC
           <Text style={styles.summaryLabel}>변화</Text>
           <Text style={[
             styles.summaryValue,
-            { color: totalDifference >= 0 ? '#4CAF50' : '#F44336' }
+            { color: totalDifference >= 0 ? Colors.primary : Colors.textSecondary }
           ]}>
             {totalDifference >= 0 ? '+' : ''}{(totalDifference / 1000).toFixed(1)}t
           </Text>
@@ -93,7 +93,7 @@ export default function VolumeComparisonChart({ data, title }: VolumeComparisonC
           <Text style={styles.summaryLabel}>변화율</Text>
           <Text style={[
             styles.summaryValue,
-            { color: percentageChange >= 0 ? '#4CAF50' : '#F44336' }
+            { color: percentageChange >= 0 ? Colors.primary : Colors.textSecondary }
           ]}>
             {percentageChange >= 0 ? '+' : ''}{percentageChange.toFixed(1)}%
           </Text>
@@ -111,11 +111,12 @@ export default function VolumeComparisonChart({ data, title }: VolumeComparisonC
             roundedTop
             xAxisThickness={0}
             yAxisThickness={0}
-            yAxisTextStyle={{ color: Colors.textLight, fontSize: 10 }}
+            hideYAxisText
             noOfSections={4}
             maxValue={Math.max(...data.map(d => Math.max(d.currentVolume, d.previousVolume))) / 1000 * 1.2}
             labelWidth={30}
             hideRules
+            showVerticalLines={false}
             backgroundColor="transparent"
             activeOpacity={0.7}
             renderTooltip={(item: any, index: number) => {
@@ -127,7 +128,7 @@ export default function VolumeComparisonChart({ data, title }: VolumeComparisonC
                     {dayData.currentVolume.toLocaleString()}kg
                   </Text>
                   <Text style={[styles.tooltipDiff, {
-                    color: dayData.difference >= 0 ? '#4CAF50' : '#F44336'
+                    color: dayData.difference >= 0 ? Colors.primary : Colors.textSecondary
                   }]}>
                     {dayData.difference >= 0 ? '+' : ''}{dayData.difference.toLocaleString()}kg
                   </Text>
@@ -144,11 +145,11 @@ export default function VolumeComparisonChart({ data, title }: VolumeComparisonC
 
       <View style={styles.legend}>
         <View style={styles.legendItem}>
-          <View style={[styles.legendColor, { backgroundColor: '#4CAF50' }]} />
+          <View style={[styles.legendColor, { backgroundColor: Colors.primary }]} />
           <Text style={styles.legendText}>이번 주</Text>
         </View>
         <View style={styles.legendItem}>
-          <View style={[styles.legendColor, { backgroundColor: '#F44336' }]} />
+          <View style={[styles.legendColor, { backgroundColor: Colors.textSecondary }]} />
           <Text style={styles.legendText}>지난 주</Text>
         </View>
       </View>
@@ -235,7 +236,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },

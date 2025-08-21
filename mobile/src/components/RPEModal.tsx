@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   submitButtonText: {

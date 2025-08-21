@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     fontSize: 16,
     color: Colors.text,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: Colors.primary,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     alignItems: 'center',
     marginTop: 8,

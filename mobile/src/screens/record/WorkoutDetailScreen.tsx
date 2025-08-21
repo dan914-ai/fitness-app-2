@@ -561,7 +561,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: Colors.primary,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   backButtonText: {
     color: '#FFFFFF',
@@ -668,7 +668,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     padding: 16,
     backgroundColor: '#111111',
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: '#222222',
   },
@@ -693,7 +693,7 @@ const styles = StyleSheet.create({
   },
   exerciseCard: {
     backgroundColor: '#111111',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 12,
     marginBottom: 12,
     borderWidth: 1,
@@ -717,12 +717,12 @@ const styles = StyleSheet.create({
   exerciseThumbnail: {
     width: 120,
     height: 120,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   exerciseThumbnailPlaceholder: {
     width: 120,
     height: 120,
-    borderRadius: 12,
+    borderRadius: 16,
     backgroundColor: '#222222',
     alignItems: 'center',
     justifyContent: 'center',
@@ -764,7 +764,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 30,
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 8,
   },
   shareButtonText: {
@@ -796,7 +796,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 12,
     backgroundColor: Colors.primary,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   backButtonText: {
     fontSize: 16,

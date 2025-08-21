@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 12,
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 8,
   },
   setNumber: {
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     gap: 8,
   },
   primaryButton: {

@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     padding: 10,
     backgroundColor: Colors.cardBackground,
-    borderRadius: 8,
+    borderRadius: 16,
     fontFamily: 'monospace',
   },
   buttonContainer: {
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingVertical: 12,
     paddingHorizontal: 24,
-    borderRadius: 8,
+    borderRadius: 16,
     marginVertical: 6,
   },
   secondaryButton: {

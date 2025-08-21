@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 20,
     padding: 12,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 16,
     gap: 8,
   },
@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
   equipmentTag: {
     paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   equipmentTagText: {
     fontSize: 12,

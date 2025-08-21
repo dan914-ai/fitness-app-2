@@ -235,13 +235,13 @@ const styles = StyleSheet.create({
   postImage: {
     width: '100%',
     height: 300,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   workoutCard: {
     backgroundColor: Colors.background,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     borderLeftWidth: 3,
     borderLeftColor: Colors.primary,
   },

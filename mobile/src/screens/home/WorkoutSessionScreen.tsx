@@ -606,8 +606,8 @@ const styles = StyleSheet.create({
     elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   backButton: {
     padding: 8,
@@ -734,7 +734,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginVertical: 4,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },
@@ -742,8 +742,8 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowColor: Colors.primary,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     borderColor: Colors.primary,
   },
   exerciseCardCompleted: {
@@ -805,8 +805,8 @@ const styles = StyleSheet.create({
     elevation: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   bottomEndButton: {
     flexDirection: 'row',
@@ -858,7 +858,7 @@ const styles = StyleSheet.create({
   thumbnail: {
     width: 50,
     height: 50,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.surface,
   },
   thumbnailPlaceholder: {

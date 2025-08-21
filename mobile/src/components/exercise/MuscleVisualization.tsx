@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 20,
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 4,
   },
   toggleButton: {
@@ -249,8 +249,8 @@ const styles = StyleSheet.create({
     padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
     position: 'relative',
     width: screenWidth * 0.8,
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   },
   muscleOverlay: {
     position: 'absolute',
-    borderRadius: 8,
+    borderRadius: 16,
   },
   labelsContainer: {
     position: 'absolute',

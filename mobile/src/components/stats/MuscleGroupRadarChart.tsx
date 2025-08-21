@@ -115,9 +115,9 @@ export default function MuscleGroupRadarChart({
           {comparisonPoints && (
             <Polygon
               points={comparisonPoints}
-              fill="#FF9800"
+              fill={Colors.textSecondary}
               fillOpacity="0.2"
-              stroke="#FF9800"
+              stroke={Colors.textSecondary}
               strokeWidth="2"
               strokeOpacity="0.6"
             />
@@ -126,9 +126,9 @@ export default function MuscleGroupRadarChart({
           {/* Main data polygon */}
           <Polygon
             points={polygonPoints}
-            fill="#4CAF50"
+            fill={Colors.primary}
             fillOpacity="0.3"
-            stroke="#4CAF50"
+            stroke={Colors.primary}
             strokeWidth="2.5"
           />
 
@@ -143,7 +143,7 @@ export default function MuscleGroupRadarChart({
                 cx={point.x}
                 cy={point.y}
                 r="4"
-                fill="#4CAF50"
+                fill={Colors.primary}
                 stroke="#FFFFFF"
                 strokeWidth="2"
               />
@@ -183,7 +183,7 @@ export default function MuscleGroupRadarChart({
           .map((item, index) => (
             <View key={index} style={styles.legendItem}>
               <View style={[styles.legendRank, {
-                backgroundColor: index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : '#CD7F32'
+                backgroundColor: index === 0 ? Colors.primary : index === 1 ? Colors.textSecondary : Colors.textLight
               }]}>
                 <Text style={styles.legendRankText}>{index + 1}</Text>
               </View>

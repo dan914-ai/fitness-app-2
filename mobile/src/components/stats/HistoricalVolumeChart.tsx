@@ -71,10 +71,10 @@ export default function HistoricalVolumeChart({
         transform: [{ rotate: '-45deg' }]
       },
       frontColor: isPeak 
-        ? '#FFD700' // Gold for peak week
+        ? Colors.primary // Blue for peak week
         : isAboveAverage 
-          ? '#4CAF50' // Green for above average
-          : '#808080', // Gray for below average
+          ? Colors.primary // Blue for above average
+          : Colors.textLight, // Light gray for below average
       topLabelComponent: () => (
         isPeak ? (
           <Text style={styles.peakLabel}>🏆</Text>
@@ -96,7 +96,7 @@ export default function HistoricalVolumeChart({
             {(latestVolume / 1000).toFixed(1)}t
           </Text>
           <Text style={[styles.statChange, {
-            color: trend >= 0 ? '#4CAF50' : '#F44336'
+            color: trend >= 0 ? Colors.primary : Colors.textSecondary
           }]}>
             {trend >= 0 ? '▲' : '▼'} {Math.abs(trendPercentage).toFixed(1)}%
           </Text>
@@ -114,7 +114,7 @@ export default function HistoricalVolumeChart({
         
         <View style={styles.statItem}>
           <Text style={styles.statLabel}>최고 기록</Text>
-          <Text style={[styles.statValue, { color: '#FFD700' }]}>
+          <Text style={[styles.statValue, { color: Colors.primary }]}>
             {(peakWeek.volume / 1000).toFixed(1)}t
           </Text>
           <Text style={styles.statSubtext}>
@@ -136,17 +136,15 @@ export default function HistoricalVolumeChart({
             barWidth={30}
             spacing={20}
             roundedTop
-            xAxisThickness={1}
-            yAxisThickness={1}
-            xAxisColor={Colors.border}
-            yAxisColor={Colors.border}
-            yAxisTextStyle={{ color: Colors.textLight, fontSize: 10 }}
+            xAxisThickness={0}
+            yAxisThickness={0}
+            hideYAxisText
             noOfSections={4}
             maxValue={maxValue}
             hideRules
+            showVerticalLines={false}
             backgroundColor="transparent"
-            showGradient
-            gradientColor={'rgba(76, 175, 80, 0.3)'}
+            showGradient={false}
             frontColor={'#4CAF50'}
             activeOpacity={0.7}
             renderTooltip={(item: any, index: number) => {
@@ -273,7 +271,7 @@ const styles = StyleSheet.create({
   tooltip: {
     backgroundColor: Colors.surface,
     padding: 10,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
     position: 'absolute',
@@ -281,8 +279,8 @@ const styles = StyleSheet.create({
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   tooltipTitle: {
     fontSize: 11,
@@ -327,7 +325,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },

@@ -260,14 +260,14 @@ const styles = StyleSheet.create({
   },
   recordCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 12,
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   recordHeader: {
     flexDirection: 'row',
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
   metricBadge: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
     minWidth: 24,
     alignItems: 'center',
   },
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
   },
   addButton: {
     backgroundColor: Colors.primary,
-    borderRadius: 8,
+    borderRadius: 16,
     paddingHorizontal: 24,
     paddingVertical: 12,
     flexDirection: 'row',

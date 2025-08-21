@@ -283,12 +283,12 @@ const styles = StyleSheet.create({
   exerciseCard: {
     backgroundColor: Colors.surface,
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   exerciseHeader: {
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   exerciseThumbnail: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
     marginLeft: 12,
     marginRight: 8,
   },
@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: Colors.background,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
     fontSize: 16,
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   notesInput: {
     backgroundColor: Colors.background,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
     fontSize: 14,
@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
   startButton: {
     backgroundColor: Colors.primary,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   startButtonDisabled: {

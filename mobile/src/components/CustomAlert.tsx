@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 20,
     maxWidth: 300,
     width: '100%',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
   },
   cancelButton: {

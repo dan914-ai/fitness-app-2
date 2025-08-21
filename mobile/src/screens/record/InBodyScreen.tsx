@@ -626,13 +626,13 @@ const styles = StyleSheet.create({
     minWidth: '45%',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   metricTitle: {
     fontSize: 14,
@@ -648,7 +648,7 @@ const styles = StyleSheet.create({
   statusBadge: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   statusText: {
     color: '#FFFFFF',
@@ -663,7 +663,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   trendLabel: {
@@ -680,7 +680,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 8,
   },
   recordInfo: {
@@ -731,7 +731,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingHorizontal: 24,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     marginTop: 32,
   },
   addButtonText: {
@@ -743,12 +743,12 @@ const styles = StyleSheet.create({
   chartContainer: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   chartTitle: {
     fontSize: 16,
@@ -763,7 +763,7 @@ const styles = StyleSheet.create({
   barWrapper: {
     flexDirection: 'row',
     height: 40,
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.border,
   },
@@ -1016,7 +1016,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 100,
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 10,
     marginLeft: 8,
     position: 'relative',
@@ -1049,7 +1049,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.08,
     shadowRadius: 1,
   },
   simpleLine: {

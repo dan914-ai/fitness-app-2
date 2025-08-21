@@ -110,17 +110,17 @@ export default function DOMSSurveyModal({ visible, onClose, userId }: DOMSSurvey
   };
 
   const getSorenessColor = (value: number) => {
-    if (value <= 2) return '#4CAF50'; // Green
-    if (value <= 4) return '#FFC107'; // Yellow
-    if (value <= 6) return '#FF9800'; // Orange
-    return '#F44336'; // Red
+    if (value <= 2) return Colors.primary; // Blue
+    if (value <= 4) return Colors.textSecondary; // Gray
+    if (value <= 6) return Colors.textSecondary; // Gray
+    return Colors.text; // Dark
   };
 
   const getWellnessColor = (value: number) => {
-    if (value >= 8) return '#4CAF50'; // Green
-    if (value >= 6) return '#FFC107'; // Yellow
-    if (value >= 4) return '#FF9800'; // Orange
-    return '#F44336'; // Red
+    if (value >= 8) return Colors.primary; // Blue
+    if (value >= 6) return Colors.textSecondary; // Gray
+    if (value >= 4) return Colors.textSecondary; // Gray
+    return Colors.text; // Dark
   };
 
   return (
@@ -407,12 +407,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: 'white',
-    borderRadius: 20,
+    backgroundColor: Colors.surface,
+    borderRadius: 16,
     padding: 24,
     width: '95%',
     maxWidth: 500,
     maxHeight: '90%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 5,
   },
   closeButton: {
     position: 'absolute',
@@ -425,13 +430,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 8,
-    color: '#333',
+    color: Colors.text,
   },
   subtitle: {
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 24,
-    color: '#666',
+    color: Colors.textSecondary,
   },
   section: {
     marginBottom: 24,
@@ -440,7 +445,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 16,
-    color: '#333',
+    color: Colors.text,
   },
   muscleItem: {
     marginBottom: 16,
@@ -449,7 +454,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: '#E0E0E0',
+    borderTopColor: Colors.border,
   },
   muscleHeader: {
     flexDirection: 'row',
@@ -460,12 +465,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 12,
     fontSize: 14,
-    color: '#333',
+    color: Colors.text,
   },
   valueBox: {
     paddingHorizontal: 12,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
     minWidth: 32,
     alignItems: 'center',
   },
@@ -481,8 +486,8 @@ const styles = StyleSheet.create({
   numberButton: {
     width: 36,
     height: 36,
-    borderRadius: 18,
-    backgroundColor: '#F0F0F0',
+    borderRadius: 16,
+    backgroundColor: Colors.background,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -495,20 +500,20 @@ const styles = StyleSheet.create({
   numberOption: {
     width: 28,
     height: 28,
-    borderRadius: 14,
+    borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
   numberText: {
     fontSize: 12,
-    color: '#666',
+    color: Colors.textSecondary,
   },
   wellnessItem: {
     marginBottom: 16,
   },
   submitButton: {
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
     marginTop: 8,
   },

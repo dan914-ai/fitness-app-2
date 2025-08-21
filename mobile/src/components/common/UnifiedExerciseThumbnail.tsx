@@ -245,13 +245,13 @@ const UnifiedExerciseThumbnail = memo(({
 
 const styles = StyleSheet.create({
   image: {
-    borderRadius: 8,
+    borderRadius: 16,
   },
   placeholder: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
   colorPlaceholder: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 4,
   },
   placeholderInitial: {

@@ -434,7 +434,7 @@ const styles = StyleSheet.create({
     minWidth: (width - 52) / 2,
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   statValue: {
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF9E6',
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 8,
+    borderRadius: 16,
     gap: 2,
   },
   prText: {
@@ -533,7 +533,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryLight,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   muscleTagText: {
     fontSize: 11,
@@ -565,7 +565,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFF9E6',
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginTop: 12,
   },
   recordIcon: {
@@ -593,7 +593,7 @@ const styles = StyleSheet.create({
   notesCard: {
     backgroundColor: Colors.background,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginTop: 12,
   },
   notesText: {
@@ -613,7 +613,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.surface,
     paddingVertical: 14,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 8,
     borderWidth: 1,
     borderColor: Colors.primary,

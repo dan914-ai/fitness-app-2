@@ -596,7 +596,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 12,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },
@@ -648,7 +648,7 @@ const styles = StyleSheet.create({
   exerciseThumbnail: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   thumbnailPlaceholder: {
     backgroundColor: Colors.background,
@@ -660,7 +660,7 @@ const styles = StyleSheet.create({
   moreThumbnail: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.background,
     borderWidth: 1,
     borderColor: Colors.border,
@@ -709,7 +709,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingHorizontal: 24,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   startButtonText: {
     color: '#FFFFFF',
@@ -723,7 +723,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingHorizontal: 8,
     backgroundColor: Colors.primaryLight,
-    borderRadius: 8,
+    borderRadius: 16,
     borderTopWidth: 1,
     borderTopColor: Colors.border,
     gap: 8,

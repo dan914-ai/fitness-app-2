@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   loadingBox: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 24,
     alignItems: 'center',
     shadowColor: '#000',
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.08,
     shadowRadius: 3.84,
     elevation: 5,
   },

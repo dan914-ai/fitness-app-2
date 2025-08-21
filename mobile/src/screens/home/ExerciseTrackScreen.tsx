@@ -1850,7 +1850,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 6,
     paddingHorizontal: 8,
-    borderRadius: 8,
+    borderRadius: 16,
     marginHorizontal: 4,
     alignItems: 'center',
     justifyContent: 'center',
@@ -1911,7 +1911,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.primary,
     borderStyle: 'dashed',
-    borderRadius: 8,
+    borderRadius: 16,
     gap: 4,
   },
   addSetText: {
@@ -1939,7 +1939,7 @@ const styles = StyleSheet.create({
   },
   pageButton: {
     padding: 8,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.background,
   },
   pageButtonDisabled: {
@@ -1998,7 +1998,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 12,
     backgroundColor: Colors.background,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   historySetNumber: {
     fontSize: 14,
@@ -2013,7 +2013,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200, // Fixed height instead of aspect ratio
     backgroundColor: Colors.background,
-    borderRadius: 12,
+    borderRadius: 16,
     overflow: 'hidden',
     marginTop: 12,
     position: 'relative',
@@ -2082,7 +2082,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginBottom: 8,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
   },
@@ -2097,7 +2097,7 @@ const styles = StyleSheet.create({
   setTypeOptionButton: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -2150,7 +2150,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.surface,
     borderWidth: 1,
     borderColor: Colors.border,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 12,
     fontSize: 14,
     color: Colors.text,
@@ -2245,7 +2245,7 @@ const styles = StyleSheet.create({
     shadowColor: Colors.success,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
-    shadowRadius: 4,
+    shadowRadius: 8,
   },
   completeButtonText: {
     color: '#FFFFFF',
@@ -2255,7 +2255,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.success,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 8,
+    borderRadius: 16,
     marginTop: 4,
   },
   finishButtonDisabled: {
@@ -2280,13 +2280,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 16,
     zIndex: 1000,
     elevation: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   restCompleteText: {
     color: '#FFFFFF',
@@ -2441,7 +2441,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.surface,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     marginHorizontal: 4,
   },
   modalSetsRepsLabel: {
@@ -2543,7 +2543,7 @@ const styles = StyleSheet.create({
   // Warm-up styles
   warmupSuggestion: {
     backgroundColor: Colors.warning + '15',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginHorizontal: 16,
     marginBottom: 16,
@@ -2580,7 +2580,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.warning,
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
   },
   warmupButtonText: {

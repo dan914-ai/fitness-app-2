@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   statValue: {
@@ -560,7 +560,7 @@ const styles = StyleSheet.create({
   },
   routineCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
@@ -611,7 +611,7 @@ const styles = StyleSheet.create({
   difficultyBadge: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   difficultyText: {
     fontSize: 12,
@@ -757,7 +757,7 @@ const styles = StyleSheet.create({
   confirmCancelButton: {
     flex: 1,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
     alignItems: 'center',
@@ -770,7 +770,7 @@ const styles = StyleSheet.create({
   confirmDeleteButton: {
     flex: 1,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.error,
     alignItems: 'center',
   },

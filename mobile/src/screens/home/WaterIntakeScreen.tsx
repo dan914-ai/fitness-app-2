@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     width: 180,
     height: 240,
     borderWidth: 3,
-    borderRadius: 12,
+    borderRadius: 16,
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     overflow: 'hidden',
@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
   },
   presetButtonText: {
@@ -462,7 +462,7 @@ const styles = StyleSheet.create({
   },
   addCustomButton: {
     paddingVertical: 12,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   addCustomButtonText: {

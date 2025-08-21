@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   container: {
     width: THUMBNAIL_SIZE,
     height: THUMBNAIL_SIZE,
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.border,
   },

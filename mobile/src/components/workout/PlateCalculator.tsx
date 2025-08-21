@@ -493,14 +493,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: 20,
     marginBottom: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 4,
   },
   unitButton: {
     flex: 1,
     paddingVertical: 10,
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: 16,
   },
   unitText: {
     fontSize: 14,
@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 12,
+    borderRadius: 16,
     paddingHorizontal: 16,
   },
   input: {
@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
   barOption: {
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'transparent',
@@ -562,7 +562,7 @@ const styles = StyleSheet.create({
   },
   customBarButton: {
     paddingHorizontal: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     justifyContent: 'center',
   },
   customBarButtonText: {
@@ -576,7 +576,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 20,
     paddingVertical: 14,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 8,
   },
   calculateButtonText: {
@@ -610,7 +610,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   plateVisualization: {
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 20,
   },
@@ -659,7 +659,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   plateList: {
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
   },
   plateListTitle: {
@@ -681,7 +681,7 @@ const styles = StyleSheet.create({
   plateIndicator: {
     width: 24,
     height: 24,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
   },
   plateListWeight: {

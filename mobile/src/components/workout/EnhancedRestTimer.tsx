@@ -693,7 +693,7 @@ const styles = StyleSheet.create({
   customInput: {
     flex: 1,
     height: 48,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 2,
     paddingHorizontal: 16,
     fontSize: 18,
@@ -701,7 +701,7 @@ const styles = StyleSheet.create({
   customSetButton: {
     paddingVertical: 12,
     paddingHorizontal: 24,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   customSetButtonText: {
     color: '#FFFFFF',

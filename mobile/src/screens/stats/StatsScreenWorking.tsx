@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     width: '48%',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
     marginRight: '2%',
     alignItems: 'center',
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 16,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   chartTitle: {
     fontSize: 18,

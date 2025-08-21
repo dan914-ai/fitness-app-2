@@ -96,12 +96,12 @@ function HomeStackNavigator() {
           backgroundColor: Colors.surface,
           elevation: 0,
           shadowOpacity: 0,
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
+          borderBottomWidth: 0,
         },
         headerTintColor: Colors.text,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: '600',
+          fontSize: 17,
           fontSize: 18,
         },
       }}
@@ -179,12 +179,12 @@ function RecordStackNavigator() {
           backgroundColor: Colors.surface,
           elevation: 0,
           shadowOpacity: 0,
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
+          borderBottomWidth: 0,
         },
         headerTintColor: Colors.text,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: '600',
+          fontSize: 17,
           fontSize: 18,
         },
       }}
@@ -279,12 +279,12 @@ function WellnessStackNavigator() {
           backgroundColor: Colors.surface,
           elevation: 0,
           shadowOpacity: 0,
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
+          borderBottomWidth: 0,
         },
         headerTintColor: Colors.text,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: '600',
+          fontSize: 17,
         },
       }}
     >
@@ -320,12 +320,12 @@ function StatsStackNavigator() {
           backgroundColor: Colors.surface,
           elevation: 0,
           shadowOpacity: 0,
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
+          borderBottomWidth: 0,
         },
         headerTintColor: Colors.text,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: '600',
+          fontSize: 17,
           fontSize: 18,
         },
       }}
@@ -367,12 +367,12 @@ function MenuStackNavigator() {
           backgroundColor: Colors.surface,
           elevation: 0,
           shadowOpacity: 0,
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
+          borderBottomWidth: 0,
         },
         headerTintColor: Colors.text,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: '600',
+          fontSize: 17,
           fontSize: 18,
         },
       }}
@@ -479,13 +479,19 @@ function MainTabNavigator() {
         tabBarInactiveTintColor: Colors.tabBarInactive,
         tabBarStyle: {
           backgroundColor: Colors.surface,
-          borderTopWidth: 1,
-          borderTopColor: Colors.border,
+          borderTopWidth: 0,
+          elevation: 0,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.05,
+          shadowRadius: 8,
           paddingBottom: 5,
-          height: 60,
+          paddingTop: 5,
+          height: 56,
         },
         tabBarLabelStyle: {
-          fontSize: 12,
+          fontSize: 11,
+          fontWeight: '500',
         },
       })}
     >

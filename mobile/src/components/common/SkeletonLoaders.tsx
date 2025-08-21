@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     width: (width - 48) / 2,
     padding: 16,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   actionGrid: {
     flexDirection: 'row',
@@ -305,13 +305,13 @@ const styles = StyleSheet.create({
     gap: 12,
     padding: 16,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   workoutCard: {
     padding: 16,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   exerciseList: {
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
     width: (width - 48) / 2,
     padding: 16,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   progressItem: {
@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
   socialCard: {
     padding: 16,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 16,
   },
 });

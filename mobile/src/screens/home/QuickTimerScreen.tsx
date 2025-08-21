@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   presetCard: {
     width: '30%',
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
     borderWidth: 1,
   },

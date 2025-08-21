@@ -848,7 +848,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
   },
   headerButtons: {
@@ -857,7 +857,7 @@ const styles = StyleSheet.create({
   },
   headerButton: {
     padding: 8,
-    borderRadius: 8,
+    borderRadius: 16,
     backgroundColor: Colors.surface,
   },
   volumeSummary: {
@@ -887,8 +887,8 @@ const styles = StyleSheet.create({
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   volumeText: {
     fontSize: 16,
@@ -897,7 +897,7 @@ const styles = StyleSheet.create({
   },
   volumeHighlight: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.primary,
   },
   periodSelector: {
@@ -909,21 +909,21 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 10,
     marginHorizontal: 4,
-    borderRadius: 20,
+    borderRadius: 16,
     backgroundColor: Colors.surface,
     alignItems: 'center',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
       },
       android: {
-        elevation: 3,
+        elevation: 2,
       },
       web: {
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
       },
     }),
   },
@@ -937,7 +937,7 @@ const styles = StyleSheet.create({
   },
   periodButtonTextActive: {
     color: Colors.surface,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   section: {
     paddingHorizontal: 20,
@@ -945,7 +945,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
     marginBottom: 16,
   },
@@ -965,14 +965,14 @@ const styles = StyleSheet.create({
       ios: {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
       },
       android: {
-        elevation: 4,
+        elevation: 2,
       },
       web: {
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
       },
     }),
   },
@@ -987,7 +987,7 @@ const styles = StyleSheet.create({
   },
   statCardValue: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
     marginBottom: 4,
   },
@@ -1007,7 +1007,7 @@ const styles = StyleSheet.create({
   },
   trendText: {
     fontSize: 12,
-    fontWeight: 'bold',
+    fontWeight: '600',
     marginLeft: 2,
   },
   circlesContainer: {
@@ -1025,20 +1025,20 @@ const styles = StyleSheet.create({
       ios: {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
       },
       android: {
-        elevation: 4,
+        elevation: 2,
       },
       web: {
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
       },
     }),
   },
   chartTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: Colors.text,
     marginBottom: 16,
   },
@@ -1142,7 +1142,7 @@ const styles = StyleSheet.create({
   pieBarValue: {
     fontSize: 14,
     color: Colors.textSecondary,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   pieBarContainer: {
     height: 8,
@@ -1170,20 +1170,20 @@ const styles = StyleSheet.create({
       ios: {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
       },
       android: {
-        elevation: 4,
+        elevation: 2,
       },
       web: {
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
       },
     }),
   },
   actionTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: Colors.text,
     marginTop: 12,
   },

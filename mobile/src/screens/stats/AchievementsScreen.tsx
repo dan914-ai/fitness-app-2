@@ -453,7 +453,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   achievementItemEarned: {
@@ -528,7 +528,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.surface,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 8,
   },
   recentAchievementContent: {
@@ -550,7 +550,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   motivationContent: {

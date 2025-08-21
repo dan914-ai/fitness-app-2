@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 8,
+    borderRadius: 16,
   },
   exerciseName: {
     fontSize: 18,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   testButton: {
     backgroundColor: '#4CAF50',
     padding: 15,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 20,
     alignItems: 'center',
   },

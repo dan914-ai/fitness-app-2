@@ -468,7 +468,7 @@ const styles = StyleSheet.create({
   recordCard: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   recordHeader: {
@@ -513,7 +513,7 @@ const styles = StyleSheet.create({
   progressCard: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   progressItem: {
     flexDirection: 'row',
@@ -540,7 +540,7 @@ const styles = StyleSheet.create({
   sessionCard: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 16,
   },
   sessionHeader: {
@@ -610,7 +610,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     backgroundColor: Colors.background,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     gap: 8,
   },
   notesText: {
@@ -622,13 +622,13 @@ const styles = StyleSheet.create({
   addNoteSection: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 20,
   },
   noteInput: {
     borderWidth: 1,
     borderColor: Colors.border,
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 12,
     fontSize: 16,
     color: Colors.text,
@@ -640,7 +640,7 @@ const styles = StyleSheet.create({
   addNoteButton: {
     backgroundColor: Colors.primary,
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
   },
   addNoteButtonText: {
@@ -651,7 +651,7 @@ const styles = StyleSheet.create({
   noteCard: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
   },
   noteHeader: {
@@ -685,7 +685,7 @@ const styles = StyleSheet.create({
   chartPlaceholder: {
     backgroundColor: Colors.surface,
     height: 200,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
     gap: 12,

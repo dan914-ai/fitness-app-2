@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.accent,
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   testButtonText: {
     color: Colors.surface,

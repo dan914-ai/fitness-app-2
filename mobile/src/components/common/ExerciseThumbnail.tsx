@@ -189,7 +189,7 @@ const ExerciseThumbnail = memo(({
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.surface,
   },
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
   modalContent: {
     width: screenWidth * 0.9,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     overflow: 'hidden',
   },
   modalHeader: {

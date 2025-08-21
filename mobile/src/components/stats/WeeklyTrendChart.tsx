@@ -49,12 +49,12 @@ export default function WeeklyTrendChart({
       
       <View style={styles.periodSelector}>
         <View style={styles.periodItem}>
-          <View style={[styles.periodDot, { backgroundColor: '#F44336' }]} />
+          <View style={[styles.periodDot, { backgroundColor: Colors.primary }]} />
           <Text style={styles.periodText}>이번 주</Text>
           <Text style={styles.periodValue}>{(currentTotal / 1000).toFixed(1)}t</Text>
         </View>
         <View style={styles.periodItem}>
-          <View style={[styles.periodDot, { backgroundColor: '#FF9800' }]} />
+          <View style={[styles.periodDot, { backgroundColor: Colors.textLight }]} />
           <Text style={styles.periodText}>지난 주</Text>
           <Text style={styles.periodValue}>{(previousTotal / 1000).toFixed(1)}t</Text>
         </View>
@@ -66,28 +66,31 @@ export default function WeeklyTrendChart({
           data2={previousData}
           width={screenWidth - 80}
           height={220}
-          color1="#F44336"
-          color2="#FF9800"
-          thickness1={3}
-          thickness2={2}
-          dataPointsColor1="#F44336"
-          dataPointsColor2="#FF9800"
-          dataPointsRadius={4}
+          color1={Colors.primary}
+          color2={Colors.textLight}
+          thickness1={2}
+          thickness2={1}
+          dataPointsColor1={Colors.primary}
+          dataPointsColor2={Colors.textLight}
+          dataPointsRadius={3}
           curved
-          curvature={0.2}
-          startFillColor1="rgba(244, 67, 54, 0.2)"
-          startFillColor2="rgba(255, 152, 0, 0.1)"
-          endFillColor1="rgba(244, 67, 54, 0)"
-          endFillColor2="rgba(255, 152, 0, 0)"
-          startOpacity={0.3}
+          curvature={0.15}
+          startFillColor1={Colors.primaryLight}
+          startFillColor2="transparent"
+          endFillColor1="transparent"
+          endFillColor2="transparent"
+          startOpacity={0.2}
           endOpacity={0}
           xAxisThickness={0}
           yAxisThickness={0}
+          showVerticalLines={false}
           yAxisTextStyle={{ color: Colors.textLight, fontSize: 10 }}
-          xAxisLabelTextStyle={{ color: Colors.textLight, fontSize: 10 }}
-          noOfSections={5}
+          xAxisLabelTextStyle={{ color: Colors.textSecondary, fontSize: 10 }}
+          noOfSections={4}
           maxValue={maxValue}
           hideRules
+          hideYAxisText
+          hideDataPoints={false}
           backgroundColor="transparent"
           spacing={35}
           initialSpacing={10}
@@ -106,13 +109,13 @@ export default function WeeklyTrendChart({
                 <View style={styles.pointerLabel}>
                   <Text style={styles.pointerLabelTitle}>{labels[dayIndex]}</Text>
                   <View style={styles.pointerLabelRow}>
-                    <View style={[styles.pointerDot, { backgroundColor: '#F44336' }]} />
+                    <View style={[styles.pointerDot, { backgroundColor: Colors.primary }]} />
                     <Text style={styles.pointerLabelText}>
                       이번: {(currentValue * 1000).toLocaleString()}kg
                     </Text>
                   </View>
                   <View style={styles.pointerLabelRow}>
-                    <View style={[styles.pointerDot, { backgroundColor: '#FF9800' }]} />
+                    <View style={[styles.pointerDot, { backgroundColor: Colors.textSecondary }]} />
                     <Text style={styles.pointerLabelText}>
                       지난: {(previousValue * 1000).toLocaleString()}kg
                     </Text>
@@ -127,7 +130,7 @@ export default function WeeklyTrendChart({
       <View style={styles.summaryContainer}>
         <View style={styles.summaryItem}>
           <Text style={[styles.changeValue, {
-            color: difference >= 0 ? '#4CAF50' : '#F44336'
+            color: difference >= 0 ? Colors.primary : Colors.textSecondary
           }]}>
             {difference >= 0 ? '▲' : '▼'} {Math.abs(difference / 1000).toFixed(1)}t
           </Text>
@@ -135,7 +138,7 @@ export default function WeeklyTrendChart({
         </View>
         <View style={styles.summaryItem}>
           <Text style={[styles.changeValue, {
-            color: percentageChange >= 0 ? '#4CAF50' : '#F44336'
+            color: percentageChange >= 0 ? Colors.primary : Colors.textSecondary
           }]}>
             {percentageChange >= 0 ? '+' : ''}{percentageChange.toFixed(1)}%
           </Text>
@@ -196,14 +199,14 @@ const styles = StyleSheet.create({
   pointerLabel: {
     backgroundColor: Colors.surface,
     padding: 10,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.border,
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   pointerLabelTitle: {
     fontSize: 12,

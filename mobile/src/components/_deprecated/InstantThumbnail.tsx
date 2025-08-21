@@ -73,15 +73,15 @@ export default function InstantThumbnail({
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 2, // Android shadow
     shadowColor: '#000', // iOS shadow
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   displayText: {
     color: '#FFFFFF',

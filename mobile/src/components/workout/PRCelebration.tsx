@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
   recordBox: {
     alignItems: 'center',
     padding: 12,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   recordValue: {
     fontSize: 18,
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     width: '100%',
   },
   oneRMLabel: {
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
   dismissButton: {
     paddingHorizontal: 32,
     paddingVertical: 14,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   dismissButtonText: {
     color: '#FFFFFF',

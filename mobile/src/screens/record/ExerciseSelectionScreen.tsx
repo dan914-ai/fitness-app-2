@@ -397,14 +397,14 @@ const styles = StyleSheet.create({
   exerciseItem: {
     backgroundColor: Colors.surface,
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 12,
     flexDirection: 'row',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   exerciseItemSelected: {
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
   exerciseImage: {
     width: 60,
     height: 60,
-    borderRadius: 8,
+    borderRadius: 16,
     marginLeft: 15,
     backgroundColor: Colors.background,
     ...Platform.select({
@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
   selectionIndicator: {
     width: 24,
     height: 24,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 2,
     borderColor: Colors.border,
     justifyContent: 'center',
@@ -486,7 +486,7 @@ const styles = StyleSheet.create({
   confirmButton: {
     backgroundColor: Colors.primary,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   confirmButtonText: {

@@ -180,16 +180,13 @@ export default function WeightProgressionChart({
           spacing={chartData.length > 10 ? 30 : 50}
           maxValue={maxWeight}
           noOfSections={5}
-          yAxisColor={Colors.border}
-          xAxisColor={Colors.border}
-          yAxisTextStyle={{ color: Colors.textSecondary, fontSize: 11 }}
+          yAxisColor="transparent"
+          xAxisColor="transparent"
+          hideYAxisText
           xAxisLabelTextStyle={{ color: Colors.textSecondary, fontSize: 10 }}
-          showVerticalLines
-          verticalLinesColor={`${Colors.border}30`}
-          rulesType="solid"
-          rulesColor={`${Colors.border}30`}
-          showYAxisIndices
-          yAxisIndicesColor={Colors.border}
+          showVerticalLines={false}
+          hideRules
+          showYAxisIndices={false}
           curved
           curvature={0.2}
           initialSpacing={10}
@@ -252,7 +249,7 @@ export default function WeightProgressionChart({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginVertical: 8,
   },
@@ -304,13 +301,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.surface,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 8,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.primary,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   pointerLabelText: {

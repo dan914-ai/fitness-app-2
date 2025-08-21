@@ -133,7 +133,7 @@ StaticFirstFrame.displayName = 'StaticFirstFrame';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
+    borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.border,
     position: 'relative',

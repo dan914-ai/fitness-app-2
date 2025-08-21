@@ -96,12 +96,12 @@ const styles = StyleSheet.create({
     width: '45%',
     padding: 10,
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: 16,
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
   exerciseName: {
     fontSize: 14,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   legend: {
     backgroundColor: Colors.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginTop: 20,
   },
   legendTitle: {

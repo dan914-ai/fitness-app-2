@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   thumbnail: {
     backgroundColor: Colors.surface,
-    borderRadius: 8,
+    borderRadius: 16,
   },
 });
 

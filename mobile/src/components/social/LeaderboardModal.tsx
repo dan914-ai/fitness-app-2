@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
   tierBadge: {
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   tierText: {
     fontSize: 10,
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.success + '15',
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   completedText: {
     fontSize: 12,

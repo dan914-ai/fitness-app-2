@@ -86,7 +86,7 @@ FastThumbnail.displayName = 'FastThumbnail';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
   },

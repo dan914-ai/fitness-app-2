@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   rarityBadge: {
     paddingHorizontal: 16,
     paddingVertical: 6,
-    borderRadius: 12,
+    borderRadius: 16,
     backgroundColor: Colors.background,
   },
   rarityText: {
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     paddingVertical: 14,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   shareButton: {

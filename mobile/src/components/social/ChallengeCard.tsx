@@ -226,8 +226,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
   },
   inactiveContainer: {
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.warning + '15',
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 16,
   },
   rewardText: {
     fontSize: 12,
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     padding: 12,
     backgroundColor: Colors.background,
-    borderRadius: 8,
+    borderRadius: 16,
   },
   progressHeader: {
     flexDirection: 'row',
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.primary,
     paddingVertical: 12,
-    borderRadius: 12,
+    borderRadius: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
